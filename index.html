@@ -324,7 +324,7 @@
 
     /* ADVERTISEMENTS */
 
-    .ads-section,.missing-section{
+    .ads-section{
       margin:75px 0 95px;
       scroll-margin-top:100px;
     }
@@ -335,7 +335,7 @@
       gap:20px;
     }
 
-    .ad-card,.missing-card{
+    .ad-card{
       background:linear-gradient(145deg,#19182b,#101321);
       border:1px solid var(--line);
       border-radius:22px;
@@ -343,7 +343,7 @@
       transition:.3s;
     }
 
-    .ad-card:hover,.missing-card:hover{
+    .ad-card:hover{
       transform:translateY(-5px);
       border-color:#9b7bff88;
       box-shadow:0 18px 45px #0005;
@@ -357,14 +357,14 @@
       background:#17192a;
     }
 
-    .ad-content,.missing-content{padding:23px}
+    .ad-content{padding:23px}
 
-    .ad-content h3,.missing-content h3{
+    .ad-content h3{
       margin:0 0 10px;
       font-size:19px;
     }
 
-    .ad-content p,.missing-content p{
+    .ad-content p{
       color:var(--muted);
       font-size:13px;
       line-height:2.1;
@@ -388,37 +388,6 @@
       background:#ffffff08;
       color:#b8b9ca;
       font-size:11px;
-      line-height:2;
-    }
-
-    /* MISSING PERSON */
-
-    .missing-card{
-      max-width:760px;
-      margin:auto;
-    }
-
-    .missing-card .ad-image{height:360px}
-
-    .missing-warning{
-      padding:12px;
-      border-radius:12px;
-      background:#faa61a12;
-      border:1px solid #faa61a44;
-      color:#f5c878;
-      font-size:12px;
-      line-height:2;
-      margin-top:15px;
-    }
-
-    .admin-message{
-      margin-top:15px;
-      padding:14px;
-      border-radius:13px;
-      background:#63e5e812;
-      border:1px solid #63e5e833;
-      color:var(--cyan);
-      font-size:13px;
       line-height:2;
     }
 
@@ -635,7 +604,6 @@
       .ads-grid{grid-template-columns:1fr}
       .section-head h2{font-size:24px}
       .ad-image{height:260px}
-      .missing-card .ad-image{height:290px}
       .discord-card{padding:21px}
       .discord-avatar{width:76px;height:76px}
       .discord-name{font-size:18px}
@@ -645,7 +613,7 @@
     @media(max-width:420px){
       .nav-cta{padding:9px 12px;font-size:11px}
       .brand{font-size:14px}
-      .ad-content,.missing-content{padding:18px}
+      .ad-content{padding:18px}
       .quote{padding:23px}
     }
   </style>
@@ -665,7 +633,6 @@
         <a href="#explore">کاوش</a>
         <a href="#discover">کشف کن</a>
         <a href="#ads">تبلیغات</a>
-        <a href="#missing">افراد گمشده</a>
         <a href="#about">درباره</a>
       </div>
 
@@ -762,112 +729,7 @@
 
     <div class="ads-grid">
 
-      <!-- BEHROUZ -->
-
-      <article class="ad-card">
-        <img
-          class="ad-image"
-          src="https://raw.githubusercontent.com/myheartgotblacked-lgtm/nocturne/main/Behrouz.jpg"
-          alt="تصویر بهروز جان‌فزا"
-          loading="lazy"
-        >
-
-        <div class="ad-content">
-          <span class="ad-tag">معرفی خدمات</span>
-
-          <h3>بهروز جان‌فزا</h3>
-
-          <p>
-            <strong>دفتر اسناد رسمی شماره ۱۶۲ کرمان</strong>
-          </p>
-
-          <p>سردفتر: بهروز جان‌فزا</p>
-
-          <div class="ad-note">
-            این بخش جهت معرفی دفتر اسناد رسمی درج شده است.
-          </div>
-        </div>
-      </article>
-
-      <!-- ARAD -->
-
-      <article class="ad-card">
-        <img
-          class="ad-image"
-          src="https://raw.githubusercontent.com/myheartgotblacked-lgtm/nocturne/main/Arad.jpg"
-          alt="تصویر آراد موید"
-          loading="lazy"
-        >
-
-        <div class="ad-content">
-          <span class="ad-tag">صنعت آهن و فلز</span>
-
-          <h3>آراد موید</h3>
-
-          <p>
-            معرفی فعالیت در حوزه صنعت آهن و فلز و مجموعه‌های تولیدی.
-          </p>
-
-          <p>
-            طبق اطلاعات ارائه‌شده برای این تبلیغ، ادعای ارتباط با
-            ۱۲ کارخانه، شامل ۶ کارخانه در ایران و ۶ کارخانه در خارج
-            از کشور مطرح شده است.
-          </p>
-
-          <div class="ad-note">
-            تعداد کارخانه‌ها و نوع ارتباط با آن‌ها هنوز
-            مستقلاً تأیید نشده است.
-          </div>
-        </div>
-      </article>
-
-    </div>
-  </section>
-
-  <!-- MISSING PERSONS -->
-
-  <section class="missing-section" id="missing">
-    <div class="section-head">
-      <h2>افراد گمشده</h2>
-      <p>اطلاع‌رسانی برای کمک به یافتن افراد مفقودشده</p>
-    </div>
-
-    <article class="missing-card">
-
-      <img
-        class="ad-image"
-        src="https://raw.githubusercontent.com/myheartgotblacked-lgtm/nocturne/main/Ali.jpg"
-        alt="تصویر درج‌شده برای آگهی علیرضا علی‌پور"
-        loading="lazy"
-      >
-
-      <div class="missing-content">
-        <span class="ad-tag">آگهی مفقودی</span>
-
-        <h3>علیرضا علی‌پور</h3>
-
-        <p>
-          <strong>محل سکونت اعلام‌شده:</strong> شهر پرند
-        </p>
-
-        <p>
-          <strong>وضعیت اعلام‌شده:</strong> مفقودالاثر
-        </p>
-
-        <div class="admin-message">
-          اگر از وضعیت یا محل حضور این شخص اطلاعی دارید،
-          لطفاً به ادمین سایت NOCTURNE اطلاع دهید.
-        </div>
-
-        <div class="missing-warning">
-          پیش از انتشار عمومی این آگهی، اطلاعات باید با خانواده
-          یا مرجع مسئول تأیید شود.
-        </div>
-      </div>
-
-    </article>
-  </section>
-
+     
   <!-- DISCORD -->
 
   <section class="discord-wrap" id="discord">
