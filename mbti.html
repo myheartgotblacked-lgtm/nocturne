@@ -1,0 +1,1035 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090a12">
+<meta name="description" content="NOCTURNE Personality Lab — تست شخصیت MBTI">
+<title>NOCTURNE — Personality Lab</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap');
+
+:root{
+--bg:#090a12;
+--panel:#111321;
+--muted:#a3a7bc;
+--text:#f4f4fb;
+--purple:#9b7bff;
+--cyan:#63e5e8;
+--line:rgba(255,255,255,.09);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+margin:0;
+background:var(--bg);
+color:var(--text);
+font-family:"Vazirmatn",Tahoma,sans-serif;
+min-height:100vh;
+}
+body:before{
+content:"";
+position:fixed;
+inset:0;
+z-index:-1;
+pointer-events:none;
+background:
+radial-gradient(ellipse at 78% 15%,rgba(111,75,210,.17),transparent 34%),
+radial-gradient(ellipse at 12% 70%,rgba(48,180,190,.10),transparent 30%),
+linear-gradient(180deg,#0b0c16,#080910 70%);
+}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit}
+.wrap{width:min(1000px,92%);margin:auto}
+
+header{
+position:sticky;
+top:0;
+z-index:10;
+background:rgba(9,10,18,.85);
+backdrop-filter:blur(18px);
+border-bottom:1px solid var(--line);
+}
+nav{
+min-height:76px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:20px;
+}
+.brand{
+display:flex;
+align-items:center;
+gap:11px;
+font-size:17px;
+font-weight:800;
+letter-spacing:3px;
+direction:ltr;
+}
+.brand-mark{
+width:34px;
+height:34px;
+border-radius:12px;
+background:linear-gradient(135deg,var(--purple),#5b4be0 55%,var(--cyan));
+box-shadow:0 0 26px #8c6cff66;
+position:relative;
+}
+.brand-mark:after{
+content:"";
+position:absolute;
+width:12px;
+height:12px;
+border:2px solid white;
+border-radius:50%;
+left:9px;
+top:9px;
+}
+.back-link{
+padding:10px 17px;
+border:1px solid var(--line);
+border-radius:12px;
+font-size:12px;
+color:#d5d2e9;
+transition:.25s;
+}
+.back-link:hover{
+border-color:var(--purple);
+background:#9b7bff15;
+}
+
+.page-intro{
+text-align:center;
+padding:65px 0 25px;
+}
+.tag{
+font-size:11px;
+letter-spacing:3px;
+color:var(--cyan);
+direction:ltr;
+}
+.page-intro h1{
+font-size:clamp(30px,5vw,48px);
+margin:16px 0;
+font-weight:800;
+}
+.page-intro h1 span{
+background:linear-gradient(90deg,#c4aaff,var(--cyan));
+-webkit-background-clip:text;
+background-clip:text;
+color:transparent;
+}
+.page-intro p{
+color:var(--muted);
+font-size:13px;
+line-height:2.2;
+max-width:650px;
+margin:auto;
+}
+
+.mbti-container{
+max-width:800px;
+margin:25px auto 90px;
+padding:30px;
+background:linear-gradient(145deg,#17192b,#10121e);
+border:1px solid var(--line);
+border-radius:24px;
+box-shadow:0 20px 60px #0005;
+}
+.mbti-intro{text-align:center;margin-bottom:30px}
+.mbti-intro h2{font-size:25px;margin:12px 0}
+.mbti-intro p{
+color:var(--muted);
+font-size:13px;
+line-height:2;
+}
+.mbti-progress-info{
+display:flex;
+justify-content:space-between;
+color:var(--muted);
+font-size:12px;
+}
+.mbti-progress{
+height:6px;
+background:#ffffff12;
+border-radius:20px;
+overflow:hidden;
+margin:14px 0 30px;
+}
+.mbti-progress-bar{
+height:100%;
+width:0;
+background:linear-gradient(90deg,var(--purple),var(--cyan));
+border-radius:20px;
+transition:width .4s;
+}
+.mbti-question-number{
+color:var(--cyan);
+font-size:12px;
+letter-spacing:2px;
+}
+.mbti-question{
+font-size:21px;
+line-height:1.9;
+margin:20px 0 25px;
+min-height:80px;
+}
+.mbti-options{display:grid;gap:13px}
+.mbti-option{
+display:flex;
+align-items:center;
+gap:14px;
+text-align:right;
+width:100%;
+padding:18px;
+color:var(--text);
+background:#ffffff06;
+border:1px solid var(--line);
+border-radius:15px;
+cursor:pointer;
+font-size:14px;
+transition:.25s;
+line-height:1.9;
+}
+.mbti-option:hover{
+border-color:#9b7bff88;
+background:#9b7bff12;
+transform:translateY(-2px);
+}
+.mbti-option.selected{
+border-color:var(--purple);
+background:#9b7bff20;
+box-shadow:0 0 20px #9b7bff16;
+}
+.option-circle{
+width:20px;
+height:20px;
+min-width:20px;
+border:1px solid #777b94;
+border-radius:50%;
+display:grid;
+place-items:center;
+}
+.mbti-option.selected .option-circle{
+border-color:var(--cyan);
+background:var(--cyan);
+box-shadow:0 0 12px #63e5e855;
+}
+.mbti-option.selected .option-circle:after{
+content:"";
+width:7px;
+height:7px;
+background:#090a12;
+border-radius:50%;
+}
+.mbti-navigation{
+display:flex;
+justify-content:space-between;
+gap:12px;
+margin-top:30px;
+}
+.btn{
+border:1px solid var(--line);
+padding:11px 20px;
+border-radius:12px;
+font:inherit;
+font-size:13px;
+cursor:pointer;
+transition:.25s;
+}
+.btn.primary{
+background:linear-gradient(110deg,#8b6cf4,#6756d8);
+border:0;
+box-shadow:0 10px 35px #8062ef3b;
+color:white;
+}
+.btn.primary:hover{
+transform:translateY(-3px);
+box-shadow:0 14px 40px #8062ef66;
+}
+.btn.secondary{
+background:#ffffff08;
+color:#e7e7f0;
+}
+.btn.secondary:hover{
+border-color:#9b7bff88;
+background:#9b7bff12;
+}
+.btn:disabled{opacity:.35;cursor:not-allowed;transform:none}
+.mbti-navigation button{min-width:120px}
+.mbti-note{
+text-align:center;
+color:#858aa2;
+font-size:11px;
+line-height:2;
+margin-top:25px;
+}
+
+.mbti-result{display:none;text-align:center}
+.mbti-result-symbol{
+width:100px;
+height:100px;
+margin:15px auto 22px;
+display:grid;
+place-items:center;
+border-radius:28px;
+font-size:34px;
+font-weight:800;
+color:#d8caff;
+background:linear-gradient(135deg,#9b7bff25,#63e5e820);
+border:1px solid #9b7bff66;
+box-shadow:0 0 45px #9b7bff20;
+direction:ltr;
+}
+.mbti-result h3{
+font-size:30px;
+margin:10px 0;
+direction:ltr;
+}
+.mbti-result-subtitle{
+color:var(--cyan);
+font-size:14px;
+}
+.mbti-result-description{
+color:var(--muted);
+font-size:13px;
+line-height:2.3;
+margin:20px auto;
+max-width:570px;
+}
+.mbti-traits{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:13px;
+margin:30px 0;
+text-align:right;
+}
+.mbti-trait{
+padding:17px;
+border-radius:15px;
+background:#ffffff07;
+border:1px solid var(--line);
+}
+.mbti-trait-title{
+font-size:12px;
+margin-bottom:12px;
+color:#ddd9f6;
+}
+.mbti-trait-labels{
+display:flex;
+justify-content:space-between;
+color:var(--muted);
+font-size:10px;
+margin-bottom:8px;
+}
+.mbti-trait-bar{
+height:7px;
+background:#ffffff12;
+border-radius:20px;
+overflow:hidden;
+}
+.mbti-trait-fill{
+height:100%;
+background:linear-gradient(90deg,var(--purple),var(--cyan));
+border-radius:20px;
+}
+.mbti-result-details{
+text-align:right;
+background:#ffffff06;
+border:1px solid var(--line);
+padding:20px;
+border-radius:16px;
+margin:20px 0;
+}
+.mbti-result-details h4{
+color:var(--cyan);
+margin:0 0 10px;
+}
+.mbti-result-details p{
+color:var(--muted);
+font-size:13px;
+line-height:2.1;
+margin-bottom:20px;
+}
+.mbti-result-details p:last-child{margin-bottom:0}
+.mbti-restart{margin-top:15px}
+
+footer{
+border-top:1px solid var(--line);
+padding:25px 0;
+color:#777d94;
+font-size:12px;
+text-align:center;
+}
+
+@media(max-width:760px){
+.page-intro{padding:45px 0 15px}
+.mbti-container{padding:20px;margin-top:20px}
+.mbti-question{font-size:18px}
+.mbti-traits{grid-template-columns:1fr}
+}
+@media(max-width:420px){
+.brand{font-size:14px}
+.back-link{font-size:11px;padding:9px 12px}
+.mbti-navigation button{min-width:0;flex:1}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="wrap">
+<nav>
+<a class="brand" href="index.html">
+<span class="brand-mark"></span>
+NOCTURNE
+</a>
+
+<a class="back-link" href="index.html">← بازگشت به صفحه اصلی</a>
+</nav>
+</div>
+</header>
+
+<main class="wrap">
+
+<section class="page-intro">
+<div class="tag">NOCTURNE PERSONALITY LAB</div>
+<h1>آرشیو <span>شخصیت‌شناسی</span></h1>
+<p>
+به دنیای درون خودت سفر کن.
+با پاسخ دادن به ۱۶ سؤال، یک برداشت از تیپ شخصیتی MBTI خودت دریافت کن.
+</p>
+</section>
+
+<section class="mbti-container">
+
+<div class="mbti-intro" id="mbtiIntro">
+<div class="tag">PERSONALITY ANALYSIS</div>
+<h2>تو واقعاً چه کسی هستی؟</h2>
+<p>
+به ۱۶ سؤال زیر صادقانه پاسخ بده.
+پاسخ درست یا غلطی وجود ندارد؛ فقط گزینه‌ای را انتخاب کن
+که بیشتر به رفتار طبیعی تو شباهت دارد.
+</p>
+</div>
+
+<div id="mbtiQuiz">
+
+<div class="mbti-progress-info">
+<span id="mbtiStep">سؤال ۱ از ۱۶</span>
+<span id="mbtiPercent">۶٪</span>
+</div>
+
+<div class="mbti-progress">
+<div class="mbti-progress-bar" id="mbtiProgress"></div>
+</div>
+
+<div class="mbti-question-number" id="questionCategory">PERSONALITY QUESTION</div>
+
+<h3 class="mbti-question" id="questionText"></h3>
+
+<div class="mbti-options" id="answerOptions"></div>
+
+<div class="mbti-navigation">
+<button class="btn secondary" id="prevQuestion" disabled>سؤال قبلی</button>
+<button class="btn primary" id="nextQuestion" disabled>سؤال بعدی ←</button>
+</div>
+
+</div>
+
+<div class="mbti-result" id="mbtiResult">
+
+<div class="tag">YOUR PERSONALITY RESULT</div>
+
+<div class="mbti-result-symbol" id="resultSymbol">INTJ</div>
+
+<h3 id="resultType">INTJ</h3>
+
+<div class="mbti-result-subtitle" id="resultSubtitle"></div>
+
+<p class="mbti-result-description" id="resultDescription"></p>
+
+<div class="mbti-traits" id="mbtiTraits"></div>
+
+<div class="mbti-result-details">
+
+<h4>✦ ویژگی‌های برجسته</h4>
+<p id="resultStrengths"></p>
+
+<h4>◈ سبک تصمیم‌گیری</h4>
+<p id="resultDecision"></p>
+
+<h4>⌁ نکته‌ای برای رشد</h4>
+<p id="resultGrowth"></p>
+
+</div>
+
+<p class="mbti-note">
+این نتیجه یک برداشت سرگرمی‌محور از پاسخ‌های تو است،
+نه تشخیص علمی یا ارزیابی قطعی شخصیت.
+</p>
+
+<button class="btn primary mbti-restart" id="restartMBTI">
+انجام دوباره تست ↻
+</button>
+
+</div>
+
+<div class="mbti-note" id="mbtiFooter">
+NOCTURNE · PERSONALITY ARCHIVE
+</div>
+
+</section>
+
+</main>
+
+<footer>
+<div class="wrap">
+© 2026 NOCTURNE · PERSONALITY LAB
+</div>
+</footer>
+
+<script>
+/* =====================================
+   NOCTURNE PERSONALITY TEST
+===================================== */
+
+(()=>{
+"use strict";
+
+const questions=[
+
+// E / I
+{
+category:"ENERGY · SOCIAL",
+question:"بعد از یک روز شلوغ، معمولاً چه چیزی به تو انرژی می‌دهد؟",
+options:[
+{text:"صحبت با دوستان و بودن در جمع",letter:"E"},
+{text:"تنهایی، آرامش و وقت گذراندن با خودم",letter:"I"}
+]
+},
+{
+category:"ENERGY · SOCIAL",
+question:"وقتی وارد یک جمع جدید می‌شوی، معمولاً چه کار می‌کنی؟",
+options:[
+{text:"خودم سر صحبت را با دیگران باز می‌کنم",letter:"E"},
+{text:"اول محیط را بررسی می‌کنم و بعد وارد گفتگو می‌شوم",letter:"I"}
+]
+},
+{
+category:"ENERGY · SOCIAL",
+question:"در اوقات فراغت کدام را ترجیح می‌دهی؟",
+options:[
+{text:"فعالیت گروهی، بیرون رفتن و تجربه‌های اجتماعی",letter:"E"},
+{text:"مطالعه، بازی یا سرگرمی‌های فردی",letter:"I"}
+]
+},
+{
+category:"ENERGY · SOCIAL",
+question:"وقتی ایده‌ای به ذهنت می‌رسد، چطور آن را بررسی می‌کنی؟",
+options:[
+{text:"با صحبت کردن و تبادل نظر با دیگران",letter:"E"},
+{text:"ابتدا در ذهنم آن را بررسی می‌کنم",letter:"I"}
+]
+},
+
+// S / N
+{
+category:"INFORMATION · THINKING",
+question:"هنگام یادگیری یک موضوع جدید، چه چیزی برایت جذاب‌تر است؟",
+options:[
+{text:"مثال‌های واقعی، اطلاعات مشخص و کاربرد عملی",letter:"S"},
+{text:"ایده‌های بزرگ، نظریه‌ها و احتمالات آینده",letter:"N"}
+]
+},
+{
+category:"INFORMATION · THINKING",
+question:"وقتی به آینده فکر می‌کنی، بیشتر به چه چیزی توجه داری؟",
+options:[
+{text:"اتفاقات محتمل و برنامه‌های قابل اجرا",letter:"S"},
+{text:"سناریوهای مختلف و چیزهایی که ممکن است اتفاق بیفتند",letter:"N"}
+]
+},
+{
+category:"INFORMATION · THINKING",
+question:"در یک داستان یا فیلم، چه چیزی بیشتر توجهت را جلب می‌کند؟",
+options:[
+{text:"جزئیات، اتفاقات واقعی و منطق روایت",letter:"S"},
+{text:"نمادها، مفاهیم پنهان و برداشت‌های عمیق",letter:"N"}
+]
+},
+{
+category:"INFORMATION · THINKING",
+question:"وقتی با یک مشکل روبه‌رو می‌شوی، اول چه می‌کنی؟",
+options:[
+{text:"به اطلاعات موجود و تجربه‌های قبلی رجوع می‌کنم",letter:"S"},
+{text:"به راه‌حل‌های جدید و احتمالات متفاوت فکر می‌کنم",letter:"N"}
+]
+},
+
+// T / F
+{
+category:"DECISION · VALUES",
+question:"هنگام تصمیم‌گیری دشوار، کدام معیار برایت مهم‌تر است؟",
+options:[
+{text:"منطق، تحلیل و نتیجه‌ای که منطقی‌تر است",letter:"T"},
+{text:"ارزش‌های انسانی و تأثیر تصمیم بر دیگران",letter:"F"}
+]
+},
+{
+category:"DECISION · VALUES",
+question:"اگر دوستی اشتباه کند، معمولاً چگونه واکنش نشان می‌دهی؟",
+options:[
+{text:"صریح و منطقی اشتباهش را توضیح می‌دهم",letter:"T"},
+{text:"با توجه به احساساتش و با ملایمت صحبت می‌کنم",letter:"F"}
+]
+},
+{
+category:"DECISION · VALUES",
+question:"در یک بحث گروهی، بیشتر به چه چیزی اهمیت می‌دهی؟",
+options:[
+{text:"درست بودن استدلال‌ها و رسیدن به نتیجه منطقی",letter:"T"},
+{text:"حفظ احترام و درک دیدگاه افراد",letter:"F"}
+]
+},
+{
+category:"DECISION · VALUES",
+question:"اگر مجبور باشی بین حقیقت تلخ و آرامش موقت یکی را انتخاب کنی:",
+options:[
+{text:"ترجیح می‌دهم حقیقت را بدانم، حتی اگر سخت باشد",letter:"T"},
+{text:"نحوه بیان و تأثیر احساسی حقیقت برایم اهمیت زیادی دارد",letter:"F"}
+]
+},
+
+// J / P
+{
+category:"LIFESTYLE · ORGANIZATION",
+question:"برای انجام کارهای روزانه چه روشی را ترجیح می‌دهی؟",
+options:[
+{text:"برنامه مشخص و زمان‌بندی از قبل تعیین‌شده",letter:"J"},
+{text:"انعطاف‌پذیری و تصمیم‌گیری در لحظه",letter:"P"}
+]
+},
+{
+category:"LIFESTYLE · ORGANIZATION",
+question:"وقتی قرار است به سفر بروی، معمولاً:",
+options:[
+{text:"از قبل برای مسیر و برنامه‌ها تصمیم می‌گیرم",letter:"J"},
+{text:"ترجیح می‌دهم آزادانه و بدون برنامه دقیق پیش بروم",letter:"P"}
+]
+},
+{
+category:"LIFESTYLE · ORGANIZATION",
+question:"وقتی یک پروژه مهم داری، کدام حالت به تو نزدیک‌تر است؟",
+options:[
+{text:"دوست دارم مرحله‌به‌مرحله و زودتر تمامش کنم",letter:"J"},
+{text:"ترجیح می‌دهم گزینه‌ها را باز نگه دارم و منعطف باشم",letter:"P"}
+]
+},
+{
+category:"LIFESTYLE · ORGANIZATION",
+question:"وقتی برنامه‌ای ناگهان تغییر می‌کند:",
+options:[
+{text:"ترجیح می‌دهم سریع برنامه جدید و مشخصی تنظیم کنم",letter:"J"},
+{text:"معمولاً خودم را با شرایط جدید وفق می‌دهم",letter:"P"}
+]
+}
+
+];
+
+/* PERSONALITY PROFILES */
+
+const profiles={
+
+INTJ:{
+title:"معمار",symbol:"♜",
+description:"معمولاً به تحلیل، برنامه‌ریزی و ساختن تصویر بزرگی از آینده علاقه داری. ممکن است از بررسی سیستم‌ها و پیدا کردن راه‌حل‌های پیچیده لذت ببری.",
+strengths:"تفکر راهبردی، استقلال فکری، برنامه‌ریزی و تحلیل مسائل پیچیده.",
+decision:"معمولاً به منطق، شواهد و پیامدهای بلندمدت توجه می‌کنی.",
+growth:"گاهی در نظر گرفتن دیدگاه‌ها و احساسات دیگران می‌تواند تصمیم‌هایت را کامل‌تر کند."
+},
+
+INTP:{
+title:"منطق‌دان",symbol:"⌘",
+description:"کنجکاوی ذهنی و علاقه به فهمیدن چگونگی کارکرد جهان از ویژگی‌های برجسته این تیپ است. معمولاً از بررسی نظریه‌ها و ایده‌های تازه لذت می‌بری.",
+strengths:"تحلیل، خلاقیت فکری، کنجکاوی و حل مسئله.",
+decision:"به دنبال سازگاری منطقی و توضیح دقیق موضوعات هستی.",
+growth:"تبدیل ایده‌ها به اقدام عملی و توجه به جزئیات اجرایی می‌تواند مفید باشد."
+},
+
+ENTJ:{
+title:"فرمانده",symbol:"♛",
+description:"معمولاً به سازمان‌دهی، هدف‌گذاری و هدایت پروژه‌ها علاقه داری. دوست داری مسائل را ساختارمند کنی و برای رسیدن به نتیجه حرکت کنی.",
+strengths:"مدیریت، برنامه‌ریزی، تصمیم‌گیری و نگاه راهبردی.",
+decision:"اغلب بر اساس منطق و کارآمدی تصمیم می‌گیری.",
+growth:"شنیدن نظرات متفاوت و دادن فرصت کافی به دیگران می‌تواند همکاری را بهتر کند."
+},
+
+ENTP:{
+title:"مجادله‌گر",symbol:"✧",
+description:"از ایده‌های تازه، بحث‌های فکری و بررسی دیدگاه‌های متفاوت استقبال می‌کنی. معمولاً از به چالش کشیدن روش‌های قدیمی لذت می‌بری.",
+strengths:"نوآوری، خلاقیت، انعطاف ذهنی و قدرت استدلال.",
+decision:"احتمالات و راه‌حل‌های مختلف را بررسی می‌کنی.",
+growth:"تمرکز روی تکمیل پروژه‌ها و پیگیری ایده‌ها تا انتها می‌تواند کمک‌کننده باشد."
+},
+
+INFJ:{
+title:"حامی",symbol:"☾",
+description:"ممکن است به درک عمیق افراد، معنا و هدف زندگی علاقه داشته باشی. معمولاً به ارتباطات معنادار و تصویر کلی مسائل توجه می‌کنی.",
+strengths:"همدلی، بینش، توجه به ارزش‌ها و تفکر عمیق.",
+decision:"ارزش‌های شخصی و پیامدهای انسانی را در نظر می‌گیری.",
+growth:"تعیین مرزهای شخصی و توجه به نیازهای خودت نیز اهمیت دارد."
+},
+
+INFP:{
+title:"میانجی",symbol:"❋",
+description:"معمولاً تخیل، ارزش‌های شخصی و اصالت برایت اهمیت زیادی دارند. ممکن است به هنر، داستان‌ها و شناخت دنیای درونی علاقه‌مند باشی.",
+strengths:"خلاقیت، همدلی، تخیل و پایبندی به ارزش‌ها.",
+decision:"احساسات و ارزش‌های عمیق خودت را در نظر می‌گیری.",
+growth:"ساختار دادن به برنامه‌ها و تبدیل آرمان‌ها به قدم‌های کوچک مفید است."
+},
+
+ENFJ:{
+title:"قهرمان",symbol:"✦",
+description:"احتمالاً از ارتباط با افراد و کمک به رشد گروهی لذت می‌بری. هماهنگی و ایجاد انگیزه در دیگران می‌تواند برایت جذاب باشد.",
+strengths:"ارتباط مؤثر، همدلی، همکاری و انگیزه‌بخشی.",
+decision:"تأثیر تصمیم بر افراد و هماهنگی گروه را در نظر می‌گیری.",
+growth:"فراموش نکردن نیازهای شخصی هنگام کمک به دیگران اهمیت دارد."
+},
+
+ENFP:{
+title:"فعال",symbol:"✺",
+description:"معمولاً پر از ایده و علاقه‌مند به تجربه‌های تازه هستی. ارتباطات انسانی و کشف مسیرهای متفاوت ممکن است برایت جذاب باشند.",
+strengths:"خلاقیت، انرژی، ارتباط اجتماعی و انعطاف‌پذیری.",
+decision:"به امکانات جدید و ارزش‌های انسانی توجه می‌کنی.",
+growth:"تمرکز و اولویت‌بندی می‌تواند به عملی شدن ایده‌ها کمک کند."
+},
+
+ISTJ:{
+title:"بازرس",symbol:"◈",
+description:"احتمالاً به مسئولیت‌پذیری، نظم و اطلاعات قابل اعتماد اهمیت می‌دهی. انجام دقیق وظایف و داشتن ساختار مشخص می‌تواند برایت رضایت‌بخش باشد.",
+strengths:"دقت، ثبات، مسئولیت‌پذیری و پیگیری.",
+decision:"به واقعیت‌ها، تجربه و شواهد مشخص توجه می‌کنی.",
+growth:"گاهی امتحان کردن روش‌های تازه می‌تواند فرصت‌های جدیدی ایجاد کند."
+},
+
+ISFJ:{
+title:"مدافع",symbol:"❖",
+description:"ممکن است به حمایت از دیگران، توجه به جزئیات و ایجاد محیطی قابل اعتماد علاقه داشته باشی.",
+strengths:"وفاداری، توجه، مسئولیت‌پذیری و حمایتگری.",
+decision:"به نیازهای افراد و تجربه‌های واقعی توجه می‌کنی.",
+growth:"بیان نیازهای شخصی و نه گفتن در زمان مناسب می‌تواند مفید باشد."
+},
+
+ESTJ:{
+title:"مدیر اجرایی",symbol:"♙",
+description:"معمولاً به نظم، ساختار و رسیدن به نتایج مشخص علاقه داری. ممکن است از مدیریت کارها و سازمان‌دهی گروه‌ها لذت ببری.",
+strengths:"سازمان‌دهی، مسئولیت‌پذیری، تصمیم‌گیری و مدیریت.",
+decision:"به اطلاعات واقعی و کارآمدی روش‌ها توجه می‌کنی.",
+growth:"در بعضی شرایط، انعطاف‌پذیری و شنیدن راه‌حل‌های متفاوت اهمیت دارد."
+},
+
+ESFJ:{
+title:"سفیر",symbol:"❀",
+description:"ارتباطات اجتماعی و ایجاد محیطی دوستانه ممکن است برایت اهمیت زیادی داشته باشند. معمولاً به هماهنگی و همکاری توجه می‌کنی.",
+strengths:"همکاری، حمایتگری، ارتباط اجتماعی و مسئولیت‌پذیری.",
+decision:"تأثیر انتخاب‌ها بر دیگران و ارزش‌های مشترک را می‌سنجی.",
+growth:"تصمیم‌گیری مستقل از انتظار دیگران نیز می‌تواند اهمیت داشته باشد."
+},
+
+ISTP:{
+title:"ماهر",symbol:"⚙",
+description:"احتمالاً از بررسی عملی مسائل، کار با ابزارها و پیدا کردن راه‌حل‌های مستقیم لذت می‌بری.",
+strengths:"حل مسئله، خونسردی، مشاهده و مهارت عملی.",
+decision:"به عملکرد واقعی و شواهد مستقیم توجه می‌کنی.",
+growth:"برنامه‌ریزی بلندمدت و توضیح احساسات و نیازها می‌تواند کمک‌کننده باشد."
+},
+
+ISFP:{
+title:"ماجراجو",symbol:"◇",
+description:"ممکن است به زیبایی، تجربه‌های شخصی و آزادی عمل علاقه داشته باشی. معمولاً ترجیح می‌دهی مطابق ارزش‌های خودت زندگی کنی.",
+strengths:"خلاقیت، انعطاف، حساسیت هنری و توجه به لحظه حال.",
+decision:"به ارزش‌های شخصی و شرایط واقعی توجه می‌کنی.",
+growth:"تعیین هدف‌های بلندمدت و پیگیری آن‌ها می‌تواند مفید باشد."
+},
+
+ESTP:{
+title:"کارآفرین",symbol:"⚡",
+description:"معمولاً به تجربه مستقیم، فعالیت و واکنش سریع در موقعیت‌های مختلف علاقه داری.",
+strengths:"عمل‌گرایی، سازگاری، جسارت فکری و توجه به محیط.",
+decision:"به واقعیت‌های موجود و نتیجه عملی توجه می‌کنی.",
+growth:"توقف کوتاه برای بررسی پیامدهای بلندمدت می‌تواند تصمیم‌ها را بهتر کند."
+},
+
+ESFP:{
+title:"سرگرم‌کننده",symbol:"★",
+description:"ممکن است از تجربه‌های تازه، ارتباطات اجتماعی و حضور در لحظه لذت ببری. معمولاً به محیط اطراف توجه زیادی داری.",
+strengths:"ارتباط اجتماعی، انعطاف، انرژی و توجه به دیگران.",
+decision:"به شرایط موجود و تأثیر انسانی تصمیم‌ها توجه می‌کنی.",
+growth:"برنامه‌ریزی و توجه به اهداف بلندمدت می‌تواند تعادل ایجاد کند."
+}
+
+};
+
+/* ELEMENTS */
+
+const $=id=>document.getElementById(id);
+
+const quiz=$("mbtiQuiz");
+const result=$("mbtiResult");
+const questionText=$("questionText");
+const answerOptions=$("answerOptions");
+const progress=$("mbtiProgress");
+const stepText=$("mbtiStep");
+const percentText=$("mbtiPercent");
+const prevButton=$("prevQuestion");
+const nextButton=$("nextQuestion");
+
+const answers=new Array(questions.length).fill(null);
+let current=0;
+
+const digits=n=>String(n).replace(/\d/g,d=>"۰۱۲۳۴۵۶۷۸۹"[d]);
+
+/* RENDER QUESTION */
+
+function renderQuestion(){
+
+const q=questions[current];
+
+questionText.textContent=q.question;
+$("questionCategory").textContent=q.category;
+
+stepText.textContent=
+"سؤال "+digits(current+1)+" از "+digits(questions.length);
+
+const percentage=Math.round((current+1)/questions.length*100);
+
+percentText.textContent=digits(percentage)+"٪";
+progress.style.width=percentage+"%";
+
+answerOptions.innerHTML="";
+
+q.options.forEach((option,index)=>{
+
+const button=document.createElement("button");
+button.type="button";
+button.className="mbti-option";
+
+if(answers[current]===index){
+button.classList.add("selected");
+}
+
+const circle=document.createElement("span");
+circle.className="option-circle";
+
+const text=document.createElement("span");
+text.textContent=option.text;
+
+button.append(circle,text);
+
+button.addEventListener("click",()=>{
+answers[current]=index;
+renderQuestion();
+});
+
+answerOptions.appendChild(button);
+
+});
+
+prevButton.disabled=current===0;
+nextButton.disabled=answers[current]===null;
+
+nextButton.textContent=
+current===questions.length-1
+?"مشاهده نتیجه ✦"
+:"سؤال بعدی ←";
+
+}
+
+/* CALCULATE RESULT */
+
+function calculateResult(){
+
+const scores={
+E:0,I:0,S:0,N:0,T:0,F:0,J:0,P:0
+};
+
+questions.forEach((question,index)=>{
+const selected=answers[index];
+if(selected===null)return;
+
+const letter=question.options[selected].letter;
+scores[letter]++;
+});
+
+const dimensions=[
+["E","I"],
+["S","N"],
+["T","F"],
+["J","P"]
+];
+
+let type="";
+const percentages=[];
+
+dimensions.forEach(([a,b],index)=>{
+
+const total=scores[a]+scores[b];
+
+const percentA=Math.round(scores[a]/total*100);
+const percentB=100-percentA;
+
+let winner;
+
+if(scores[a]===scores[b]){
+winner=questions[index*4].options[answers[index*4]].letter;
+}else{
+winner=scores[a]>scores[b]?a:b;
+}
+
+type+=winner;
+
+percentages.push({
+a,b,percentA,percentB,winner,
+balanced:scores[a]===scores[b]
+});
+
+});
+
+return {type,percentages,scores};
+
+}
+
+/* SHOW RESULT */
+
+function showResult(){
+
+const data=calculateResult();
+const profile=profiles[data.type];
+
+quiz.style.display="none";
+$("mbtiIntro").style.display="none";
+result.style.display="block";
+$("mbtiFooter").style.display="none";
+
+$("resultSymbol").textContent=profile.symbol;
+$("resultType").textContent=data.type;
+$("resultSubtitle").textContent=profile.title;
+$("resultDescription").textContent=profile.description;
+$("resultStrengths").textContent=profile.strengths;
+$("resultDecision").textContent=profile.decision;
+$("resultGrowth").textContent=profile.growth;
+
+const traitNames={
+E:"برون‌گرایی",I:"درون‌گرایی",
+S:"حسی",N:"شهودی",
+T:"منطقی",F:"احساسی",
+J:"ساختارگرا",P:"منعطف"
+};
+
+const traits=$("mbtiTraits");
+traits.innerHTML="";
+
+data.percentages.forEach(d=>{
+
+const dominantName=traitNames[d.winner];
+const otherPercent=d.winner===d.a?d.percentB:d.percentA;
+
+const box=document.createElement("div");
+box.className="mbti-trait";
+
+const title=document.createElement("div");
+title.className="mbti-trait-title";
+title.textContent="گرایش "+dominantName;
+
+const labels=document.createElement("div");
+labels.className="mbti-trait-labels";
+
+const right=document.createElement("span");
+right.textContent=d.a+" · "+d.percentA+"%";
+
+const left=document.createElement("span");
+left.textContent=d.b+" · "+d.percentB+"%";
+
+labels.append(right,left);
+
+const bar=document.createElement("div");
+bar.className="mbti-trait-bar";
+
+const fill=document.createElement("div");
+fill.className="mbti-trait-fill";
+fill.style.width=d.percentA+"%";
+
+bar.appendChild(fill);
+
+const note=document.createElement("div");
+note.style.cssText="color:#858aa2;font-size:10px;margin-top:10px;";
+
+note.textContent=d.balanced
+?"گرایش متعادل؛ حرف نهایی با پاسخ اول این بُعد تعیین شده است."
+:"گرایش بیشتر به "+dominantName+" · گزینه مقابل: "+otherPercent+"%";
+
+box.append(title,labels,bar,note);
+traits.appendChild(box);
+
+});
+
+result.scrollIntoView({behavior:"smooth",block:"center"});
+
+}
+
+/* NAVIGATION */
+
+nextButton.addEventListener("click",()=>{
+
+if(answers[current]===null)return;
+
+if(current<questions.length-1){
+current++;
+renderQuestion();
+}else{
+showResult();
+}
+
+});
+
+prevButton.addEventListener("click",()=>{
+if(current>0){
+current--;
+renderQuestion();
+}
+});
+
+/* RESTART */
+
+$("restartMBTI").addEventListener("click",()=>{
+
+answers.fill(null);
+current=0;
+
+result.style.display="none";
+quiz.style.display="block";
+$("mbtiIntro").style.display="block";
+$("mbtiFooter").style.display="block";
+
+renderQuestion();
+
+$("mbti").scrollIntoView?.({behavior:"smooth"});
+
+window.scrollTo({
+top:document.querySelector(".mbti-container").offsetTop-100,
+behavior:"smooth"
+});
+
+});
+
+renderQuestion();
+
+})();
+</script>
+
+</body>
+</html>
