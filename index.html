@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
@@ -10,43 +11,128 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap');
 
-:root{--bg:#090a12;--panel:#111321;--muted:#a3a7bc;--text:#f4f4fb;--purple:#9b7bff;--cyan:#63e5e8;--line:rgba(255,255,255,.09)}
+:root{
+--bg:#090a12;
+--panel:#111321;
+--muted:#a3a7bc;
+--text:#f4f4fb;
+--purple:#9b7bff;
+--cyan:#63e5e8;
+--line:rgba(255,255,255,.09)
+}
+
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--text);font-family:"Vazirmatn",Tahoma,sans-serif;overflow-x:hidden}
-body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(ellipse at 78% 15%,rgba(111,75,210,.17),transparent 34%),radial-gradient(ellipse at 12% 70%,rgba(48,180,190,.10),transparent 30%),linear-gradient(180deg,#0b0c16,#080910 70%)}
+body{
+margin:0;background:var(--bg);color:var(--text);
+font-family:"Vazirmatn",Tahoma,sans-serif;overflow-x:hidden
+}
+body:before{
+content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;
+background:radial-gradient(ellipse at 78% 15%,rgba(111,75,210,.17),transparent 34%),
+radial-gradient(ellipse at 12% 70%,rgba(48,180,190,.10),transparent 30%),
+linear-gradient(180deg,#0b0c16,#080910 70%)
+}
 a{color:inherit;text-decoration:none}
 button{font-family:inherit}
 .wrap{width:min(1120px,92%);margin:auto}
 
-header{position:sticky;top:0;z-index:10;background:rgba(9,10,18,.85);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
-nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
-.brand{display:flex;align-items:center;gap:11px;font-size:17px;font-weight:800;letter-spacing:3px;direction:ltr;flex-shrink:0}
-.brand-mark{width:34px;height:34px;border-radius:12px;background:linear-gradient(135deg,var(--purple),#5b4be0 55%,var(--cyan));box-shadow:0 0 26px #8c6cff66;position:relative}
-.brand-mark:after{content:"";position:absolute;width:12px;height:12px;border:2px solid white;border-radius:50%;left:9px;top:9px}
+header{
+position:sticky;top:0;z-index:10;
+background:rgba(9,10,18,.85);
+backdrop-filter:blur(18px);
+border-bottom:1px solid var(--line)
+}
+nav{
+min-height:76px;display:flex;align-items:center;
+justify-content:space-between;gap:24px
+}
+.brand{
+display:flex;align-items:center;gap:11px;
+font-size:17px;font-weight:800;letter-spacing:3px;
+direction:ltr;flex-shrink:0
+}
+.brand-mark{
+width:34px;height:34px;border-radius:12px;
+background:linear-gradient(135deg,var(--purple),#5b4be0 55%,var(--cyan));
+box-shadow:0 0 26px #8c6cff66;position:relative
+}
+.brand-mark:after{
+content:"";position:absolute;width:12px;height:12px;
+border:2px solid white;border-radius:50%;left:9px;top:9px
+}
 .links{display:flex;gap:18px;color:#b9bbca;font-size:12px;flex-wrap:wrap}
 .links a:hover{color:white}
-.nav-cta,.btn{border:1px solid var(--line);padding:10px 19px;border-radius:12px;font:inherit;font-size:13px;cursor:pointer;transition:.25s;white-space:nowrap}
-.nav-cta:hover,.btn.secondary:hover{border-color:#9b7bff88;background:#9b7bff12}
+.nav-cta,.btn{
+border:1px solid var(--line);padding:10px 19px;
+border-radius:12px;font:inherit;font-size:13px;
+cursor:pointer;transition:.25s;white-space:nowrap
+}
+.nav-cta:hover,.btn.secondary:hover{
+border-color:#9b7bff88;background:#9b7bff12
+}
 
-.hero{min-height:610px;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:30px;padding:75px 0 65px}
-.eyebrow{color:var(--cyan);font-size:12px;letter-spacing:2px;display:flex;align-items:center;gap:10px}
+.hero{
+min-height:610px;display:grid;grid-template-columns:1.05fr .95fr;
+align-items:center;gap:30px;padding:75px 0 65px
+}
+.eyebrow{
+color:var(--cyan);font-size:12px;letter-spacing:2px;
+display:flex;align-items:center;gap:10px
+}
 .eyebrow:before{content:"";width:26px;height:1px;background:var(--cyan)}
-h1{font-size:clamp(40px,6vw,70px);line-height:1.25;margin:22px 0 18px;font-weight:800;letter-spacing:-2px}
-h1 span{background:linear-gradient(90deg,#c4aaff,var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+h1{
+font-size:clamp(40px,6vw,70px);line-height:1.25;
+margin:22px 0 18px;font-weight:800;letter-spacing:-2px
+}
+h1 span{
+background:linear-gradient(90deg,#c4aaff,var(--cyan));
+-webkit-background-clip:text;background-clip:text;color:transparent
+}
 .lead{color:var(--muted);font-size:16px;line-height:2.2;max-width:520px}
 .actions{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
-.btn.primary{background:linear-gradient(110deg,#8b6cf4,#6756d8);border:0;box-shadow:0 10px 35px #8062ef3b;color:white}
-.btn.primary:hover{transform:translateY(-3px);box-shadow:0 14px 40px #8062ef66}
+.btn.primary{
+background:linear-gradient(110deg,#8b6cf4,#6756d8);
+border:0;box-shadow:0 10px 35px #8062ef3b;color:white
+}
+.btn.primary:hover{
+transform:translateY(-3px);box-shadow:0 14px 40px #8062ef66
+}
 .btn.secondary{background:#ffffff08;color:#e7e7f0}
 
 .visual{height:420px;display:grid;place-items:center;position:relative}
-.orbit{width:min(350px,78vw);aspect-ratio:1;border-radius:50%;position:relative;display:grid;place-items:center;border:1px solid #9c86ff55;box-shadow:0 0 80px #8062ef22,inset 0 0 70px #8062ef12;animation:float 7s ease-in-out infinite}
-.orbit:before,.orbit:after{content:"";position:absolute;border:1px solid #6de1e355;border-radius:50%;inset:26px;transform:rotate(-28deg) scaleY(.38)}
-.orbit:after{inset:-25px;transform:rotate(35deg) scaleY(.3);border-color:#a68bff66}
-.planet{width:190px;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 32% 28%,#d7d0ff 0,#8e7be8 12%,#403a86 38%,#15182f 68%,#090b16 100%);box-shadow:inset -22px -18px 45px #03040c,0 0 55px #9275ff88,0 0 120px #5ddfe433;position:relative}
-.planet:after{content:"";position:absolute;inset:38% -28%;height:23%;border:2px solid #a9a0ff99;border-left-color:#6be5e8;border-right-color:#6be5e8;border-radius:50%;transform:rotate(-22deg);box-shadow:0 0 18px #8b7aff88}
-.star{position:absolute;width:4px;height:4px;border-radius:50%;background:#fff;box-shadow:0 0 12px white;animation:blink 2s infinite alternate}
+.orbit{
+width:min(350px,78vw);aspect-ratio:1;border-radius:50%;
+position:relative;display:grid;place-items:center;
+border:1px solid #9c86ff55;
+box-shadow:0 0 80px #8062ef22,inset 0 0 70px #8062ef12;
+animation:float 7s ease-in-out infinite
+}
+.orbit:before,.orbit:after{
+content:"";position:absolute;border:1px solid #6de1e355;
+border-radius:50%;inset:26px;transform:rotate(-28deg) scaleY(.38)
+}
+.orbit:after{
+inset:-25px;transform:rotate(35deg) scaleY(.3);
+border-color:#a68bff66
+}
+.planet{
+width:190px;aspect-ratio:1;border-radius:50%;
+background:radial-gradient(circle at 32% 28%,#d7d0ff 0,#8e7be8 12%,#403a86 38%,#15182f 68%,#090b16 100%);
+box-shadow:inset -22px -18px 45px #03040c,0 0 55px #9275ff88,0 0 120px #5ddfe433;
+position:relative
+}
+.planet:after{
+content:"";position:absolute;inset:38% -28%;height:23%;
+border:2px solid #a9a0ff99;border-left-color:#6be5e8;
+border-right-color:#6be5e8;border-radius:50%;
+transform:rotate(-22deg);box-shadow:0 0 18px #8b7aff88
+}
+.star{
+position:absolute;width:4px;height:4px;border-radius:50%;
+background:#fff;box-shadow:0 0 12px white;
+animation:blink 2s infinite alternate
+}
 .s1{top:13%;right:18%}
 .s2{bottom:17%;left:13%;animation-delay:.7s}
 .s3{top:27%;left:10%;animation-delay:1.1s}
@@ -59,116 +145,132 @@ h1 span{background:linear-gradient(90deg,#c4aaff,var(--cyan));-webkit-background
 .section-head p{color:var(--muted);font-size:13px}
 
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:17px;margin-bottom:100px}
-.card{background:linear-gradient(145deg,#17192a99,#10111c);border:1px solid var(--line);border-radius:19px;padding:25px;min-height:205px;transition:.3s}
-.card:hover{transform:translateY(-6px);border-color:#9b7bff66;box-shadow:0 18px 45px #0005}
-.icon{width:43px;height:43px;border-radius:14px;background:#9b7bff18;display:grid;place-items:center;font-size:20px;margin-bottom:19px}
+.card{
+background:linear-gradient(145deg,#17192a99,#10111c);
+border:1px solid var(--line);border-radius:19px;
+padding:25px;min-height:205px;transition:.3s
+}
+.card:hover{
+transform:translateY(-6px);border-color:#9b7bff66;
+box-shadow:0 18px 45px #0005
+}
+.icon{
+width:43px;height:43px;border-radius:14px;
+background:#9b7bff18;display:grid;place-items:center;
+font-size:20px;margin-bottom:19px
+}
 .card h3{margin:0 0 8px;font-size:17px}
 .card p{margin:0;color:var(--muted);font-size:13px;line-height:2}
 
-/* ADVERTISEMENTS */
+/* ADS */
 .ads-section{margin:75px 0 95px;scroll-margin-top:100px}
 .ads-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-.ad-card{background:linear-gradient(145deg,#19182b,#101321);border:1px solid var(--line);border-radius:22px;overflow:hidden;padding:24px}
-.ad-content h3{margin:0 0 10px;font-size:19px}
+.ad-card{
+background:linear-gradient(145deg,#19182b,#101321);
+border:1px solid var(--line);border-radius:22px;
+overflow:hidden;padding:24px
+}
+.ad-tag{color:var(--cyan);font-size:11px;letter-spacing:2px}
+.ad-content h3{margin:12px 0 10px;font-size:19px}
 .ad-content p{color:var(--muted);font-size:13px;line-height:2.1}
-
-/* MBTI */
-.mbti-section{margin:90px 0 110px;scroll-margin-top:100px}
-.mbti-container{max-width:800px;margin:auto;padding:30px;background:linear-gradient(145deg,#17192b,#10121e);border:1px solid var(--line);border-radius:24px;box-shadow:0 20px 60px #0005}
-.mbti-intro{text-align:center;margin-bottom:30px}
-.mbti-tag{color:var(--cyan);font-size:11px;letter-spacing:3px}
-.mbti-intro h2{font-size:28px;margin:12px 0}
-.mbti-intro p{color:var(--muted);font-size:13px;line-height:2}
-.mbti-progress-info{display:flex;justify-content:space-between;color:var(--muted);font-size:12px}
-.mbti-progress{height:6px;background:#ffffff12;border-radius:20px;overflow:hidden;margin:14px 0 30px}
-.mbti-progress-bar{height:100%;width:0;background:linear-gradient(90deg,var(--purple),var(--cyan));border-radius:20px;transition:width .4s}
-.mbti-question{font-size:21px;line-height:1.9;margin:20px 0 25px;min-height:80px}
-.mbti-question-number{color:var(--cyan);font-size:12px;letter-spacing:2px}
-.mbti-options{display:grid;gap:13px}
-.mbti-option{display:flex;align-items:center;gap:14px;text-align:right;width:100%;padding:18px;color:var(--text);background:#ffffff06;border:1px solid var(--line);border-radius:15px;cursor:pointer;font-size:14px;transition:.25s;line-height:1.9}
-.mbti-option:hover{border-color:#9b7bff88;background:#9b7bff12;transform:translateY(-2px)}
-.mbti-option.selected{border-color:var(--purple);background:#9b7bff20;box-shadow:0 0 20px #9b7bff16}
-.option-circle{width:20px;height:20px;min-width:20px;border:1px solid #777b94;border-radius:50%;display:grid;place-items:center}
-.mbti-option.selected .option-circle{border-color:var(--cyan);background:var(--cyan);box-shadow:0 0 12px #63e5e855}
-.mbti-option.selected .option-circle:after{content:"";width:7px;height:7px;background:#090a12;border-radius:50%}
-.mbti-navigation{display:flex;justify-content:space-between;gap:12px;margin-top:30px}
-.mbti-navigation button{min-width:115px}
-.mbti-navigation button:disabled{opacity:.35;cursor:not-allowed;transform:none}
-.mbti-note{text-align:center;color:#858aa2;font-size:11px;line-height:2;margin-top:25px}
-.mbti-result{display:none;text-align:center}
-.mbti-result-symbol{width:100px;height:100px;margin:15px auto 22px;display:grid;place-items:center;border-radius:28px;font-size:34px;font-weight:800;color:#d8caff;background:linear-gradient(135deg,#9b7bff25,#63e5e820);border:1px solid #9b7bff66;box-shadow:0 0 45px #9b7bff20;direction:ltr}
-.mbti-result h3{font-size:30px;margin:10px 0;direction:ltr}
-.mbti-result-subtitle{color:var(--cyan);font-size:14px}
-.mbti-result-description{color:var(--muted);font-size:13px;line-height:2.3;margin:20px auto;max-width:570px}
-.mbti-traits{display:grid;grid-template-columns:repeat(2,1fr);gap:13px;margin:30px 0;text-align:right}
-.mbti-trait{padding:17px;border-radius:15px;background:#ffffff07;border:1px solid var(--line)}
-.mbti-trait-title{font-size:12px;margin-bottom:12px;color:#ddd9f6}
-.mbti-trait-labels{display:flex;justify-content:space-between;color:var(--muted);font-size:10px;margin-bottom:8px}
-.mbti-trait-bar{height:7px;background:#ffffff12;border-radius:20px;overflow:hidden}
-.mbti-trait-fill{height:100%;background:linear-gradient(90deg,var(--purple),var(--cyan));border-radius:20px}
-.mbti-result-details{text-align:right;background:#ffffff06;border:1px solid var(--line);padding:20px;border-radius:16px;margin:20px 0}
-.mbti-result-details h4{color:var(--cyan);margin:0 0 10px}
-.mbti-result-details p{color:var(--muted);font-size:13px;line-height:2.1}
-.mbti-restart{margin-top:15px}
 
 /* DISCORD */
 .discord-wrap{max-width:650px;margin:10px auto 95px;scroll-margin-top:100px}
-.discord-card{position:relative;overflow:hidden;border:1px solid #8e79df55;border-radius:24px;padding:28px;background:linear-gradient(145deg,#19182b 0%,#111321 55%,#101b22 100%);box-shadow:0 22px 70px #0007,0 0 45px #8b70ff12}
-.discord-card:before{content:"";position:absolute;width:260px;height:260px;border-radius:50%;background:#8b6cf4;filter:blur(100px);opacity:.13;top:-150px;left:-80px;pointer-events:none}
+.discord-card{
+position:relative;overflow:hidden;border:1px solid #8e79df55;
+border-radius:24px;padding:28px;
+background:linear-gradient(145deg,#19182b 0%,#111321 55%,#101b22 100%);
+box-shadow:0 22px 70px #0007,0 0 45px #8b70ff12
+}
+.discord-card:before{
+content:"";position:absolute;width:260px;height:260px;
+border-radius:50%;background:#8b6cf4;filter:blur(100px);
+opacity:.13;top:-150px;left:-80px;pointer-events:none
+}
 .discord-top{display:flex;align-items:center;gap:18px;position:relative}
-.discord-avatar{width:94px;height:94px;border-radius:50%;object-fit:cover;border:3px solid #9c83ff;box-shadow:0 0 28px #9478ff55;background:#25263a}
+.discord-avatar{
+width:94px;height:94px;border-radius:50%;object-fit:cover;
+border:3px solid #9c83ff;box-shadow:0 0 28px #9478ff55;background:#25263a
+}
 .discord-name{font-size:22px;font-weight:800;margin:0 0 4px;direction:ltr;text-align:right}
 .discord-handle{font-size:12px;color:var(--muted);direction:ltr;text-align:right}
-.discord-status{display:inline-flex;align-items:center;gap:7px;margin-top:10px;padding:5px 10px;border-radius:20px;background:#ffffff0b;color:#c7c9d8;font-size:11px}
+.discord-status{
+display:inline-flex;align-items:center;gap:7px;margin-top:10px;
+padding:5px 10px;border-radius:20px;background:#ffffff0b;
+color:#c7c9d8;font-size:11px
+}
 .status-dot{width:8px;height:8px;border-radius:50%;background:#777}
 .status-dot.online{background:#3ba55d;box-shadow:0 0 10px #3ba55d}
 .status-dot.idle{background:#faa61a}
 .status-dot.dnd{background:#ed4245}
 .status-dot.offline{background:#747f8d}
 .discord-divider{height:1px;background:var(--line);margin:22px 0}
-.activity-box{display:flex;align-items:center;gap:14px;padding:15px;border-radius:16px;background:#ffffff08;border:1px solid #ffffff0b;min-height:78px}
-.activity-icon{width:42px;height:42px;border-radius:12px;background:#9b7bff20;display:grid;place-items:center;font-size:20px;flex-shrink:0}
+.activity-box{
+display:flex;align-items:center;gap:14px;padding:15px;
+border-radius:16px;background:#ffffff08;
+border:1px solid #ffffff0b;min-height:78px
+}
+.activity-icon{
+width:42px;height:42px;border-radius:12px;
+background:#9b7bff20;display:grid;place-items:center;
+font-size:20px;flex-shrink:0
+}
 .activity-label{font-size:10px;color:var(--cyan);margin-bottom:3px}
 .activity-title{font-size:14px;font-weight:700}
 .activity-detail{font-size:11px;color:var(--muted);margin-top:3px}
-.discord-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:17px;color:#858aa2;font-size:10px}
+.discord-foot{
+display:flex;justify-content:space-between;align-items:center;
+gap:12px;margin-top:17px;color:#858aa2;font-size:10px
+}
 .discord-link{color:#c9bbff}
 
-/* QUOTE & FOOTER */
-.quote{border:1px solid var(--line);border-radius:22px;padding:35px;text-align:center;background:linear-gradient(110deg,#171629aa,#101a20aa);margin-bottom:90px;scroll-margin-top:100px}
-.quote p{font-size:clamp(18px,3vw,25px);line-height:1.9;margin:0 auto 12px;max-width:700px}
+/* QUOTE */
+.quote{
+border:1px solid var(--line);border-radius:22px;padding:35px;
+text-align:center;background:linear-gradient(110deg,#171629aa,#101a20aa);
+margin-bottom:90px;scroll-margin-top:100px
+}
+.quote p{
+font-size:clamp(18px,3vw,25px);
+line-height:1.9;margin:0 auto 12px;max-width:700px
+}
 .quote small{color:var(--cyan)}
-footer{border-top:1px solid var(--line);padding:25px 0;color:#777d94;font-size:12px}
+
+footer{
+border-top:1px solid var(--line);padding:25px 0;
+color:#777d94;font-size:12px
+}
 footer .wrap{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
-.toast{position:fixed;bottom:24px;left:24px;background:#1a1c2c;border:1px solid #9b7bff66;padding:12px 18px;border-radius:12px;opacity:0;transform:translateY(12px);transition:.25s;pointer-events:none;font-size:13px;z-index:30}
+.toast{
+position:fixed;bottom:24px;left:24px;
+background:#1a1c2c;border:1px solid #9b7bff66;
+padding:12px 18px;border-radius:12px;opacity:0;
+transform:translateY(12px);transition:.25s;
+pointer-events:none;font-size:13px;z-index:30
+}
 .toast.show{opacity:1;transform:translateY(0)}
 
-/* MOBILE */
 @media(max-width:760px){
-  .links{display:none}
-  .hero{grid-template-columns:1fr;padding-top:55px;text-align:center}
-  .eyebrow{justify-content:center}
-  .lead{margin:auto}
-  .actions{justify-content:center}
-  .visual{height:330px;grid-row:1}
-  .orbit{width:260px}
-  .planet{width:145px}
-  .cards{grid-template-columns:1fr}
-  .ads-grid{grid-template-columns:1fr}
-  .section-head h2{font-size:24px}
-  .discord-card{padding:21px}
-  .discord-avatar{width:76px;height:76px}
-  .discord-name{font-size:18px}
-  .discord-foot{flex-direction:column;align-items:flex-start}
-  .mbti-container{padding:20px}
-  .mbti-question{font-size:18px}
-  .mbti-traits{grid-template-columns:1fr}
+.links{display:none}
+.hero{grid-template-columns:1fr;padding-top:55px;text-align:center}
+.eyebrow{justify-content:center}
+.lead{margin:auto}
+.actions{justify-content:center}
+.visual{height:330px;grid-row:1}
+.orbit{width:260px}
+.planet{width:145px}
+.cards{grid-template-columns:1fr}
+.ads-grid{grid-template-columns:1fr}
+.section-head h2{font-size:24px}
+.discord-card{padding:21px}
+.discord-avatar{width:76px;height:76px}
+.discord-name{font-size:18px}
+.discord-foot{flex-direction:column;align-items:flex-start}
 }
 @media(max-width:420px){
-  .nav-cta{padding:9px 12px;font-size:11px}
-  .brand{font-size:14px}
-  .quote{padding:23px}
-  .mbti-navigation button{min-width:0;flex:1}
+.nav-cta{padding:9px 12px;font-size:11px}
+.brand{font-size:14px}
+.quote{padding:23px}
 }
 </style>
 </head>
@@ -176,808 +278,323 @@ footer .wrap{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
 <body>
 
 <header>
-  <div class="wrap">
-    <nav>
-      <a class="brand" href="#">
-        <span class="brand-mark"></span>
-        NOCTURNE
-      </a>
+<div class="wrap">
+<nav>
+<a class="brand" href="#">
+<span class="brand-mark"></span>
+NOCTURNE
+</a>
 
-      <div class="links">
-        <a href="#explore">کاوش</a>
-        <a href="#discover">کشف کن</a>
-        <a href="#mbti">تست MBTI</a>
-        <a href="#ads">تبلیغات</a>
-        <a href="#discord">دیسکورد</a>
-        <a href="#artin">آرتین ✦</a>
-        <a href="#about">درباره</a>
-      </div>
+<div class="links">
+<a href="#explore">کاوش</a>
+<a href="#discover">کشف کن</a>
+<a href="mbti.html">تست MBTI</a>
+<a href="#ads">تبلیغات</a>
+<a href="#discord">دیسکورد</a>
+<a href="#artin">آرتین ✦</a>
+<a href="#about">درباره</a>
+</div>
 
-      <a class="nav-cta" href="#explore">ورود به فضا ↗</a>
-    </nav>
-  </div>
+<a class="nav-cta" href="#explore">ورود به فضا ↗</a>
+</nav>
+</div>
 </header>
 
 <main class="wrap">
 
-<!-- HERO -->
 <section class="hero" id="explore">
-  <div>
-    <div class="eyebrow">فراتر از روزمرگی</div>
-    <h1>به دنیای <span>ناشناخته‌ها</span> خوش آمدی.</h1>
-    <p class="lead">
-      اینجا گوشه‌ای آرام از اینترنت است؛ جایی برای ذهن‌های کنجکاو،
-      ایده‌های تازه و کشف چیزهایی که هنوز نامی برایشان پیدا نکرده‌ایم.
-    </p>
-    <div class="actions">
-      <a class="btn primary" href="#discover">شروع کاوش ←</a>
-      <button class="btn secondary" id="surpriseBtn">غافلگیرم کن ✦</button>
-    </div>
-  </div>
+<div>
+<div class="eyebrow">فراتر از روزمرگی</div>
+<h1>به دنیای <span>ناشناخته‌ها</span> خوش آمدی.</h1>
+<p class="lead">
+اینجا گوشه‌ای آرام از اینترنت است؛ جایی برای ذهن‌های کنجکاو،
+ایده‌های تازه و کشف چیزهایی که هنوز نامی برایشان پیدا نکرده‌ایم.
+</p>
+<div class="actions">
+<a class="btn primary" href="#discover">شروع کاوش ←</a>
+<button class="btn secondary" id="surpriseBtn">غافلگیرم کن ✦</button>
+</div>
+</div>
 
-  <div class="visual" aria-label="تصویر انتزاعی سیاره در فضا">
-    <div class="orbit"><div class="planet"></div></div>
-    <i class="star s1"></i>
-    <i class="star s2"></i>
-    <i class="star s3"></i>
-    <i class="star s4"></i>
-  </div>
+<div class="visual" aria-label="تصویر انتزاعی سیاره در فضا">
+<div class="orbit"><div class="planet"></div></div>
+<i class="star s1"></i>
+<i class="star s2"></i>
+<i class="star s3"></i>
+<i class="star s4"></i>
+</div>
 </section>
 
-<!-- DISCOVER -->
 <section id="discover">
-  <div class="section-head">
-    <h2>از کجا شروع کنیم؟</h2>
-    <p>هر مسیر، دری به سوی یک دنیای تازه است.</p>
-  </div>
+<div class="section-head">
+<h2>از کجا شروع کنیم؟</h2>
+<p>هر مسیر، دری به سوی یک دنیای تازه است.</p>
+</div>
 
-  <div class="cards">
-    <article class="card">
-      <div class="icon">✧</div>
-      <h3>اعماق فضا</h3>
-      <p>در سکوت کیهان قدم بزن و به شگفتی‌هایی فکر کن که هنوز کشف نشده‌اند.</p>
-    </article>
-    <article class="card">
-      <div class="icon">⌁</div>
-      <h3>سیگنال‌های پنهان</h3>
-      <p>به جزئیات کوچک توجه کن؛ گاهی جالب‌ترین رازها درست جلوی چشم ما هستند.</p>
-    </article>
-    <article class="card">
-      <div class="icon">◈</div>
-      <h3>آرشیو شبانه</h3>
-      <p>مجموعه‌ای از فکرها، الهام‌ها و پرسش‌هایی برای ساعت‌های آرام شب.</p>
-    </article>
-  </div>
+<div class="cards">
+<article class="card">
+<div class="icon">✧</div>
+<h3>اعماق فضا</h3>
+<p>در سکوت کیهان قدم بزن و به شگفتی‌هایی فکر کن که هنوز کشف نشده‌اند.</p>
+</article>
+
+<article class="card">
+<div class="icon">⌁</div>
+<h3>سیگنال‌های پنهان</h3>
+<p>به جزئیات کوچک توجه کن؛ گاهی جالب‌ترین رازها درست جلوی چشم ما هستند.</p>
+</article>
+
+<article class="card">
+<div class="icon">◈</div>
+<h3>آرشیو شبانه</h3>
+<p>مجموعه‌ای از فکرها، الهام‌ها و پرسش‌هایی برای ساعت‌های آرام شب.</p>
+</article>
+</div>
 </section>
 
-<!-- MBTI TEST -->
-<section class="mbti-section" id="mbti">
-  <div class="section-head">
-    <h2>آرشیو شخصیت‌شناسی</h2>
-    <p>به دنیای درون خودت سفر کن و تیپ شخصیتی‌ات را کشف کن.</p>
-  </div>
-
-  <div class="mbti-container">
-    <div class="mbti-intro">
-      <div class="mbti-tag">NOCTURNE PERSONALITY LAB</div>
-      <h2>تو واقعاً چه کسی هستی؟</h2>
-      <p>
-        به ۱۶ سؤال زیر صادقانه پاسخ بده.
-        پاسخ درست یا غلطی وجود ندارد؛ فقط گزینه‌ای را انتخاب کن
-        که بیشتر به رفتار طبیعی تو شباهت دارد.
-      </p>
-    </div>
-
-    <div id="mbtiQuiz">
-      <div class="mbti-progress-info">
-        <span id="mbtiStep">سؤال ۱ از ۱۶</span>
-        <span id="mbtiPercent">۶٪</span>
-      </div>
-      <div class="mbti-progress"><div class="mbti-progress-bar" id="mbtiProgress"></div></div>
-      <div class="mbti-question-number" id="questionCategory">PERSONALITY QUESTION</div>
-      <h3 class="mbti-question" id="questionText"></h3>
-      <div class="mbti-options" id="answerOptions"></div>
-      <div class="mbti-navigation">
-        <button class="btn secondary" id="prevQuestion" disabled>سؤال قبلی</button>
-        <button class="btn primary" id="nextQuestion" disabled>سؤال بعدی ←</button>
-      </div>
-    </div>
-
-    <!-- RESULT -->
-    <div class="mbti-result" id="mbtiResult">
-      <div class="mbti-tag">YOUR PERSONALITY HAS BEEN ANALYZED</div>
-      <div class="mbti-result-symbol" id="resultSymbol">INTJ</div>
-      <h3 id="resultType">INTJ</h3>
-      <div class="mbti-result-subtitle" id="resultSubtitle"></div>
-      <p class="mbti-result-description" id="resultDescription"></p>
-      <div class="mbti-traits" id="mbtiTraits"></div>
-
-      <div class="mbti-result-details">
-        <h4>✦ ویژگی‌های برجسته</h4>
-        <p id="resultStrengths"></p>
-        <h4>◈ سبک تصمیم‌گیری</h4>
-        <p id="resultDecision"></p>
-        <h4>⌁ نکته‌ای برای رشد</h4>
-        <p id="resultGrowth"></p>
-      </div>
-
-      <p class="mbti-note">
-        این نتیجه یک برداشت سرگرمی‌محور از پاسخ‌های تو است،
-        نه تشخیص علمی یا ارزیابی قطعی شخصیت.
-      </p>
-      <button class="btn primary mbti-restart" id="restartMBTI">انجام دوباره تست ↻</button>
-    </div>
-
-    <div class="mbti-note" id="mbtiFooter">NOCTURNE · PERSONALITY ARCHIVE</div>
-  </div>
-</section>
-
-<!-- ADVERTISEMENTS -->
 <section class="ads-section" id="ads">
-  <div class="section-head">
-    <h2>تبلیغات و معرفی مجموعه‌ها</h2>
-    <p>معرفی افراد و فعالیت‌های اقتصادی</p>
-  </div>
+<div class="section-head">
+<h2>تبلیغات و معرفی مجموعه‌ها</h2>
+<p>معرفی افراد و فعالیت‌های اقتصادی</p>
+</div>
 
-  <div class="ads-grid">
-    <article class="ad-card">
-      <div class="ad-content">
-        <span class="ad-tag">NOCTURNE PARTNERS</span>
-        <h3>معرفی مجموعه‌ها</h3>
-        <p>
-          این بخش برای معرفی کسب‌وکارها، پروژه‌ها و مجموعه‌های مختلف
-          در دنیای NOCTURNE در نظر گرفته شده است.
-        </p>
-      </div>
-    </article>
+<div class="ads-grid">
+<article class="ad-card">
+<div class="ad-content">
+<span class="ad-tag">NOCTURNE PARTNERS</span>
+<h3>معرفی مجموعه‌ها</h3>
+<p>
+این بخش برای معرفی کسب‌وکارها، پروژه‌ها و مجموعه‌های مختلف
+در دنیای NOCTURNE در نظر گرفته شده است.
+</p>
+</div>
+</article>
 
-    <article class="ad-card">
-      <div class="ad-content">
-        <span class="ad-tag">COMMUNITY</span>
-        <h3>همکاری و تبلیغات</h3>
-        <p>
-          فضایی برای معرفی فعالیت‌ها و همکاری با افراد و مجموعه‌های
-          علاقه‌مند به دنیای NOCTURNE.
-        </p>
-      </div>
-    </article>
-  </div>
+<article class="ad-card">
+<div class="ad-content">
+<span class="ad-tag">COMMUNITY</span>
+<h3>همکاری و تبلیغات</h3>
+<p>
+فضایی برای معرفی فعالیت‌ها و همکاری با افراد و مجموعه‌های
+علاقه‌مند به دنیای NOCTURNE.
+</p>
+</div>
+</article>
+</div>
 </section>
 
-<!-- DISCORD -->
 <section class="discord-wrap" id="discord">
-  <div class="section-head">
-    <h2>پایگاه من در دیسکورد</h2>
-    <p>وضعیت و فعالیت من، زنده از Discord</p>
-  </div>
+<div class="section-head">
+<h2>پایگاه من در دیسکورد</h2>
+<p>وضعیت و فعالیت من، زنده از Discord</p>
+</div>
 
-  <div class="discord-card">
-    <div class="discord-top">
-      <img class="discord-avatar" id="discordAvatar" src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Discord avatar">
-      <div style="min-width:0">
-        <div class="discord-name" id="discordName">NOCTURNE USER</div>
-        <div class="discord-handle" id="discordHandle">در حال دریافت پروفایل…</div>
-        <div class="discord-status">
-          <span class="status-dot" id="statusDot"></span>
-          <span id="discordStatus">در حال اتصال…</span>
-        </div>
-      </div>
-    </div>
+<div class="discord-card">
+<div class="discord-top">
+<img class="discord-avatar" id="discordAvatar"
+src="https://cdn.discordapp.com/embed/avatars/0.png"
+alt="Discord avatar">
 
-    <div class="discord-divider"></div>
+<div style="min-width:0">
+<div class="discord-name" id="discordName">NOCTURNE USER</div>
+<div class="discord-handle" id="discordHandle">در حال دریافت پروفایل…</div>
+<div class="discord-status">
+<span class="status-dot" id="statusDot"></span>
+<span id="discordStatus">در حال اتصال…</span>
+</div>
+</div>
+</div>
 
-    <div class="activity-box">
-      <div class="activity-icon" id="activityIcon">✦</div>
-      <div>
-        <div class="activity-label">NOW PLAYING / ACTIVITY</div>
-        <div class="activity-title" id="activityTitle">منتظر دریافت فعالیت…</div>
-        <div class="activity-detail" id="activityDetail">به‌روزرسانی خودکار فعال است</div>
-      </div>
-    </div>
+<div class="discord-divider"></div>
 
-    <div class="discord-foot">
-      <span id="discordConnection">اتصال به سرویس حضور دیسکورد…</span>
-      <a class="discord-link" href="https://discord.com/" target="_blank" rel="noopener noreferrer">Discord ↗</a>
-    </div>
-  </div>
+<div class="activity-box">
+<div class="activity-icon" id="activityIcon">✦</div>
+<div>
+<div class="activity-label">NOW PLAYING / ACTIVITY</div>
+<div class="activity-title" id="activityTitle">منتظر دریافت فعالیت…</div>
+<div class="activity-detail" id="activityDetail">به‌روزرسانی خودکار فعال است</div>
+</div>
+</div>
+
+<div class="discord-foot">
+<span id="discordConnection">اتصال به سرویس حضور دیسکورد…</span>
+<a class="discord-link" href="https://discord.com/" target="_blank" rel="noopener noreferrer">Discord ↗</a>
+</div>
+</div>
 </section>
 
-<!-- ARTIN -->
 <section class="discord-wrap" id="artin">
-  <div class="discord-card" style="text-align:center">
-    <div class="icon" style="margin:0 auto 16px">✦</div>
-    <h2 style="margin:0 0 8px;font-size:22px">گوشه‌ی مخصوص آرتین</h2>
-    <p style="color:var(--muted);font-size:13px;line-height:2;margin:0 0 20px">
-      یک صفحه‌ی جدا که کم‌کم برای آرتین پر می‌شود.
-    </p>
-    <a class="btn primary" href="artin.html" target="_blank" rel="noopener">ورود به صفحه‌ی آرتین ←</a>
-  </div>
+<div class="discord-card" style="text-align:center">
+<div class="icon" style="margin:0 auto 16px">✦</div>
+<h2 style="margin:0 0 8px;font-size:22px">گوشه‌ی مخصوص آرتین</h2>
+<p style="color:var(--muted);font-size:13px;line-height:2;margin:0 0 20px">
+یک صفحه‌ی جدا که کم‌کم برای آرتین پر می‌شود.
+</p>
+<a class="btn primary" href="artin.html" target="_blank" rel="noopener">ورود به صفحه‌ی آرتین ←</a>
+</div>
 </section>
 
-<!-- ABOUT -->
 <section class="quote" id="about">
-  <p id="quoteText">«همه‌ی کسانی که سرگردان‌اند، راه را گم نکرده‌اند.»</p>
-  <small>— یادداشتی از دل شب</small>
+<p id="quoteText">«همه‌ی کسانی که سرگردان‌اند، راه را گم نکرده‌اند.»</p>
+<small>— یادداشتی از دل شب</small>
 </section>
 
 </main>
 
 <footer>
-  <div class="wrap">
-    <span>© 2026 NOCTURNE</span>
-    <span>ساخته‌شده برای ذهن‌های کنجکاو · با کمی نور در تاریکی</span>
-  </div>
+<div class="wrap">
+<span>© 2026 NOCTURNE</span>
+<span>ساخته‌شده برای ذهن‌های کنجکاو · با کمی نور در تاریکی</span>
+</div>
 </footer>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
-
-/* =========================================
-   NOCTURNE MBTI TEST
-========================================= */
-
-(() => {
-
-  const questions = [
-
-    // E / I
-    {category:"ENERGY · SOCIAL",question:"بعد از یک روز شلوغ، معمولاً چه چیزی به تو انرژی می‌دهد؟",options:[{text:"صحبت با دوستان و بودن در جمع",letter:"E"},{text:"تنهایی، آرامش و وقت گذراندن با خودم",letter:"I"}]},
-    {category:"ENERGY · SOCIAL",question:"وقتی وارد یک جمع جدید می‌شوی، معمولاً چه کار می‌کنی؟",options:[{text:"خودم سر صحبت را با دیگران باز می‌کنم",letter:"E"},{text:"اول محیط را بررسی می‌کنم و بعد وارد گفتگو می‌شوم",letter:"I"}]},
-    {category:"ENERGY · SOCIAL",question:"در اوقات فراغت کدام را ترجیح می‌دهی؟",options:[{text:"فعالیت گروهی، بیرون رفتن و تجربه‌های اجتماعی",letter:"E"},{text:"مطالعه، بازی یا سرگرمی‌های فردی",letter:"I"}]},
-    {category:"ENERGY · SOCIAL",question:"وقتی ایده‌ای به ذهنت می‌رسد، چطور آن را بررسی می‌کنی؟",options:[{text:"با صحبت کردن و تبادل نظر با دیگران",letter:"E"},{text:"ابتدا در ذهنم آن را بررسی می‌کنم",letter:"I"}]},
-
-    // S / N
-    {category:"INFORMATION · THINKING",question:"هنگام یادگیری یک موضوع جدید، چه چیزی برایت جذاب‌تر است؟",options:[{text:"مثال‌های واقعی، اطلاعات مشخص و کاربرد عملی",letter:"S"},{text:"ایده‌های بزرگ، نظریه‌ها و احتمالات آینده",letter:"N"}]},
-    {category:"INFORMATION · THINKING",question:"وقتی به آینده فکر می‌کنی، بیشتر به چه چیزی توجه داری؟",options:[{text:"اتفاقات محتمل و برنامه‌های قابل اجرا",letter:"S"},{text:"سناریوهای مختلف و چیزهایی که ممکن است اتفاق بیفتند",letter:"N"}]},
-    {category:"INFORMATION · THINKING",question:"در یک داستان یا فیلم، چه چیزی بیشتر توجهت را جلب می‌کند؟",options:[{text:"جزئیات، اتفاقات واقعی و منطق روایت",letter:"S"},{text:"نمادها، مفاهیم پنهان و برداشت‌های عمیق",letter:"N"}]},
-    {category:"INFORMATION · THINKING",question:"وقتی با یک مشکل روبه‌رو می‌شوی، اول چه می‌کنی؟",options:[{text:"به اطلاعات موجود و تجربه‌های قبلی رجوع می‌کنم",letter:"S"},{text:"به راه‌حل‌های جدید و احتمالات متفاوت فکر می‌کنم",letter:"N"}]},
-
-    // T / F
-    {category:"DECISION · VALUES",question:"هنگام تصمیم‌گیری دشوار، کدام معیار برایت مهم‌تر است؟",options:[{text:"منطق، تحلیل و نتیجه‌ای که منطقی‌تر است",letter:"T"},{text:"ارزش‌های انسانی و تأثیر تصمیم بر دیگران",letter:"F"}]},
-    {category:"DECISION · VALUES",question:"اگر دوستی اشتباه کند، معمولاً چگونه واکنش نشان می‌دهی؟",options:[{text:"صریح و منطقی اشتباهش را توضیح می‌دهم",letter:"T"},{text:"با توجه به احساساتش و با ملایمت صحبت می‌کنم",letter:"F"}]},
-    {category:"DECISION · VALUES",question:"در یک بحث گروهی، بیشتر به چه چیزی اهمیت می‌دهی؟",options:[{text:"درست بودن استدلال‌ها و رسیدن به نتیجه منطقی",letter:"T"},{text:"حفظ احترام و درک دیدگاه افراد",letter:"F"}]},
-    {category:"DECISION · VALUES",question:"اگر مجبور باشی بین حقیقت تلخ و آرامش موقت یکی را انتخاب کنی:",options:[{text:"ترجیح می‌دهم حقیقت را بدانم، حتی اگر سخت باشد",letter:"T"},{text:"نحوه بیان و تأثیر احساسی حقیقت برایم اهمیت زیادی دارد",letter:"F"}]},
-
-    // J / P
-    {category:"LIFESTYLE · ORGANIZATION",question:"برای انجام کارهای روزانه چه روشی را ترجیح می‌دهی؟",options:[{text:"برنامه مشخص و زمان‌بندی از قبل تعیین‌شده",letter:"J"},{text:"انعطاف‌پذیری و تصمیم‌گیری در لحظه",letter:"P"}]},
-    {category:"LIFESTYLE · ORGANIZATION",question:"وقتی قرار است به سفر بروی، معمولاً:",options:[{text:"از قبل برای مسیر و برنامه‌ها تصمیم می‌گیرم",letter:"J"},{text:"ترجیح می‌دهم آزادانه و بدون برنامه دقیق پیش بروم",letter:"P"}]},
-    {category:"LIFESTYLE · ORGANIZATION",question:"وقتی یک پروژه مهم داری، کدام حالت به تو نزدیک‌تر است؟",options:[{text:"دوست دارم مرحله‌به‌مرحله و زودتر تمامش کنم",letter:"J"},{text:"ترجیح می‌دهم گزینه‌ها را باز نگه دارم و منعطف باشم",letter:"P"}]},
-    {category:"LIFESTYLE · ORGANIZATION",question:"وقتی برنامه‌ای ناگهان تغییر می‌کند:",options:[{text:"ترجیح می‌دهم سریع برنامه جدید و مشخصی تنظیم کنم",letter:"J"},{text:"معمولاً خودم را با شرایط جدید وفق می‌دهم",letter:"P"}]}
-
-  ];
-
-  const profiles = {
-
-    INTJ:{title:"معمار",symbol:"♜",
-      description:"معمولاً به تحلیل، برنامه‌ریزی و ساختن تصویر بزرگی از آینده علاقه داری. ممکن است از بررسی سیستم‌ها و پیدا کردن راه‌حل‌های پیچیده لذت ببری.",
-      strengths:"تفکر راهبردی، استقلال فکری، برنامه‌ریزی و تحلیل مسائل پیچیده.",
-      decision:"معمولاً به منطق، شواهد و پیامدهای بلندمدت توجه می‌کنی.",
-      growth:"گاهی در نظر گرفتن دیدگاه‌ها و احساسات دیگران می‌تواند تصمیم‌هایت را کامل‌تر کند."},
-
-    INTP:{title:"منطق‌دان",symbol:"⌘",
-      description:"کنجکاوی ذهنی و علاقه به فهمیدن چگونگی کارکرد جهان از ویژگی‌های برجسته این تیپ است. معمولاً از بررسی نظریه‌ها و ایده‌های تازه لذت می‌بری.",
-      strengths:"تحلیل، خلاقیت فکری، کنجکاوی و حل مسئله.",
-      decision:"به دنبال سازگاری منطقی و توضیح دقیق موضوعات هستی.",
-      growth:"تبدیل ایده‌ها به اقدام عملی و توجه به جزئیات اجرایی می‌تواند مفید باشد."},
-
-    ENTJ:{title:"فرمانده",symbol:"♛",
-      description:"معمولاً به سازمان‌دهی، هدف‌گذاری و هدایت پروژه‌ها علاقه داری. دوست داری مسائل را ساختارمند کنی و برای رسیدن به نتیجه حرکت کنی.",
-      strengths:"مدیریت، برنامه‌ریزی، تصمیم‌گیری و نگاه راهبردی.",
-      decision:"اغلب بر اساس منطق و کارآمدی تصمیم می‌گیری.",
-      growth:"شنیدن نظرات متفاوت و دادن فرصت کافی به دیگران می‌تواند همکاری را بهتر کند."},
-
-    ENTP:{title:"مجادله‌گر",symbol:"✧",
-      description:"از ایده‌های تازه، بحث‌های فکری و بررسی دیدگاه‌های متفاوت استقبال می‌کنی. معمولاً از به چالش کشیدن روش‌های قدیمی لذت می‌بری.",
-      strengths:"نوآوری، خلاقیت، انعطاف ذهنی و قدرت استدلال.",
-      decision:"احتمالات و راه‌حل‌های مختلف را بررسی می‌کنی.",
-      growth:"تمرکز روی تکمیل پروژه‌ها و پیگیری ایده‌ها تا انتها می‌تواند کمک‌کننده باشد."},
-
-    INFJ:{title:"حامی",symbol:"☾",
-      description:"ممکن است به درک عمیق افراد، معنا و هدف زندگی علاقه داشته باشی. معمولاً به ارتباطات معنادار و تصویر کلی مسائل توجه می‌کنی.",
-      strengths:"همدلی، بینش، توجه به ارزش‌ها و تفکر عمیق.",
-      decision:"ارزش‌های شخصی و پیامدهای انسانی را در نظر می‌گیری.",
-      growth:"تعیین مرزهای شخصی و توجه به نیازهای خودت نیز اهمیت دارد."},
-
-    INFP:{title:"میانجی",symbol:"❋",
-      description:"معمولاً تخیل، ارزش‌های شخصی و اصالت برایت اهمیت زیادی دارند. ممکن است به هنر، داستان‌ها و شناخت دنیای درونی علاقه‌مند باشی.",
-      strengths:"خلاقیت، همدلی، تخیل و پایبندی به ارزش‌ها.",
-      decision:"احساسات و ارزش‌های عمیق خودت را در نظر می‌گیری.",
-      growth:"ساختار دادن به برنامه‌ها و تبدیل آرمان‌ها به قدم‌های کوچک مفید است."},
-
-    ENFJ:{title:"قهرمان",symbol:"✦",
-      description:"احتمالاً از ارتباط با افراد و کمک به رشد گروهی لذت می‌بری. هماهنگی و ایجاد انگیزه در دیگران می‌تواند برایت جذاب باشد.",
-      strengths:"ارتباط مؤثر، همدلی، همکاری و انگیزه‌بخشی.",
-      decision:"تأثیر تصمیم بر افراد و هماهنگی گروه را در نظر می‌گیری.",
-      growth:"فراموش نکردن نیازهای شخصی هنگام کمک به دیگران اهمیت دارد."},
-
-    ENFP:{title:"فعال",symbol:"✺",
-      description:"معمولاً پر از ایده و علاقه‌مند به تجربه‌های تازه هستی. ارتباطات انسانی و کشف مسیرهای متفاوت ممکن است برایت جذاب باشند.",
-      strengths:"خلاقیت، انرژی، ارتباط اجتماعی و انعطاف‌پذیری.",
-      decision:"به امکانات جدید و ارزش‌های انسانی توجه می‌کنی.",
-      growth:"تمرکز و اولویت‌بندی می‌تواند به عملی شدن ایده‌ها کمک کند."},
-
-    ISTJ:{title:"بازرس",symbol:"◈",
-      description:"احتمالاً به مسئولیت‌پذیری، نظم و اطلاعات قابل اعتماد اهمیت می‌دهی. انجام دقیق وظایف و داشتن ساختار مشخص می‌تواند برایت رضایت‌بخش باشد.",
-      strengths:"دقت، ثبات، مسئولیت‌پذیری و پیگیری.",
-      decision:"به واقعیت‌ها، تجربه و شواهد مشخص توجه می‌کنی.",
-      growth:"گاهی امتحان کردن روش‌های تازه می‌تواند فرصت‌های جدیدی ایجاد کند."},
-
-    ISFJ:{title:"مدافع",symbol:"❖",
-      description:"ممکن است به حمایت از دیگران، توجه به جزئیات و ایجاد محیطی قابل اعتماد علاقه داشته باشی.",
-      strengths:"وفاداری، توجه، مسئولیت‌پذیری و حمایتگری.",
-      decision:"به نیازهای افراد و تجربه‌های واقعی توجه می‌کنی.",
-      growth:"بیان نیازهای شخصی و نه گفتن در زمان مناسب می‌تواند مفید باشد."},
-
-    ESTJ:{title:"مدیر اجرایی",symbol:"♙",
-      description:"معمولاً به نظم، ساختار و رسیدن به نتایج مشخص علاقه داری. ممکن است از مدیریت کارها و سازمان‌دهی گروه‌ها لذت ببری.",
-      strengths:"سازمان‌دهی، مسئولیت‌پذیری، تصمیم‌گیری و مدیریت.",
-      decision:"به اطلاعات واقعی و کارآمدی روش‌ها توجه می‌کنی.",
-      growth:"در بعضی شرایط، انعطاف‌پذیری و شنیدن راه‌حل‌های متفاوت اهمیت دارد."},
-
-    ESFJ:{title:"سفیر",symbol:"❀",
-      description:"ارتباطات اجتماعی و ایجاد محیطی دوستانه ممکن است برایت اهمیت زیادی داشته باشند. معمولاً به هماهنگی و همکاری توجه می‌کنی.",
-      strengths:"همکاری، حمایتگری، ارتباط اجتماعی و مسئولیت‌پذیری.",
-      decision:"تأثیر انتخاب‌ها بر دیگران و ارزش‌های مشترک را می‌سنجی.",
-      growth:"تصمیم‌گیری مستقل از انتظار دیگران نیز می‌تواند اهمیت داشته باشد."},
-
-    ISTP:{title:"ماهر",symbol:"⚙",
-      description:"احتمالاً از بررسی عملی مسائل، کار با ابزارها و پیدا کردن راه‌حل‌های مستقیم لذت می‌بری.",
-      strengths:"حل مسئله، خونسردی، مشاهده و مهارت عملی.",
-      decision:"به عملکرد واقعی و شواهد مستقیم توجه می‌کنی.",
-      growth:"برنامه‌ریزی بلندمدت و توضیح احساسات و نیازها می‌تواند کمک‌کننده باشد."},
-
-    ISFP:{title:"ماجراجو",symbol:"◇",
-      description:"ممکن است به زیبایی، تجربه‌های شخصی و آزادی عمل علاقه داشته باشی. معمولاً ترجیح می‌دهی مطابق ارزش‌های خودت زندگی کنی.",
-      strengths:"خلاقیت، انعطاف، حساسیت هنری و توجه به لحظه حال.",
-      decision:"به ارزش‌های شخصی و شرایط واقعی توجه می‌کنی.",
-      growth:"تعیین هدف‌های بلندمدت و پیگیری آن‌ها می‌تواند مفید باشد."},
-
-    ESTP:{title:"کارآفرین",symbol:"⚡",
-      description:"معمولاً به تجربه مستقیم، فعالیت و واکنش سریع در موقعیت‌های مختلف علاقه داری.",
-      strengths:"عمل‌گرایی، سازگاری، جسارت فکری و توجه به محیط.",
-      decision:"به واقعیت‌های موجود و نتیجه عملی توجه می‌کنی.",
-      growth:"توقف کوتاه برای بررسی پیامدهای بلندمدت می‌تواند تصمیم‌ها را بهتر کند."},
-
-    ESFP:{title:"سرگرم‌کننده",symbol:"★",
-      description:"ممکن است از تجربه‌های تازه، ارتباطات اجتماعی و حضور در لحظه لذت ببری. معمولاً به محیط اطراف توجه زیادی داری.",
-      strengths:"ارتباط اجتماعی، انعطاف، انرژی و توجه به دیگران.",
-      decision:"به شرایط موجود و تأثیر انسانی تصمیم‌ها توجه می‌کنی.",
-      growth:"برنامه‌ریزی و توجه به اهداف بلندمدت می‌تواند تعادل ایجاد کند."}
-
-  };
-
-  const quiz = document.getElementById("mbtiQuiz");
-  const result = document.getElementById("mbtiResult");
-  const questionText = document.getElementById("questionText");
-  const answerOptions = document.getElementById("answerOptions");
-  const progress = document.getElementById("mbtiProgress");
-  const stepText = document.getElementById("mbtiStep");
-  const percentText = document.getElementById("mbtiPercent");
-  const prevButton = document.getElementById("prevQuestion");
-  const nextButton = document.getElementById("nextQuestion");
-
-  const answers = new Array(questions.length).fill(null);
-  let current = 0;
-
-  const digits = n => String(n).replace(/\d/g,d=>"۰۱۲۳۴۵۶۷۸۹"[d]);
-
-  function renderQuestion(){
-
-    const q = questions[current];
-
-    questionText.textContent = q.question;
-    document.getElementById("questionCategory").textContent = q.category;
-
-    stepText.textContent = "سؤال " + digits(current+1) + " از " + digits(questions.length);
-
-    const percentage = Math.round((current+1)/questions.length*100);
-
-    percentText.textContent = digits(percentage) + "٪";
-    progress.style.width = percentage + "%";
-
-    answerOptions.innerHTML = "";
-
-    q.options.forEach((option,index)=>{
-
-      const button = document.createElement("button");
-      button.type = "button";
-      button.className = "mbti-option";
-
-      if(answers[current] === index){
-        button.classList.add("selected");
-      }
-
-      const circle = document.createElement("span");
-      circle.className = "option-circle";
-
-      const text = document.createElement("span");
-      text.textContent = option.text;
-
-      button.append(circle,text);
-
-      button.addEventListener("click",()=>{
-        answers[current] = index;
-        renderQuestion();
-      });
-
-      answerOptions.appendChild(button);
-
-    });
-
-    prevButton.disabled = current === 0;
-    nextButton.disabled = answers[current] === null;
-
-    nextButton.textContent =
-      current === questions.length-1 ? "مشاهده نتیجه ✦" : "سؤال بعدی ←";
-
-  }
-
-  function calculateResult(){
-
-    const scores = {E:0,I:0,S:0,N:0,T:0,F:0,J:0,P:0};
-
-    questions.forEach((question,index)=>{
-      const selected = answers[index];
-      if(selected === null) return;
-      const letter = question.options[selected].letter;
-      scores[letter]++;
-    });
-
-    const dimensions = [["E","I"],["S","N"],["T","F"],["J","P"]];
-
-    let type = "";
-    const percentages = [];
-
-    dimensions.forEach(([a,b])=>{
-
-      const total = scores[a]+scores[b];
-
-      const percentA = Math.round(scores[a]/total*100);
-      const percentB = 100-percentA;
-
-      // In case of a tie, use the answer to the first question
-      // in that dimension as a tie-breaker.
-
-      let winner;
-
-      if(scores[a] === scores[b]){
-
-        const firstQuestionIndex = dimensions.indexOf(
-          dimensions.find(d=>d[0]===a && d[1]===b)
-        ) * 4;
-
-        winner = questions[firstQuestionIndex]
-          .options[answers[firstQuestionIndex]].letter;
-
-      }else{
-
-        winner = scores[a] > scores[b] ? a : b;
-
-      }
-
-      type += winner;
-
-      percentages.push({a,b,percentA,percentB,winner,balanced:scores[a] === scores[b]});
-
-    });
-
-    return {type,percentages,scores};
-
-  }
-
-  function showResult(){
-
-    const data = calculateResult();
-    const profile = profiles[data.type];
-
-    quiz.style.display = "none";
-    result.style.display = "block";
-    document.getElementById("mbtiFooter").style.display = "none";
-
-    document.getElementById("resultSymbol").textContent = profile.symbol;
-    document.getElementById("resultType").textContent = data.type;
-    document.getElementById("resultSubtitle").textContent = profile.title;
-    document.getElementById("resultDescription").textContent = profile.description;
-    document.getElementById("resultStrengths").textContent = profile.strengths;
-    document.getElementById("resultDecision").textContent = profile.decision;
-    document.getElementById("resultGrowth").textContent = profile.growth;
-
-    const traitNames = {
-      E:"برون‌گرایی",I:"درون‌گرایی",
-      S:"حسی",N:"شهودی",
-      T:"منطقی",F:"احساسی",
-      J:"ساختارگرا",P:"منعطف"
-    };
-
-    const traits = document.getElementById("mbtiTraits");
-    traits.innerHTML = "";
-
-    data.percentages.forEach(d=>{
-
-      const dominantName = traitNames[d.winner];
-      const otherPercent = d.winner === d.a ? d.percentB : d.percentA;
-
-      const box = document.createElement("div");
-      box.className = "mbti-trait";
-
-      const title = document.createElement("div");
-      title.className = "mbti-trait-title";
-      title.textContent = "گرایش " + dominantName;
-
-      const labels = document.createElement("div");
-      labels.className = "mbti-trait-labels";
-
-      const right = document.createElement("span");
-      right.textContent = d.a + " · " + d.percentA + "%";
-
-      const left = document.createElement("span");
-      left.textContent = d.b + " · " + d.percentB + "%";
-
-      labels.append(right,left);
-
-      const bar = document.createElement("div");
-      bar.className = "mbti-trait-bar";
-
-      const fill = document.createElement("div");
-      fill.className = "mbti-trait-fill";
-      fill.style.width = d.percentA + "%";
-
-      bar.appendChild(fill);
-
-      const note = document.createElement("div");
-      note.style.cssText = "color:#858aa2;font-size:10px;margin-top:10px;";
-
-      note.textContent = d.balanced
-        ? "گرایش متعادل؛ حرف نهایی با پاسخ اول این بُعد تعیین شده است."
-        : "گرایش بیشتر به " + dominantName + " · گزینه مقابل: " + otherPercent + "%";
-
-      box.append(title,labels,bar,note);
-      traits.appendChild(box);
-
-    });
-
-    result.scrollIntoView({behavior:"smooth",block:"center"});
-
-  }
-
-  nextButton.addEventListener("click",()=>{
-
-    if(answers[current] === null) return;
-
-    if(current < questions.length-1){
-      current++;
-      renderQuestion();
-    }else{
-      showResult();
-    }
-
-  });
-
-  prevButton.addEventListener("click",()=>{
-    if(current > 0){
-      current--;
-      renderQuestion();
-    }
-  });
-
-  document.getElementById("restartMBTI").addEventListener("click",()=>{
-
-    answers.fill(null);
-    current = 0;
-
-    result.style.display = "none";
-    quiz.style.display = "block";
-    document.getElementById("mbtiFooter").style.display = "block";
-
-    renderQuestion();
-
-    document.getElementById("mbti").scrollIntoView({behavior:"smooth",block:"start"});
-
-  });
-
-  renderQuestion();
-
-})();
-
-
-/* =========================================
-   LIVE DISCORD PRESENCE VIA LANYARD
-========================================= */
-
-(() => {
-
-  const USER_ID = "1534277328224653363";
-
-  const $ = (id) => document.getElementById(id);
-
-  const statusLabels = {
-    online:"آنلاین",
-    idle:"بی‌کار",
-    dnd:"مزاحم نشوید",
-    offline:"آفلاین"
-  };
-
-  let heartbeat = null;
-  let reconnectTimer = null;
-  let socket = null;
-
-  function setConnection(message){
-    $("discordConnection").textContent = message;
-  }
-
-  function renderPresence(p){
-
-    if(!p || !p.discord_user){
-      setConnection("پروفایل هنوز در Lanyard پیدا نشد؛ عضویت در سرور Lanyard را بررسی کن.");
-      $("discordStatus").textContent = "اطلاعات در دسترس نیست";
-      return;
-    }
-
-    const user = p.discord_user;
-
-    const username =
-      user.global_name ||
-      user.display_name ||
-      user.username ||
-      "Discord User";
-
-    $("discordName").textContent = username;
-    $("discordHandle").textContent = "@" + (user.username || "discord-user");
-
-    if(user.avatar){
-      const ext = user.avatar.startsWith("a_") ? "gif" : "png";
-      $("discordAvatar").src =
-        `https://cdn.discordapp.com/avatars/${USER_ID}/${user.avatar}.${ext}?size=256`;
-    }
-
-    const status = p.discord_status || "offline";
-
-    $("discordStatus").textContent = statusLabels[status] || "نامشخص";
-    $("statusDot").className = "status-dot " + status;
-
-    const activities = Array.isArray(p.activities) ? p.activities : [];
-
-    const custom = activities.find(a => a.type === 4 && a.state);
-    const activity = activities.find(a => a.type !== 4 && a.name);
-
-    if(p.spotify && p.spotify.song){
-
-      $("activityIcon").textContent = "♫";
-      $("activityTitle").textContent = "در حال گوش دادن به " + p.spotify.song;
-      $("activityDetail").textContent =
-        "از " + (p.spotify.artist || "Spotify") +
-        (p.spotify.album ? " · " + p.spotify.album : "");
-
-    }else if(activity){
-
-      const labels = {
-        0:"در حال بازی",
-        1:"در حال استریم",
-        2:"در حال گوش دادن",
-        3:"در حال تماشا",
-        5:"در حال رقابت"
-      };
-
-      $("activityIcon").textContent =
-        activity.type === 0 ? "🎮" :
-        activity.type === 2 ? "♫" :
-        activity.type === 3 ? "◉" : "✦";
-
-      $("activityTitle").textContent = activity.name;
-
-      $("activityDetail").textContent =
-        [labels[activity.type] || "فعالیت", activity.details, activity.state]
-          .filter(Boolean).join(" · ");
-
-    }else if(custom){
-
-      $("activityIcon").textContent = "✧";
-      $("activityTitle").textContent = custom.state;
-      $("activityDetail").textContent = "وضعیت شخصی دیسکورد";
-
-    }else{
-
-      $("activityIcon").textContent = "☾";
-      $("activityTitle").textContent = "فعلاً فعالیتی نمایش داده نمی‌شود";
-      $("activityDetail").textContent = "وقتی بازی یا فعالیتی داشته باشی، اینجا نشان داده می‌شود.";
-
-    }
-
-    setConnection("اتصال زنده برقرار است · به‌روزرسانی خودکار");
-
-  }
-
-  function connect(){
-
-    clearTimeout(reconnectTimer);
-
-    try{
-      socket = new WebSocket("wss://api.lanyard.rest/socket");
-    }catch(_){
-      setConnection("اتصال برقرار نشد؛ تلاش دوباره…");
-      reconnectTimer = setTimeout(connect,5000);
-      return;
-    }
-
-    socket.addEventListener("open",()=>{
-      setConnection("اتصال برقرار شد؛ دریافت وضعیت…");
-    });
-
-    socket.addEventListener("message",(event)=>{
-
-      let msg;
-
-      try{
-        msg = JSON.parse(event.data);
-      }catch(_){
-        return;
-      }
-
-      if(msg.op === 1 && msg.d && msg.d.heartbeat_interval){
-
-        clearInterval(heartbeat);
-
-        heartbeat = setInterval(()=>{
-          if(socket && socket.readyState === WebSocket.OPEN){
-            socket.send(JSON.stringify({op:3}));
-          }
-        },msg.d.heartbeat_interval);
-
-        socket.send(JSON.stringify({op:2,d:{subscribe_to_id:USER_ID}}));
-
-      }else if(msg.op === 0 && msg.t === "INIT_STATE"){
-        renderPresence(msg.d);
-      }else if(msg.op === 0 && msg.t === "PRESENCE_UPDATE"){
-        renderPresence(msg.d);
-      }
-
-    });
-
-    socket.addEventListener("close",()=>{
-      clearInterval(heartbeat);
-      setConnection("اتصال قطع شد؛ تلاش برای اتصال دوباره…");
-      reconnectTimer = setTimeout(connect,5000);
-    });
-
-    socket.addEventListener("error",()=>{
-      setConnection("خطا در اتصال؛ در حال تلاش دوباره…");
-    });
-
-  }
-
-  connect();
-
-})();
-
-
-/* =========================================
-   QUOTES
-========================================= */
-
-const quotes = [
-  "«همه‌ی کسانی که سرگردان‌اند، راه را گم نکرده‌اند.»",
-  "«گاهی یک پرسش خوب، از صد پاسخ ارزشمندتر است.»",
-  "«در تاریک‌ترین آسمان‌ها هم می‌شود ستاره‌ای پیدا کرد.»",
-  "«جهان هنوز پر از چیزهایی است که منتظر کشف شدن‌اند.»"
-];
-
-const toast = document.getElementById("toast");
-
-document.getElementById("surpriseBtn").addEventListener("click",()=>{
-
-  document.getElementById("quoteText").textContent =
-    quotes[Math.floor(Math.random()*quotes.length)];
-
-  toast.textContent = "یک پیام تازه از دل شب رسید ✦";
-  toast.classList.add("show");
-
-  setTimeout(()=>{
-    toast.classList.remove("show");
-  },2200);
-
+/* LIVE DISCORD PRESENCE */
+
+(()=>{
+const USER_ID="1534277328224653363";
+const $=id=>document.getElementById(id);
+
+const statusLabels={
+online:"آنلاین",
+idle:"بی‌کار",
+dnd:"مزاحم نشوید",
+offline:"آفلاین"
+};
+
+let heartbeat=null;
+let reconnectTimer=null;
+let socket=null;
+
+function setConnection(message){
+$("discordConnection").textContent=message;
+}
+
+function renderPresence(p){
+if(!p||!p.discord_user){
+setConnection("پروفایل هنوز در Lanyard پیدا نشد؛ عضویت در سرور Lanyard را بررسی کن.");
+$("discordStatus").textContent="اطلاعات در دسترس نیست";
+return;
+}
+
+const user=p.discord_user;
+const username=user.global_name||user.display_name||user.username||"Discord User";
+
+$("discordName").textContent=username;
+$("discordHandle").textContent="@"+(user.username||"discord-user");
+
+if(user.avatar){
+const ext=user.avatar.startsWith("a_")?"gif":"png";
+$("discordAvatar").src=`https://cdn.discordapp.com/avatars/${USER_ID}/${user.avatar}.${ext}?size=256`;
+}
+
+const status=p.discord_status||"offline";
+$("discordStatus").textContent=statusLabels[status]||"نامشخص";
+$("statusDot").className="status-dot "+status;
+
+const activities=Array.isArray(p.activities)?p.activities:[];
+const custom=activities.find(a=>a.type===4&&a.state);
+const activity=activities.find(a=>a.type!==4&&a.name);
+
+if(p.spotify&&p.spotify.song){
+$("activityIcon").textContent="♫";
+$("activityTitle").textContent="در حال گوش دادن به "+p.spotify.song;
+$("activityDetail").textContent="از "+(p.spotify.artist||"Spotify")+
+(p.spotify.album?" · "+p.spotify.album:"");
+}else if(activity){
+const labels={
+0:"در حال بازی",1:"در حال استریم",
+2:"در حال گوش دادن",3:"در حال تماشا",5:"در حال رقابت"
+};
+
+$("activityIcon").textContent=
+activity.type===0?"🎮":activity.type===2?"♫":activity.type===3?"◉":"✦";
+$("activityTitle").textContent=activity.name;
+$("activityDetail").textContent=
+[labels[activity.type]||"فعالیت",activity.details,activity.state]
+.filter(Boolean).join(" · ");
+}else if(custom){
+$("activityIcon").textContent="✧";
+$("activityTitle").textContent=custom.state;
+$("activityDetail").textContent="وضعیت شخصی دیسکورد";
+}else{
+$("activityIcon").textContent="☾";
+$("activityTitle").textContent="فعلاً فعالیتی نمایش داده نمی‌شود";
+$("activityDetail").textContent="وقتی بازی یا فعالیتی داشته باشی، اینجا نشان داده می‌شود.";
+}
+
+setConnection("اتصال زنده برقرار است · به‌روزرسانی خودکار");
+}
+
+function connect(){
+clearTimeout(reconnectTimer);
+
+try{
+socket=new WebSocket("wss://api.lanyard.rest/socket");
+}catch(_){
+setConnection("اتصال برقرار نشد؛ تلاش دوباره…");
+reconnectTimer=setTimeout(connect,5000);
+return;
+}
+
+socket.addEventListener("open",()=>{
+setConnection("اتصال برقرار شد؛ دریافت وضعیت…");
 });
 
+socket.addEventListener("message",event=>{
+let msg;
+try{msg=JSON.parse(event.data)}catch(_){return}
+
+if(msg.op===1&&msg.d&&msg.d.heartbeat_interval){
+clearInterval(heartbeat);
+heartbeat=setInterval(()=>{
+if(socket&&socket.readyState===WebSocket.OPEN){
+socket.send(JSON.stringify({op:3}));
+}
+},msg.d.heartbeat_interval);
+
+socket.send(JSON.stringify({op:2,d:{subscribe_to_id:USER_ID}}));
+}else if(msg.op===0&&(msg.t==="INIT_STATE"||msg.t==="PRESENCE_UPDATE")){
+renderPresence(msg.d);
+}
+});
+
+socket.addEventListener("close",()=>{
+clearInterval(heartbeat);
+setConnection("اتصال قطع شد؛ تلاش برای اتصال دوباره…");
+reconnectTimer=setTimeout(connect,5000);
+});
+
+socket.addEventListener("error",()=>{
+setConnection("خطا در اتصال؛ در حال تلاش دوباره…");
+});
+}
+
+connect();
+})();
+
+/* QUOTES */
+
+const quotes=[
+"«همه‌ی کسانی که سرگردان‌اند، راه را گم نکرده‌اند.»",
+"«گاهی یک پرسش خوب، از صد پاسخ ارزشمندتر است.»",
+"«در تاریک‌ترین آسمان‌ها هم می‌شود ستاره‌ای پیدا کرد.»",
+"«جهان هنوز پر از چیزهایی است که منتظر کشف شدن‌اند.»"
+];
+
+const toast=document.getElementById("toast");
+
+document.getElementById("surpriseBtn").addEventListener("click",()=>{
+document.getElementById("quoteText").textContent=
+quotes[Math.floor(Math.random()*quotes.length)];
+
+toast.textContent="یک پیام تازه از دل شب رسید ✦";
+toast.classList.add("show");
+
+setTimeout(()=>toast.classList.remove("show"),2200);
+});
 </script>
 
 </body>
