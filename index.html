@@ -4,1066 +4,1133 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#090a12">
-<meta name="description" content="NOCTURNE — گوشه‌ای آرام برای ذهن‌های کنجکاو">
-<title>NOCTURNE — به ناشناخته‌ها خوش آمدی</title>
+<meta name="theme-color" content="#080910">
+<meta name="description" content="NOCTURNE — A digital sanctuary for curious minds">
+<title>NOCTURNE — Digital Sanctuary</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap');
-
 :root{
---bg:#090a12;
---panel:#111321;
---muted:#a3a7bc;
---text:#f4f4fb;
---purple:#9b7bff;
---cyan:#63e5e8;
---line:rgba(255,255,255,.09);
+ --bg:#080910;
+ --panel:#10121e;
+ --panel2:#151827;
+ --text:#f1f1fa;
+ --muted:#858ba5;
+ --purple:#9b7bff;
+ --cyan:#63e5e8;
+ --pink:#d47bff;
+ --line:rgba(255,255,255,.08);
+ --radius:20px;
 }
 
-*{
-box-sizing:border-box;
-}
+*{box-sizing:border-box}
 
 html{
-scroll-behavior:smooth;
-scroll-padding-top:100px;
+ scroll-behavior:smooth;
+ scroll-padding-top:100px;
 }
 
 body{
-margin:0;
-background:var(--bg);
-color:var(--text);
-font-family:"Vazirmatn",Tahoma,sans-serif;
-overflow-x:hidden;
+ margin:0;
+ background:var(--bg);
+ color:var(--text);
+ font-family:"Vazirmatn",Tahoma,sans-serif;
+ overflow-x:hidden;
 }
 
-body.menu-open{
-overflow:hidden;
-}
-
-body:before{
-content:"";
-position:fixed;
-inset:0;
-pointer-events:none;
-z-index:-1;
-background:
-radial-gradient(ellipse at 78% 15%,rgba(111,75,210,.17),transparent 34%),
-radial-gradient(ellipse at 12% 70%,rgba(48,180,190,.10),transparent 30%),
-linear-gradient(180deg,#0b0c16,#080910 70%);
-}
+body.menu-open{overflow:hidden}
 
 a{
-color:inherit;
-text-decoration:none;
+ text-decoration:none;
+ color:inherit;
 }
 
-button{
-font-family:inherit;
-}
+button,input{font:inherit}
 
-/* =========================
-   WRAPPER
-========================= */
+button{color:inherit}
 
 .wrap{
-width:min(1120px,92%);
-margin:auto;
+ width:min(1120px,92%);
+ margin:auto;
 }
 
-/* =========================
-   HEADER
-========================= */
+/* BACKGROUND */
+
+.background{
+ position:fixed;
+ inset:0;
+ z-index:-2;
+ pointer-events:none;
+ overflow:hidden;
+ background:
+ radial-gradient(ellipse at 80% 10%,#553b9b25,transparent 35%),
+ radial-gradient(ellipse at 10% 70%,#247e8c18,transparent 35%),
+ #080910;
+}
+
+.background:after{
+ content:"";
+ position:absolute;
+ inset:0;
+ opacity:.16;
+ background-image:
+ linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+ linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+ background-size:45px 45px;
+ mask-image:linear-gradient(to bottom,black,transparent);
+}
+
+.ambient{
+ position:absolute;
+ width:450px;
+ height:450px;
+ border-radius:50%;
+ filter:blur(120px);
+ opacity:.12;
+}
+
+.ambient.one{
+ background:#7956ff;
+ top:5%;
+ right:-180px;
+}
+
+.ambient.two{
+ background:#35c6ce;
+ bottom:5%;
+ left:-200px;
+}
+
+#stars{
+ position:absolute;
+ inset:0;
+ width:100%;
+ height:100%;
+}
+
+/* HEADER */
 
 header{
-position:sticky;
-top:0;
-z-index:100;
-background:rgba(9,10,18,.88);
-backdrop-filter:blur(18px);
--webkit-backdrop-filter:blur(18px);
-border-bottom:1px solid var(--line);
+ position:sticky;
+ top:0;
+ z-index:100;
+ background:#080910dc;
+ backdrop-filter:blur(20px);
+ border-bottom:1px solid var(--line);
 }
 
 nav{
-min-height:76px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:24px;
+ min-height:76px;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:20px;
 }
 
 .brand{
-display:flex;
-align-items:center;
-gap:11px;
-font-size:17px;
-font-weight:800;
-letter-spacing:3px;
-direction:ltr;
-flex-shrink:0;
+ display:flex;
+ align-items:center;
+ gap:11px;
+ font-size:17px;
+ font-weight:800;
+ letter-spacing:4px;
+ direction:ltr;
 }
 
 .brand-mark{
-width:34px;
-height:34px;
-border-radius:12px;
-background:linear-gradient(135deg,var(--purple),#5b4be0 55%,var(--cyan));
-box-shadow:0 0 26px #8c6cff66;
-position:relative;
+ width:35px;
+ height:35px;
+ border-radius:12px;
+ background:linear-gradient(135deg,var(--purple),#5142bd,var(--cyan));
+ position:relative;
+ box-shadow:0 0 25px #9676ff55;
 }
 
-.brand-mark:after{
-content:"";
-position:absolute;
-width:12px;
-height:12px;
-border:2px solid white;
-border-radius:50%;
-left:9px;
-top:9px;
+.brand-mark:before{
+ content:"";
+ position:absolute;
+ inset:9px;
+ border:2px solid white;
+ border-radius:50%;
 }
 
 .links{
-display:flex;
-gap:18px;
-color:#b9bbca;
-font-size:12px;
-flex-wrap:wrap;
+ display:flex;
+ align-items:center;
+ gap:17px;
+ color:#aeb1c5;
+ font-size:12px;
 }
 
 .links a{
-transition:.25s;
+ transition:.25s;
 }
 
 .links a:hover{
-color:white;
+ color:var(--cyan);
 }
 
-.nav-cta,
-.btn{
-border:1px solid var(--line);
-padding:10px 19px;
-border-radius:12px;
-font:inherit;
-font-size:13px;
-cursor:pointer;
-transition:.25s;
-white-space:nowrap;
+.nav-cta{
+ border:1px solid #9b7bff55;
+ padding:10px 17px;
+ border-radius:12px;
+ font-size:12px;
+ transition:.25s;
 }
 
-.nav-cta:hover,
-.btn.secondary:hover{
-border-color:#9b7bff88;
-background:#9b7bff12;
+.nav-cta:hover{
+ background:#9b7bff20;
 }
-
-/* =========================
-   MOBILE MENU BUTTON
-========================= */
 
 .mobile-menu-btn{
-display:none;
-width:44px;
-height:44px;
-border:1px solid rgba(155,123,255,.3);
-border-radius:13px;
-background:rgba(155,123,255,.08);
-cursor:pointer;
-align-items:center;
-justify-content:center;
-flex-direction:column;
-gap:5px;
-position:relative;
-z-index:102;
-transition:.3s;
-}
-
-.mobile-menu-btn:hover{
-background:rgba(155,123,255,.17);
-border-color:var(--purple);
+ display:none;
+ width:43px;
+ height:43px;
+ background:#9b7bff12;
+ border:1px solid #9b7bff55;
+ border-radius:12px;
+ cursor:pointer;
+ flex-direction:column;
+ justify-content:center;
+ align-items:center;
+ gap:5px;
 }
 
 .mobile-menu-btn span{
-display:block;
-width:19px;
-height:2px;
-border-radius:5px;
-background:#d8ceff;
-transition:.3s ease;
+ width:19px;
+ height:2px;
+ background:#ddd3ff;
+ border-radius:5px;
+ transition:.25s;
 }
 
 .mobile-menu-btn.active span:nth-child(1){
-transform:translateY(7px) rotate(45deg);
+ transform:translateY(7px) rotate(45deg);
 }
 
 .mobile-menu-btn.active span:nth-child(2){
-opacity:0;
-transform:translateX(10px);
+ opacity:0;
 }
 
 .mobile-menu-btn.active span:nth-child(3){
-transform:translateY(-7px) rotate(-45deg);
-}
-
-/* =========================
-   MOBILE MENU
-========================= */
-
-.mobile-menu{
-display:none;
-}
-
-@media(max-width:760px){
-
-.mobile-menu-btn{
-display:flex;
-}
-
-.links,
-.nav-cta{
-display:none !important;
+ transform:translateY(-7px) rotate(-45deg);
 }
 
 .mobile-menu{
-display:block;
-position:fixed;
-top:76px;
-left:0;
-right:0;
-
-/* Correct mobile viewport height */
-height:calc(100vh - 76px);
-height:calc(100dvh - 76px);
-
-background:rgba(8,9,17,.97);
-backdrop-filter:blur(22px);
--webkit-backdrop-filter:blur(22px);
-border-top:1px solid var(--line);
-z-index:101;
-overflow-y:auto;
-overscroll-behavior:contain;
-
-opacity:0;
-visibility:hidden;
-pointer-events:none;
-transform:translateY(-12px);
-
-transition:
-opacity .3s ease,
-transform .3s ease,
-visibility .3s ease;
+ display:none;
 }
 
-.mobile-menu.open{
-opacity:1;
-visibility:visible;
-pointer-events:auto;
-transform:translateY(0);
-}
-
-.mobile-menu-inner{
-width:min(500px,90%);
-margin:auto;
-padding:32px 0 25px;
-}
-
-.mobile-menu-label{
-color:var(--cyan);
-font-size:10px;
-letter-spacing:3px;
-direction:ltr;
-text-align:left;
-margin-bottom:20px;
-}
-
-.mobile-menu-inner>a{
-display:flex;
-align-items:center;
-gap:15px;
-min-height:58px;
-border-bottom:1px solid rgba(255,255,255,.07);
-font-size:15px;
-transition:.25s;
-}
-
-.mobile-menu-inner>a:hover,
-.mobile-menu-inner>a:active{
-color:var(--cyan);
-padding-right:8px;
-}
-
-.mobile-menu-inner>a span{
-color:#77718f;
-font-size:10px;
-direction:ltr;
-}
-
-.mobile-menu-inner>a b{
-margin-right:auto;
-color:var(--purple);
-font-size:18px;
-font-weight:400;
-}
-
-.mobile-menu-footer{
-display:flex;
-flex-direction:column;
-gap:7px;
-margin-top:38px;
-direction:ltr;
-text-align:left;
-}
-
-.mobile-menu-footer span:first-child{
-color:#b7a4ff;
-font-size:13px;
-font-weight:800;
-letter-spacing:4px;
-}
-
-.mobile-menu-footer span:last-child{
-color:#656a80;
-font-size:9px;
-letter-spacing:2px;
-}
-
-}
-
-/* =========================
-   HERO
-========================= */
+/* HERO */
 
 .hero{
-min-height:610px;
-display:grid;
-grid-template-columns:1.05fr .95fr;
-align-items:center;
-gap:30px;
-padding:75px 0 65px;
+ min-height:570px;
+ display:grid;
+ grid-template-columns:1.1fr .9fr;
+ align-items:center;
+ gap:35px;
+ padding:65px 0;
 }
 
 .eyebrow{
-color:var(--cyan);
-font-size:12px;
-letter-spacing:2px;
-display:flex;
-align-items:center;
-gap:10px;
+ display:flex;
+ align-items:center;
+ gap:10px;
+ color:var(--cyan);
+ font-size:11px;
+ letter-spacing:2px;
 }
 
 .eyebrow:before{
-content:"";
-width:26px;
-height:1px;
-background:var(--cyan);
+ content:"";
+ width:28px;
+ height:1px;
+ background:var(--cyan);
 }
 
 h1{
-font-size:clamp(40px,6vw,70px);
-line-height:1.25;
-margin:22px 0 18px;
-font-weight:800;
-letter-spacing:-2px;
+ font-size:clamp(39px,6vw,68px);
+ line-height:1.35;
+ margin:22px 0;
+ font-weight:800;
 }
 
-h1 span{
-background:linear-gradient(90deg,#c4aaff,var(--cyan));
--webkit-background-clip:text;
-background-clip:text;
-color:transparent;
+.gradient{
+ background:linear-gradient(90deg,#c2aaff,var(--cyan));
+ color:transparent;
+ background-clip:text;
 }
 
 .lead{
-color:var(--muted);
-font-size:16px;
-line-height:2.2;
-max-width:520px;
+ color:var(--muted);
+ font-size:14px;
+ line-height:2.4;
+ max-width:530px;
 }
 
 .actions{
-display:flex;
-gap:12px;
-margin-top:30px;
-flex-wrap:wrap;
+ display:flex;
+ gap:12px;
+ flex-wrap:wrap;
+ margin-top:28px;
+}
+
+.btn{
+ border:1px solid var(--line);
+ border-radius:12px;
+ padding:12px 20px;
+ font-size:12px;
+ cursor:pointer;
+ transition:.25s;
 }
 
 .btn.primary{
-background:linear-gradient(110deg,#8b6cf4,#6756d8);
-border:0;
-box-shadow:0 10px 35px #8062ef3b;
-color:white;
+ background:linear-gradient(110deg,#9273f5,#5c4acb);
+ border:0;
+ box-shadow:0 10px 30px #8062ef33;
 }
 
 .btn.primary:hover{
-transform:translateY(-3px);
-box-shadow:0 14px 40px #8062ef66;
+ transform:translateY(-3px);
+ box-shadow:0 12px 35px #8062ef66;
 }
 
 .btn.secondary{
-background:#ffffff08;
-color:#e7e7f0;
+ background:#ffffff08;
 }
 
-/* =========================
-   SPACE VISUAL
-========================= */
+.btn.secondary:hover{
+ border-color:var(--purple);
+}
 
-.visual{
-height:420px;
-display:grid;
-place-items:center;
-position:relative;
+/* DIGITAL CORE */
+
+.hero-visual{
+ min-height:390px;
+ display:grid;
+ place-items:center;
+ position:relative;
+}
+
+.core{
+ width:min(310px,75vw);
+ aspect-ratio:1;
+ border-radius:50%;
+ position:relative;
+ display:grid;
+ place-items:center;
+}
+
+.core:before{
+ content:"";
+ position:absolute;
+ inset:0;
+ border:1px solid #9b7bff66;
+ border-radius:50%;
+ box-shadow:0 0 60px #8a6aff18,inset 0 0 60px #8a6aff15;
+}
+
+.core:after{
+ content:"";
+ position:absolute;
+ inset:28px;
+ border:1px solid #63e5e855;
+ border-radius:50%;
+ transform:scaleY(.55) rotate(-35deg);
+}
+
+.core-inner{
+ width:145px;
+ height:145px;
+ border-radius:50%;
+ display:grid;
+ place-items:center;
+ background:radial-gradient(circle at 35% 30%,#bda8ff,#5541a5 45%,#111323 80%);
+ box-shadow:0 0 45px #9273f577,0 0 100px #9273f522;
+ position:relative;
+ z-index:2;
+}
+
+.core-symbol{
+ font-size:52px;
+ color:white;
+ text-shadow:0 0 25px white;
 }
 
 .orbit{
-width:min(350px,78vw);
-aspect-ratio:1;
-border-radius:50%;
-position:relative;
-display:grid;
-place-items:center;
-border:1px solid #9c86ff55;
-box-shadow:0 0 80px #8062ef22,inset 0 0 70px #8062ef12;
-animation:float 7s ease-in-out infinite;
+ position:absolute;
+ inset:-25px;
+ border:1px solid #9b7bff33;
+ border-radius:50%;
+ transform:rotateX(65deg);
 }
 
-.orbit:before,
-.orbit:after{
-content:"";
-position:absolute;
-border:1px solid #6de1e355;
-border-radius:50%;
-inset:26px;
-transform:rotate(-28deg) scaleY(.38);
+.orbit.two{
+ inset:-48px;
+ transform:rotateX(65deg) rotate(70deg);
+ border-color:#63e5e833;
 }
 
-.orbit:after{
-inset:-25px;
-transform:rotate(35deg) scaleY(.3);
-border-color:#a68bff66;
+.core-label{
+ position:absolute;
+ font-size:10px;
+ letter-spacing:3px;
+ direction:ltr;
+ color:var(--cyan);
 }
 
-.planet{
-width:190px;
-aspect-ratio:1;
-border-radius:50%;
-background:
-radial-gradient(circle at 32% 28%,#d7d0ff 0,#8e7be8 12%,#403a86 38%,#15182f 68%,#090b16 100%);
-box-shadow:
-inset -22px -18px 45px #03040c,
-0 0 55px #9275ff88,
-0 0 120px #5ddfe433;
-position:relative;
+.core-label.top{
+ top:12px;
 }
 
-.planet:after{
-content:"";
-position:absolute;
-inset:38% -28%;
-height:23%;
-border:2px solid #a9a0ff99;
-border-left-color:#6be5e8;
-border-right-color:#6be5e8;
-border-radius:50%;
-transform:rotate(-22deg);
-box-shadow:0 0 18px #8b7aff88;
+.core-label.bottom{
+ bottom:10px;
+ color:#b9a5ff;
 }
 
-.star{
-position:absolute;
-width:4px;
-height:4px;
-border-radius:50%;
-background:#fff;
-box-shadow:0 0 12px white;
-animation:blink 2s infinite alternate;
+.core-dot{
+ position:absolute;
+ width:8px;
+ height:8px;
+ border-radius:50%;
+ background:var(--cyan);
+ box-shadow:0 0 15px var(--cyan);
 }
 
-.s1{top:13%;right:18%}
-.s2{bottom:17%;left:13%;animation-delay:.7s}
-.s3{top:27%;left:10%;animation-delay:1.1s}
-.s4{bottom:12%;right:22%;animation-delay:.3s}
+.dot-one{top:15%;right:12%}
+.dot-two{bottom:17%;left:10%}
+.dot-three{top:50%;left:0}
 
-@keyframes float{
-50%{transform:translateY(-13px) rotate(3deg)}
+/* DASHBOARD */
+
+.dashboard{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:18px;
+ margin-bottom:85px;
 }
 
-@keyframes blink{
-to{opacity:.25;transform:scale(.5)}
+.panel{
+ background:linear-gradient(145deg,#17192aee,#10121eee);
+ border:1px solid var(--line);
+ border-radius:var(--radius);
+ padding:24px;
+ position:relative;
+ overflow:hidden;
 }
 
-/* =========================
-   DISCOVER
-========================= */
+.panel:before{
+ content:"";
+ position:absolute;
+ width:130px;
+ height:130px;
+ border-radius:50%;
+ background:#9273f51a;
+ filter:blur(55px);
+ top:-50px;
+ right:-40px;
+ pointer-events:none;
+}
+
+.panel-head{
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:12px;
+ margin-bottom:22px;
+}
+
+.panel-title{
+ font-size:14px;
+ font-weight:700;
+}
+
+.panel-tag{
+ font-size:9px;
+ color:var(--cyan);
+ letter-spacing:2px;
+ direction:ltr;
+}
+
+.clock{
+ font-size:45px;
+ font-weight:700;
+ direction:ltr;
+ text-align:center;
+ letter-spacing:3px;
+ margin:12px 0 0;
+}
+
+.date{
+ text-align:center;
+ color:var(--muted);
+ font-size:12px;
+ margin-top:8px;
+}
+
+.clock-status{
+ display:flex;
+ justify-content:center;
+ gap:7px;
+ align-items:center;
+ margin-top:19px;
+ font-size:10px;
+ color:var(--cyan);
+}
+
+.live-dot{
+ width:7px;
+ height:7px;
+ border-radius:50%;
+ background:#4cddae;
+ box-shadow:0 0 12px #4cddae;
+}
+
+.signal-content{
+ text-align:center;
+ padding:10px 5px;
+}
+
+.signal-icon{
+ font-size:35px;
+ margin-bottom:12px;
+ color:var(--purple);
+}
+
+.signal-content h3{
+ font-size:17px;
+ margin:0 0 10px;
+}
+
+.signal-content p{
+ font-size:12px;
+ color:var(--muted);
+ line-height:2;
+ margin:0;
+}
+
+.signal-number{
+ direction:ltr;
+ color:var(--cyan);
+ font-size:10px;
+ letter-spacing:3px;
+ margin-top:17px;
+}
+
+/* SECTION */
 
 .section-head{
-text-align:center;
-margin:30px 0 34px;
+ text-align:center;
+ margin:35px 0;
 }
 
 .section-head h2{
-font-size:28px;
-margin:0 0 8px;
+ font-size:25px;
+ margin:0 0 9px;
 }
 
 .section-head p{
-color:var(--muted);
-font-size:13px;
+ color:var(--muted);
+ font-size:12px;
 }
 
+/* CARDS */
+
 .cards{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:17px;
-margin-bottom:100px;
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:17px;
+ margin-bottom:90px;
 }
 
 .card{
-background:linear-gradient(145deg,#17192a99,#10111c);
-border:1px solid var(--line);
-border-radius:19px;
-padding:25px;
-min-height:205px;
-transition:.3s;
+ padding:25px;
+ border-radius:19px;
+ border:1px solid var(--line);
+ background:linear-gradient(145deg,#17192a99,#10121c);
+ min-height:205px;
+ transition:.3s;
 }
 
 .card:hover{
-transform:translateY(-6px);
-border-color:#9b7bff66;
-box-shadow:0 18px 45px #0005;
+ transform:translateY(-5px);
+ border-color:#9b7bff66;
+ box-shadow:0 15px 35px #0005;
 }
 
-.icon{
-width:43px;
-height:43px;
-border-radius:14px;
-background:#9b7bff18;
-display:grid;
-place-items:center;
-font-size:20px;
-margin-bottom:19px;
+.card-icon{
+ width:44px;
+ height:44px;
+ display:grid;
+ place-items:center;
+ background:#9b7bff1c;
+ border-radius:14px;
+ font-size:21px;
+ margin-bottom:17px;
+ color:var(--cyan);
 }
 
 .card h3{
-margin:0 0 8px;
-font-size:17px;
+ font-size:16px;
+ margin:0 0 10px;
 }
 
 .card p{
-margin:0;
-color:var(--muted);
-font-size:13px;
-line-height:2;
+ color:var(--muted);
+ font-size:12px;
+ line-height:2.1;
+ margin:0;
 }
 
-/* =========================
-   ADVERTISEMENTS
-========================= */
+/* ARCHIVE */
 
-.ads-section{
-margin:75px 0 95px;
-scroll-margin-top:100px;
+.archive{
+ margin-bottom:90px;
 }
 
-.ads-grid{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:20px;
+.archive-list{
+ display:grid;
+ gap:12px;
 }
 
-.ad-card{
-background:linear-gradient(145deg,#19182b,#101321);
-border:1px solid var(--line);
-border-radius:22px;
-overflow:hidden;
-padding:24px;
-transition:.3s;
+.archive-item{
+ display:flex;
+ align-items:center;
+ gap:15px;
+ background:#111321;
+ border:1px solid var(--line);
+ border-radius:15px;
+ padding:17px;
+ transition:.25s;
 }
 
-.ad-card:hover{
-border-color:#9b7bff66;
-transform:translateY(-4px);
+.archive-item:hover{
+ border-color:#9b7bff77;
+ background:#17192a;
 }
 
-.ad-tag{
-color:var(--cyan);
-font-size:11px;
-letter-spacing:2px;
+.archive-icon{
+ width:42px;
+ height:42px;
+ border-radius:12px;
+ background:#9b7bff1a;
+ display:grid;
+ place-items:center;
+ font-size:19px;
+ flex-shrink:0;
 }
 
-.ad-content h3{
-margin:12px 0 10px;
-font-size:19px;
+.archive-text{
+ flex:1;
 }
 
-.ad-content p{
-color:var(--muted);
-font-size:13px;
-line-height:2.1;
+.archive-text h3{
+ margin:0 0 5px;
+ font-size:13px;
 }
 
-/* =========================
-   DISCORD
-========================= */
+.archive-text p{
+ margin:0;
+ color:var(--muted);
+ font-size:11px;
+}
 
-.discord-wrap{
-max-width:650px;
-margin:10px auto 95px;
-scroll-margin-top:100px;
+.archive-arrow{
+ color:var(--cyan);
+ font-size:17px;
+}
+
+/* MUSIC */
+
+.music-section{
+ max-width:680px;
+ margin:0 auto 90px;
+}
+
+.music-card{
+ background:linear-gradient(145deg,#1b1930,#111321 65%,#102027);
+ border:1px solid #9273f555;
+ border-radius:23px;
+ padding:25px;
+ box-shadow:0 20px 65px #0006;
+}
+
+.music-top{
+ display:flex;
+ align-items:center;
+ gap:15px;
+}
+
+.album-art{
+ width:70px;
+ height:70px;
+ flex-shrink:0;
+ border-radius:17px;
+ display:grid;
+ place-items:center;
+ font-size:29px;
+ background:radial-gradient(circle at 30% 30%,#c3aaff,#5945a7 45%,#101321);
+ box-shadow:0 0 25px #9478ff44;
+}
+
+.music-title{
+ font-size:15px;
+ font-weight:800;
+ direction:ltr;
+}
+
+.music-subtitle{
+ font-size:10px;
+ color:var(--muted);
+ margin-top:5px;
+}
+
+.music-state{
+ margin-right:auto;
+ font-size:10px;
+ color:var(--cyan);
+ direction:ltr;
+}
+
+audio{display:none}
+
+.player-controls{
+ display:flex;
+ align-items:center;
+ gap:12px;
+ margin-top:22px;
+}
+
+.player-btn{
+ width:43px;
+ height:43px;
+ border-radius:50%;
+ background:#9b7bff20;
+ border:1px solid #9b7bff55;
+ cursor:pointer;
+ font-size:17px;
+}
+
+.player-btn.main{
+ width:49px;
+ height:49px;
+ background:linear-gradient(135deg,#9273f5,#5c4acb);
+ border:0;
+}
+
+.progress-wrap{margin-top:16px}
+
+.progress{
+ width:100%;
+ accent-color:var(--purple);
+ cursor:pointer;
+}
+
+.time-row{
+ display:flex;
+ justify-content:space-between;
+ direction:ltr;
+ font-size:10px;
+ color:var(--muted);
+}
+
+.volume-row{
+ display:flex;
+ align-items:center;
+ gap:12px;
+ margin-top:15px;
+ font-size:10px;
+ color:var(--muted);
+}
+
+.volume-row input{
+ accent-color:var(--cyan);
+ width:100px;
+}
+
+.music-note{
+ color:var(--muted);
+ font-size:10px;
+ line-height:2;
+ margin-top:15px;
+}
+
+/* DISCORD */
+
+.discord-section{
+ max-width:680px;
+ margin:0 auto 90px;
 }
 
 .discord-card{
-position:relative;
-overflow:hidden;
-border:1px solid #8e79df55;
-border-radius:24px;
-padding:28px;
-background:linear-gradient(145deg,#19182b 0%,#111321 55%,#101b22 100%);
-box-shadow:0 22px 70px #0007,0 0 45px #8b70ff12;
-}
-
-.discord-card:before{
-content:"";
-position:absolute;
-width:260px;
-height:260px;
-border-radius:50%;
-background:#8b6cf4;
-filter:blur(100px);
-opacity:.13;
-top:-150px;
-left:-80px;
-pointer-events:none;
+ padding:27px;
+ border:1px solid #9273f555;
+ border-radius:23px;
+ background:linear-gradient(145deg,#1a192b,#111321 60%,#101c22);
 }
 
 .discord-top{
-display:flex;
-align-items:center;
-gap:18px;
-position:relative;
+ display:flex;
+ align-items:center;
+ gap:17px;
 }
 
 .discord-avatar{
-width:94px;
-height:94px;
-border-radius:50%;
-object-fit:cover;
-border:3px solid #9c83ff;
-box-shadow:0 0 28px #9478ff55;
-background:#25263a;
+ width:82px;
+ height:82px;
+ border-radius:50%;
+ border:3px solid var(--purple);
+ background:#25263a;
+ object-fit:cover;
 }
 
 .discord-name{
-font-size:22px;
-font-weight:800;
-margin:0 0 4px;
-direction:ltr;
-text-align:right;
+ font-size:20px;
+ font-weight:800;
+ direction:ltr;
 }
 
 .discord-handle{
-font-size:12px;
-color:var(--muted);
-direction:ltr;
-text-align:right;
+ font-size:11px;
+ color:var(--muted);
+ direction:ltr;
+ margin-top:4px;
 }
 
 .discord-status{
-display:inline-flex;
-align-items:center;
-gap:7px;
-margin-top:10px;
-padding:5px 10px;
-border-radius:20px;
-background:#ffffff0b;
-color:#c7c9d8;
-font-size:11px;
+ display:inline-flex;
+ align-items:center;
+ gap:7px;
+ margin-top:10px;
+ font-size:10px;
+ color:#c8c9d9;
 }
 
 .status-dot{
-width:8px;
-height:8px;
-border-radius:50%;
-background:#777;
+ width:8px;
+ height:8px;
+ border-radius:50%;
+ background:#777;
 }
 
-.status-dot.online{
-background:#3ba55d;
-box-shadow:0 0 10px #3ba55d;
-}
-
+.status-dot.online{background:#3ba55d}
 .status-dot.idle{background:#faa61a}
 .status-dot.dnd{background:#ed4245}
 .status-dot.offline{background:#747f8d}
 
 .discord-divider{
-height:1px;
-background:var(--line);
-margin:22px 0;
+ height:1px;
+ background:var(--line);
+ margin:22px 0;
 }
 
 .activity-box{
-display:flex;
-align-items:center;
-gap:14px;
-padding:15px;
-border-radius:16px;
-background:#ffffff08;
-border:1px solid #ffffff0b;
-min-height:78px;
+ display:flex;
+ align-items:center;
+ gap:14px;
+ padding:16px;
+ background:#ffffff08;
+ border:1px solid #ffffff0b;
+ border-radius:15px;
 }
 
 .activity-icon{
-width:42px;
-height:42px;
-border-radius:12px;
-background:#9b7bff20;
-display:grid;
-place-items:center;
-font-size:20px;
-flex-shrink:0;
+ width:43px;
+ height:43px;
+ display:grid;
+ place-items:center;
+ background:#9b7bff20;
+ border-radius:12px;
+ font-size:20px;
 }
 
 .activity-label{
-font-size:10px;
-color:var(--cyan);
-margin-bottom:3px;
+ color:var(--cyan);
+ font-size:9px;
+ letter-spacing:2px;
 }
 
 .activity-title{
-font-size:14px;
-font-weight:700;
+ font-size:13px;
+ font-weight:700;
+ margin-top:4px;
 }
 
 .activity-detail{
-font-size:11px;
-color:var(--muted);
-margin-top:3px;
+ color:var(--muted);
+ font-size:10px;
+ margin-top:4px;
 }
 
 .discord-foot{
-display:flex;
-justify-content:space-between;
-align-items:center;
-gap:12px;
-margin-top:17px;
-color:#858aa2;
-font-size:10px;
+ display:flex;
+ justify-content:space-between;
+ gap:12px;
+ margin-top:18px;
+ color:var(--muted);
+ font-size:10px;
+ flex-wrap:wrap;
 }
 
-.discord-link{
-color:#c9bbff;
-}
+.discord-link{color:#c6b5ff}
 
-/* =========================
-   QUOTE
-========================= */
+/* QUOTE */
 
 .quote{
-border:1px solid var(--line);
-border-radius:22px;
-padding:35px;
-text-align:center;
-background:linear-gradient(110deg,#171629aa,#101a20aa);
-margin-bottom:90px;
-scroll-margin-top:100px;
+ text-align:center;
+ padding:35px;
+ border:1px solid var(--line);
+ border-radius:22px;
+ background:linear-gradient(110deg,#171629aa,#101a20aa);
+ margin-bottom:90px;
 }
 
 .quote p{
-font-size:clamp(18px,3vw,25px);
-line-height:1.9;
-margin:0 auto 12px;
-max-width:700px;
+ font-size:clamp(17px,3vw,24px);
+ line-height:2;
+ margin:0 auto 12px;
+ max-width:720px;
 }
 
 .quote small{
-color:var(--cyan);
+ color:var(--cyan);
 }
 
-/* =========================
-   FOOTER
-========================= */
+/* FOOTER */
 
 footer{
-border-top:1px solid var(--line);
-padding:25px 0;
-color:#777d94;
-font-size:12px;
+ border-top:1px solid var(--line);
+ padding:25px 0;
+ color:#777d94;
+ font-size:11px;
 }
 
 footer .wrap{
-display:flex;
-justify-content:space-between;
-gap:15px;
-flex-wrap:wrap;
+ display:flex;
+ justify-content:space-between;
+ gap:15px;
+ flex-wrap:wrap;
 }
 
-/* =========================
-   TOAST
-========================= */
+/* TOAST */
 
 .toast{
-position:fixed;
-bottom:24px;
-left:24px;
-background:#1a1c2c;
-border:1px solid #9b7bff66;
-padding:12px 18px;
-border-radius:12px;
-opacity:0;
-transform:translateY(12px);
-transition:.25s;
-pointer-events:none;
-font-size:13px;
-z-index:200;
+ position:fixed;
+ bottom:22px;
+ left:22px;
+ padding:13px 18px;
+ border:1px solid #9b7bff66;
+ background:#17192a;
+ border-radius:13px;
+ font-size:12px;
+ opacity:0;
+ transform:translateY(15px);
+ transition:.25s;
+ pointer-events:none;
+ z-index:300;
 }
 
 .toast.show{
-opacity:1;
-transform:translateY(0);
+ opacity:1;
+ transform:translateY(0);
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
+/* MOBILE */
 
 @media(max-width:760px){
 
-.hero{
-grid-template-columns:1fr;
-padding-top:55px;
-text-align:center;
-}
+ .links,.nav-cta{display:none}
 
-.eyebrow{
-justify-content:center;
-}
+ .mobile-menu-btn{display:flex}
 
-.lead{
-margin:auto;
-}
+ .mobile-menu{
+  display:block;
+  position:fixed;
+  top:76px;
+  left:0;
+  right:0;
+  height:calc(100dvh - 76px);
+  background:#090a12f7;
+  backdrop-filter:blur(20px);
+  z-index:101;
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transform:translateY(-10px);
+  transition:.25s;
+  overflow-y:auto;
+ }
 
-.actions{
-justify-content:center;
-}
+ .mobile-menu.open{
+  opacity:1;
+  visibility:visible;
+  pointer-events:auto;
+  transform:translateY(0);
+ }
 
-.visual{
-height:330px;
-grid-row:1;
-}
+ .mobile-menu-inner{
+  width:90%;
+  margin:auto;
+  padding:25px 0;
+ }
 
-.orbit{
-width:260px;
-}
+ .mobile-menu-label{
+  color:var(--cyan);
+  font-size:10px;
+  letter-spacing:3px;
+  direction:ltr;
+  margin-bottom:17px;
+ }
 
-.planet{
-width:145px;
-}
+ .mobile-menu-inner>a{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  min-height:58px;
+  border-bottom:1px solid #ffffff12;
+  font-size:14px;
+ }
 
-.cards{
-grid-template-columns:1fr;
-}
+ .mobile-menu-inner>a span{
+  color:#77718f;
+  font-size:10px;
+  direction:ltr;
+ }
 
-.ads-grid{
-grid-template-columns:1fr;
-}
+ .mobile-menu-inner>a b{
+  margin-right:auto;
+  color:var(--purple);
+  font-weight:400;
+ }
 
-.section-head h2{
-font-size:24px;
-}
+ .mobile-footer{
+  direction:ltr;
+  margin-top:35px;
+  color:#888;
+  font-size:10px;
+  letter-spacing:3px;
+ }
 
-.discord-card{
-padding:21px;
-}
+ .hero{
+  grid-template-columns:1fr;
+  text-align:center;
+  padding-top:40px;
+ }
 
-.discord-avatar{
-width:76px;
-height:76px;
-}
+ .hero-visual{
+  min-height:330px;
+  grid-row:1;
+ }
 
-.discord-name{
-font-size:18px;
-}
+ .core{
+  width:260px;
+ }
 
-.discord-foot{
-flex-direction:column;
-align-items:flex-start;
-}
+ .eyebrow{justify-content:center}
 
+ .lead{margin:auto}
+
+ .actions{justify-content:center}
+
+ .dashboard{grid-template-columns:1fr}
+
+ .cards{grid-template-columns:1fr}
+
+ .section-head h2{font-size:22px}
+
+ .discord-card{padding:20px}
+
+ .discord-avatar{
+  width:68px;
+  height:68px;
+ }
+
+ .discord-name{font-size:17px}
 }
 
 @media(max-width:420px){
 
-.brand{
-font-size:14px;
-}
+ .brand{font-size:14px}
 
-.quote{
-padding:23px;
-}
+ .clock{font-size:37px}
 
-.mobile-menu-inner>a{
-font-size:14px;
-}
+ .quote{padding:22px}
 
-.toast{
-left:12px;
-right:12px;
-bottom:15px;
-text-align:center;
-}
+ .panel{padding:19px}
+
+ .toast{
+  left:12px;
+  right:12px;
+  bottom:12px;
+  text-align:center;
+ }
 
 }
-
-/* =========================
-   REDUCED MOTION
-========================= */
 
 @media(prefers-reduced-motion:reduce){
-
-*{
-scroll-behavior:auto !important;
-animation-duration:.01ms !important;
-transition-duration:.01ms !important;
+ *,*:before,*:after{
+  scroll-behavior:auto!important;
+  animation:none!important;
+  transition:none!important;
+ }
 }
-
-}
-
-:focus-visible{
-outline:2px solid var(--cyan);
-outline-offset:3px;
-}
-
 </style>
 </head>
 
 <body>
 
-<!-- =========================
-     HEADER
-========================= -->
+<div class="background">
+ <div class="ambient one"></div>
+ <div class="ambient two"></div>
+ <canvas id="stars"></canvas>
+</div>
 
 <header>
-<div class="wrap">
+ <div class="wrap">
+  <nav>
 
-<nav>
+   <a class="brand" href="index.html">
+    <span class="brand-mark"></span>
+    NOCTURNE
+   </a>
 
-<a class="brand" href="index.html" aria-label="NOCTURNE Home">
-<span class="brand-mark"></span>
-NOCTURNE
-</a>
+   <div class="links">
+    <a href="#explore">کاوش</a>
+    <a href="#dashboard">داشبورد</a>
+    <a href="#discover">کشف کن</a>
+    <a href="mbti.html">تست MBTI</a>
+    <a href="#archive">آرشیو</a>
+    <a href="#music">موسیقی</a>
+    <a href="#discord">دیسکورد</a>
+    <a href="artin.html">آرتین ✦</a>
+   </div>
 
-<div class="links">
+   <a class="nav-cta" href="#discover">ورود به فضا ↗</a>
 
-<a href="#explore">کاوش</a>
-<a href="#discover">کشف کن</a>
-<a href="mbti.html">تست MBTI</a>
-<a href="#ads">تبلیغات</a>
-<a href="#discord">دیسکورد</a>
+   <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="باز کردن منو" aria-expanded="false">
+    <span></span><span></span><span></span>
+   </button>
 
-<!-- FIXED ARTIN LINK -->
-<a href="artin.html">آرتین ✦</a>
+  </nav>
+ </div>
 
-<a href="#about">درباره</a>
-
-</div>
-
-<a class="nav-cta" href="#explore">
-ورود به فضا ↗
-</a>
-
-<!-- MOBILE MENU BUTTON -->
-
-<button
-class="mobile-menu-btn"
-id="mobileMenuBtn"
-type="button"
-aria-label="باز کردن منو"
-aria-expanded="false"
-aria-controls="mobileMenu">
-
-<span></span>
-<span></span>
-<span></span>
-
-</button>
-
-</nav>
-
-</div>
-
-<!-- MOBILE MENU -->
-
-<div
-class="mobile-menu"
-id="mobileMenu"
-aria-hidden="true">
-
-<div class="mobile-menu-inner">
-
-<div class="mobile-menu-label">
-NAVIGATION / 01
-</div>
-
-<a href="#explore">
-<span>01</span>
-کاوش
-<b>✧</b>
-</a>
-
-<a href="#discover">
-<span>02</span>
-کشف کن
-<b>◈</b>
-</a>
-
-<a href="mbti.html">
-<span>03</span>
-تست شخصیت MBTI
-<b>⌁</b>
-</a>
-
-<a href="#ads">
-<span>04</span>
-تبلیغات
-<b>✦</b>
-</a>
-
-<a href="#discord">
-<span>05</span>
-دیسکورد
-<b>◉</b>
-</a>
-
-<!-- FIXED ARTIN LINK -->
-
-<a href="artin.html">
-<span>06</span>
-آرتین
-<b>✧</b>
-</a>
-
-<a href="#about">
-<span>07</span>
-درباره ما
-<b>☾</b>
-</a>
-
-<div class="mobile-menu-footer">
-<span>NOCTURNE</span>
-<span>WELCOME TO THE UNKNOWN</span>
-</div>
-
-</div>
-</div>
-
+ <div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-inner">
+   <div class="mobile-menu-label">NAVIGATION / 01</div>
+   <a href="#explore"><span>01</span> صفحه اصلی <b>✧</b></a>
+   <a href="#dashboard"><span>02</span> داشبورد <b>◈</b></a>
+   <a href="#discover"><span>03</span> کاوش <b>⌁</b></a>
+   <a href="mbti.html"><span>04</span> تست MBTI <b>✦</b></a>
+   <a href="#archive"><span>05</span> آرشیو <b>▤</b></a>
+   <a href="#music"><span>06</span> موسیقی <b>♫</b></a>
+   <a href="#discord"><span>07</span> دیسکورد <b>◉</b></a>
+   <a href="artin.html"><span>08</span> آرتین <b>✧</b></a>
+   <div class="mobile-footer">NOCTURNE / DIGITAL SANCTUARY</div>
+  </div>
+ </div>
 </header>
-
-<!-- =========================
-     MAIN
-========================= -->
 
 <main class="wrap">
 
@@ -1071,47 +1138,93 @@ NAVIGATION / 01
 
 <section class="hero" id="explore">
 
-<div>
+ <div>
+  <div class="eyebrow">WELCOME TO THE UNKNOWN</div>
 
-<div class="eyebrow">
-فراتر از روزمرگی
-</div>
+  <h1>
+   دنیایی فراتر از
+   <span class="gradient">روزمرگی.</span>
+  </h1>
 
-<h1>
-به دنیای <span>ناشناخته‌ها</span> خوش آمدی.
-</h1>
+  <p class="lead">
+   به NOCTURNE خوش آمدی؛ گوشه‌ای متفاوت از اینترنت،
+   برای ذهن‌های کنجکاو، ایده‌های تازه و کشف ناشناخته‌ها.
+   اینجا دنیای خودت را بساز.
+  </p>
 
-<p class="lead">
-اینجا گوشه‌ای آرام از اینترنت است؛ جایی برای ذهن‌های کنجکاو،
-ایده‌های تازه و کشف چیزهایی که هنوز نامی برایشان پیدا نکرده‌ایم.
-</p>
+  <div class="actions">
+   <a class="btn primary" href="#discover">شروع کاوش ←</a>
+   <button class="btn secondary" id="surpriseBtn">یک سیگنال دریافت کن ✦</button>
+  </div>
+ </div>
 
-<div class="actions">
+ <div class="hero-visual">
 
-<a class="btn primary" href="#discover">
-شروع کاوش ←
-</a>
+  <div class="core">
+   <div class="orbit"></div>
+   <div class="orbit two"></div>
 
-<button class="btn secondary" id="surpriseBtn" type="button">
-غافلگیرم کن ✦
-</button>
+   <div class="core-inner">
+    <span class="core-symbol">☾</span>
+   </div>
 
-</div>
+   <span class="core-label top">NOCTURNE // CORE</span>
+   <span class="core-label bottom">SYSTEM ONLINE</span>
 
-</div>
+   <span class="core-dot dot-one"></span>
+   <span class="core-dot dot-two"></span>
+   <span class="core-dot dot-three"></span>
+  </div>
 
-<div class="visual" aria-label="تصویر انتزاعی سیاره در فضا">
+ </div>
 
-<div class="orbit">
-<div class="planet"></div>
-</div>
+</section>
 
-<i class="star s1"></i>
-<i class="star s2"></i>
-<i class="star s3"></i>
-<i class="star s4"></i>
+<!-- DASHBOARD -->
 
-</div>
+<section id="dashboard">
+
+ <div class="section-head">
+  <h2>داشبورد شبانه</h2>
+  <p>وضعیت فعلی سیستم NOCTURNE</p>
+ </div>
+
+ <div class="dashboard">
+
+  <div class="panel">
+
+   <div class="panel-head">
+    <span class="panel-title">زمان محلی</span>
+    <span class="panel-tag">LIVE CLOCK</span>
+   </div>
+
+   <div class="clock" id="clock">00:00:00</div>
+   <div class="date" id="date">در حال دریافت تاریخ...</div>
+
+   <div class="clock-status">
+    <span class="live-dot"></span>
+    سیستم ساعت فعال است
+   </div>
+
+  </div>
+
+  <div class="panel">
+
+   <div class="panel-head">
+    <span class="panel-title">سیگنال امروز</span>
+    <span class="panel-tag">DAILY SIGNAL</span>
+   </div>
+
+   <div class="signal-content">
+    <div class="signal-icon">✧</div>
+    <h3 id="signalTitle">یک لحظه برای خودت</h3>
+    <p id="signalText">گاهی بهترین کشف‌ها زمانی اتفاق می‌افتند که کمی مکث می‌کنی.</p>
+    <div class="signal-number" id="signalNumber">SIGNAL / 001</div>
+   </div>
+
+  </div>
+
+ </div>
 
 </section>
 
@@ -1119,641 +1232,649 @@ NAVIGATION / 01
 
 <section id="discover">
 
-<div class="section-head">
+ <div class="section-head">
+  <h2>در NOCTURNE چه خبر است؟</h2>
+  <p>مسیر خودت را انتخاب کن.</p>
+ </div>
 
-<h2>از کجا شروع کنیم؟</h2>
+ <div class="cards">
 
-<p>
-هر مسیر، دری به سوی یک دنیای تازه است.
-</p>
+  <article class="card">
+   <div class="card-icon">✧</div>
+   <h3>اعماق فضا</h3>
+   <p>به ناشناخته‌ها فکر کن و از دنیای اطرافت فراتر برو.</p>
+  </article>
 
-</div>
+  <article class="card">
+   <div class="card-icon">⌁</div>
+   <h3>سیگنال‌های پنهان</h3>
+   <p>جزئیات کوچک، گاهی داستان‌های بزرگی برای گفتن دارند.</p>
+  </article>
 
-<div class="cards">
+  <article class="card">
+   <div class="card-icon">◈</div>
+   <h3>آرشیو شبانه</h3>
+   <p>مجموعه‌ای از فکرها، نوشته‌ها و ایده‌های جالب.</p>
+  </article>
 
-<article class="card">
+  <article class="card">
+   <div class="card-icon">⌘</div>
+   <h3>آزمایشگاه شخصیت</h3>
+   <p>با تست MBTI بیشتر با شیوه‌های متفاوت فکر کردن آشنا شو.</p>
+   <a href="mbti.html" style="color:var(--cyan);font-size:11px;display:inline-block;margin-top:15px">ورود به آزمایشگاه ←</a>
+  </article>
 
-<div class="icon">✧</div>
+  <article class="card">
+   <div class="card-icon">♫</div>
+   <h3>رادیوی شبانه</h3>
+   <p>موسیقی مناسب برای لحظات آرام و تمرکز.</p>
+   <a href="#music" style="color:var(--cyan);font-size:11px;display:inline-block;margin-top:15px">ورود به رادیو ←</a>
+  </article>
 
-<h3>اعماق فضا</h3>
+  <article class="card">
+   <div class="card-icon">◉</div>
+   <h3>پایگاه ارتباطی</h3>
+   <p>وضعیت فعالیت و پروفایل Discord را مشاهده کن.</p>
+   <a href="#discord" style="color:var(--cyan);font-size:11px;display:inline-block;margin-top:15px">مشاهده وضعیت ←</a>
+  </article>
 
-<p>
-در سکوت کیهان قدم بزن و به شگفتی‌هایی فکر کن که هنوز کشف نشده‌اند.
-</p>
-
-</article>
-
-<article class="card">
-
-<div class="icon">⌁</div>
-
-<h3>سیگنال‌های پنهان</h3>
-
-<p>
-به جزئیات کوچک توجه کن؛ گاهی جالب‌ترین رازها درست جلوی چشم ما هستند.
-</p>
-
-</article>
-
-<article class="card">
-
-<div class="icon">◈</div>
-
-<h3>آرشیو شبانه</h3>
-
-<p>
-مجموعه‌ای از فکرها، الهام‌ها و پرسش‌هایی برای ساعت‌های آرام شب.
-</p>
-
-</article>
-
-</div>
+ </div>
 
 </section>
 
-<!-- ADVERTISEMENTS -->
+<!-- ARCHIVE -->
 
-<section class="ads-section" id="ads">
+<section class="archive" id="archive">
 
-<div class="section-head">
+ <div class="section-head">
+  <h2>آرشیو NOCTURNE</h2>
+  <p>دسترسی سریع به بخش‌های مختلف</p>
+ </div>
 
-<h2>تبلیغات و معرفی مجموعه‌ها</h2>
+ <div class="archive-list">
 
-<p>
-معرفی افراد و فعالیت‌های اقتصادی
-</p>
+  <a class="archive-item" href="mbti.html">
+   <div class="archive-icon">⌘</div>
+   <div class="archive-text">
+    <h3>Personality Lab</h3>
+    <p>آزمایشگاه شخصیت و تست MBTI</p>
+   </div>
+   <span class="archive-arrow">←</span>
+  </a>
 
-</div>
+  <a class="archive-item" href="artin.html">
+   <div class="archive-icon">✦</div>
+   <div class="archive-text">
+    <h3>ARTIN</h3>
+    <p>فضای اختصاصی آرتین</p>
+   </div>
+   <span class="archive-arrow">←</span>
+  </a>
 
-<div class="ads-grid">
+  <a class="archive-item" href="#music">
+   <div class="archive-icon">♫</div>
+   <div class="archive-text">
+    <h3>NOCTURNE RADIO</h3>
+    <p>پخش‌کننده موسیقی</p>
+   </div>
+   <span class="archive-arrow">←</span>
+  </a>
 
-<article class="ad-card">
+  <a class="archive-item" href="#discord">
+   <div class="archive-icon">◉</div>
+   <div class="archive-text">
+    <h3>Discord Terminal</h3>
+    <p>اطلاعات پروفایل و فعالیت Discord</p>
+   </div>
+   <span class="archive-arrow">←</span>
+  </a>
 
-<div class="ad-content">
+ </div>
 
-<span class="ad-tag">
-NOCTURNE PARTNERS
-</span>
+</section>
 
-<h3>معرفی مجموعه‌ها</h3>
+<!-- MUSIC -->
 
-<p>
-این بخش برای معرفی کسب‌وکارها، پروژه‌ها و مجموعه‌های مختلف
-در دنیای NOCTURNE در نظر گرفته شده است.
-</p>
+<section class="music-section" id="music">
 
-</div>
+ <div class="section-head">
+  <h2>NOCTURNE RADIO</h2>
+  <p>صدایی برای ساعت‌های آرام شب</p>
+ </div>
 
-</article>
+ <div class="music-card">
 
-<article class="ad-card">
+  <div class="music-top">
+   <div class="album-art">♫</div>
 
-<div class="ad-content">
+   <div>
+    <div class="music-title">MIDNIGHT SIGNAL</div>
+    <div class="music-subtitle">Dark Synthwave · NOCTURNE RADIO</div>
+   </div>
 
-<span class="ad-tag">
-COMMUNITY
-</span>
+   <span class="music-state" id="musicState">READY</span>
+  </div>
 
-<h3>همکاری و تبلیغات</h3>
+  <audio id="audio" preload="metadata" loop src="music.mp3"></audio>
 
-<p>
-فضایی برای معرفی فعالیت‌ها و همکاری با افراد و مجموعه‌های
-علاقه‌مند به دنیای NOCTURNE.
-</p>
+  <div class="player-controls">
+   <button class="player-btn" id="restartBtn">↺</button>
+   <button class="player-btn main" id="playBtn">▶</button>
+   <span style="font-size:10px;color:var(--cyan)">NOW PLAYING</span>
+  </div>
 
-</div>
+  <div class="progress-wrap">
+   <input class="progress" id="seekBar" type="range" min="0" max="100" value="0">
+   <div class="time-row">
+    <span id="currentTime">0:00</span>
+    <span id="duration">0:00</span>
+   </div>
+  </div>
 
-</article>
+  <div class="volume-row">
+   <span>VOLUME</span>
+   <input id="volume" type="range" min="0" max="1" step=".01" value=".7">
+   <span id="volumeValue">70%</span>
+  </div>
 
-</div>
+  <p class="music-note">
+   فایل موسیقی مجاز خودت را با نام music.mp3 کنار index.html قرار بده.
+  </p>
+
+ </div>
 
 </section>
 
 <!-- DISCORD -->
 
-<section class="discord-wrap" id="discord">
+<section class="discord-section" id="discord">
 
-<div class="section-head">
+ <div class="section-head">
+  <h2>Discord Terminal</h2>
+  <p>وضعیت زنده حساب Discord</p>
+ </div>
 
-<h2>پایگاه من در دیسکورد</h2>
+ <div class="discord-card">
 
-<p>
-وضعیت و فعالیت من، زنده از Discord
-</p>
+  <div class="discord-top">
 
-</div>
+   <img class="discord-avatar" id="discordAvatar"
+    src="https://cdn.discordapp.com/embed/avatars/0.png"
+    alt="Discord avatar">
 
-<div class="discord-card">
+   <div>
+    <div class="discord-name" id="discordName">NOCTURNE USER</div>
+    <div class="discord-handle" id="discordHandle">@discord-user</div>
 
-<div class="discord-top">
+    <div class="discord-status">
+     <span class="status-dot" id="statusDot"></span>
+     <span id="discordStatus">در حال اتصال...</span>
+    </div>
+   </div>
 
-<img
-class="discord-avatar"
-id="discordAvatar"
-src="https://cdn.discordapp.com/embed/avatars/0.png"
-alt="Discord avatar">
+  </div>
 
-<div style="min-width:0">
+  <div class="discord-divider"></div>
 
-<div class="discord-name" id="discordName">
-NOCTURNE USER
-</div>
+  <div class="activity-box">
+   <div class="activity-icon" id="activityIcon">✦</div>
 
-<div class="discord-handle" id="discordHandle">
-در حال دریافت پروفایل…
-</div>
+   <div>
+    <div class="activity-label">CURRENT ACTIVITY</div>
+    <div class="activity-title" id="activityTitle">منتظر دریافت اطلاعات...</div>
+    <div class="activity-detail" id="activityDetail">به‌روزرسانی خودکار فعال است</div>
+   </div>
+  </div>
 
-<div class="discord-status">
+  <div class="discord-foot">
+   <span id="discordConnection">اتصال به Lanyard...</span>
+   <a class="discord-link" href="https://discord.com/" target="_blank" rel="noopener">Discord ↗</a>
+  </div>
 
-<span class="status-dot" id="statusDot"></span>
-
-<span id="discordStatus">
-در حال اتصال…
-</span>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="discord-divider"></div>
-
-<div class="activity-box">
-
-<div class="activity-icon" id="activityIcon">
-✦
-</div>
-
-<div>
-
-<div class="activity-label">
-NOW PLAYING / ACTIVITY
-</div>
-
-<div class="activity-title" id="activityTitle">
-منتظر دریافت فعالیت…
-</div>
-
-<div class="activity-detail" id="activityDetail">
-به‌روزرسانی خودکار فعال است
-</div>
-
-</div>
-
-</div>
-
-<div class="discord-foot">
-
-<span id="discordConnection">
-اتصال به سرویس حضور دیسکورد…
-</span>
-
-<a
-class="discord-link"
-href="https://discord.com/"
-target="_blank"
-rel="noopener noreferrer">
-Discord ↗
-</a>
-
-</div>
-
-</div>
+ </div>
 
 </section>
 
 <!-- QUOTE -->
 
-<section class="quote" id="about">
+<section class="quote">
 
-<p id="quoteText">
-«همه‌ی کسانی که سرگردان‌اند، راه را گم نکرده‌اند.»
-</p>
+ <p id="quoteText">
+  «همه کسانی که سرگردان‌اند، راه را گم نکرده‌اند.»
+ </p>
 
-<small>
-— یادداشتی از دل شب
-</small>
+ <small>— NOCTURNE ARCHIVE</small>
+
+ <div style="margin-top:22px">
+  <button class="btn secondary" id="newQuote">پیام دیگری دریافت کن ✦</button>
+ </div>
 
 </section>
 
 </main>
 
-<!-- FOOTER -->
-
 <footer>
-
-<div class="wrap">
-
-<span>
-© 2026 NOCTURNE
-</span>
-
-<span>
-ساخته‌شده برای ذهن‌های کنجکاو · با کمی نور در تاریکی
-</span>
-
-</div>
-
+ <div class="wrap">
+  <span>© 2026 NOCTURNE</span>
+  <span>BUILT FOR CURIOUS MINDS · WELCOME TO THE UNKNOWN</span>
+ </div>
 </footer>
 
-<!-- TOAST -->
-
-<div
-class="toast"
-id="toast"
-role="status"
-aria-live="polite">
-</div>
+<div class="toast" id="toast"></div>
 
 <script>
 
-/* =========================
-   MOBILE MENU SYSTEM
-========================= */
-
-(() => {
-
-const menuBtn = document.getElementById("mobileMenuBtn");
-const menu = document.getElementById("mobileMenu");
-
-if(!menuBtn || !menu) return;
-
-function openMenu(){
-
-menu.classList.add("open");
-menuBtn.classList.add("active");
-
-menuBtn.setAttribute("aria-expanded","true");
-menuBtn.setAttribute("aria-label","بستن منو");
-
-menu.setAttribute("aria-hidden","false");
-
-document.body.classList.add("menu-open");
-
-}
-
-function closeMenu(){
-
-menu.classList.remove("open");
-menuBtn.classList.remove("active");
-
-menuBtn.setAttribute("aria-expanded","false");
-menuBtn.setAttribute("aria-label","باز کردن منو");
-
-menu.setAttribute("aria-hidden","true");
-
-document.body.classList.remove("menu-open");
-
-}
-
-menuBtn.addEventListener("click",()=>{
-
-if(menu.classList.contains("open")){
-closeMenu();
-}else{
-openMenu();
-}
-
-});
-
-/* CLOSE AFTER CLICKING A LINK */
-
-menu.querySelectorAll("a").forEach(link=>{
-
-link.addEventListener("click",closeMenu);
-
-});
-
-/* CLOSE WITH ESCAPE */
-
-document.addEventListener("keydown",event=>{
-
-if(event.key==="Escape"){
-closeMenu();
-}
-
-});
-
-/* CLOSE WHEN CLICKING OUTSIDE MENU */
-
-document.addEventListener("click",event=>{
-
-if(
-menu.classList.contains("open") &&
-!menu.contains(event.target) &&
-!menuBtn.contains(event.target)
-){
-closeMenu();
-}
-
-});
-
-/* CLOSE ON DESKTOP RESIZE */
-
-window.addEventListener("resize",()=>{
-
-if(window.innerWidth>760){
-closeMenu();
-}
-
-});
-
-})();
-
-
-/* =========================
-   LIVE DISCORD PRESENCE
-========================= */
+/* STAR FIELD */
 
 (()=>{
-
-const USER_ID="1534277328224653363";
-
-const $=id=>document.getElementById(id);
-
-const statusLabels={
-online:"آنلاین",
-idle:"بی‌کار",
-dnd:"مزاحم نشوید",
-offline:"آفلاین"
-};
-
-let heartbeat=null;
-let reconnectTimer=null;
-let socket=null;
-
-function setConnection(message){
-
-$("discordConnection").textContent=message;
-
-}
-
-function renderPresence(p){
-
-if(!p || !p.discord_user){
-
-setConnection("پروفایل هنوز در Lanyard پیدا نشد؛ عضویت در سرور Lanyard را بررسی کن.");
-
-$("discordStatus").textContent="اطلاعات در دسترس نیست";
-
-return;
-
-}
-
-const user=p.discord_user;
-
-const username=
-user.global_name ||
-user.display_name ||
-user.username ||
-"Discord User";
-
-$("discordName").textContent=username;
-
-$("discordHandle").textContent=
-"@"+(user.username||"discord-user");
-
-if(user.avatar){
-
-const ext=user.avatar.startsWith("a_")?"gif":"png";
-
-$("discordAvatar").src=
-`https://cdn.discordapp.com/avatars/${USER_ID}/${user.avatar}.${ext}?size=256`;
-
-}
-
-const status=p.discord_status||"offline";
-
-$("discordStatus").textContent=
-statusLabels[status]||"نامشخص";
-
-$("statusDot").className="status-dot "+status;
-
-const activities=
-Array.isArray(p.activities)?p.activities:[];
-
-const custom=
-activities.find(a=>a.type===4&&a.state);
-
-const activity=
-activities.find(a=>a.type!==4&&a.name);
-
-if(p.spotify&&p.spotify.song){
-
-$("activityIcon").textContent="♫";
-
-$("activityTitle").textContent=
-"در حال گوش دادن به "+p.spotify.song;
-
-$("activityDetail").textContent=
-"از "+(p.spotify.artist||"Spotify")+
-(p.spotify.album?" · "+p.spotify.album:"");
-
-}else if(activity){
-
-const labels={
-0:"در حال بازی",
-1:"در حال استریم",
-2:"در حال گوش دادن",
-3:"در حال تماشا",
-5:"در حال رقابت"
-};
-
-$("activityIcon").textContent=
-activity.type===0?"🎮":
-activity.type===2?"♫":
-activity.type===3?"◉":"✦";
-
-$("activityTitle").textContent=activity.name;
-
-$("activityDetail").textContent=
-[
-labels[activity.type]||"فعالیت",
-activity.details,
-activity.state
-].filter(Boolean).join(" · ");
-
-}else if(custom){
-
-$("activityIcon").textContent="✧";
-
-$("activityTitle").textContent=custom.state;
-
-$("activityDetail").textContent=
-"وضعیت شخصی دیسکورد";
-
-}else{
-
-$("activityIcon").textContent="☾";
-
-$("activityTitle").textContent=
-"فعلاً فعالیتی نمایش داده نمی‌شود";
-
-$("activityDetail").textContent=
-"وقتی بازی یا فعالیتی داشته باشی، اینجا نشان داده می‌شود.";
-
-}
-
-setConnection(
-"اتصال زنده برقرار است · به‌روزرسانی خودکار"
-);
-
-}
-
-function connect(){
-
-clearTimeout(reconnectTimer);
-
-try{
-
-socket=new WebSocket("wss://api.lanyard.rest/socket");
-
-}catch(_){
-
-setConnection("اتصال برقرار نشد؛ تلاش دوباره…");
-
-reconnectTimer=setTimeout(connect,5000);
-
-return;
-
-}
-
-socket.addEventListener("open",()=>{
-
-setConnection("اتصال برقرار شد؛ دریافت وضعیت…");
-
-});
-
-socket.addEventListener("message",event=>{
-
-let msg;
-
-try{
-
-msg=JSON.parse(event.data);
-
-}catch(_){
-
-return;
-
-}
-
-if(
-msg.op===1 &&
-msg.d &&
-msg.d.heartbeat_interval
-){
-
-clearInterval(heartbeat);
-
-heartbeat=setInterval(()=>{
-
-if(
-socket &&
-socket.readyState===WebSocket.OPEN
-){
-
-socket.send(JSON.stringify({op:3}));
-
-}
-
-},msg.d.heartbeat_interval);
-
-socket.send(JSON.stringify({
-
-op:2,
-
-d:{
-subscribe_to_id:USER_ID
-}
-
-}));
-
-}else if(
-msg.op===0 &&
-(
-msg.t==="INIT_STATE" ||
-msg.t==="PRESENCE_UPDATE"
-)
-){
-
-renderPresence(msg.d);
-
-}
-
-});
-
-socket.addEventListener("close",()=>{
-
-clearInterval(heartbeat);
-
-setConnection(
-"اتصال قطع شد؛ تلاش برای اتصال دوباره…"
-);
-
-reconnectTimer=setTimeout(connect,5000);
-
-});
-
-socket.addEventListener("error",()=>{
-
-setConnection(
-"خطا در اتصال؛ در حال تلاش دوباره…"
-);
-
-});
-
-}
-
-connect();
+ const canvas=document.getElementById("stars");
+ const ctx=canvas.getContext("2d");
+
+ let stars=[];
+ let width=0,height=0;
+
+ function resize(){
+  width=canvas.width=window.innerWidth;
+  height=canvas.height=window.innerHeight;
+  stars=Array.from({length:100},()=>({
+   x:Math.random()*width,
+   y:Math.random()*height,
+   size:Math.random()*1.5+.3,
+   alpha:Math.random()*.7+.2,
+   speed:Math.random()*.004+.001
+  }));
+ }
+
+ function draw(){
+  ctx.clearRect(0,0,width,height);
+
+  stars.forEach(s=>{
+   s.alpha+=s.speed;
+   if(s.alpha>1||s.alpha<.15)s.speed*=-1;
+
+   ctx.beginPath();
+   ctx.arc(s.x,s.y,s.size,0,Math.PI*2);
+   ctx.fillStyle=`rgba(190,180,255,${s.alpha})`;
+   ctx.fill();
+  });
+
+  requestAnimationFrame(draw);
+ }
+
+ window.addEventListener("resize",resize);
+ resize();
+ draw();
+})();
+
+/* MOBILE MENU */
+
+(()=>{
+ const btn=document.getElementById("mobileMenuBtn");
+ const menu=document.getElementById("mobileMenu");
+
+ function close(){
+  menu.classList.remove("open");
+  btn.classList.remove("active");
+  btn.setAttribute("aria-expanded","false");
+  document.body.classList.remove("menu-open");
+ }
+
+ btn.addEventListener("click",()=>{
+  const open=!menu.classList.contains("open");
+  menu.classList.toggle("open",open);
+  btn.classList.toggle("active",open);
+  btn.setAttribute("aria-expanded",String(open));
+  document.body.classList.toggle("menu-open",open);
+ });
+
+ menu.querySelectorAll("a").forEach(a=>{
+  a.addEventListener("click",close);
+ });
+
+ document.addEventListener("keydown",e=>{
+  if(e.key==="Escape")close();
+ });
+
+ document.addEventListener("click",e=>{
+  if(menu.classList.contains("open")&&
+     !menu.contains(e.target)&&
+     !btn.contains(e.target))close();
+ });
+
+ window.addEventListener("resize",()=>{
+  if(innerWidth>760)close();
+ });
+})();
+
+/* LIVE CLOCK */
+
+(()=>{
+ const clock=document.getElementById("clock");
+ const date=document.getElementById("date");
+
+ function update(){
+  const now=new Date();
+
+  clock.textContent=now.toLocaleTimeString("en-GB",{
+   hour12:false
+  });
+
+  date.textContent=now.toLocaleDateString("fa-IR",{
+   weekday:"long",
+   year:"numeric",
+   month:"long",
+   day:"numeric"
+  });
+ }
+
+ update();
+ setInterval(update,1000);
+})();
+
+/* DAILY SIGNAL */
+
+(()=>{
+ const signals=[
+  {
+   title:"یک لحظه برای خودت",
+   text:"گاهی بهترین کشف‌ها زمانی اتفاق می‌افتند که کمی مکث می‌کنی."
+  },
+  {
+   title:"به کنجکاوی اعتماد کن",
+   text:"هر سؤال تازه می‌تواند شروع یک ماجراجویی جدید باشد."
+  },
+  {
+   title:"ناشناخته‌ها منتظرند",
+   text:"همه چیزهایی که هنوز نمی‌دانی، فرصتی برای یادگیری هستند."
+  },
+  {
+   title:"سیگنال دریافت شد",
+   text:"امروز یک چیز تازه یاد بگیر؛ حتی اگر خیلی کوچک باشد."
+  },
+  {
+   title:"خارج از چارچوب",
+   text:"گاهی تغییر زاویه نگاه، تمام تصویر را عوض می‌کند."
+  }
+ ];
+
+ const day=Math.floor(Date.now()/86400000);
+ const signal=signals[day%signals.length];
+
+ document.getElementById("signalTitle").textContent=signal.title;
+ document.getElementById("signalText").textContent=signal.text;
+ document.getElementById("signalNumber").textContent=
+ "SIGNAL / "+String(day%999+1).padStart(3,"0");
+})();
+
+/* MUSIC PLAYER */
+
+(()=>{
+ const audio=document.getElementById("audio");
+ const play=document.getElementById("playBtn");
+ const seek=document.getElementById("seekBar");
+ const volume=document.getElementById("volume");
+
+ const state=document.getElementById("musicState");
+ const current=document.getElementById("currentTime");
+ const duration=document.getElementById("duration");
+
+ const fmt=t=>{
+  if(!Number.isFinite(t))return"0:00";
+  return Math.floor(t/60)+":"+String(Math.floor(t%60)).padStart(2,"0");
+ };
+
+ function update(){
+  if(Number.isFinite(audio.duration)&&audio.duration>0){
+   seek.value=audio.currentTime/audio.duration*100;
+   duration.textContent=fmt(audio.duration);
+  }
+  current.textContent=fmt(audio.currentTime);
+ }
+
+ play.addEventListener("click",async()=>{
+  if(audio.paused){
+   try{
+    await audio.play();
+   }catch(e){
+    showToast("فایل music.mp3 را بررسی کن.");
+    state.textContent="AUDIO ERROR";
+   }
+  }else{
+   audio.pause();
+  }
+ });
+
+ audio.addEventListener("play",()=>{
+  play.textContent="Ⅱ";
+  state.textContent="PLAYING";
+ });
+
+ audio.addEventListener("pause",()=>{
+  play.textContent="▶";
+  state.textContent="PAUSED";
+ });
+
+ audio.addEventListener("error",()=>{
+  state.textContent="NO AUDIO";
+ });
+
+ audio.addEventListener("timeupdate",update);
+ audio.addEventListener("loadedmetadata",update);
+
+ seek.addEventListener("input",()=>{
+  if(Number.isFinite(audio.duration)){
+   audio.currentTime=Number(seek.value)/100*audio.duration;
+  }
+ });
+
+ volume.addEventListener("input",()=>{
+  audio.volume=Number(volume.value);
+  document.getElementById("volumeValue").textContent=
+  Math.round(audio.volume*100)+"%";
+ });
+
+ audio.volume=.7;
+
+ document.getElementById("restartBtn").addEventListener("click",()=>{
+  audio.currentTime=0;
+  showToast("موسیقی از ابتدا تنظیم شد.");
+ });
+})();
+
+/* DISCORD LANYARD */
+
+(()=>{
+ const USER_ID="1534277328224653363";
+ const $=id=>document.getElementById(id);
+
+ const labels={
+  online:"آنلاین",
+  idle:"بی‌کار",
+  dnd:"مزاحم نشوید",
+  offline:"آفلاین"
+ };
+
+ let socket=null;
+ let heartbeat=null;
+ let reconnectTimer=null;
+
+ function connection(text){
+  $("discordConnection").textContent=text;
+ }
+
+ function render(p){
+
+  if(!p||!p.discord_user){
+   connection("اطلاعات پروفایل دریافت نشد.");
+   return;
+  }
+
+  const user=p.discord_user;
+
+  $("discordName").textContent=
+   user.global_name||user.display_name||user.username||"Discord User";
+
+  $("discordHandle").textContent="@"+(user.username||"user");
+
+  if(user.avatar){
+   const ext=user.avatar.startsWith("a_")?"gif":"png";
+   $("discordAvatar").src=
+   `https://cdn.discordapp.com/avatars/${USER_ID}/${user.avatar}.${ext}?size=256`;
+  }
+
+  const status=p.discord_status||"offline";
+
+  $("discordStatus").textContent=labels[status]||"نامشخص";
+  $("statusDot").className="status-dot "+status;
+
+  const activities=Array.isArray(p.activities)?p.activities:[];
+  const activity=activities.find(a=>a.type!==4&&a.name);
+  const custom=activities.find(a=>a.type===4&&a.state);
+
+  if(p.spotify&&p.spotify.song){
+
+   $("activityIcon").textContent="♫";
+   $("activityTitle").textContent=p.spotify.song;
+   $("activityDetail").textContent=
+   p.spotify.artist||"Spotify";
+
+  }else if(activity){
+
+   $("activityIcon").textContent=
+    activity.type===0?"🎮":
+    activity.type===2?"♫":
+    activity.type===3?"◉":"✦";
+
+   $("activityTitle").textContent=activity.name;
+
+   $("activityDetail").textContent=
+    [activity.details,activity.state].filter(Boolean).join(" · ")||
+    "فعالیت در Discord";
+
+  }else if(custom){
+
+   $("activityIcon").textContent="✧";
+   $("activityTitle").textContent=custom.state;
+   $("activityDetail").textContent="Custom Status";
+
+  }else{
+
+   $("activityIcon").textContent="☾";
+   $("activityTitle").textContent="بدون فعالیت";
+   $("activityDetail").textContent="فعلاً فعالیتی نمایش داده نمی‌شود.";
+
+  }
+
+  connection("اتصال زنده برقرار است · LANYARD");
+ }
+
+ function connect(){
+
+  clearTimeout(reconnectTimer);
+
+  try{
+   socket=new WebSocket("wss://api.lanyard.rest/socket");
+  }catch(e){
+   connection("اتصال ناموفق؛ تلاش مجدد...");
+   reconnectTimer=setTimeout(connect,5000);
+   return;
+  }
+
+  socket.addEventListener("open",()=>{
+   connection("اتصال برقرار شد؛ دریافت اطلاعات...");
+  });
+
+  socket.addEventListener("message",event=>{
+
+   let msg;
+
+   try{
+    msg=JSON.parse(event.data);
+   }catch(e){
+    return;
+   }
+
+   if(msg.op===1&&msg.d){
+
+    clearInterval(heartbeat);
+
+    heartbeat=setInterval(()=>{
+     if(socket&&socket.readyState===WebSocket.OPEN){
+      socket.send(JSON.stringify({op:3}));
+     }
+    },msg.d.heartbeat_interval);
+
+    socket.send(JSON.stringify({
+     op:2,
+     d:{subscribe_to_id:USER_ID}
+    }));
+
+   }else if(msg.op===0&&
+    (msg.t==="INIT_STATE"||msg.t==="PRESENCE_UPDATE")){
+
+    render(msg.d);
+   }
+
+  });
+
+  socket.addEventListener("close",()=>{
+   clearInterval(heartbeat);
+   connection("ارتباط قطع شد؛ تلاش مجدد...");
+   reconnectTimer=setTimeout(connect,5000);
+  });
+
+  socket.addEventListener("error",()=>{
+   connection("خطا در اتصال به سرویس.");
+  });
+
+ }
+
+ connect();
+
+ window.addEventListener("beforeunload",()=>{
+  clearInterval(heartbeat);
+  clearTimeout(reconnectTimer);
+  if(socket)socket.close();
+ });
 
 })();
 
-
-/* =========================
-   RANDOM QUOTES
-========================= */
+/* RANDOM QUOTES */
 
 const quotes=[
-
-"«همه‌ی کسانی که سرگردان‌اند، راه را گم نکرده‌اند.»",
-
-"«گاهی یک پرسش خوب، از صد پاسخ ارزشمندتر است.»",
-
-"«در تاریک‌ترین آسمان‌ها هم می‌شود ستاره‌ای پیدا کرد.»",
-
-"«جهان هنوز پر از چیزهایی است که منتظر کشف شدن‌اند.»"
-
+ "«همه کسانی که سرگردان‌اند، راه را گم نکرده‌اند.»",
+ "«گاهی یک پرسش خوب از صد پاسخ ارزشمندتر است.»",
+ "«در تاریک‌ترین آسمان‌ها هم می‌شود ستاره‌ای پیدا کرد.»",
+ "«جهان هنوز پر از چیزهایی است که منتظر کشف شدن‌اند.»",
+ "«هر پایان، می‌تواند شروع یک مسیر تازه باشد.»",
+ "«آرامش را در میان شلوغی‌ها پیدا کن.»",
+ "«ناشناخته بودن، همیشه به معنای ترسناک بودن نیست.»"
 ];
 
-const toast=document.getElementById("toast");
+document.getElementById("newQuote").addEventListener("click",newQuote);
+document.getElementById("surpriseBtn").addEventListener("click",newQuote);
 
-const surpriseBtn=document.getElementById("surpriseBtn");
+function newQuote(){
+ const quote=quotes[Math.floor(Math.random()*quotes.length)];
+ document.getElementById("quoteText").textContent=quote;
+ showToast("یک سیگنال تازه دریافت شد ✦");
+}
+
+/* TOAST */
 
 let toastTimer;
 
-surpriseBtn.addEventListener("click",()=>{
+function showToast(message){
+ const toast=document.getElementById("toast");
+ toast.textContent=message;
+ toast.classList.add("show");
 
-const quoteText=document.getElementById("quoteText");
+ clearTimeout(toastTimer);
 
-quoteText.textContent=
-quotes[Math.floor(Math.random()*quotes.length)];
-
-toast.textContent=
-"یک پیام تازه از دل شب رسید ✦";
-
-toast.classList.add("show");
-
-clearTimeout(toastTimer);
-
-toastTimer=setTimeout(()=>{
-
-toast.classList.remove("show");
-
-},2200);
-
-});
+ toastTimer=setTimeout(()=>{
+  toast.classList.remove("show");
+ },2600);
+}
 
 </script>
 
