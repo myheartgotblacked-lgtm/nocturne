@@ -82,7 +82,7 @@ button {
     padding: 32px 0 60px;
 }
 
-/* Navigation */
+/* NAVIGATION */
 
 .topbar {
     display: flex;
@@ -111,7 +111,7 @@ button {
     color: var(--purple);
 }
 
-/* Hero */
+/* HERO */
 
 .hero {
     text-align: center;
@@ -153,7 +153,7 @@ h1 span {
     margin: auto;
 }
 
-/* Decorative orb */
+/* ORB */
 
 .orb {
     width: 125px;
@@ -181,7 +181,7 @@ h1 span {
     transform: rotate(-25deg);
 }
 
-/* Panels */
+/* PANELS */
 
 .panel {
     background: linear-gradient(145deg,rgba(23,25,43,.92),rgba(16,18,30,.92));
@@ -226,7 +226,7 @@ h1 span {
     line-height: 2.4;
 }
 
-/* Section */
+/* SECTION TITLES */
 
 .section-title {
     text-align: center;
@@ -242,7 +242,7 @@ h1 span {
     margin-bottom: 25px;
 }
 
-/* Cards */
+/* CARDS */
 
 .grid {
     display: grid;
@@ -312,7 +312,112 @@ h1 span {
     border: 1px solid rgba(99,229,232,.15);
 }
 
-/* Quote */
+/* FRIENDS */
+
+.friends-section {
+    margin-top: 60px;
+}
+
+.friends-grid {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 16px;
+}
+
+.friend-card {
+    position: relative;
+    overflow: hidden;
+    padding: 28px 14px;
+    text-align: center;
+    border-radius: 21px;
+    background: linear-gradient(
+        145deg,
+        rgba(23,25,42,.9),
+        rgba(16,17,28,.95)
+    );
+    border: 1px solid rgba(155,123,255,.2);
+    transition: .3s;
+}
+
+.friend-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--purple),
+        var(--cyan),
+        transparent
+    );
+    opacity: .6;
+}
+
+.friend-card:hover {
+    transform: translateY(-7px);
+    border-color: rgba(99,229,232,.5);
+    box-shadow: 0 12px 35px rgba(0,0,0,.25);
+}
+
+.friend-avatar {
+    width: 65px;
+    height: 65px;
+    display: grid;
+    place-items: center;
+    margin: 0 auto 16px;
+    border-radius: 50%;
+    font-size: 27px;
+    font-weight: 800;
+    color: white;
+    background: linear-gradient(135deg,#7657d6,#478eaa);
+    box-shadow: 0 0 25px rgba(155,123,255,.2);
+    transition: .3s;
+}
+
+.friend-card:hover .friend-avatar {
+    transform: rotate(8deg) scale(1.08);
+}
+
+.friend-card h3 {
+    font-size: 16px;
+    margin-bottom: 9px;
+}
+
+.friend-card p {
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 2;
+}
+
+.friend-status {
+    display: inline-block;
+    margin-top: 14px;
+    padding: 5px 11px;
+    color: var(--cyan);
+    font-size: 10px;
+    border-radius: 30px;
+    background: rgba(99,229,232,.07);
+    border: 1px solid rgba(99,229,232,.15);
+}
+
+/* FRIENDS DESCRIPTION */
+
+.friends-note {
+    text-align: center;
+    margin-top: 20px;
+    padding: 18px;
+    border-radius: 16px;
+    background: rgba(155,123,255,.05);
+    border: 1px solid rgba(155,123,255,.12);
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 2.3;
+}
+
+/* QUOTE */
 
 .quote {
     text-align: center;
@@ -333,6 +438,7 @@ h1 span {
     font-size: 15px;
     line-height: 2.5;
     margin: 12px 0;
+    transition: opacity .2s;
 }
 
 .quote small {
@@ -340,7 +446,7 @@ h1 span {
     font-size: 11px;
 }
 
-/* Button */
+/* BUTTON */
 
 .surprise {
     display: block;
@@ -360,7 +466,7 @@ h1 span {
     box-shadow: 0 8px 25px rgba(155,123,255,.25);
 }
 
-/* Toast */
+/* TOAST */
 
 .toast {
     position: fixed;
@@ -387,7 +493,7 @@ h1 span {
     transform: translate(-50%,0);
 }
 
-/* Footer */
+/* FOOTER */
 
 footer {
     text-align: center;
@@ -401,11 +507,15 @@ footer span {
     color: var(--purple);
 }
 
-/* Animations */
+/* ANIMATIONS */
 
 @keyframes float {
-    0%,100% { transform: translateY(0); }
-    50% { transform: translateY(-13px); }
+    0%,100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-13px);
+    }
 }
 
 @keyframes appear {
@@ -419,9 +529,10 @@ footer span {
     }
 }
 
-/* Responsive */
+/* RESPONSIVE */
 
 @media(max-width:640px) {
+
     .wrap {
         padding-top: 23px;
     }
@@ -432,6 +543,11 @@ footer span {
 
     .grid {
         grid-template-columns: 1fr;
+    }
+
+    .friends-grid {
+        grid-template-columns: repeat(2,1fr);
+        gap: 12px;
     }
 
     .panel {
@@ -452,6 +568,10 @@ footer span {
         left: -17px;
         top: 35px;
     }
+
+    .friend-card {
+        padding: 24px 10px;
+    }
 }
 
 @media(prefers-reduced-motion:reduce) {
@@ -467,6 +587,7 @@ footer span {
     outline: 2px solid var(--cyan);
     outline-offset: 4px;
 }
+
 </style>
 </head>
 
@@ -474,16 +595,27 @@ footer span {
 
 <main class="wrap">
 
+    <!-- NAVIGATION -->
+
     <nav class="topbar">
-        <a class="back" href="index.html">← بازگشت به NOCTURNE</a>
+        <a class="back" href="index.html">
+            ← بازگشت به NOCTURNE
+        </a>
+
         <div class="brand">NOCTURNE</div>
     </nav>
 
+    <!-- HERO -->
+
     <section class="hero">
 
-        <div class="eyebrow">✦ A SPECIAL CORNER ✦</div>
+        <div class="eyebrow">
+            ✦ A SPECIAL CORNER ✦
+        </div>
 
-        <h1>سلام <span>آرتین</span></h1>
+        <h1>
+            سلام <span>آرتین</span>
+        </h1>
 
         <p class="lead">
             به گوشه‌ی اختصاصی خودت خوش اومدی.
@@ -494,6 +626,8 @@ footer span {
         <div class="orb"></div>
 
     </section>
+
+    <!-- PERSONAL MESSAGE -->
 
     <section class="panel">
 
@@ -511,7 +645,11 @@ footer span {
 
     </section>
 
-    <h2 class="section-title">بخش‌های اختصاصی</h2>
+    <!-- PERSONAL FEATURES -->
+
+    <h2 class="section-title">
+        بخش‌های اختصاصی
+    </h2>
 
     <p class="section-subtitle">
         چیزهایی که قراره به این گوشه اضافه بشن
@@ -542,6 +680,99 @@ footer span {
 
     </section>
 
+    <!-- FRIENDS SECTION -->
+
+    <section class="friends-section">
+
+        <h2 class="section-title">
+            اتاق دوستان
+        </h2>
+
+        <p class="section-subtitle">
+            FOUR FRIENDS · ONE WORLD
+        </p>
+
+        <section class="friends-grid">
+
+            <article class="friend-card">
+
+                <div class="friend-avatar">A</div>
+
+                <h3>آراد</h3>
+
+                <p>
+                    یکی از اعضای دنیای NOCTURNE
+                </p>
+
+                <span class="friend-status">
+                    ✦ FRIEND
+                </span>
+
+            </article>
+
+            <article class="friend-card">
+
+                <div class="friend-avatar">A</div>
+
+                <h3>علی</h3>
+
+                <p>
+                    یکی از اعضای دنیای NOCTURNE
+                </p>
+
+                <span class="friend-status">
+                    ✦ FRIEND
+                </span>
+
+            </article>
+
+            <article class="friend-card">
+
+                <div class="friend-avatar">A</div>
+
+                <h3>امیر</h3>
+
+                <p>
+                    یکی از اعضای دنیای NOCTURNE
+                </p>
+
+                <span class="friend-status">
+                    ✦ FRIEND
+                </span>
+
+            </article>
+
+            <article class="friend-card">
+
+                <div class="friend-avatar">A</div>
+
+                <h3>امین</h3>
+
+                <p>
+                    یکی از اعضای دنیای NOCTURNE
+                </p>
+
+                <span class="friend-status">
+                    ✦ FRIEND
+                </span>
+
+            </article>
+
+        </section>
+
+        <div class="friends-note">
+            بعضی از آدم‌ها فقط بخشی از یک داستان نیستند؛
+            آن‌ها خودشان بخشی از دنیای آن داستان‌اند.
+            <br>
+            <span style="color:var(--purple)">
+                NOCTURNE ✦
+            </span>
+        </div>
+
+    </section>
+
+    <!-- RANDOM QUOTE -->
+
     <section class="quote">
 
         <div class="quote-symbol">❝</div>
@@ -550,47 +781,93 @@ footer span {
             هر گوشه‌ی ناشناخته‌ای، داستانی برای کشف شدن دارد.
         </p>
 
-        <small>NOCTURNE · A LITTLE THOUGHT</small>
+        <small>
+            NOCTURNE · A LITTLE THOUGHT
+        </small>
 
-        <button class="surprise" id="surpriseBtn" type="button">
+        <button
+            class="surprise"
+            id="surpriseBtn"
+            type="button"
+        >
             یک جمله‌ی تصادفی ✦
         </button>
 
     </section>
 
+    <!-- FOOTER -->
+
     <footer>
         NOCTURNE <span>✦</span> یک گوشه‌ی مخصوص برای آرتین
+
         <br><br>
+
         Made with care · 2026
     </footer>
 
 </main>
 
-<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<!-- TOAST -->
+
+<div
+    class="toast"
+    id="toast"
+    role="status"
+    aria-live="polite"
+></div>
 
 <script>
+
+/* RANDOM QUOTES */
+
 const quotes = [
+
     "هر گوشه‌ی ناشناخته‌ای، داستانی برای کشف شدن دارد.",
+
     "گاهی بهترین اتفاق‌ها از ساده‌ترین لحظه‌ها شروع می‌شوند.",
+
     "دنیا هنوز پر از چیزهایی است که کشف نکرده‌ایم.",
+
     "هر روز می‌تواند شروع یک ماجرای تازه باشد.",
+
     "قرار نیست همه‌چیز از اول معلوم باشد؛ بعضی چیزها را باید کشف کرد.",
+
     "بهترین ایده‌ها گاهی در آرام‌ترین لحظه‌ها به ذهن می‌رسند.",
-    "مسیرهای متفاوت، داستان‌های متفاوتی می‌سازند."
+
+    "مسیرهای متفاوت، داستان‌های متفاوتی می‌سازند.",
+
+    "دوستی یعنی ساختن خاطراتی که ارزش به یاد آوردن دارند.",
+
+    "گاهی یک جمع کوچک می‌تواند دنیای بزرگی بسازد.",
+
+    "ماجرا هنوز تمام نشده است..."
+
 ];
 
+/* ELEMENTS */
+
 const quoteText = document.getElementById("quoteText");
+
 const surpriseBtn = document.getElementById("surpriseBtn");
+
 const toast = document.getElementById("toast");
 
+/* VARIABLES */
+
 let lastQuote = -1;
+
 let toastTimer;
 
+/* RANDOM QUOTE FUNCTION */
+
 surpriseBtn.addEventListener("click", () => {
+
     let index;
 
     do {
+
         index = Math.floor(Math.random() * quotes.length);
+
     } while (index === lastQuote && quotes.length > 1);
 
     lastQuote = index;
@@ -598,19 +875,29 @@ surpriseBtn.addEventListener("click", () => {
     quoteText.style.opacity = "0";
 
     setTimeout(() => {
+
         quoteText.textContent = quotes[index];
+
         quoteText.style.opacity = "1";
+
     }, 180);
 
+    /* TOAST */
+
     toast.textContent = "یک جمله‌ی تازه برای تو ✦";
+
     toast.classList.add("show");
 
     clearTimeout(toastTimer);
 
     toastTimer = setTimeout(() => {
+
         toast.classList.remove("show");
+
     }, 2200);
+
 });
+
 </script>
 
 </body>
