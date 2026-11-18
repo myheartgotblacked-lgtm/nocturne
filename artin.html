@@ -1,63 +1,617 @@
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#090a12">
+<meta name="description" content="NOCTURNE — گوشه‌ی اختصاصی آرتین">
 <title>NOCTURNE — گوشه‌ی آرتین</title>
+
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800&display=swap');
-:root{--bg:#090a12;--muted:#a3a7bc;--text:#f4f4fb;--purple:#9b7bff;--cyan:#63e5e8;--line:rgba(255,255,255,.09)}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font-family:"Vazirmatn",Tahoma,sans-serif;overflow-x:hidden}
-body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;
-  background:radial-gradient(ellipse at 78% 15%,rgba(111,75,210,.17),transparent 34%),
-  radial-gradient(ellipse at 12% 70%,rgba(48,180,190,.10),transparent 30%),
-  linear-gradient(180deg,#0b0c16,#080910 70%)}
-a{color:inherit;text-decoration:none}
-.wrap{width:min(860px,92%);margin:auto;padding:36px 0 60px}
-.back{color:var(--muted);font-size:13px}
-.back:hover{color:white}
-.hero{text-align:center;padding:60px 0 50px}
-.eyebrow{color:var(--cyan);font-size:12px;letter-spacing:2px}
-h1{font-size:clamp(44px,10vw,84px);line-height:1.25;margin:18px 0 14px;font-weight:800;letter-spacing:-2px}
-h1 span{background:linear-gradient(90deg,#c4aaff,var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
-.lead{color:var(--muted);font-size:16px;line-height:2.2;max-width:520px;margin:auto}
-.panel{background:linear-gradient(145deg,#17192b,#10121e);border:1px solid var(--line);border-radius:22px;padding:28px;margin-bottom:28px}
-.panel p{margin:0;color:#d8d9e6;font-size:15px;line-height:2.2}
-h2{font-size:20px;margin:40px 0 16px;text-align:center}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.card{background:linear-gradient(145deg,#17192a99,#10111c);border:1px dashed #9b7bff55;border-radius:19px;padding:24px;text-align:center}
-.icon{width:43px;height:43px;border-radius:14px;background:#9b7bff18;display:grid;place-items:center;font-size:20px;margin:0 auto 14px}
-.card h3{margin:0 0 6px;font-size:16px}
-.card small{color:var(--cyan);font-size:12px}
-footer{text-align:center;color:#777d94;font-size:12px;margin-top:50px}
-:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
-@media(max-width:640px){.grid{grid-template-columns:1fr}}
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --bg: #090a12;
+    --panel: #111321;
+    --muted: #a3a7bc;
+    --text: #f4f4fb;
+    --purple: #9b7bff;
+    --cyan: #63e5e8;
+    --line: rgba(255,255,255,.09);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Vazirmatn", Tahoma, sans-serif;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse at 78% 15%, rgba(111,75,210,.19), transparent 35%),
+        radial-gradient(ellipse at 12% 70%, rgba(48,180,190,.12), transparent 32%),
+        linear-gradient(180deg,#0b0c16,#080910 75%);
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: .2;
+    background-image:
+        radial-gradient(1px 1px at 20% 30%, white 50%, transparent),
+        radial-gradient(1px 1px at 80% 20%, white 50%, transparent),
+        radial-gradient(2px 2px at 50% 70%, white 50%, transparent),
+        radial-gradient(1px 1px at 90% 80%, white 50%, transparent),
+        radial-gradient(1px 1px at 10% 90%, white 50%, transparent);
+    background-size: 250px 250px;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font-family: inherit;
+}
+
+.wrap {
+    width: min(900px, 92%);
+    margin: auto;
+    padding: 32px 0 60px;
+}
+
+/* Navigation */
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--muted);
+    font-size: 13px;
+    transition: .25s;
+}
+
+.back:hover {
+    color: white;
+    transform: translateX(4px);
+}
+
+.brand {
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: var(--purple);
+}
+
+/* Hero */
+
+.hero {
+    text-align: center;
+    padding: 95px 0 65px;
+    animation: appear 1s ease both;
+}
+
+.eyebrow {
+    display: inline-block;
+    color: var(--cyan);
+    font-size: 12px;
+    letter-spacing: 3px;
+    padding: 9px 17px;
+    border: 1px solid rgba(99,229,232,.2);
+    background: rgba(99,229,232,.05);
+    border-radius: 50px;
+}
+
+h1 {
+    font-size: clamp(48px, 10vw, 88px);
+    line-height: 1.3;
+    margin: 24px 0 15px;
+    font-weight: 800;
+    letter-spacing: -2px;
+}
+
+h1 span {
+    background: linear-gradient(90deg,#c4aaff,var(--cyan));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.lead {
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 2.4;
+    max-width: 540px;
+    margin: auto;
+}
+
+/* Decorative orb */
+
+.orb {
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    margin: 38px auto 0;
+    background:
+        radial-gradient(circle at 35% 30%,#d8c9ff,#9573e8 35%,#33265e 70%,#111321);
+    box-shadow:
+        0 0 35px rgba(155,123,255,.25),
+        0 0 90px rgba(99,229,232,.09);
+    animation: float 5s ease-in-out infinite;
+    position: relative;
+}
+
+.orb::after {
+    content: "";
+    position: absolute;
+    width: 165px;
+    height: 35px;
+    border: 2px solid rgba(99,229,232,.5);
+    border-radius: 50%;
+    top: 45px;
+    left: -20px;
+    transform: rotate(-25deg);
+}
+
+/* Panels */
+
+.panel {
+    background: linear-gradient(145deg,rgba(23,25,43,.92),rgba(16,18,30,.92));
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 15px 50px rgba(0,0,0,.12);
+    transition: .3s;
+}
+
+.panel:hover {
+    border-color: rgba(155,123,255,.3);
+    transform: translateY(-3px);
+}
+
+.panel-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 17px;
+}
+
+.panel-icon {
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    background: rgba(155,123,255,.12);
+    border-radius: 13px;
+    color: var(--purple);
+    font-size: 20px;
+}
+
+.panel h2 {
+    font-size: 18px;
+}
+
+.panel p {
+    color: #c9cad8;
+    font-size: 14px;
+    line-height: 2.4;
+}
+
+/* Section */
+
+.section-title {
+    text-align: center;
+    font-size: 21px;
+    margin: 55px 0 24px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: -15px;
+    margin-bottom: 25px;
+}
+
+/* Cards */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 17px;
+}
+
+.card {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(145deg,rgba(23,25,42,.8),rgba(16,17,28,.9));
+    border: 1px solid rgba(155,123,255,.2);
+    border-radius: 21px;
+    padding: 27px 18px;
+    text-align: center;
+    transition: .3s;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg,transparent,var(--purple),var(--cyan),transparent);
+    opacity: .5;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+    border-color: rgba(99,229,232,.4);
+    box-shadow: 0 15px 35px rgba(0,0,0,.2);
+}
+
+.icon {
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    margin: 0 auto 17px;
+    border-radius: 15px;
+    background: rgba(155,123,255,.12);
+    color: var(--cyan);
+    font-size: 22px;
+}
+
+.card h3 {
+    font-size: 15px;
+    margin-bottom: 9px;
+}
+
+.card p {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 2;
+}
+
+.status {
+    display: inline-block;
+    margin-top: 15px;
+    color: var(--cyan);
+    font-size: 11px;
+    padding: 5px 12px;
+    border-radius: 30px;
+    background: rgba(99,229,232,.07);
+    border: 1px solid rgba(99,229,232,.15);
+}
+
+/* Quote */
+
+.quote {
+    text-align: center;
+    padding: 35px 25px;
+    margin-top: 45px;
+    background: linear-gradient(120deg,rgba(155,123,255,.1),rgba(99,229,232,.06));
+    border: 1px solid var(--line);
+    border-radius: 22px;
+}
+
+.quote-symbol {
+    font-size: 35px;
+    color: var(--purple);
+}
+
+.quote p {
+    color: #dedced;
+    font-size: 15px;
+    line-height: 2.5;
+    margin: 12px 0;
+}
+
+.quote small {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+/* Button */
+
+.surprise {
+    display: block;
+    margin: 25px auto 0;
+    padding: 12px 25px;
+    color: white;
+    background: linear-gradient(100deg,#7657d6,#478eaa);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: .25s;
+    font-size: 13px;
+}
+
+.surprise:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(155,123,255,.25);
+}
+
+/* Toast */
+
+.toast {
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    transform: translate(-50%,20px);
+    background: #17192b;
+    border: 1px solid var(--line);
+    color: white;
+    padding: 13px 22px;
+    border-radius: 13px;
+    font-size: 13px;
+    opacity: 0;
+    pointer-events: none;
+    transition: .3s;
+    z-index: 10;
+    width: max-content;
+    max-width: 90%;
+    text-align: center;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translate(-50%,0);
+}
+
+/* Footer */
+
+footer {
+    text-align: center;
+    color: #777d94;
+    font-size: 11px;
+    margin-top: 65px;
+    letter-spacing: 1px;
+}
+
+footer span {
+    color: var(--purple);
+}
+
+/* Animations */
+
+@keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-13px); }
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+
+@media(max-width:640px) {
+    .wrap {
+        padding-top: 23px;
+    }
+
+    .hero {
+        padding: 75px 0 45px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .panel {
+        padding: 23px;
+    }
+
+    .section-title {
+        margin-top: 45px;
+    }
+
+    .orb {
+        width: 100px;
+        height: 100px;
+    }
+
+    .orb::after {
+        width: 135px;
+        left: -17px;
+        top: 35px;
+    }
+}
+
+@media(prefers-reduced-motion:reduce) {
+    *,*::before,*::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+    }
+}
+
+:focus-visible {
+    outline: 2px solid var(--cyan);
+    outline-offset: 4px;
+}
 </style>
 </head>
+
 <body>
+
 <main class="wrap">
-  <a class="back" href="index.html">← بازگشت به NOCTURNE</a>
 
-  <section class="hero">
-    <div class="eyebrow">یک گوشه‌ی مخصوص</div>
-    <h1>سلام <span>آرتین</span></h1>
-    <p class="lead">این‌جا فقط مال توئه. کم‌کم پرش می‌کنیم از چیزهای تازه، پس هر وقت خواستی دوباره سر بزن.</p>
-  </section>
+    <nav class="topbar">
+        <a class="back" href="index.html">← بازگشت به NOCTURNE</a>
+        <div class="brand">NOCTURNE</div>
+    </nav>
 
-  <section class="panel">
-    <p>آرتین جان، این صفحه رو ساختم تا یه جای خودمونی داشته باشی توی NOCTURNE. هر چیزی که اضافه بشه، اول این‌جا میاد.</p>
-  </section>
+    <section class="hero">
 
-  <h2>چیزهایی که قراره بیاد</h2>
-  <section class="grid">
-    <article class="card"><div class="icon">✉</div><h3>یه پیام مخصوص</h3><small>به‌زودی</small></article>
-    <article class="card"><div class="icon">◈</div><h3>گالری خاطره‌ها</h3><small>به‌زودی</small></article>
-    <article class="card"><div class="icon">✦</div><h3>یه بازی کوچولو</h3><small>به‌زودی</small></article>
-  </section>
+        <div class="eyebrow">✦ A SPECIAL CORNER ✦</div>
 
-  <footer>NOCTURNE · برای آرتین</footer>
+        <h1>سلام <span>آرتین</span></h1>
+
+        <p class="lead">
+            به گوشه‌ی اختصاصی خودت خوش اومدی.
+            این‌جا یه فضای کوچیک در دنیای NOCTURNE هست؛
+            جایی برای چیزهای جالب، ایده‌های تازه و اتفاقات خوب.
+        </p>
+
+        <div class="orb"></div>
+
+    </section>
+
+    <section class="panel">
+
+        <div class="panel-title">
+            <div class="panel-icon">✧</div>
+            <h2>یه پیام مخصوص</h2>
+        </div>
+
+        <p>
+            آرتین، این صفحه رو ساختم تا یه گوشه‌ی اختصاصی برای تو
+            توی NOCTURNE داشته باشیم. این‌جا می‌تونه کم‌کم با
+            چیزهای جالب و متفاوت کامل‌تر بشه.
+            امیدوارم از گشت‌وگذار توی این گوشه لذت ببری.
+        </p>
+
+    </section>
+
+    <h2 class="section-title">بخش‌های اختصاصی</h2>
+
+    <p class="section-subtitle">
+        چیزهایی که قراره به این گوشه اضافه بشن
+    </p>
+
+    <section class="grid">
+
+        <article class="card">
+            <div class="icon">✉</div>
+            <h3>پیام‌های مخصوص</h3>
+            <p>پیام‌ها و نوشته‌های اختصاصی این بخش</p>
+            <span class="status">به‌زودی</span>
+        </article>
+
+        <article class="card">
+            <div class="icon">◈</div>
+            <h3>گالری خاطره‌ها</h3>
+            <p>مجموعه‌ای از تصاویر و لحظه‌های جالب</p>
+            <span class="status">به‌زودی</span>
+        </article>
+
+        <article class="card">
+            <div class="icon">✦</div>
+            <h3>بازی کوچک</h3>
+            <p>یک سرگرمی کوچک در دنیای NOCTURNE</p>
+            <span class="status">به‌زودی</span>
+        </article>
+
+    </section>
+
+    <section class="quote">
+
+        <div class="quote-symbol">❝</div>
+
+        <p id="quoteText">
+            هر گوشه‌ی ناشناخته‌ای، داستانی برای کشف شدن دارد.
+        </p>
+
+        <small>NOCTURNE · A LITTLE THOUGHT</small>
+
+        <button class="surprise" id="surpriseBtn" type="button">
+            یک جمله‌ی تصادفی ✦
+        </button>
+
+    </section>
+
+    <footer>
+        NOCTURNE <span>✦</span> یک گوشه‌ی مخصوص برای آرتین
+        <br><br>
+        Made with care · 2026
+    </footer>
+
 </main>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+const quotes = [
+    "هر گوشه‌ی ناشناخته‌ای، داستانی برای کشف شدن دارد.",
+    "گاهی بهترین اتفاق‌ها از ساده‌ترین لحظه‌ها شروع می‌شوند.",
+    "دنیا هنوز پر از چیزهایی است که کشف نکرده‌ایم.",
+    "هر روز می‌تواند شروع یک ماجرای تازه باشد.",
+    "قرار نیست همه‌چیز از اول معلوم باشد؛ بعضی چیزها را باید کشف کرد.",
+    "بهترین ایده‌ها گاهی در آرام‌ترین لحظه‌ها به ذهن می‌رسند.",
+    "مسیرهای متفاوت، داستان‌های متفاوتی می‌سازند."
+];
+
+const quoteText = document.getElementById("quoteText");
+const surpriseBtn = document.getElementById("surpriseBtn");
+const toast = document.getElementById("toast");
+
+let lastQuote = -1;
+let toastTimer;
+
+surpriseBtn.addEventListener("click", () => {
+    let index;
+
+    do {
+        index = Math.floor(Math.random() * quotes.length);
+    } while (index === lastQuote && quotes.length > 1);
+
+    lastQuote = index;
+
+    quoteText.style.opacity = "0";
+
+    setTimeout(() => {
+        quoteText.textContent = quotes[index];
+        quoteText.style.opacity = "1";
+    }, 180);
+
+    toast.textContent = "یک جمله‌ی تازه برای تو ✦";
+    toast.classList.add("show");
+
+    clearTimeout(toastTimer);
+
+    toastTimer = setTimeout(() => {
+        toast.classList.remove("show");
+    }, 2200);
+});
+</script>
+
 </body>
 </html>
