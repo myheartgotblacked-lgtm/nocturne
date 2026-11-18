@@ -12,582 +12,887 @@
 @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-    --bg: #090a12;
-    --panel: #111321;
-    --muted: #a3a7bc;
-    --text: #f4f4fb;
-    --purple: #9b7bff;
-    --cyan: #63e5e8;
-    --line: rgba(255,255,255,.09);
+    --bg:#090a12;
+    --panel:#111321;
+    --muted:#a3a7bc;
+    --text:#f4f4fb;
+    --purple:#9b7bff;
+    --cyan:#63e5e8;
+    --line:rgba(255,255,255,.09);
+    --gold:#f3c969;
 }
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
-html {
-    scroll-behavior: smooth;
-}
+html { scroll-behavior:smooth; }
 
 body {
-    min-height: 100vh;
-    background: var(--bg);
-    color: var(--text);
-    font-family: "Vazirmatn", Tahoma, sans-serif;
-    overflow-x: hidden;
+    min-height:100vh;
+    background:var(--bg);
+    color:var(--text);
+    font-family:"Vazirmatn",Tahoma,sans-serif;
+    overflow-x:hidden;
 }
 
 body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -2;
-    pointer-events: none;
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-2;
+    pointer-events:none;
     background:
-        radial-gradient(ellipse at 78% 15%, rgba(111,75,210,.19), transparent 35%),
-        radial-gradient(ellipse at 12% 70%, rgba(48,180,190,.12), transparent 32%),
+        radial-gradient(ellipse at 78% 15%,rgba(111,75,210,.19),transparent 35%),
+        radial-gradient(ellipse at 12% 70%,rgba(48,180,190,.12),transparent 32%),
         linear-gradient(180deg,#0b0c16,#080910 75%);
 }
 
 body::after {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    pointer-events: none;
-    opacity: .2;
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    pointer-events:none;
+    opacity:.2;
     background-image:
-        radial-gradient(1px 1px at 20% 30%, white 50%, transparent),
-        radial-gradient(1px 1px at 80% 20%, white 50%, transparent),
-        radial-gradient(2px 2px at 50% 70%, white 50%, transparent),
-        radial-gradient(1px 1px at 90% 80%, white 50%, transparent),
-        radial-gradient(1px 1px at 10% 90%, white 50%, transparent);
-    background-size: 250px 250px;
+        radial-gradient(1px 1px at 20% 30%,white 50%,transparent),
+        radial-gradient(1px 1px at 80% 20%,white 50%,transparent),
+        radial-gradient(2px 2px at 50% 70%,white 50%,transparent),
+        radial-gradient(1px 1px at 90% 80%,white 50%,transparent),
+        radial-gradient(1px 1px at 10% 90%,white 50%,transparent);
+    background-size:250px 250px;
 }
 
-a {
-    color: inherit;
-    text-decoration: none;
-}
-
-button {
-    font-family: inherit;
-}
+a { color:inherit;text-decoration:none; }
+button,input { font-family:inherit; }
 
 .wrap {
-    width: min(900px, 92%);
-    margin: auto;
-    padding: 32px 0 60px;
+    width:min(900px,92%);
+    margin:auto;
+    padding:32px 0 60px;
 }
 
 /* NAVIGATION */
 
 .topbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
 
 .back {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--muted);
-    font-size: 13px;
-    transition: .25s;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    color:var(--muted);
+    font-size:13px;
+    transition:.25s;
 }
 
 .back:hover {
-    color: white;
-    transform: translateX(4px);
+    color:white;
+    transform:translateX(4px);
 }
 
 .brand {
-    font-size: 13px;
-    font-weight: 800;
-    letter-spacing: 3px;
-    color: var(--purple);
+    font-size:13px;
+    font-weight:800;
+    letter-spacing:3px;
+    color:var(--purple);
 }
 
 /* HERO */
 
 .hero {
-    text-align: center;
-    padding: 95px 0 65px;
-    animation: appear 1s ease both;
+    text-align:center;
+    padding:95px 0 65px;
+    animation:appear 1s ease both;
 }
 
 .eyebrow {
-    display: inline-block;
-    color: var(--cyan);
-    font-size: 12px;
-    letter-spacing: 3px;
-    padding: 9px 17px;
-    border: 1px solid rgba(99,229,232,.2);
-    background: rgba(99,229,232,.05);
-    border-radius: 50px;
+    display:inline-block;
+    color:var(--cyan);
+    font-size:12px;
+    letter-spacing:3px;
+    padding:9px 17px;
+    border:1px solid rgba(99,229,232,.2);
+    background:rgba(99,229,232,.05);
+    border-radius:50px;
 }
 
 h1 {
-    font-size: clamp(48px, 10vw, 88px);
-    line-height: 1.3;
-    margin: 24px 0 15px;
-    font-weight: 800;
-    letter-spacing: -2px;
+    font-size:clamp(48px,10vw,88px);
+    line-height:1.3;
+    margin:24px 0 15px;
+    font-weight:800;
+    letter-spacing:-2px;
 }
 
 h1 span {
-    background: linear-gradient(90deg,#c4aaff,var(--cyan));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    background:linear-gradient(90deg,#c4aaff,var(--cyan));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
 }
 
 .lead {
-    color: var(--muted);
-    font-size: 15px;
-    line-height: 2.4;
-    max-width: 540px;
-    margin: auto;
+    color:var(--muted);
+    font-size:15px;
+    line-height:2.4;
+    max-width:540px;
+    margin:auto;
 }
 
 /* ORB */
 
 .orb {
-    width: 125px;
-    height: 125px;
-    border-radius: 50%;
-    margin: 38px auto 0;
+    width:125px;
+    height:125px;
+    border-radius:50%;
+    margin:38px auto 0;
     background:
         radial-gradient(circle at 35% 30%,#d8c9ff,#9573e8 35%,#33265e 70%,#111321);
-    box-shadow:
-        0 0 35px rgba(155,123,255,.25),
-        0 0 90px rgba(99,229,232,.09);
-    animation: float 5s ease-in-out infinite;
-    position: relative;
+    box-shadow:0 0 35px rgba(155,123,255,.25),0 0 90px rgba(99,229,232,.09);
+    animation:float 5s ease-in-out infinite;
+    position:relative;
 }
 
 .orb::after {
-    content: "";
-    position: absolute;
-    width: 165px;
-    height: 35px;
-    border: 2px solid rgba(99,229,232,.5);
-    border-radius: 50%;
-    top: 45px;
-    left: -20px;
-    transform: rotate(-25deg);
+    content:"";
+    position:absolute;
+    width:165px;
+    height:35px;
+    border:2px solid rgba(99,229,232,.5);
+    border-radius:50%;
+    top:45px;
+    left:-20px;
+    transform:rotate(-25deg);
 }
 
 /* PANELS */
 
 .panel {
-    background: linear-gradient(145deg,rgba(23,25,43,.92),rgba(16,18,30,.92));
-    border: 1px solid var(--line);
-    border-radius: 24px;
-    padding: 30px;
-    margin-bottom: 30px;
-    box-shadow: 0 15px 50px rgba(0,0,0,.12);
-    transition: .3s;
+    background:linear-gradient(145deg,rgba(23,25,43,.92),rgba(16,18,30,.92));
+    border:1px solid var(--line);
+    border-radius:24px;
+    padding:30px;
+    margin-bottom:30px;
+    box-shadow:0 15px 50px rgba(0,0,0,.12);
+    transition:.3s;
 }
 
 .panel:hover {
-    border-color: rgba(155,123,255,.3);
-    transform: translateY(-3px);
+    border-color:rgba(155,123,255,.3);
+    transform:translateY(-3px);
 }
 
 .panel-title {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 17px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:17px;
 }
 
 .panel-icon {
-    width: 40px;
-    height: 40px;
-    display: grid;
-    place-items: center;
-    background: rgba(155,123,255,.12);
-    border-radius: 13px;
-    color: var(--purple);
-    font-size: 20px;
+    width:40px;
+    height:40px;
+    display:grid;
+    place-items:center;
+    background:rgba(155,123,255,.12);
+    border-radius:13px;
+    color:var(--purple);
+    font-size:20px;
 }
 
-.panel h2 {
-    font-size: 18px;
-}
+.panel h2 { font-size:18px; }
 
 .panel p {
-    color: #c9cad8;
-    font-size: 14px;
-    line-height: 2.4;
+    color:#c9cad8;
+    font-size:14px;
+    line-height:2.4;
 }
 
 /* SECTION TITLES */
 
 .section-title {
-    text-align: center;
-    font-size: 21px;
-    margin: 55px 0 24px;
+    text-align:center;
+    font-size:21px;
+    margin:55px 0 24px;
 }
 
 .section-subtitle {
-    text-align: center;
-    color: var(--muted);
-    font-size: 12px;
-    margin-top: -15px;
-    margin-bottom: 25px;
+    text-align:center;
+    color:var(--muted);
+    font-size:12px;
+    margin-top:-15px;
+    margin-bottom:25px;
 }
 
 /* CARDS */
 
 .grid {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 17px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:17px;
 }
 
 .card {
-    position: relative;
-    overflow: hidden;
-    background: linear-gradient(145deg,rgba(23,25,42,.8),rgba(16,17,28,.9));
-    border: 1px solid rgba(155,123,255,.2);
-    border-radius: 21px;
-    padding: 27px 18px;
-    text-align: center;
-    transition: .3s;
+    position:relative;
+    overflow:hidden;
+    background:linear-gradient(145deg,rgba(23,25,42,.8),rgba(16,17,28,.9));
+    border:1px solid rgba(155,123,255,.2);
+    border-radius:21px;
+    padding:27px 18px;
+    text-align:center;
+    transition:.3s;
 }
 
 .card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg,transparent,var(--purple),var(--cyan),transparent);
-    opacity: .5;
+    content:"";
+    position:absolute;
+    top:0;
+    right:0;
+    width:100%;
+    height:2px;
+    background:linear-gradient(90deg,transparent,var(--purple),var(--cyan),transparent);
+    opacity:.5;
 }
 
 .card:hover {
-    transform: translateY(-7px);
-    border-color: rgba(99,229,232,.4);
-    box-shadow: 0 15px 35px rgba(0,0,0,.2);
+    transform:translateY(-7px);
+    border-color:rgba(99,229,232,.4);
+    box-shadow:0 15px 35px rgba(0,0,0,.2);
 }
 
 .icon {
-    width: 48px;
-    height: 48px;
-    display: grid;
-    place-items: center;
-    margin: 0 auto 17px;
-    border-radius: 15px;
-    background: rgba(155,123,255,.12);
-    color: var(--cyan);
-    font-size: 22px;
+    width:48px;
+    height:48px;
+    display:grid;
+    place-items:center;
+    margin:0 auto 17px;
+    border-radius:15px;
+    background:rgba(155,123,255,.12);
+    color:var(--cyan);
+    font-size:22px;
 }
 
-.card h3 {
-    font-size: 15px;
-    margin-bottom: 9px;
-}
+.card h3 { font-size:15px;margin-bottom:9px; }
 
 .card p {
-    color: var(--muted);
-    font-size: 12px;
-    line-height: 2;
+    color:var(--muted);
+    font-size:12px;
+    line-height:2;
 }
 
 .status {
-    display: inline-block;
-    margin-top: 15px;
-    color: var(--cyan);
-    font-size: 11px;
-    padding: 5px 12px;
-    border-radius: 30px;
-    background: rgba(99,229,232,.07);
-    border: 1px solid rgba(99,229,232,.15);
+    display:inline-block;
+    margin-top:15px;
+    color:var(--cyan);
+    font-size:11px;
+    padding:5px 12px;
+    border-radius:30px;
+    background:rgba(99,229,232,.07);
+    border:1px solid rgba(99,229,232,.15);
+}
+
+/* MEHRANA COIN STORE */
+
+.coin-section {
+    margin-top:65px;
+    scroll-margin-top:25px;
+}
+
+.coin-header {
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.coin-logo {
+    width:90px;
+    height:90px;
+    margin:0 auto 18px;
+    filter:drop-shadow(0 0 20px rgba(155,123,255,.3));
+    animation:coinFloat 4s ease-in-out infinite;
+}
+
+.coin-header h2 {
+    font-size:25px;
+    letter-spacing:2px;
+    background:linear-gradient(90deg,#d9c8ff,#9b7bff,#63e5e8);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+}
+
+.coin-header p {
+    color:var(--muted);
+    font-size:12px;
+    margin-top:8px;
+}
+
+.wallet {
+    position:relative;
+    overflow:hidden;
+    padding:27px;
+    border-radius:24px;
+    border:1px solid rgba(155,123,255,.28);
+    background:
+        radial-gradient(circle at 90% 10%,rgba(155,123,255,.2),transparent 40%),
+        linear-gradient(140deg,#19152d,#101321 75%);
+    margin-bottom:22px;
+}
+
+.wallet::after {
+    content:"";
+    position:absolute;
+    width:180px;
+    height:180px;
+    border:1px solid rgba(155,123,255,.1);
+    border-radius:50%;
+    left:-65px;
+    bottom:-110px;
+}
+
+.wallet-label {
+    color:var(--muted);
+    font-size:12px;
+}
+
+.wallet-balance {
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin:12px 0;
+}
+
+.wallet-balance strong {
+    font-size:38px;
+    color:white;
+    font-weight:800;
+    direction:ltr;
+}
+
+.wallet-balance span {
+    color:var(--gold);
+    font-size:13px;
+    font-weight:700;
+}
+
+.wallet-footer {
+    color:var(--muted);
+    font-size:11px;
+    border-top:1px solid var(--line);
+    padding-top:13px;
+}
+
+.store-title {
+    font-size:17px;
+    margin:30px 0 15px;
+    display:flex;
+    align-items:center;
+    gap:9px;
+}
+
+.store-title span { color:var(--purple); }
+
+.coin-packages {
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:13px;
+}
+
+.coin-package {
+    background:rgba(255,255,255,.025);
+    border:1px solid var(--line);
+    border-radius:17px;
+    padding:18px;
+    transition:.25s;
+}
+
+.coin-package:hover {
+    border-color:rgba(155,123,255,.45);
+    transform:translateY(-3px);
+}
+
+.package-top {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:8px;
+}
+
+.package-amount {
+    font-weight:800;
+    font-size:18px;
+    color:white;
+    direction:ltr;
+}
+
+.package-coin {
+    color:var(--gold);
+    font-size:11px;
+}
+
+.package-price {
+    color:var(--cyan);
+    font-size:14px;
+    font-weight:700;
+    margin-top:12px;
+}
+
+.package-note {
+    font-size:10px;
+    color:var(--muted);
+    margin-top:5px;
+}
+
+.store-notice {
+    padding:14px;
+    margin-top:17px;
+    border-radius:13px;
+    background:rgba(99,229,232,.04);
+    border:1px solid rgba(99,229,232,.12);
+    color:var(--muted);
+    font-size:11px;
+    line-height:2.2;
+}
+
+/* LUCKY GAME */
+
+.lucky-game {
+    margin-top:25px;
+    padding:25px;
+    border-radius:22px;
+    background:linear-gradient(145deg,rgba(35,26,54,.8),rgba(15,18,31,.95));
+    border:1px solid rgba(243,201,105,.2);
+    text-align:center;
+}
+
+.lucky-icon {
+    font-size:35px;
+    color:var(--gold);
+    margin-bottom:10px;
+    text-shadow:0 0 25px rgba(243,201,105,.3);
+}
+
+.lucky-game h3 {
+    font-size:18px;
+    margin-bottom:8px;
+}
+
+.lucky-description {
+    font-size:12px;
+    color:var(--muted);
+    line-height:2.2;
+    max-width:480px;
+    margin:0 auto 18px;
+}
+
+.luck-badge {
+    display:inline-block;
+    padding:6px 13px;
+    border-radius:30px;
+    background:rgba(243,201,105,.08);
+    border:1px solid rgba(243,201,105,.2);
+    color:var(--gold);
+    font-size:11px;
+    margin-bottom:18px;
+}
+
+.lucky-button {
+    display:block;
+    width:100%;
+    max-width:300px;
+    margin:auto;
+    padding:14px 20px;
+    border:0;
+    border-radius:13px;
+    background:linear-gradient(100deg,#7657d6,#a17ae8);
+    color:white;
+    font-size:13px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.lucky-button:hover:not(:disabled) {
+    transform:translateY(-3px);
+    box-shadow:0 8px 25px rgba(155,123,255,.25);
+}
+
+.lucky-button:disabled {
+    opacity:.45;
+    cursor:not-allowed;
+}
+
+.lucky-result {
+    min-height:48px;
+    padding-top:16px;
+    color:var(--cyan);
+    font-size:13px;
+    line-height:2;
+}
+
+.lucky-result.win {
+    color:var(--gold);
+}
+
+.lucky-result.lose {
+    color:#b7b9c9;
+}
+
+.lucky-timer {
+    color:var(--muted);
+    font-size:11px;
+    margin-top:8px;
+}
+
+/* COIN HISTORY */
+
+.history {
+    margin-top:25px;
+    padding:20px;
+    border-radius:18px;
+    background:rgba(255,255,255,.025);
+    border:1px solid var(--line);
+}
+
+.history h3 {
+    font-size:14px;
+    margin-bottom:15px;
+}
+
+.history-list {
+    list-style:none;
+}
+
+.history-list li {
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    padding:11px 0;
+    border-bottom:1px solid rgba(255,255,255,.05);
+    font-size:11px;
+    color:var(--muted);
+}
+
+.history-list li:last-child { border-bottom:0; }
+
+.history-empty {
+    color:var(--muted);
+    font-size:11px;
+}
+
+/* NUMBER GAME */
+
+.number-game {
+    margin-top:25px;
+    padding:25px;
+    border-radius:22px;
+    background:linear-gradient(145deg,rgba(20,29,46,.9),rgba(15,18,31,.95));
+    border:1px solid rgba(99,229,232,.18);
+    text-align:center;
+}
+
+.number-game h3 {
+    font-size:18px;
+    margin-bottom:8px;
+}
+
+.number-game p {
+    color:var(--muted);
+    font-size:12px;
+    line-height:2.2;
+}
+
+.number-input {
+    width:100%;
+    max-width:180px;
+    display:block;
+    margin:18px auto 12px;
+    padding:13px;
+    background:#0b0d18;
+    border:1px solid rgba(99,229,232,.25);
+    border-radius:12px;
+    color:white;
+    font-size:17px;
+    text-align:center;
+    outline:none;
+}
+
+.number-input:focus {
+    border-color:var(--cyan);
+}
+
+.game-buttons {
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.game-button {
+    padding:11px 20px;
+    border:0;
+    border-radius:11px;
+    color:white;
+    background:linear-gradient(100deg,#7657d6,#478eaa);
+    cursor:pointer;
+    font-size:12px;
+    transition:.2s;
+}
+
+.game-button.secondary {
+    background:rgba(255,255,255,.08);
+    border:1px solid var(--line);
+}
+
+.game-button:hover {
+    transform:translateY(-2px);
+}
+
+.game-message {
+    min-height:35px;
+    margin-top:14px;
+    color:var(--cyan);
+    font-size:12px;
+}
+
+.game-stats {
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    color:var(--muted);
+    font-size:11px;
+    margin-top:8px;
 }
 
 /* FRIENDS */
 
-.friends-section {
-    margin-top: 60px;
-}
+.friends-section { margin-top:60px; }
 
 .friends-grid {
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-    gap: 16px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:16px;
 }
 
 .friend-card {
-    position: relative;
-    overflow: hidden;
-    padding: 28px 14px;
-    text-align: center;
-    border-radius: 21px;
-    background: linear-gradient(
-        145deg,
-        rgba(23,25,42,.9),
-        rgba(16,17,28,.95)
-    );
-    border: 1px solid rgba(155,123,255,.2);
-    transition: .3s;
+    position:relative;
+    overflow:hidden;
+    padding:28px 14px;
+    text-align:center;
+    border-radius:21px;
+    background:linear-gradient(145deg,rgba(23,25,42,.9),rgba(16,17,28,.95));
+    border:1px solid rgba(155,123,255,.2);
+    transition:.3s;
 }
 
 .friend-card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        var(--purple),
-        var(--cyan),
-        transparent
-    );
-    opacity: .6;
+    content:"";
+    position:absolute;
+    top:0;
+    right:0;
+    width:100%;
+    height:2px;
+    background:linear-gradient(90deg,transparent,var(--purple),var(--cyan),transparent);
+    opacity:.6;
 }
 
 .friend-card:hover {
-    transform: translateY(-7px);
-    border-color: rgba(99,229,232,.5);
-    box-shadow: 0 12px 35px rgba(0,0,0,.25);
+    transform:translateY(-7px);
+    border-color:rgba(99,229,232,.5);
+    box-shadow:0 12px 35px rgba(0,0,0,.25);
 }
 
 .friend-avatar {
-    width: 65px;
-    height: 65px;
-    display: grid;
-    place-items: center;
-    margin: 0 auto 16px;
-    border-radius: 50%;
-    font-size: 27px;
-    font-weight: 800;
-    color: white;
-    background: linear-gradient(135deg,#7657d6,#478eaa);
-    box-shadow: 0 0 25px rgba(155,123,255,.2);
-    transition: .3s;
+    width:65px;
+    height:65px;
+    display:grid;
+    place-items:center;
+    margin:0 auto 16px;
+    border-radius:50%;
+    font-size:27px;
+    font-weight:800;
+    color:white;
+    background:linear-gradient(135deg,#7657d6,#478eaa);
+    box-shadow:0 0 25px rgba(155,123,255,.2);
+    transition:.3s;
 }
 
 .friend-card:hover .friend-avatar {
-    transform: rotate(8deg) scale(1.08);
+    transform:rotate(8deg) scale(1.08);
 }
 
-.friend-card h3 {
-    font-size: 16px;
-    margin-bottom: 9px;
-}
+.friend-card h3 { font-size:16px;margin-bottom:9px; }
 
 .friend-card p {
-    color: var(--muted);
-    font-size: 11px;
-    line-height: 2;
+    color:var(--muted);
+    font-size:11px;
+    line-height:2;
 }
 
 .friend-status {
-    display: inline-block;
-    margin-top: 14px;
-    padding: 5px 11px;
-    color: var(--cyan);
-    font-size: 10px;
-    border-radius: 30px;
-    background: rgba(99,229,232,.07);
-    border: 1px solid rgba(99,229,232,.15);
+    display:inline-block;
+    margin-top:14px;
+    padding:5px 11px;
+    color:var(--cyan);
+    font-size:10px;
+    border-radius:30px;
+    background:rgba(99,229,232,.07);
+    border:1px solid rgba(99,229,232,.15);
 }
 
-/* FRIENDS DESCRIPTION */
-
 .friends-note {
-    text-align: center;
-    margin-top: 20px;
-    padding: 18px;
-    border-radius: 16px;
-    background: rgba(155,123,255,.05);
-    border: 1px solid rgba(155,123,255,.12);
-    color: var(--muted);
-    font-size: 12px;
-    line-height: 2.3;
+    text-align:center;
+    margin-top:20px;
+    padding:18px;
+    border-radius:16px;
+    background:rgba(155,123,255,.05);
+    border:1px solid rgba(155,123,255,.12);
+    color:var(--muted);
+    font-size:12px;
+    line-height:2.3;
 }
 
 /* QUOTE */
 
 .quote {
-    text-align: center;
-    padding: 35px 25px;
-    margin-top: 45px;
-    background: linear-gradient(120deg,rgba(155,123,255,.1),rgba(99,229,232,.06));
-    border: 1px solid var(--line);
-    border-radius: 22px;
+    text-align:center;
+    padding:35px 25px;
+    margin-top:45px;
+    background:linear-gradient(120deg,rgba(155,123,255,.1),rgba(99,229,232,.06));
+    border:1px solid var(--line);
+    border-radius:22px;
 }
 
 .quote-symbol {
-    font-size: 35px;
-    color: var(--purple);
+    font-size:35px;
+    color:var(--purple);
 }
 
 .quote p {
-    color: #dedced;
-    font-size: 15px;
-    line-height: 2.5;
-    margin: 12px 0;
-    transition: opacity .2s;
+    color:#dedced;
+    font-size:15px;
+    line-height:2.5;
+    margin:12px 0;
+    transition:opacity .2s;
 }
 
 .quote small {
-    color: var(--muted);
-    font-size: 11px;
+    color:var(--muted);
+    font-size:11px;
 }
 
 /* BUTTON */
 
 .surprise {
-    display: block;
-    margin: 25px auto 0;
-    padding: 12px 25px;
-    color: white;
-    background: linear-gradient(100deg,#7657d6,#478eaa);
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: .25s;
-    font-size: 13px;
+    display:block;
+    margin:25px auto 0;
+    padding:12px 25px;
+    color:white;
+    background:linear-gradient(100deg,#7657d6,#478eaa);
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+    transition:.25s;
+    font-size:13px;
 }
 
 .surprise:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(155,123,255,.25);
+    transform:translateY(-3px);
+    box-shadow:0 8px 25px rgba(155,123,255,.25);
 }
 
 /* TOAST */
 
 .toast {
-    position: fixed;
-    bottom: 25px;
-    left: 50%;
-    transform: translate(-50%,20px);
-    background: #17192b;
-    border: 1px solid var(--line);
-    color: white;
-    padding: 13px 22px;
-    border-radius: 13px;
-    font-size: 13px;
-    opacity: 0;
-    pointer-events: none;
-    transition: .3s;
-    z-index: 10;
-    width: max-content;
-    max-width: 90%;
-    text-align: center;
+    position:fixed;
+    bottom:25px;
+    left:50%;
+    transform:translate(-50%,20px);
+    background:#17192b;
+    border:1px solid var(--line);
+    color:white;
+    padding:13px 22px;
+    border-radius:13px;
+    font-size:13px;
+    opacity:0;
+    pointer-events:none;
+    transition:.3s;
+    z-index:10;
+    width:max-content;
+    max-width:90%;
+    text-align:center;
 }
 
 .toast.show {
-    opacity: 1;
-    transform: translate(-50%,0);
+    opacity:1;
+    transform:translate(-50%,0);
 }
 
 /* FOOTER */
 
 footer {
-    text-align: center;
-    color: #777d94;
-    font-size: 11px;
-    margin-top: 65px;
-    letter-spacing: 1px;
+    text-align:center;
+    color:#777d94;
+    font-size:11px;
+    margin-top:65px;
+    letter-spacing:1px;
 }
 
-footer span {
-    color: var(--purple);
-}
+footer span { color:var(--purple); }
 
 /* ANIMATIONS */
 
 @keyframes float {
-    0%,100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-13px);
-    }
+    0%,100% { transform:translateY(0); }
+    50% { transform:translateY(-13px); }
+}
+
+@keyframes coinFloat {
+    0%,100% { transform:translateY(0) rotate(-3deg); }
+    50% { transform:translateY(-7px) rotate(3deg); }
 }
 
 @keyframes appear {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity:0;transform:translateY(20px); }
+    to { opacity:1;transform:translateY(0); }
 }
 
 /* RESPONSIVE */
 
 @media(max-width:640px) {
-
-    .wrap {
-        padding-top: 23px;
-    }
-
-    .hero {
-        padding: 75px 0 45px;
-    }
-
-    .grid {
-        grid-template-columns: 1fr;
-    }
-
-    .friends-grid {
-        grid-template-columns: repeat(2,1fr);
-        gap: 12px;
-    }
-
-    .panel {
-        padding: 23px;
-    }
-
-    .section-title {
-        margin-top: 45px;
-    }
-
-    .orb {
-        width: 100px;
-        height: 100px;
-    }
-
-    .orb::after {
-        width: 135px;
-        left: -17px;
-        top: 35px;
-    }
-
-    .friend-card {
-        padding: 24px 10px;
-    }
+    .wrap { padding-top:23px; }
+    .hero { padding:75px 0 45px; }
+    .grid { grid-template-columns:1fr; }
+    .friends-grid { grid-template-columns:repeat(2,1fr);gap:12px; }
+    .panel { padding:23px; }
+    .section-title { margin-top:45px; }
+    .orb { width:100px;height:100px; }
+    .orb::after { width:135px;left:-17px;top:35px; }
+    .friend-card { padding:24px 10px; }
+    .coin-packages { grid-template-columns:1fr; }
+    .wallet { padding:22px; }
+    .wallet-balance strong { font-size:32px; }
 }
 
 @media(prefers-reduced-motion:reduce) {
     *,*::before,*::after {
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-        scroll-behavior: auto !important;
-        transition-duration: .01ms !important;
+        animation-duration:.01ms!important;
+        animation-iteration-count:1!important;
+        scroll-behavior:auto!important;
+        transition-duration:.01ms!important;
     }
 }
 
 :focus-visible {
-    outline: 2px solid var(--cyan);
-    outline-offset: 4px;
+    outline:2px solid var(--cyan);
+    outline-offset:4px;
 }
-
 </style>
 </head>
 
@@ -598,24 +903,16 @@ footer span {
     <!-- NAVIGATION -->
 
     <nav class="topbar">
-        <a class="back" href="index.html">
-            ← بازگشت به NOCTURNE
-        </a>
-
+        <a class="back" href="index.html">← بازگشت به NOCTURNE</a>
         <div class="brand">NOCTURNE</div>
     </nav>
 
     <!-- HERO -->
 
     <section class="hero">
+        <div class="eyebrow">✦ A SPECIAL CORNER ✦</div>
 
-        <div class="eyebrow">
-            ✦ A SPECIAL CORNER ✦
-        </div>
-
-        <h1>
-            سلام <span>آرتین</span>
-        </h1>
+        <h1>سلام <span>آرتین</span></h1>
 
         <p class="lead">
             به گوشه‌ی اختصاصی خودت خوش اومدی.
@@ -624,13 +921,11 @@ footer span {
         </p>
 
         <div class="orb"></div>
-
     </section>
 
     <!-- PERSONAL MESSAGE -->
 
     <section class="panel">
-
         <div class="panel-title">
             <div class="panel-icon">✧</div>
             <h2>یه پیام مخصوص</h2>
@@ -642,18 +937,12 @@ footer span {
             چیزهای جالب و متفاوت کامل‌تر بشه.
             امیدوارم از گشت‌وگذار توی این گوشه لذت ببری.
         </p>
-
     </section>
 
     <!-- PERSONAL FEATURES -->
 
-    <h2 class="section-title">
-        بخش‌های اختصاصی
-    </h2>
-
-    <p class="section-subtitle">
-        چیزهایی که قراره به این گوشه اضافه بشن
-    </p>
+    <h2 class="section-title">بخش‌های اختصاصی</h2>
+    <p class="section-subtitle">چیزهایی که در این گوشه پیدا می‌کنی</p>
 
     <section class="grid">
 
@@ -661,7 +950,7 @@ footer span {
             <div class="icon">✉</div>
             <h3>پیام‌های مخصوص</h3>
             <p>پیام‌ها و نوشته‌های اختصاصی این بخش</p>
-            <span class="status">به‌زودی</span>
+            <span class="status">فعال</span>
         </article>
 
         <article class="card">
@@ -673,10 +962,269 @@ footer span {
 
         <article class="card">
             <div class="icon">✦</div>
-            <h3>بازی کوچک</h3>
-            <p>یک سرگرمی کوچک در دنیای NOCTURNE</p>
-            <span class="status">به‌زودی</span>
+            <h3>بازی‌های کوچک</h3>
+            <p>سرگرمی‌های کوچک در دنیای NOCTURNE</p>
+            <a href="#miniGames" class="status">مشاهده بازی‌ها</a>
         </article>
+
+    </section>
+
+    <!-- MEHRANA COIN STORE -->
+
+    <section class="coin-section" id="coinStore">
+
+        <div class="coin-header">
+
+            <!-- ORIGINAL INLINE SVG COIN ICON -->
+
+            <svg class="coin-logo"
+                 viewBox="0 0 120 120"
+                 xmlns="http://www.w3.org/2000/svg"
+                 role="img"
+                 aria-label="Mehrana Coin Logo">
+
+                <defs>
+                    <linearGradient id="coinGradient" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stop-color="#e2d5ff"/>
+                        <stop offset="45%" stop-color="#a17aff"/>
+                        <stop offset="100%" stop-color="#493078"/>
+                    </linearGradient>
+
+                    <linearGradient id="coinInner" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stop-color="#33234f"/>
+                        <stop offset="100%" stop-color="#141326"/>
+                    </linearGradient>
+
+                    <filter id="coinGlow">
+                        <feGaussianBlur stdDeviation="3" result="blur"/>
+                        <feMerge>
+                            <feMergeNode in="blur"/>
+                            <feMergeNode in="SourceGraphic"/>
+                        </feMerge>
+                    </filter>
+                </defs>
+
+                <circle cx="60" cy="60" r="55"
+                        fill="#9b7bff" opacity=".12"/>
+
+                <circle cx="60" cy="60" r="49"
+                        fill="url(#coinGradient)"
+                        stroke="#d8c5ff"
+                        stroke-width="2"
+                        filter="url(#coinGlow)"/>
+
+                <circle cx="60" cy="60" r="41"
+                        fill="url(#coinInner)"
+                        stroke="#d4c2ff"
+                        stroke-width="1.5"/>
+
+                <circle cx="60" cy="60" r="35"
+                        fill="none"
+                        stroke="#9b7bff"
+                        stroke-width="1"
+                        stroke-dasharray="3 5"
+                        opacity=".8"/>
+
+                <path d="M37 82 V38 H45 L60 58 L75 38 H83 V82 H73 V54 L60 72 L47 54 V82 Z"
+                      fill="url(#coinGradient)"
+                      stroke="#e9ddff"
+                      stroke-width="1"
+                      stroke-linejoin="round"/>
+
+                <path d="M20 60 H28 M92 60 H100"
+                      stroke="#e8d8ff"
+                      stroke-width="2"
+                      stroke-linecap="round"/>
+            </svg>
+
+            <h2>MEHRANA COIN</h2>
+            <p>THE OFFICIAL NOCTURNE CURRENCY</p>
+
+        </div>
+
+        <!-- WALLET -->
+
+        <div class="wallet">
+
+            <div class="wallet-label">موجودی کیف پول آرتین</div>
+
+            <div class="wallet-balance">
+                <strong id="coinBalance">0</strong>
+                <span>MC</span>
+            </div>
+
+            <div class="wallet-footer">
+                Mehrana Coin Wallet · NOCTURNE
+            </div>
+
+        </div>
+
+        <!-- STORE -->
+
+        <h3 class="store-title">
+            <span>◈</span>
+            فروشگاه مهرانا کوین
+        </h3>
+
+        <div class="coin-packages">
+
+            <article class="coin-package">
+                <div class="package-top">
+                    <span class="package-amount">50 MC</span>
+                    <span class="package-coin">✦</span>
+                </div>
+                <div class="package-price">۵۰٬۰۰۰ تومان</div>
+                <div class="package-note">بسته پایه</div>
+            </article>
+
+            <article class="coin-package">
+                <div class="package-top">
+                    <span class="package-amount">100 MC</span>
+                    <span class="package-coin">✦</span>
+                </div>
+                <div class="package-price">۱۰۰٬۰۰۰ تومان</div>
+                <div class="package-note">بسته استاندارد</div>
+            </article>
+
+            <article class="coin-package">
+                <div class="package-top">
+                    <span class="package-amount">250 MC</span>
+                    <span class="package-coin">✦</span>
+                </div>
+                <div class="package-price">۲۵۰٬۰۰۰ تومان</div>
+                <div class="package-note">بسته ویژه</div>
+            </article>
+
+            <article class="coin-package">
+                <div class="package-top">
+                    <span class="package-amount">500 MC</span>
+                    <span class="package-coin">✦</span>
+                </div>
+                <div class="package-price">۵۰۰٬۰۰۰ تومان</div>
+                <div class="package-note">بسته بزرگ</div>
+            </article>
+
+            <article class="coin-package">
+                <div class="package-top">
+                    <span class="package-amount">1000 MC</span>
+                    <span class="package-coin">✦</span>
+                </div>
+                <div class="package-price">۱٬۰۰۰٬۰۰۰ تومان</div>
+                <div class="package-note">بسته حرفه‌ای</div>
+            </article>
+
+        </div>
+
+        <div class="store-notice">
+            هر ۵۰ مهرانا کوین برابر با ۵۰٬۰۰۰ تومان است.
+            قیمت‌ها بر اساس نرخ تعیین‌شده توسط سازنده نمایش داده شده‌اند.
+            خرید آنلاین در این نسخه هنوز فعال نیست.
+        </div>
+
+        <!-- LUCKY COIN GAME -->
+
+        <div class="lucky-game">
+
+            <div class="lucky-icon">✧</div>
+
+            <h3>MEHRANA LUCKY DROP</h3>
+
+            <p class="lucky-description">
+                شاید امروز روز شانس تو باشد!
+                در این بازی روزانه شرکت کن و شانس خودت را برای
+                دریافت مهرانا کوین رایگان امتحان کن.
+            </p>
+
+            <div class="luck-badge">
+                احتمال دریافت جایزه: ۱٪
+            </div>
+
+            <button class="lucky-button"
+                    id="luckyButton"
+                    type="button">
+                ✦ امتحان شانس امروز
+            </button>
+
+            <div class="lucky-result"
+                 id="luckyResult"
+                 aria-live="polite">
+                منتظر یک اتفاق غیرمنتظره باش...
+            </div>
+
+            <div class="lucky-timer" id="luckyTimer"></div>
+
+        </div>
+
+        <!-- COIN HISTORY -->
+
+        <div class="history">
+
+            <h3>◈ تاریخچه مهرانا کوین</h3>
+
+            <ul class="history-list" id="coinHistory">
+                <li class="history-empty">هنوز تراکنشی ثبت نشده است.</li>
+            </ul>
+
+        </div>
+
+    </section>
+
+    <!-- MINI GAMES -->
+
+    <section id="miniGames">
+
+        <h2 class="section-title">بازی‌های NOCTURNE</h2>
+        <p class="section-subtitle">A LITTLE GAME IN THE DARK</p>
+
+        <div class="number-game">
+
+            <div class="lucky-icon">◇</div>
+
+            <h3>SECRET NUMBER</h3>
+
+            <p>
+                یک عدد مخفی بین ۱ تا ۲۰ انتخاب شده است.
+                می‌توانی پیدایش کنی؟
+            </p>
+
+            <input
+                class="number-input"
+                id="guessInput"
+                type="number"
+                min="1"
+                max="20"
+                placeholder="عدد مورد نظر"
+                aria-label="عدد بین ۱ تا ۲۰"
+            >
+
+            <div class="game-buttons">
+
+                <button class="game-button"
+                        id="guessButton"
+                        type="button">
+                    حدس بزن
+                </button>
+
+                <button class="game-button secondary"
+                        id="restartGame"
+                        type="button">
+                    بازی دوباره
+                </button>
+
+            </div>
+
+            <div class="game-message"
+                 id="gameMessage"
+                 aria-live="polite">
+                منتظر اولین حدس تو هستم...
+            </div>
+
+            <div class="game-stats">
+                <span>تلاش‌ها: <b id="attemptCount">0</b></span>
+                <span>رکورد: <b id="bestScore">—</b></span>
+            </div>
+
+        </div>
 
     </section>
 
@@ -684,9 +1232,7 @@ footer span {
 
     <section class="friends-section">
 
-        <h2 class="section-title">
-            اتاق دوستان
-        </h2>
+        <h2 class="section-title">اتاق دوستان</h2>
 
         <p class="section-subtitle">
             FOUR FRIENDS · ONE WORLD
@@ -695,67 +1241,17 @@ footer span {
         <section class="friends-grid">
 
             <article class="friend-card">
-
                 <div class="friend-avatar">A</div>
-
                 <h3>آراد</h3>
-
-                <p>
-                    یکی از اعضای دنیای NOCTURNE
-                </p>
-
-                <span class="friend-status">
-                    ✦ FRIEND
-                </span>
-
+                <p>یکی از اعضای دنیای NOCTURNE</p>
+                <span class="friend-status">✦ FRIEND</span>
             </article>
 
             <article class="friend-card">
-
                 <div class="friend-avatar">A</div>
-
-                <h3>علی</h3>
-
-                <p>
-                    یکی از اعضای دنیای NOCTURNE
-                </p>
-
-                <span class="friend-status">
-                    ✦ FRIEND
-                </span>
-
-            </article>
-
-            <article class="friend-card">
-
-                <div class="friend-avatar">A</div>
-
                 <h3>امیر</h3>
-
-                <p>
-                    یکی از اعضای دنیای NOCTURNE
-                </p>
-
-                <span class="friend-status">
-                    ✦ FRIEND
-                </span>
-
-            </article>
-
-            <article class="friend-card">
-
-                <div class="friend-avatar">A</div>
-
-                <h3>امین</h3>
-
-                <p>
-                    یکی از اعضای دنیای NOCTURNE
-                </p>
-
-                <span class="friend-status">
-                    ✦ FRIEND
-                </span>
-
+                <p>یکی از اعضای دنیای NOCTURNE</p>
+                <span class="friend-status">✦ FRIEND</span>
             </article>
 
         </section>
@@ -764,9 +1260,7 @@ footer span {
             بعضی از آدم‌ها فقط بخشی از یک داستان نیستند؛
             آن‌ها خودشان بخشی از دنیای آن داستان‌اند.
             <br>
-            <span style="color:var(--purple)">
-                NOCTURNE ✦
-            </span>
+            <span style="color:var(--purple)">NOCTURNE ✦</span>
         </div>
 
     </section>
@@ -781,15 +1275,11 @@ footer span {
             هر گوشه‌ی ناشناخته‌ای، داستانی برای کشف شدن دارد.
         </p>
 
-        <small>
-            NOCTURNE · A LITTLE THOUGHT
-        </small>
+        <small>NOCTURNE · A LITTLE THOUGHT</small>
 
-        <button
-            class="surprise"
-            id="surpriseBtn"
-            type="button"
-        >
+        <button class="surprise"
+                id="surpriseBtn"
+                type="button">
             یک جمله‌ی تصادفی ✦
         </button>
 
@@ -799,75 +1289,60 @@ footer span {
 
     <footer>
         NOCTURNE <span>✦</span> یک گوشه‌ی مخصوص برای آرتین
-
         <br><br>
-
         Made with care · 2026
     </footer>
 
 </main>
 
-<!-- TOAST -->
-
-<div
-    class="toast"
-    id="toast"
-    role="status"
-    aria-live="polite"
-></div>
+<div class="toast"
+     id="toast"
+     role="status"
+     aria-live="polite"></div>
 
 <script>
 
-/* RANDOM QUOTES */
+/* =====================================
+   RANDOM QUOTES
+===================================== */
 
 const quotes = [
-
     "هر گوشه‌ی ناشناخته‌ای، داستانی برای کشف شدن دارد.",
-
     "گاهی بهترین اتفاق‌ها از ساده‌ترین لحظه‌ها شروع می‌شوند.",
-
     "دنیا هنوز پر از چیزهایی است که کشف نکرده‌ایم.",
-
     "هر روز می‌تواند شروع یک ماجرای تازه باشد.",
-
     "قرار نیست همه‌چیز از اول معلوم باشد؛ بعضی چیزها را باید کشف کرد.",
-
     "بهترین ایده‌ها گاهی در آرام‌ترین لحظه‌ها به ذهن می‌رسند.",
-
     "مسیرهای متفاوت، داستان‌های متفاوتی می‌سازند.",
-
     "دوستی یعنی ساختن خاطراتی که ارزش به یاد آوردن دارند.",
-
     "گاهی یک جمع کوچک می‌تواند دنیای بزرگی بسازد.",
-
     "ماجرا هنوز تمام نشده است..."
-
 ];
 
-/* ELEMENTS */
-
 const quoteText = document.getElementById("quoteText");
-
 const surpriseBtn = document.getElementById("surpriseBtn");
-
 const toast = document.getElementById("toast");
 
-/* VARIABLES */
-
 let lastQuote = -1;
-
 let toastTimer;
 
-/* RANDOM QUOTE FUNCTION */
+function showToast(message) {
+    toast.textContent = message;
+    toast.classList.add("show");
+
+    clearTimeout(toastTimer);
+
+    toastTimer = setTimeout(() => {
+        toast.classList.remove("show");
+    }, 2400);
+}
 
 surpriseBtn.addEventListener("click", () => {
 
     let index;
 
     do {
-
         index = Math.floor(Math.random() * quotes.length);
-
     } while (index === lastQuote && quotes.length > 1);
 
     lastQuote = index;
@@ -875,28 +1350,281 @@ surpriseBtn.addEventListener("click", () => {
     quoteText.style.opacity = "0";
 
     setTimeout(() => {
-
         quoteText.textContent = quotes[index];
-
         quoteText.style.opacity = "1";
-
     }, 180);
 
-    /* TOAST */
-
-    toast.textContent = "یک جمله‌ی تازه برای تو ✦";
-
-    toast.classList.add("show");
-
-    clearTimeout(toastTimer);
-
-    toastTimer = setTimeout(() => {
-
-        toast.classList.remove("show");
-
-    }, 2200);
-
+    showToast("یک جمله‌ی تازه برای تو ✦");
 });
+
+
+/* =====================================
+   MEHRANA COIN WALLET
+===================================== */
+
+const BALANCE_KEY = "nocturne_mehrana_balance_v1";
+const HISTORY_KEY = "nocturne_mehrana_history_v1";
+const DAILY_KEY = "nocturne_mehrana_daily_v1";
+
+const coinBalance = document.getElementById("coinBalance");
+const coinHistory = document.getElementById("coinHistory");
+
+let balance = loadBalance();
+let historyItems = loadHistory();
+
+function loadBalance() {
+    const value = Number(localStorage.getItem(BALANCE_KEY));
+    return Number.isSafeInteger(value) && value >= 0 ? value : 0;
+}
+
+function saveBalance() {
+    localStorage.setItem(BALANCE_KEY, String(balance));
+}
+
+function loadHistory() {
+    try {
+        const data = JSON.parse(localStorage.getItem(HISTORY_KEY) || "[]");
+        return Array.isArray(data) ? data.slice(0, 10) : [];
+    } catch {
+        return [];
+    }
+}
+
+function saveHistory() {
+    localStorage.setItem(HISTORY_KEY, JSON.stringify(historyItems));
+}
+
+function renderWallet() {
+    coinBalance.textContent = balance.toLocaleString("fa-IR");
+}
+
+function addHistory(message, amount) {
+    historyItems.unshift({
+        message,
+        amount,
+        date: new Date().toLocaleDateString("fa-IR")
+    });
+
+    historyItems = historyItems.slice(0, 10);
+
+    saveHistory();
+    renderHistory();
+}
+
+function renderHistory() {
+    coinHistory.innerHTML = "";
+
+    if (historyItems.length === 0) {
+        const li = document.createElement("li");
+        li.className = "history-empty";
+        li.textContent = "هنوز تراکنشی ثبت نشده است.";
+        coinHistory.appendChild(li);
+        return;
+    }
+
+    historyItems.forEach(item => {
+        const li = document.createElement("li");
+
+        const name = document.createElement("span");
+        name.textContent = item.message + " · " + item.date;
+
+        const amount = document.createElement("strong");
+        amount.textContent = "+" + item.amount + " MC";
+        amount.style.color = "#f3c969";
+        amount.dir = "ltr";
+
+        li.appendChild(name);
+        li.appendChild(amount);
+
+        coinHistory.appendChild(li);
+    });
+}
+
+function addCoins(amount, reason) {
+    balance += amount;
+
+    saveBalance();
+    renderWallet();
+
+    addHistory(reason, amount);
+}
+
+renderWallet();
+renderHistory();
+
+
+/* =====================================
+   DAILY MEHRANA LUCKY DROP
+===================================== */
+
+const luckyButton = document.getElementById("luckyButton");
+const luckyResult = document.getElementById("luckyResult");
+const luckyTimer = document.getElementById("luckyTimer");
+
+function getLocalDateKey() {
+    const now = new Date();
+
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, "0");
+    const day = String(now.getDate()).padStart(2, "0");
+
+    return `${year}-${month}-${day}`;
+}
+
+function updateLuckyStatus() {
+    const lastPlayed = localStorage.getItem(DAILY_KEY);
+
+    if (lastPlayed === getLocalDateKey()) {
+        luckyButton.disabled = true;
+        luckyButton.textContent = "بازی امروز انجام شده";
+
+        if (!luckyResult.textContent.trim()) {
+            luckyResult.textContent = "برای شانس دوباره، فردا برگرد!";
+        }
+
+        luckyTimer.textContent = "هر روز فقط یک بار امکان شرکت داری.";
+    } else {
+        luckyButton.disabled = false;
+        luckyButton.textContent = "✦ امتحان شانس امروز";
+        luckyTimer.textContent = "شانس امروز هنوز استفاده نشده است.";
+    }
+}
+
+luckyButton.addEventListener("click", () => {
+
+    if (localStorage.getItem(DAILY_KEY) === getLocalDateKey()) {
+        updateLuckyStatus();
+        return;
+    }
+
+    // ثبت استفاده روزانه پیش از نمایش نتیجه
+    localStorage.setItem(DAILY_KEY, getLocalDateKey());
+
+    luckyButton.disabled = true;
+    luckyButton.textContent = "شانس امروز استفاده شد";
+
+    // احتمال برد: یک درصد
+    const won = Math.random() < 0.01;
+
+    if (won) {
+
+        const reward = Math.floor(Math.random() * 5) + 1;
+
+        addCoins(reward, "جایزه بازی شانس");
+
+        luckyResult.className = "lucky-result win";
+        luckyResult.textContent =
+            `تبریک! تو ${reward} مهرانا کوین برنده شدی! ✦`;
+
+        showToast(`تبریک! ${reward} مهرانا کوین دریافت کردی!`);
+
+    } else {
+
+        luckyResult.className = "lucky-result lose";
+        luckyResult.textContent =
+            "این بار شانست نگرفت! فردا دوباره امتحان کن.";
+
+        showToast("این بار خبری از جایزه نبود...");
+
+    }
+
+    luckyTimer.textContent = "برای تلاش بعدی تا فردا صبر کن.";
+});
+
+updateLuckyStatus();
+
+
+/* =====================================
+   SECRET NUMBER GAME
+===================================== */
+
+const guessInput = document.getElementById("guessInput");
+const guessButton = document.getElementById("guessButton");
+const restartGame = document.getElementById("restartGame");
+const gameMessage = document.getElementById("gameMessage");
+const attemptCount = document.getElementById("attemptCount");
+const bestScore = document.getElementById("bestScore");
+
+let secretNumber;
+let attempts = 0;
+let gameFinished = false;
+let best = Number(localStorage.getItem("nocturne_number_best")) || 0;
+
+function updateBestScore() {
+    bestScore.textContent = best > 0 ? best.toLocaleString("fa-IR") : "—";
+}
+
+function startNumberGame() {
+    secretNumber = Math.floor(Math.random() * 20) + 1;
+    attempts = 0;
+    gameFinished = false;
+
+    guessInput.value = "";
+    guessInput.disabled = false;
+    guessButton.disabled = false;
+
+    attemptCount.textContent = "۰";
+    gameMessage.textContent = "عدد مخفی انتخاب شد. حدس بزن!";
+}
+
+function checkGuess() {
+
+    if (gameFinished) return;
+
+    const guess = Number(guessInput.value);
+
+    if (!Number.isInteger(guess) || guess < 1 || guess > 20) {
+        gameMessage.textContent = "لطفاً یک عدد صحیح بین ۱ تا ۲۰ وارد کن.";
+        return;
+    }
+
+    attempts++;
+    attemptCount.textContent = attempts.toLocaleString("fa-IR");
+
+    if (guess === secretNumber) {
+
+        gameFinished = true;
+        guessInput.disabled = true;
+        guessButton.disabled = true;
+
+        gameMessage.textContent =
+            `درست حدس زدی! عدد ${secretNumber} بود. ✦`;
+
+        if (best === 0 || attempts < best) {
+            best = attempts;
+            localStorage.setItem("nocturne_number_best", String(best));
+            updateBestScore();
+            gameMessage.textContent += " رکورد جدید!";
+        }
+
+        showToast("آفرین! عدد مخفی را پیدا کردی.");
+
+    } else if (guess < secretNumber) {
+
+        gameMessage.textContent = "عدد مخفی بزرگ‌تر از اینه!";
+
+    } else {
+
+        gameMessage.textContent = "عدد مخفی کوچک‌تر از اینه!";
+
+    }
+
+    guessInput.value = "";
+    guessInput.focus();
+}
+
+guessButton.addEventListener("click", checkGuess);
+
+guessInput.addEventListener("keydown", event => {
+    if (event.key === "Enter") {
+        checkGuess();
+    }
+});
+
+restartGame.addEventListener("click", startNumberGame);
+
+updateBestScore();
+startNumberGame();
 
 </script>
 
