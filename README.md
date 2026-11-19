@@ -35,4 +35,4 @@ NOCTURNE با الهام از تاریکی شب، معماری صنعتی، جه
 
 *The night is not the end. It is where everything begins.*
 
-**EST. 2026 — A WORLD BEYOND THE ORDINARY** .*آرین جان فزا*
+**EST. 2026 — A WORLD BEYOND THE ORDINARY**
