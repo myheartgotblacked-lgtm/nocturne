@@ -5,8 +5,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#090914">
-<meta name="description" content="NOCTURNE 2.0 — Digital Sanctuary">
-<title>NOCTURNE 2.0 — Digital Sanctuary</title>
+<meta name="description" content="NOCTURNE 2.0 — Christmas Edition">
+<title>NOCTURNE 2.0 — Christmas Edition</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,6 +25,8 @@
   --muted:#9994b5;
   --radius:22px;
   --glow:0 0 35px rgba(139,92,246,.13);
+  --red:#ff5364;
+  --green:#36d995;
 }
 
 * {
@@ -85,6 +87,8 @@ a { color:inherit;text-decoration:none; }
   opacity:.025;
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
 }
+
+/* HEADER */
 
 header {
   position:sticky;
@@ -251,9 +255,25 @@ header {
   margin-right:8px;
 }
 
-/* ==================================
-   DISCORD PROFILE - TOP SECTION
-================================== */
+/* CHRISTMAS SNOW */
+
+.christmas-snow {
+  position:fixed;
+  top:-25px;
+  color:white;
+  pointer-events:none;
+  z-index:60;
+  animation:snow-fall linear infinite;
+  text-shadow:0 0 8px #b9eaff;
+  user-select:none;
+}
+
+@keyframes snow-fall {
+  0% { transform:translate3d(0,-5vh,0) rotate(0deg); }
+  100% { transform:translate3d(35px,110vh,0) rotate(360deg); }
+}
+
+/* DISCORD PROFILE */
 
 .discord-section {
   padding-top:35px;
@@ -305,6 +325,7 @@ header {
   height:112px;
   margin-top:-55px;
   z-index:2;
+  isolation:isolate;
 }
 
 .discord-avatar {
@@ -317,13 +338,53 @@ header {
   display:block;
 }
 
-.discord-avatar-fallback {
-  width:100%;
-  height:100%;
-  display:grid;
-  place-items:center;
-  font-size:38px;
-  color:var(--purple);
+/* SANTA HAT */
+
+.santa-hat {
+  position:absolute;
+  width:65px;
+  height:48px;
+  top:-29px;
+  left:5px;
+  z-index:5;
+  transform:rotate(-17deg);
+  pointer-events:none;
+}
+
+.santa-hat::before {
+  content:"";
+  position:absolute;
+  width:49px;
+  height:39px;
+  left:5px;
+  top:0;
+  background:linear-gradient(145deg,#ff5555,#b90020);
+  clip-path:polygon(0 100%,100% 100%,75% 0);
+  filter:drop-shadow(0 3px 5px #0008);
+}
+
+.santa-hat::after {
+  content:"";
+  position:absolute;
+  width:58px;
+  height:12px;
+  left:0;
+  bottom:4px;
+  border-radius:50%;
+  background:linear-gradient(#fff,#dedee8);
+  box-shadow:0 3px 7px #0007;
+}
+
+.hat-pom {
+  position:absolute;
+  width:16px;
+  height:16px;
+  background:#fff;
+  border-radius:50%;
+  top:-4px;
+  right:7px;
+  z-index:2;
+  box-shadow:0 0 12px #fff8;
 }
 
 .discord-avatar-status {
@@ -521,16 +582,6 @@ header {
   overflow-wrap:anywhere;
 }
 
-.discord-loading {
-  color:var(--muted);
-  font-size:12px;
-  padding:20px 0;
-}
-
-.discord-error {
-  color:#fca5a5;
-}
-
 .discord-spotify {
   display:none;
   margin-top:15px;
@@ -575,6 +626,297 @@ header {
 .connection-light.connected {
   background:#23d18b;
   box-shadow:0 0 10px #23d18b;
+}
+
+/* CHRISTMAS COUNTDOWN */
+
+.christmas-section {
+  padding:35px 0 45px;
+}
+
+.christmas-card {
+  position:relative;
+  overflow:hidden;
+  min-height:370px;
+  border:1px solid rgba(255,100,120,.2);
+  border-radius:28px;
+  padding:30px;
+  background:
+    radial-gradient(circle at 15% 50%,rgba(255,60,90,.12),transparent 40%),
+    radial-gradient(circle at 85% 20%,rgba(94,234,212,.1),transparent 40%),
+    linear-gradient(135deg,#171426,#101a22,#19142a);
+  box-shadow:0 15px 65px rgba(180,35,65,.09);
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  gap:20px;
+}
+
+.christmas-card::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:radial-gradient(#ffffff66 1px,transparent 1px);
+  background-size:35px 35px;
+  opacity:.15;
+  pointer-events:none;
+}
+
+.christmas-info {
+  position:relative;
+  z-index:2;
+  text-align:center;
+}
+
+.christmas-kicker {
+  color:#ff9ca8;
+  font-size:11px;
+  letter-spacing:3px;
+  margin-bottom:12px;
+}
+
+.christmas-title {
+  font-size:clamp(25px,4vw,40px);
+  font-weight:800;
+  background:linear-gradient(100deg,#fff0f2,#ff758b,#5eead4);
+  color:transparent;
+  background-clip:text;
+}
+
+.christmas-subtitle {
+  font-size:12px;
+  color:#c6bfd6;
+  margin-top:10px;
+  line-height:2;
+}
+
+.countdown {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:9px;
+  margin-top:27px;
+  direction:ltr;
+}
+
+.countdown-unit {
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.055);
+  border-radius:14px;
+  padding:13px 5px;
+  backdrop-filter:blur(8px);
+}
+
+.countdown-number {
+  font-size:clamp(21px,3vw,32px);
+  font-weight:800;
+  color:#fff;
+  font-variant-numeric:tabular-nums;
+}
+
+.countdown-label {
+  color:#b9b2c9;
+  font-size:10px;
+  margin-top:4px;
+}
+
+.christmas-date {
+  margin-top:17px;
+  color:#ffb7c1;
+  font-size:11px;
+}
+
+/* CHRISTMAS TREE */
+
+.tree-area {
+  position:relative;
+  z-index:2;
+  min-height:310px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.christmas-tree {
+  position:relative;
+  width:220px;
+  height:290px;
+  animation:tree-sway 5s ease-in-out infinite;
+  transform-origin:bottom center;
+}
+
+@keyframes tree-sway {
+  0%,100% { transform:rotate(-1deg); }
+  50% { transform:rotate(1deg); }
+}
+
+.tree-star {
+  position:absolute;
+  top:0;
+  left:50%;
+  transform:translateX(-50%);
+  color:#ffe58a;
+  font-size:37px;
+  z-index:8;
+  text-shadow:0 0 10px #ffe58a,0 0 25px #ffb347;
+  animation:star-glow 1.8s ease-in-out infinite alternate;
+}
+
+@keyframes star-glow {
+  from { filter:brightness(.85); transform:translateX(-50%) scale(.95); }
+  to { filter:brightness(1.3); transform:translateX(-50%) scale(1.12); }
+}
+
+.tree-layer {
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  width:0;
+  height:0;
+  border-left:var(--tree-width) solid transparent;
+  border-right:var(--tree-width) solid transparent;
+  border-bottom:var(--tree-height) solid #176b49;
+  filter:drop-shadow(0 5px 5px #0006);
+}
+
+.tree-layer.one {
+  --tree-width:48px;
+  --tree-height:95px;
+  top:35px;
+  z-index:3;
+  border-bottom-color:#23885a;
+}
+
+.tree-layer.two {
+  --tree-width:76px;
+  --tree-height:112px;
+  top:78px;
+  z-index:2;
+  border-bottom-color:#176c48;
+}
+
+.tree-layer.three {
+  --tree-width:105px;
+  --tree-height:125px;
+  top:120px;
+  z-index:1;
+  border-bottom-color:#105438;
+}
+
+.tree-trunk {
+  position:absolute;
+  width:34px;
+  height:45px;
+  background:linear-gradient(90deg,#71401e,#a66b37,#70401e);
+  left:50%;
+  transform:translateX(-50%);
+  bottom:0;
+  border-radius:4px;
+  z-index:0;
+}
+
+.tree-garland {
+  position:absolute;
+  width:150px;
+  height:125px;
+  top:82px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:5;
+  border-radius:50%;
+  border-bottom:3px solid rgba(255,220,120,.8);
+  clip-path:polygon(0 0,100% 0,100% 100%,0 100%);
+}
+
+.tree-light {
+  position:absolute;
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  z-index:6;
+  box-shadow:0 0 10px currentColor;
+  animation:light-blink 1.2s ease-in-out infinite alternate;
+}
+
+.tree-light:nth-child(1) { top:87px;left:80px;color:#ff5364;background:currentColor; }
+.tree-light:nth-child(2) { top:113px;left:125px;color:#ffe58a;background:currentColor;animation-delay:.3s; }
+.tree-light:nth-child(3) { top:145px;left:55px;color:#5eead4;background:currentColor;animation-delay:.5s; }
+.tree-light:nth-child(4) { top:165px;left:150px;color:#f0abfc;background:currentColor;animation-delay:.7s; }
+.tree-light:nth-child(5) { top:190px;left:92px;color:#ff5364;background:currentColor;animation-delay:.2s; }
+.tree-light:nth-child(6) { top:220px;left:45px;color:#ffe58a;background:currentColor;animation-delay:.6s; }
+.tree-light:nth-child(7) { top:224px;left:165px;color:#5eead4;background:currentColor;animation-delay:.4s; }
+
+@keyframes light-blink {
+  from { opacity:.45;transform:scale(.8); }
+  to { opacity:1;transform:scale(1.3); }
+}
+
+.tree-ornament {
+  position:absolute;
+  width:13px;
+  height:13px;
+  border-radius:50%;
+  z-index:6;
+  box-shadow:inset -3px -3px 5px #0005,0 0 9px #fff5;
+}
+
+.ornament-one { top:112px;left:93px;background:#ff5364; }
+.ornament-two { top:160px;left:116px;background:#ffe58a; }
+.ornament-three { top:195px;left:70px;background:#f0abfc; }
+.ornament-four { top:215px;left:130px;background:#5eead4; }
+
+.tree-gifts {
+  position:absolute;
+  bottom:0;
+  left:50%;
+  transform:translateX(-50%);
+  width:220px;
+  display:flex;
+  justify-content:center;
+  align-items:end;
+  gap:8px;
+  z-index:4;
+}
+
+.gift {
+  position:relative;
+  width:42px;
+  height:36px;
+  border-radius:4px;
+  background:#b82c48;
+  box-shadow:0 4px 10px #0005;
+}
+
+.gift::before {
+  content:"";
+  position:absolute;
+  width:8px;
+  height:100%;
+  left:50%;
+  transform:translateX(-50%);
+  background:#f5d77a;
+}
+
+.gift::after {
+  content:"";
+  position:absolute;
+  width:20px;
+  height:10px;
+  border:3px solid #f5d77a;
+  border-radius:50% 50% 0 50%;
+  left:50%;
+  top:-8px;
+  transform:translateX(-50%);
+}
+
+.gift:nth-child(2) {
+  height:48px;
+  background:#176c58;
+}
+
+.gift:nth-child(3) {
+  width:34px;
+  height:29px;
+  background:#6845a3;
 }
 
 /* HERO */
@@ -997,6 +1339,21 @@ footer {
   .grid { grid-template-columns:repeat(2,1fr); }
 }
 
+@media(max-width:700px) {
+  .christmas-card {
+    grid-template-columns:1fr;
+    padding:25px 15px;
+  }
+
+  .tree-area {
+    min-height:290px;
+    grid-row:1;
+  }
+
+  .christmas-info { grid-row:2; }
+  .christmas-tree { transform:scale(.9); }
+}
+
 @media(max-width:600px) {
   .container { width:91%; }
   header { padding:12px 4%; }
@@ -1022,6 +1379,9 @@ footer {
   .activity-image-wrap,
   .activity-image { width:55px;height:55px; }
   .discord-actions { flex-wrap:wrap; }
+  .countdown { gap:5px; }
+  .countdown-unit { padding:10px 3px; }
+  .countdown-label { font-size:9px; }
 }
 
 @media(prefers-reduced-motion:reduce) {
@@ -1088,15 +1448,13 @@ footer {
 
   <div class="setting-row">
     <span>نسخه</span>
-    <span>2.0.0</span>
+    <span>2.1.0 Christmas</span>
   </div>
 </aside>
 
 <main>
 
-<!-- =================================
-     DISCORD PROFILE - FIRST SECTION
-================================== -->
+<!-- DISCORD PROFILE -->
 
 <section class="container discord-section" id="discord">
 
@@ -1119,21 +1477,16 @@ footer {
       <div class="discord-profile-row">
 
         <div class="discord-avatar-wrap">
-          <img
-            id="discordAvatar"
-            class="discord-avatar"
-            src=""
-            alt="Discord Avatar"
-          >
+          <img id="discordAvatar" class="discord-avatar" src="" alt="Discord Avatar">
 
-          <span
-            class="discord-avatar-status offline"
-            id="discordAvatarStatus"
-          ></span>
+          <div class="santa-hat">
+            <span class="hat-pom"></span>
+          </div>
+
+          <span class="discord-avatar-status offline" id="discordAvatarStatus"></span>
         </div>
 
         <div class="discord-user-info">
-
           <div class="discord-user-name">
             <span id="discordUsername">در حال اتصال...</span>
             <span class="discord-tag" id="discordTag"></span>
@@ -1143,16 +1496,13 @@ footer {
             <span class="discord-state-dot" id="discordStateDot"></span>
             <span id="discordStatus">در حال دریافت اطلاعات...</span>
           </div>
-
         </div>
 
         <div class="discord-actions">
-          <a
-            class="discord-action"
-            href="https://discord.com/users/1534277328224653363"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a class="discord-action"
+             href="https://discord.com/users/1534277328224653363"
+             target="_blank"
+             rel="noopener noreferrer">
             مشاهده پروفایل ↗
           </a>
         </div>
@@ -1160,21 +1510,9 @@ footer {
       </div>
 
       <div class="discord-activity" id="discordActivity">
-
         <div class="activity-image-wrap">
-          <img
-            class="activity-image"
-            id="activityImage"
-            src=""
-            alt=""
-          >
-          <img
-            class="activity-small-image"
-            id="activitySmallImage"
-            src=""
-            alt=""
-            style="display:none"
-          >
+          <img class="activity-image" id="activityImage" src="" alt="">
+          <img class="activity-small-image" id="activitySmallImage" src="" alt="" style="display:none">
         </div>
 
         <div class="activity-info">
@@ -1183,12 +1521,10 @@ footer {
           <div class="activity-detail" id="activityDetail"></div>
           <div class="activity-state" id="activityState"></div>
         </div>
-
       </div>
 
       <div class="discord-spotify" id="discordSpotify">
         <img class="spotify-cover" id="spotifyCover" src="" alt="">
-
         <div class="spotify-info">
           <div class="activity-label">LISTENING ON SPOTIFY</div>
           <div class="spotify-title" id="spotifyTitle"></div>
@@ -1197,7 +1533,6 @@ footer {
       </div>
 
       <div class="discord-extra">
-
         <div class="discord-extra-card">
           <span>USERNAME</span>
           <strong id="discordUsernameExtra">---</strong>
@@ -1207,7 +1542,6 @@ footer {
           <span>DISCORD STATUS</span>
           <strong id="discordStatusExtra">---</strong>
         </div>
-
       </div>
 
       <div class="discord-connection">
@@ -1216,6 +1550,90 @@ footer {
       </div>
 
     </div>
+  </div>
+</section>
+
+<!-- CHRISTMAS COUNTDOWN -->
+
+<section class="container christmas-section" id="christmas">
+
+  <div class="christmas-card">
+
+    <div class="tree-area">
+      <div class="christmas-tree">
+
+        <div class="tree-star">★</div>
+
+        <div class="tree-layer one"></div>
+        <div class="tree-layer two"></div>
+        <div class="tree-layer three"></div>
+
+        <div class="tree-garland"></div>
+
+        <span class="tree-light"></span>
+        <span class="tree-light"></span>
+        <span class="tree-light"></span>
+        <span class="tree-light"></span>
+        <span class="tree-light"></span>
+        <span class="tree-light"></span>
+        <span class="tree-light"></span>
+
+        <span class="tree-ornament ornament-one"></span>
+        <span class="tree-ornament ornament-two"></span>
+        <span class="tree-ornament ornament-three"></span>
+        <span class="tree-ornament ornament-four"></span>
+
+        <div class="tree-trunk"></div>
+
+        <div class="tree-gifts">
+          <div class="gift"></div>
+          <div class="gift"></div>
+          <div class="gift"></div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="christmas-info">
+      <div class="christmas-kicker">✦ THE MAGIC OF DECEMBER ✦</div>
+
+      <h2 class="christmas-title">Merry Christmas</h2>
+
+      <p class="christmas-subtitle">
+        تا رسیدن شب کریسمس چقدر باقی مانده؟
+        <br>
+        شمارش معکوس NOCTURNE آغاز شده است.
+      </p>
+
+      <div class="countdown" dir="ltr">
+
+        <div class="countdown-unit">
+          <div class="countdown-number" id="countDays">00</div>
+          <div class="countdown-label">DAYS</div>
+        </div>
+
+        <div class="countdown-unit">
+          <div class="countdown-number" id="countHours">00</div>
+          <div class="countdown-label">HOURS</div>
+        </div>
+
+        <div class="countdown-unit">
+          <div class="countdown-number" id="countMinutes">00</div>
+          <div class="countdown-label">MINUTES</div>
+        </div>
+
+        <div class="countdown-unit">
+          <div class="countdown-number" id="countSeconds">00</div>
+          <div class="countdown-label">SECONDS</div>
+        </div>
+
+      </div>
+
+      <div class="christmas-date" id="christmasMessage">
+        🎄 25 December · Christmas Day
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -1312,11 +1730,8 @@ footer {
 
   <div class="search-box">
     <span>⌕</span>
-    <input
-      type="search"
-      id="searchInput"
-      placeholder="جست‌وجو در بخش‌های NOCTURNE..."
-    >
+    <input type="search" id="searchInput"
+      placeholder="جست‌وجو در بخش‌های NOCTURNE...">
   </div>
 
   <div class="grid" id="discoverGrid">
@@ -1388,9 +1803,7 @@ footer {
           NOCTURNE — Ambient
         </div>
 
-        <div class="track-sub">
-          Local audio player
-        </div>
+        <div class="track-sub">Local audio player</div>
 
         <div class="progress">
           <div class="progress-bar" id="progressBar"></div>
@@ -1400,15 +1813,8 @@ footer {
       <div class="player-controls">
         <button class="icon-btn" id="restartBtn">↺</button>
         <button class="play-btn" id="playBtn">▶</button>
-        <input
-          class="volume"
-          type="range"
-          min="0"
-          max="1"
-          step=".01"
-          value=".7"
-          id="volume"
-        >
+        <input class="volume" type="range" min="0" max="1"
+          step=".01" value=".7" id="volume">
       </div>
     </div>
 
@@ -1438,8 +1844,8 @@ footer {
   <div class="card reveal">
 
     <div class="archive-item">
-      <span>NOCTURNE 2.0 — ارتقای محیط</span>
-      <span>نسخه 2.0</span>
+      <span>NOCTURNE 2.1 — Christmas Edition</span>
+      <span>نسخه 2.1</span>
     </div>
 
     <div class="archive-item">
@@ -1450,6 +1856,11 @@ footer {
     <div class="archive-item">
       <span>Digital Sanctuary</span>
       <span>مرکز اصلی</span>
+    </div>
+
+    <div class="archive-item">
+      <span>Christmas Countdown</span>
+      <span>25 December</span>
     </div>
 
     <div class="archive-item">
@@ -1465,6 +1876,7 @@ footer {
 <footer>
   <div class="footer-logo">NOCTURNE</div>
   <div>Digital Sanctuary · Beyond the Unknown</div>
+  <div>🎄 Christmas Edition</div>
   <div>© <span id="year"></span> NOCTURNE. All rights reserved.</div>
 </footer>
 
@@ -1472,10 +1884,79 @@ footer {
 
 <script>
 // =====================================
-// NOCTURNE 2.0 CORE
+// NOCTURNE 2.1 CHRISTMAS CORE
 // =====================================
 
 const $ = id => document.getElementById(id);
+
+// =====================================
+// CHRISTMAS COUNTDOWN
+// Counts down to the next December 25
+// =====================================
+
+function updateChristmasCountdown() {
+  const now = new Date();
+
+  let christmas = new Date(
+    now.getFullYear(),
+    11,
+    25,
+    0, 0, 0
+  );
+
+  if (now.getTime() >= christmas.getTime()) {
+    christmas = new Date(
+      now.getFullYear() + 1,
+      11,
+      25,
+      0, 0, 0
+    );
+  }
+
+  const difference = Math.max(0, christmas.getTime() - now.getTime());
+
+  const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((difference / (1000 * 60)) % 60);
+  const seconds = Math.floor((difference / 1000) % 60);
+
+  $('countDays').textContent = String(days).padStart(2, '0');
+  $('countHours').textContent = String(hours).padStart(2, '0');
+  $('countMinutes').textContent = String(minutes).padStart(2, '0');
+  $('countSeconds').textContent = String(seconds).padStart(2, '0');
+
+  $('christmasMessage').textContent =
+    "🎄 " + christmas.getFullYear() + " · 25 December · Christmas Day";
+}
+
+updateChristmasCountdown();
+setInterval(updateChristmasCountdown, 1000);
+
+// =====================================
+// CHRISTMAS SNOWFALL
+// =====================================
+
+function createChristmasSnow() {
+  const symbols = ["❄", "❅", "❆"];
+
+  for (let i = 0; i < 38; i++) {
+    const snow = document.createElement("div");
+
+    snow.className = "christmas-snow";
+    snow.textContent =
+      symbols[Math.floor(Math.random() * symbols.length)];
+
+    snow.style.left = Math.random() * 100 + "vw";
+    snow.style.fontSize = (10 + Math.random() * 13) + "px";
+    snow.style.opacity = 0.3 + Math.random() * 0.6;
+    snow.style.animationDuration = (7 + Math.random() * 12) + "s";
+    snow.style.animationDelay = (-Math.random() * 15) + "s";
+
+    document.body.appendChild(snow);
+  }
+}
+
+createChristmasSnow();
 
 // =====================================
 // DISCORD LANYARD CONNECTION
@@ -1628,8 +2109,9 @@ function updateDiscord(data) {
     "Discord User";
 
   $('discordUsername').textContent = displayName;
-  $('discordTag').textContent = user.discriminator &&
-    user.discriminator !== "0"
+
+  $('discordTag').textContent =
+    user.discriminator && user.discriminator !== "0"
       ? "#" + user.discriminator
       : "";
 
@@ -1659,7 +2141,6 @@ function updateDiscord(data) {
       "https://cdn.discordapp.com/embed/avatars/0.png";
   };
 
-  // Discord profile banner
   const banner = user.banner;
 
   if (banner) {
@@ -1681,7 +2162,6 @@ function updateDiscord(data) {
 
 function updateDiscordActivity(activities) {
   const activity = activities.find(item => item.type !== 4);
-
   const container = $('discordActivity');
 
   if (!activity) {
@@ -1743,6 +2223,7 @@ function updateDiscordSpotify(spotify) {
 
   $('spotifyCover').src = spotify.album_art_url || "";
   $('spotifyTitle').textContent = spotify.song || "Unknown Song";
+
   $('spotifyArtist').textContent =
     (spotify.artist || "Unknown Artist") +
     (spotify.album ? " · " + spotify.album : "");
@@ -1758,17 +2239,17 @@ function updateClock() {
   const now = new Date();
 
   $('clock').textContent = now.toLocaleTimeString('fa-IR', {
-    hour: '2-digit',
-    minute: '2-digit',
-    second: '2-digit',
-    hour12: false
+    hour:'2-digit',
+    minute:'2-digit',
+    second:'2-digit',
+    hour12:false
   });
 
   $('dateText').textContent = now.toLocaleDateString('fa-IR', {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
+    weekday:'long',
+    year:'numeric',
+    month:'long',
+    day:'numeric'
   });
 }
 
@@ -1820,7 +2301,8 @@ const quotes = [
   ["سکوت نیز می‌تواند هزاران داستان داشته باشد.", "UNKNOWN"],
   ["هر پایان، دروازه‌ای به یک آغاز تازه است.", "TRANSMISSION"],
   ["در میان آشوب، آرامش خودت را پیدا کن.", "NOCTURNE"],
-  ["همه پاسخ‌ها در روشنایی پیدا نمی‌شوند.", "ARCHIVE"]
+  ["همه پاسخ‌ها در روشنایی پیدا نمی‌شوند.", "ARCHIVE"],
+  ["جادوی زمستان در لحظه‌های کوچک پنهان است.", "CHRISTMAS ARCHIVE"]
 ];
 
 $('newQuote').addEventListener('click', () => {
@@ -1915,13 +2397,19 @@ $('motionToggle').addEventListener('click', () => {
   $('motionToggle').textContent =
     disabled ? "خاموش" : "روشن";
 
-  document.querySelectorAll('.orbit,.core').forEach(el => {
+  document.querySelectorAll(
+    '.orbit,.core,.christmas-tree,.tree-star,.tree-light'
+  ).forEach(el => {
     el.style.animation = disabled ? "none" : "";
+  });
+
+  document.querySelectorAll('.christmas-snow').forEach(el => {
+    el.style.animationPlayState = disabled ? "paused" : "running";
   });
 });
 
 $('welcomeToggle').addEventListener('click', () => {
-  toast("به NOCTURNE 2.0 خوش آمدی.");
+  toast("به NOCTURNE 2.1 خوش آمدی. 🎄");
 });
 
 // =====================================
@@ -1935,7 +2423,7 @@ const observer = new IntersectionObserver(entries => {
       observer.unobserve(entry.target);
     }
   });
-}, { threshold: .12 });
+}, { threshold:.12 });
 
 document.querySelectorAll('.reveal').forEach(el => {
   observer.observe(el);
@@ -1967,13 +2455,13 @@ function resizeCanvas() {
   ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
   stars = Array.from({
-    length: Math.min(150, Math.floor(width * height / 8000))
+    length:Math.min(150, Math.floor(width * height / 8000))
   }, () => ({
-    x: Math.random() * width,
-    y: Math.random() * height,
-    radius: Math.random() * 1.4 + .2,
-    alpha: Math.random() * .7 + .2,
-    speed: Math.random() * .2 + .04
+    x:Math.random() * width,
+    y:Math.random() * height,
+    radius:Math.random() * 1.4 + .2,
+    alpha:Math.random() * .7 + .2,
+    speed:Math.random() * .2 + .04
   }));
 }
 
@@ -2008,7 +2496,7 @@ drawStars();
 
 if (!sessionStorage.getItem('nocturne_welcome')) {
   setTimeout(() => {
-    toast("به پناهگاه دیجیتال NOCTURNE خوش آمدی.");
+    toast("به پناهگاه دیجیتال NOCTURNE خوش آمدی. 🎄");
   }, 900);
 
   sessionStorage.setItem('nocturne_welcome', '1');
