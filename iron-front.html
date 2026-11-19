@@ -1,1 +1,1053 @@
 
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#171914">
+<title>DEUTSCHLAND 1933–1945 | Historical Archive</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+ --bg:#171914;
+ --panel:#22251e;
+ --panel2:#292c24;
+ --line:#4a4b3d;
+ --gold:#b8a477;
+ --red:#913d35;
+ --text:#dedbcf;
+ --muted:#99998d;
+ --paper:#c7c0a9;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+html{scroll-behavior:smooth}
+
+body{
+ background:var(--bg);
+ color:var(--text);
+ font-family:Vazirmatn,sans-serif;
+ line-height:1.9;
+}
+
+a{color:inherit;text-decoration:none}
+
+.eng{font-family:"Roboto Mono",monospace}
+
+header{
+ position:sticky;
+ top:0;
+ z-index:50;
+ height:66px;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ padding:0 5%;
+ background:#1c1f19;
+ border-bottom:1px solid var(--line);
+ box-shadow:0 5px 20px #0008;
+}
+
+.brand{
+ font:700 19px "Roboto Mono";
+ letter-spacing:2px;
+ color:var(--paper);
+}
+
+.brand span{color:#b35b4c}
+
+nav{
+ display:flex;
+ gap:22px;
+ font-size:11px;
+ color:#b8b7aa;
+}
+
+nav a:hover{color:var(--gold)}
+
+.header-date{
+ font:11px "Roboto Mono";
+ color:var(--gold);
+}
+
+.hero{
+ min-height:570px;
+ display:flex;
+ align-items:center;
+ position:relative;
+ overflow:hidden;
+ background:
+ linear-gradient(90deg,#171914ee,#17191488),
+ url("https://commons.wikimedia.org/wiki/Special:FilePath/Berlin-1945.jpg");
+ background-position:center;
+ background-size:cover;
+ border-bottom:3px solid #71684f;
+}
+
+.hero::after{
+ content:"";
+ position:absolute;
+ inset:0;
+ background:repeating-linear-gradient(
+  0deg,transparent 0 3px,#ffffff08 4px
+ );
+ pointer-events:none;
+}
+
+.hero-inner{
+ position:relative;
+ z-index:2;
+ max-width:1100px;
+ margin:auto;
+ width:100%;
+ padding:75px 35px;
+}
+
+.kicker{
+ color:var(--gold);
+ font:11px "Roboto Mono";
+ letter-spacing:3px;
+ margin-bottom:22px;
+}
+
+.hero h1{
+ font-size:clamp(35px,6vw,75px);
+ line-height:1.3;
+ font-weight:800;
+ max-width:800px;
+}
+
+.hero h1 span{color:#bd6658}
+
+.hero p{
+ color:#d1cdbf;
+ max-width:650px;
+ margin-top:22px;
+ font-size:14px;
+ line-height:2.3;
+}
+
+.hero-buttons{
+ display:flex;
+ flex-wrap:wrap;
+ gap:12px;
+ margin-top:30px;
+}
+
+.btn{
+ display:inline-block;
+ padding:11px 23px;
+ background:#303329;
+ border:1px solid #6a6957;
+ color:#eee9dc;
+ font-size:12px;
+ cursor:pointer;
+ transition:.2s;
+ font-family:Vazirmatn;
+}
+
+.btn:hover{
+ background:#474a3a;
+ border-color:var(--gold);
+}
+
+.btn.red{
+ background:#702e29;
+ border-color:#9e4b40;
+}
+
+.container{
+ max-width:1450px;
+ margin:auto;
+ padding:55px 5%;
+}
+
+.section-heading{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ gap:15px;
+ border-bottom:1px solid var(--line);
+ padding-bottom:17px;
+ margin-bottom:27px;
+}
+
+.section-heading h2{
+ font-size:20px;
+ font-weight:700;
+}
+
+.section-heading span{
+ font:10px "Roboto Mono";
+ color:var(--gold);
+}
+
+.panel{
+ background:var(--panel);
+ border:1px solid var(--line);
+ box-shadow:0 8px 25px #0003;
+}
+
+.panel-header{
+ padding:12px 17px;
+ background:#2b2d25;
+ border-bottom:1px solid var(--line);
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ color:var(--gold);
+ font:11px "Roboto Mono";
+}
+
+.panel-content{padding:22px}
+
+.intro-grid{
+ display:grid;
+ grid-template-columns:1.3fr .7fr;
+ gap:20px;
+}
+
+.intro-text p{
+ font-size:13px;
+ color:#c0beb2;
+ line-height:2.4;
+ margin-bottom:15px;
+}
+
+.intro-image{
+ width:100%;
+ height:100%;
+ min-height:290px;
+ object-fit:cover;
+ filter:sepia(.25) grayscale(.3);
+}
+
+.statistics{
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:13px;
+ margin-top:22px;
+}
+
+.stat{
+ padding:20px 12px;
+ background:#20231d;
+ border:1px solid var(--line);
+ text-align:center;
+}
+
+.stat strong{
+ display:block;
+ font:700 24px "Roboto Mono";
+ color:var(--gold);
+}
+
+.stat small{
+ color:var(--muted);
+ font-size:11px;
+}
+
+.timeline{
+ position:relative;
+ padding-right:35px;
+}
+
+.timeline::before{
+ content:"";
+ position:absolute;
+ right:10px;
+ top:8px;
+ bottom:8px;
+ width:2px;
+ background:#756c51;
+}
+
+.event{
+ position:relative;
+ margin-bottom:22px;
+ padding:22px;
+ background:var(--panel);
+ border:1px solid var(--line);
+}
+
+.event::before{
+ content:"";
+ position:absolute;
+ right:-32px;
+ top:27px;
+ width:12px;
+ height:12px;
+ background:#a34a3e;
+ border:2px solid #d4c5a0;
+ border-radius:50%;
+}
+
+.event-year{
+ font:700 19px "Roboto Mono";
+ color:var(--gold);
+}
+
+.event h3{
+ font-size:15px;
+ margin:8px 0;
+}
+
+.event p{
+ color:#aaa99d;
+ font-size:12px;
+ line-height:2.2;
+}
+
+.event img{
+ width:100%;
+ max-height:330px;
+ object-fit:cover;
+ margin-top:16px;
+ filter:grayscale(.45) sepia(.15);
+}
+
+.photo-caption{
+ font-size:10px;
+ color:#929184;
+ margin-top:5px;
+}
+
+.gallery{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:18px;
+}
+
+.photo-card{
+ background:var(--panel);
+ border:1px solid var(--line);
+ overflow:hidden;
+}
+
+.photo-card img{
+ width:100%;
+ height:230px;
+ object-fit:cover;
+ filter:grayscale(.4) sepia(.15);
+ transition:.4s;
+}
+
+.photo-card:hover img{
+ filter:none;
+ transform:scale(1.025);
+}
+
+.photo-info{padding:16px}
+
+.photo-info h3{
+ font-size:14px;
+ color:var(--gold);
+}
+
+.photo-info p{
+ color:var(--muted);
+ font-size:11px;
+ margin-top:8px;
+}
+
+.two-column{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:18px;
+}
+
+.text-card{
+ padding:24px;
+ background:var(--panel);
+ border:1px solid var(--line);
+}
+
+.text-card h3{
+ color:var(--gold);
+ font-size:15px;
+ margin-bottom:12px;
+}
+
+.text-card p{
+ color:#b4b2a6;
+ font-size:12px;
+ line-height:2.3;
+}
+
+.archive-table{
+ width:100%;
+ border-collapse:collapse;
+ font-size:12px;
+}
+
+.archive-table th,
+.archive-table td{
+ border-bottom:1px solid var(--line);
+ padding:13px;
+ text-align:right;
+}
+
+.archive-table th{
+ background:#303329;
+ color:var(--gold);
+}
+
+.archive-table td{color:#c3c0b3}
+
+.archive-table tr:hover{background:#303329}
+
+.music-box{
+ display:grid;
+ grid-template-columns:150px 1fr;
+ gap:25px;
+ align-items:center;
+ padding:25px;
+ background:#22251e;
+ border:1px solid #71634a;
+}
+
+.music-art{
+ width:150px;
+ height:150px;
+ background:
+ linear-gradient(#0005,#0007),
+ url("https://commons.wikimedia.org/wiki/Special:FilePath/Berlin-1945.jpg") center/cover;
+ display:grid;
+ place-items:center;
+ border:1px solid var(--gold);
+}
+
+.music-art span{
+ font:700 38px "Roboto Mono";
+ color:#eee2c4;
+}
+
+.music-details h3{
+ font-size:18px;
+ color:var(--gold);
+}
+
+.music-details p{
+ color:var(--muted);
+ font-size:12px;
+ margin:8px 0 17px;
+}
+
+audio{width:100%;height:38px}
+
+.history-warning{
+ padding:20px;
+ border-right:3px solid var(--red);
+ background:#2b211e;
+ color:#d1c1b1;
+ font-size:12px;
+ line-height:2.3;
+}
+
+.source-list{
+ display:grid;
+ gap:12px;
+}
+
+.source-list a{
+ padding:13px 15px;
+ background:#20231d;
+ border:1px solid var(--line);
+ font-size:12px;
+ color:var(--gold);
+}
+
+.source-list a:hover{background:#303329}
+
+footer{
+ padding:35px 5%;
+ background:#10120f;
+ border-top:1px solid var(--line);
+ text-align:center;
+ color:#88887d;
+ font:10px "Roboto Mono";
+ line-height:2.5;
+}
+
+@media(max-width:900px){
+ nav{display:none}
+ .intro-grid{grid-template-columns:1fr}
+ .gallery{grid-template-columns:repeat(2,1fr)}
+ .statistics{grid-template-columns:repeat(2,1fr)}
+}
+
+@media(max-width:600px){
+ .hero{min-height:490px}
+ .container{padding:40px 4%}
+ .gallery,.two-column{grid-template-columns:1fr}
+ .music-box{grid-template-columns:1fr}
+ .music-art{width:100%;height:190px}
+ .section-heading h2{font-size:16px}
+ .header-date{font-size:9px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+ <div class="brand">DEUTSCHLAND <span>ARCHIVE</span></div>
+
+ <nav>
+  <a href="#overview">معرفی</a>
+  <a href="#timeline">خط زمانی</a>
+  <a href="#gallery">تصاویر</a>
+  <a href="#government">حکومت</a>
+  <a href="#war">جنگ جهانی</a>
+  <a href="#music">موسیقی</a>
+ </nav>
+
+ <div class="header-date">1933 — 1945</div>
+</header>
+
+<!-- HERO -->
+
+<section class="hero">
+ <div class="hero-inner">
+
+  <div class="kicker">EUROPEAN HISTORY / 20TH CENTURY</div>
+
+  <h1>
+   GERMANY
+   <span>1933–1945</span>
+  </h1>
+
+  <p>
+   بررسی تاریخی آلمان در دوران حکومت ناسیونال‌سوسیالیسم؛
+   از فروپاشی جمهوری وایمار و استقرار دیکتاتوری تا جنگ جهانی دوم،
+   هولوکاست و پایان حکومت در سال ۱۹۴۵.
+  </p>
+
+  <div class="hero-buttons">
+   <a class="btn red" href="#timeline">مشاهده تاریخ</a>
+   <a class="btn" href="#gallery">آرشیو تصاویر</a>
+  </div>
+
+ </div>
+</section>
+
+<!-- OVERVIEW -->
+
+<section class="container" id="overview">
+
+ <div class="section-heading">
+  <h2>معرفی تاریخی</h2>
+  <span>HISTORICAL OVERVIEW</span>
+ </div>
+
+ <div class="intro-grid">
+
+  <div class="panel">
+   <div class="panel-header">
+    <span>HISTORICAL BACKGROUND</span>
+    <span>01</span>
+   </div>
+
+   <div class="panel-content intro-text">
+
+    <p>
+     پس از پایان جنگ جهانی اول در سال ۱۹۱۸، امپراتوری آلمان
+     سقوط کرد و جمهوری وایمار تشکیل شد. این جمهوری با مشکلات
+     اقتصادی، اختلافات سیاسی، بحران‌های اجتماعی و پیامدهای
+     پیمان ورسای روبه‌رو بود.
+    </p>
+
+    <p>
+     حزب ناسیونال‌سوسیالیست کارگران آلمان در این شرایط رشد کرد.
+     آدولف هیتلر در ۳۰ ژانویه ۱۹۳۳ توسط رئیس‌جمهور پل فون هیندنبورگ
+     به مقام صدراعظمی منصوب شد.
+    </p>
+
+    <p>
+     در ماه‌های بعد، ساختار دموکراتیک آلمان به‌سرعت از بین رفت.
+     آزادی‌های مدنی محدود شدند، احزاب مخالف سرکوب شدند و حکومت
+     تک‌حزبی و دیکتاتوری شکل گرفت.
+    </p>
+
+   </div>
+  </div>
+
+  <img class="intro-image"
+   src="https://commons.wikimedia.org/wiki/Special:FilePath/1933-may-10-berlin-book-burning.JPG"
+   alt="آتش زدن کتاب‌ها در برلین در سال ۱۹۳۳">
+
+ </div>
+
+ <div class="statistics">
+
+  <div class="stat">
+   <strong>1933</strong>
+   <small>آغاز حکومت نازی‌ها</small>
+  </div>
+
+  <div class="stat">
+   <strong>1939</strong>
+   <small>آغاز جنگ جهانی دوم در اروپا</small>
+  </div>
+
+  <div class="stat">
+   <strong>1941</strong>
+   <small>گسترش جنگ به اتحاد شوروی</small>
+  </div>
+
+  <div class="stat">
+   <strong>1945</strong>
+   <small>پایان حکومت نازی‌ها</small>
+  </div>
+
+ </div>
+
+</section>
+
+<!-- TIMELINE -->
+
+<section class="container" id="timeline">
+
+ <div class="section-heading">
+  <h2>خط زمانی رویدادها</h2>
+  <span>CHRONOLOGICAL RECORD</span>
+ </div>
+
+ <div class="timeline">
+
+  <article class="event">
+   <div class="event-year">1933</div>
+   <h3>به قدرت رسیدن حزب نازی</h3>
+   <p>
+    در ۳۰ ژانویه هیتلر صدراعظم شد. پس از آتش‌سوزی رایشتاگ
+    و تصویب قانون اختیارات، حکومت به سمت دیکتاتوری حرکت کرد.
+    اردوگاه داخائو نیز در مارس همان سال تأسیس شد.
+   </p>
+  </article>
+
+  <article class="event">
+   <div class="event-year">1934</div>
+   <h3>تمرکز قدرت در دست هیتلر</h3>
+   <p>
+    پس از مرگ هیندنبورگ در اوت ۱۹۳۴، هیتلر مقام‌های
+    ریاست‌جمهوری و صدراعظمی را در جایگاه رهبری خود ادغام کرد.
+   </p>
+  </article>
+
+  <article class="event">
+   <div class="event-year">1935</div>
+   <h3>قوانین نورنبرگ</h3>
+   <p>
+    قوانین نورنبرگ در سپتامبر ۱۹۳۵ تصویب شدند.
+    این قوانین حقوق شهروندی یهودیان آلمان را محدود کردند
+    و تبعیض نژادی را به قانون رسمی حکومت تبدیل کردند.
+   </p>
+  </article>
+
+  <article class="event">
+   <div class="event-year">1938</div>
+   <h3>شب بلورین و تشدید آزارها</h3>
+   <p>
+    در ۹ و ۱۰ نوامبر ۱۹۳۸ حملات گسترده علیه یهودیان
+    در آلمان و مناطق تحت کنترل آن رخ داد.
+    کنیسه‌ها، خانه‌ها و فروشگاه‌های یهودیان هدف خشونت قرار گرفتند.
+   </p>
+   <img
+    src="https://commons.wikimedia.org/wiki/Special:FilePath/1933-may-10-berlin-book-burning.JPG"
+    alt="تصویر آرشیوی از دوره حکومت نازی‌ها">
+   <div class="photo-caption">تصویر آرشیوی از سرکوب فرهنگی در آلمان، ۱۹۳۳</div>
+  </article>
+
+  <article class="event">
+   <div class="event-year">1939</div>
+   <h3>آغاز جنگ جهانی دوم</h3>
+   <p>
+    در اول سپتامبر ۱۹۳۹ آلمان به لهستان حمله کرد.
+    بریتانیا و فرانسه در سوم سپتامبر به آلمان اعلان جنگ کردند.
+    این رویداد آغاز جنگ جهانی دوم در اروپا بود.
+   </p>
+  </article>
+
+  <article class="event">
+   <div class="event-year">1940</div>
+   <h3>گسترش جنگ در اروپای غربی</h3>
+   <p>
+    آلمان به دانمارک، نروژ، بلژیک، هلند، لوکزامبورگ
+    و فرانسه حمله کرد. جنگ به بخش بزرگی از اروپای غربی گسترش یافت.
+   </p>
+  </article>
+
+  <article class="event">
+   <div class="event-year">1941</div>
+   <h3>تهاجم به اتحاد شوروی</h3>
+   <p>
+    در ۲۲ ژوئن ۱۹۴۱ آلمان عملیات بارباروسا را آغاز کرد.
+    این حمله جبهه‌ای بسیار گسترده در شرق اروپا ایجاد کرد.
+    در همین دوره کشتارهای گسترده غیرنظامیان و یهودیان
+    به دست نیروهای آلمانی و همکارانشان شدت گرفت.
+   </p>
+  </article>
+
+  <article class="event">
+   <div class="event-year">1942–1943</div>
+   <h3>هولوکاست و نقطه عطف جنگ</h3>
+   <p>
+    حکومت نازی کشتار سازمان‌یافته یهودیان اروپا را در مقیاسی
+    گسترده اجرا کرد. در نبرد استالینگراد، نیروهای آلمانی
+    در اوایل سال ۱۹۴۳ شکست تعیین‌کننده‌ای خوردند.
+   </p>
+   <img
+    src="https://commons.wikimedia.org/wiki/Special:FilePath/Auschwitz_Liberated_January_1945.jpg"
+    alt="آزادسازی زندانیان اردوگاه آشویتس">
+   <div class="photo-caption">
+    زندانیان آشویتس پس از آزادسازی اردوگاه، ژانویه ۱۹۴۵
+   </div>
+  </article>
+
+  <article class="event">
+   <div class="event-year">1944</div>
+   <h3>عقب‌نشینی در جبهه‌های جنگ</h3>
+   <p>
+    نیروهای متفقین در ژوئن ۱۹۴۴ در نرماندی پیاده شدند.
+    ارتش شوروی نیز در شرق پیشروی کرد.
+    در ۲۰ ژوئیه تلاش گروهی از افسران آلمانی برای ترور هیتلر
+    ناکام ماند.
+   </p>
+  </article>
+
+  <article class="event">
+   <div class="event-year">1945</div>
+   <h3>سقوط برلین و پایان حکومت</h3>
+   <p>
+    در آوریل ۱۹۴۵ ارتش شوروی وارد نبرد نهایی برلین شد.
+    هیتلر در ۳۰ آوریل خودکشی کرد.
+    آلمان در ۸ مه ۱۹۴۵ تسلیم بدون قیدوشرط را پذیرفت
+    و حکومت نازی‌ها پایان یافت.
+   </p>
+   <img
+    src="https://commons.wikimedia.org/wiki/Special:FilePath/Berlin-1945.jpg"
+    alt="برلین پس از بمباران در سال ۱۹۴۵">
+   <div class="photo-caption">برلین، سال ۱۹۴۵؛ پیامدهای جنگ</div>
+  </article>
+
+ </div>
+</section>
+
+<!-- GOVERNMENT -->
+
+<section class="container" id="government">
+
+ <div class="section-heading">
+  <h2>ساختار حکومت</h2>
+  <span>POLITICAL HISTORY</span>
+ </div>
+
+ <div class="two-column">
+
+  <article class="text-card">
+   <h3>آدولف هیتلر</h3>
+   <p>
+    رهبر حزب نازی و صدراعظم آلمان از سال ۱۹۳۳.
+    او با از میان بردن نهادهای دموکراتیک، حکومت
+    دیکتاتوری ایجاد کرد. سیاست‌های توسعه‌طلبانه،
+    نژادپرستانه و نسل‌کشانه او به جنگ جهانی دوم
+    و فاجعه‌های انسانی گسترده منجر شدند.
+   </p>
+  </article>
+
+  <article class="text-card">
+   <h3>یوزف گوبلز</h3>
+   <p>
+    وزیر تبلیغات حکومت نازی از سال ۱۹۳۳.
+    دستگاه تبلیغاتی تحت مدیریت او رسانه‌ها،
+    سینما، رادیو و بخش بزرگی از فضای فرهنگی
+    را در خدمت ایدئولوژی حکومت قرار داد.
+   </p>
+  </article>
+
+  <article class="text-card">
+   <h3>هاینریش هیملر</h3>
+   <p>
+    رئیس اس‌اس و یکی از چهره‌های اصلی دستگاه
+    سرکوب و امنیت حکومت نازی بود.
+    سازمان‌های تحت کنترل او نقش اساسی در
+    اردوگاه‌های تمرکز و اجرای هولوکاست داشتند.
+   </p>
+  </article>
+
+  <article class="text-card">
+   <h3>هرمان گورینگ</h3>
+   <p>
+    از چهره‌های ارشد حکومت نازی و فرمانده
+    لوفت‌وافه بود. او در ساختار سیاسی و اقتصادی
+    حکومت و سیاست‌های جنگی آلمان نقش داشت.
+   </p>
+  </article>
+
+ </div>
+
+ <div class="history-warning" style="margin-top:20px">
+  ساختار حکومت نازی بر سرکوب مخالفان، سانسور،
+  پلیس سیاسی، تبعیض نژادی و حذف آزادی‌های اساسی استوار بود.
+ </div>
+
+</section>
+
+<!-- WAR -->
+
+<section class="container" id="war">
+
+ <div class="section-heading">
+  <h2>جنگ جهانی دوم</h2>
+  <span>SECOND WORLD WAR</span>
+ </div>
+
+ <div class="panel">
+  <div class="panel-header">
+   <span>EUROPEAN WAR 1939–1945</span>
+   <span>HISTORICAL RECORD</span>
+  </div>
+
+  <div class="panel-content">
+
+   <p style="font-size:13px;line-height:2.5;color:#c1beb1">
+    جنگ جهانی دوم یکی از بزرگ‌ترین و مرگبارترین درگیری‌های
+    تاریخ بشر بود. سیاست توسعه‌طلبانه آلمان نازی،
+    حمله به کشورهای همسایه و اشغال سرزمین‌های گسترده،
+    اروپا را وارد جنگی فراگیر کرد.
+   </p>
+
+   <div style="margin-top:22px">
+    <img
+     src="https://commons.wikimedia.org/wiki/Special:FilePath/Ruins_of_the_Reichstag_in_Berlin,_3_June_1945._BU8573.jpg"
+     alt="ویرانه‌های رایشتاگ در برلین"
+     style="width:100%;max-height:430px;object-fit:cover;filter:grayscale(.35)">
+    <div class="photo-caption">
+     ویرانه‌های ساختمان رایشتاگ، ۳ ژوئن ۱۹۴۵
+    </div>
+   </div>
+
+  </div>
+ </div>
+
+ <div class="two-column" style="margin-top:18px">
+
+  <article class="text-card">
+   <h3>جبهه غربی</h3>
+   <p>
+    درگیری آلمان با بریتانیا، فرانسه و سپس ایالات متحده.
+    عملیات پیاده‌سازی متفقین در نرماندی در ژوئن ۱۹۴۴
+    نقطه مهمی در بازگشایی جبهه غربی بود.
+   </p>
+  </article>
+
+  <article class="text-card">
+   <h3>جبهه شرقی</h3>
+   <p>
+    جنگ میان آلمان نازی و اتحاد شوروی از ۱۹۴۱ تا ۱۹۴۵
+    ادامه داشت. این جبهه شاهد نبردهای عظیم،
+    ویرانی گسترده و تلفات انسانی بسیار سنگین بود.
+   </p>
+  </article>
+
+ </div>
+
+</section>
+
+<!-- HOLOCAUST -->
+
+<section class="container">
+
+ <div class="section-heading">
+  <h2>هولوکاست و جنایت‌های حکومت</h2>
+  <span>HOLOCAUST / 1933–1945</span>
+ </div>
+
+ <div class="panel">
+  <div class="panel-content">
+
+   <p style="font-size:13px;line-height:2.5;color:#c4c0b3">
+    هولوکاست به نسل‌کشی سازمان‌یافته شش میلیون یهودی
+    اروپایی به دست حکومت آلمان نازی و همدستانش گفته می‌شود.
+    حکومت همچنین میلیون‌ها نفر دیگر از جمله روما،
+    افراد دارای معلولیت، اسیران جنگی شوروی و مخالفان سیاسی
+    را مورد آزار و کشتار قرار داد.
+   </p>
+
+   <img
+    src="https://commons.wikimedia.org/wiki/Special:FilePath/Auschwitz_Liberated_January_1945.jpg"
+    alt="آزادسازی اردوگاه آشویتس"
+    style="width:100%;max-height:420px;object-fit:cover;margin-top:20px;filter:grayscale(.35)">
+
+   <div class="photo-caption">
+    آزادسازی آشویتس به دست ارتش سرخ، ژانویه ۱۹۴۵
+   </div>
+
+   <div class="history-warning" style="margin-top:20px">
+    این جنایت‌ها بخش اساسی تاریخ حکومت نازی هستند و
+    نباید از روایت تاریخ جنگ و حکومت آن دوره حذف شوند.
+   </div>
+
+  </div>
+ </div>
+
+</section>
+
+<!-- GALLERY -->
+
+<section class="container" id="gallery">
+
+ <div class="section-heading">
+  <h2>آرشیو تصاویر تاریخی</h2>
+  <span>PHOTOGRAPHIC ARCHIVE</span>
+ </div>
+
+ <div class="gallery">
+
+  <article class="photo-card">
+   <img
+    src="https://commons.wikimedia.org/wiki/Special:FilePath/1933-may-10-berlin-book-burning.JPG"
+    alt="کتاب‌سوزی برلین">
+   <div class="photo-info">
+    <h3>کتاب‌سوزی برلین</h3>
+    <p>۱۰ مه ۱۹۳۳؛ سرکوب فرهنگی و سانسور آثار نویسندگان.</p>
+   </div>
+  </article>
+
+  <article class="photo-card">
+   <img
+    src="https://commons.wikimedia.org/wiki/Special:FilePath/Berlin-1945.jpg"
+    alt="برلین در سال ۱۹۴۵">
+   <div class="photo-info">
+    <h3>برلین در پایان جنگ</h3>
+    <p>۱۹۴۵؛ ویرانی گسترده شهر در نتیجه جنگ.</p>
+   </div>
+  </article>
+
+  <article class="photo-card">
+   <img
+    src="https://commons.wikimedia.org/wiki/Special:FilePath/Auschwitz_Liberated_January_1945.jpg"
+    alt="آزادسازی آشویتس">
+   <div class="photo-info">
+    <h3>آزادسازی آشویتس</h3>
+    <p>ژانویه ۱۹۴۵؛ پایان اسارت زندانیان اردوگاه.</p>
+   </div>
+  </article>
+
+  <article class="photo-card">
+   <img
+    src="https://commons.wikimedia.org/wiki/Special:FilePath/Ruins_of_the_Reichstag_in_Berlin,_3_June_1945._BU8573.jpg"
+    alt="ساختمان رایشتاگ پس از جنگ">
+   <div class="photo-info">
+    <h3>ساختمان رایشتاگ</h3>
+    <p>ژوئن ۱۹۴۵؛ ساختمان پارلمان آلمان پس از جنگ.</p>
+   </div>
+  </article>
+
+  <article class="photo-card">
+   <img
+    src="https://commons.wikimedia.org/wiki/Special:FilePath/Bucherverbrennung-book-burning-Nazi-1933-Institute.jpg"
+    alt="آرشیو تاریخی سال ۱۹۳۳">
+   <div class="photo-info">
+    <h3>آرشیو فرهنگی ۱۹۳۳</h3>
+    <p>تصویری از اقدامات سرکوبگرانه فرهنگی در برلین.</p>
+   </div>
+  </article>
+
+ </div>
+
+</section>
+
+<!-- MUSIC -->
+
+<section class="container" id="music">
+
+ <div class="section-heading">
+  <h2>بخش موسیقی</h2>
+  <span>AUDIO ARCHIVE</span>
+ </div>
+
+ <div class="music-box">
+
+  <div class="music-art">
+   <span>78 RPM</span>
+  </div>
+
+  <div class="music-details">
+
+   <h3>Historical Audio Archive</h3>
+
+   <p>
+    فایل صوتی انتخاب‌شده برای این آرشیو تاریخی
+   </p>
+
+   <audio id="music" controls preload="metadata">
+    <source src="music 3.mp3" type="audio/mpeg">
+    مرورگر شما از پخش این فایل پشتیبانی نمی‌کند.
+   </audio>
+
+   <div style="margin-top:12px;color:#aaa;font-size:11px">
+    FILE: music 3.mp3
+   </div>
+
+  </div>
+
+ </div>
+
+</section>
+
+<!-- RECORDS -->
+
+<section class="container">
+
+ <div class="section-heading">
+  <h2>اطلاعات و منابع</h2>
+  <span>REFERENCE ARCHIVE</span>
+ </div>
+
+ <div class="panel">
+  <div class="panel-header">
+   <span>HISTORICAL REFERENCES</span>
+   <span>DOCUMENTATION</span>
+  </div>
+
+  <div class="panel-content source-list">
+
+   <a href="https://encyclopedia.ushmm.org/content/en/article/the-nazi-rise-to-power"
+      target="_blank">
+    United States Holocaust Memorial Museum — ظهور نازی‌ها
+   </a>
+
+   <a href="https://encyclopedia.ushmm.org/content/en/article/the-holocaust-and-world-war-ii-key-dates"
+      target="_blank">
+    USHMM — خط زمانی هولوکاست و جنگ جهانی دوم
+   </a>
+
+   <a href="https://www.dhm.de/en/exhibitions/permanent-exhibition/ns-regime-and-the-second-world-war/"
+      target="_blank">
+    German Historical Museum — حکومت نازی و جنگ جهانی دوم
+   </a>
+
+   <a href="https://www.deutschlandmuseum.de/en/history/"
+      target="_blank">
+    Deutschlandmuseum — تاریخ آلمان
+   </a>
+
+  </div>
+ </div>
+
+</section>
+
+<footer>
+ DEUTSCHLAND HISTORICAL ARCHIVE
+ <br>
+ 1933 — 1945
+ <br>
+ HISTORICAL EDUCATION PROJECT
+</footer>
+
+</body>
+</html>
