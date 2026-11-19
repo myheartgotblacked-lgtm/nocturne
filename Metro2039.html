@@ -1,0 +1,661 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090b09">
+<title>METRO 2039 | Underground Terminal</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --red: #b52c25;
+    --green: #687b56;
+    --rust: #96734e;
+    --text: #c7c8bb;
+    --muted: #77796e;
+    --panel: #10130f;
+}
+
+body {
+    background: #080a08;
+    color: var(--text);
+    font-family: 'Vazirmatn', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* BACKGROUND */
+
+.background {
+    position: fixed;
+    inset: 0;
+    z-index: -5;
+    background:
+        linear-gradient(180deg,
+        #050705a8 0%,
+        #080a08a6 40%,
+        #080a08f5 100%),
+        url("https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=2000&q=85")
+        center / cover;
+    filter: grayscale(85%) brightness(.42);
+    transform: scale(1.04);
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    z-index: -4;
+    background:
+        radial-gradient(ellipse at center, transparent 0%, #0009 100%),
+        linear-gradient(90deg, #080a08bb, transparent, #080a08bb);
+}
+
+.vignette {
+    position: fixed;
+    inset: 0;
+    z-index: 8;
+    pointer-events: none;
+    box-shadow: inset 0 0 180px #000;
+}
+
+.noise {
+    position: fixed;
+    inset: 0;
+    z-index: 7;
+    opacity: .06;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E");
+}
+
+/* SNOW */
+
+.snow {
+    position: fixed;
+    inset: 0;
+    z-index: 5;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.flake {
+    position: absolute;
+    top: -15px;
+    background: #d7ddd1;
+    border-radius: 50%;
+    opacity: .4;
+    animation: snowfall linear infinite;
+}
+
+@keyframes snowfall {
+    to {
+        transform: translate3d(45px, 110vh, 0);
+    }
+}
+
+/* HEADER */
+
+header {
+    min-height: 75px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 7%;
+    background: #090b09e8;
+    border-bottom: 1px solid #ffffff15;
+    backdrop-filter: blur(12px);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: 5px;
+    color: #d0d0c4;
+}
+
+.logo span {
+    color: var(--red);
+}
+
+.header-status {
+    font-size: 10px;
+    color: #888b7c;
+    letter-spacing: 2px;
+}
+
+.header-status i {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--red);
+    margin-left: 8px;
+    box-shadow: 0 0 12px var(--red);
+    animation: warning 1.5s infinite;
+}
+
+@keyframes warning {
+    50% { opacity: .25; }
+}
+
+.back {
+    color: #999;
+    font-size: 12px;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.back:hover {
+    color: #fff;
+}
+
+/* MAIN */
+
+main {
+    min-height: 85vh;
+    padding: 65px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 950px;
+    text-align: center;
+    animation: enter 1.2s ease;
+}
+
+@keyframes enter {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.overline {
+    font-size: 11px;
+    color: var(--rust);
+    letter-spacing: 5px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: clamp(55px, 12vw, 115px);
+    font-weight: 800;
+    letter-spacing: 5px;
+    line-height: 1.2;
+    color: #d2d1c4;
+    text-shadow: 0 0 35px #000;
+}
+
+h1 span {
+    color: var(--red);
+}
+
+.subtitle {
+    margin-top: 12px;
+    font-size: 11px;
+    color: #858779;
+    letter-spacing: 4px;
+}
+
+.description {
+    max-width: 590px;
+    margin: 30px auto;
+    font-size: 13px;
+    color: #a0a195;
+    line-height: 2.5;
+}
+
+.divider {
+    height: 1px;
+    max-width: 110px;
+    margin: 35px auto;
+    background: var(--red);
+    box-shadow: 0 0 12px #b52c2544;
+}
+
+/* TERMINAL PANEL */
+
+.terminal {
+    max-width: 740px;
+    margin: auto;
+    border: 1px solid #ffffff1b;
+    background: #090c09df;
+    box-shadow: 0 15px 50px #0008;
+    backdrop-filter: blur(12px);
+    text-align: right;
+}
+
+.terminal-header {
+    padding: 14px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ffffff18;
+    background: #151914;
+    font-size: 10px;
+    color: #96998a;
+    letter-spacing: 2px;
+}
+
+.terminal-header span {
+    color: var(--red);
+}
+
+.terminal-content {
+    padding: 25px;
+}
+
+.terminal-line {
+    font-family: monospace;
+    direction: ltr;
+    text-align: left;
+    font-size: 12px;
+    color: #858c77;
+    line-height: 2.2;
+}
+
+.terminal-line .red {
+    color: var(--red);
+}
+
+.terminal-line .green {
+    color: #82956b;
+}
+
+/* COUNTDOWN */
+
+.countdown-title {
+    text-align: center;
+    margin: 30px 0 22px;
+    color: #aaa;
+    font-size: 12px;
+    letter-spacing: 4px;
+}
+
+.countdown {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    direction: ltr;
+}
+
+.time-box {
+    padding: 23px 5px;
+    text-align: center;
+    background: #141812;
+    border: 1px solid #ffffff14;
+    border-bottom: 2px solid #687b56;
+    transition: .3s;
+}
+
+.time-box:hover {
+    border-color: var(--rust);
+    transform: translateY(-4px);
+}
+
+.number {
+    font-family: monospace;
+    font-size: clamp(27px, 5vw, 46px);
+    color: #d2d4c6;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+}
+
+.unit {
+    margin-top: 9px;
+    font-size: 10px;
+    color: #777d6e;
+    letter-spacing: 1px;
+}
+
+/* RELEASE INFO */
+
+.release-info {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.release-info .date {
+    color: var(--rust);
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+.release-info .small {
+    color: #72756b;
+    font-size: 10px;
+    margin-top: 8px;
+}
+
+/* SYSTEM INFO */
+
+.system-grid {
+    max-width: 740px;
+    margin: 25px auto 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.system-card {
+    background: #0c100c;
+    border: 1px solid #ffffff12;
+    padding: 17px 8px;
+    text-align: center;
+}
+
+.system-card .label {
+    color: #777d70;
+    font-size: 10px;
+}
+
+.system-card .value {
+    color: #a6aa98;
+    font-family: monospace;
+    direction: ltr;
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+.system-card .online {
+    color: #82956b;
+}
+
+/* FOOTER */
+
+footer {
+    padding: 23px 7%;
+    border-top: 1px solid #ffffff16;
+    background: #080a08;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
+    font-size: 10px;
+    color: #666b60;
+}
+
+footer span {
+    color: var(--red);
+}
+
+/* MOBILE */
+
+@media(max-width:600px) {
+    header {
+        padding: 17px;
+    }
+
+    .logo {
+        font-size: 18px;
+        letter-spacing: 2px;
+    }
+
+    .header-status {
+        display: none;
+    }
+
+    main {
+        padding: 55px 12px;
+    }
+
+    .countdown {
+        gap: 5px;
+    }
+
+    .time-box {
+        padding: 17px 2px;
+    }
+
+    .unit {
+        font-size: 8px;
+    }
+
+    .terminal-content {
+        padding: 15px 10px;
+    }
+
+    .system-grid {
+        gap: 5px;
+    }
+
+    footer {
+        justify-content: center;
+        text-align: center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="background"></div>
+<div class="overlay"></div>
+<div class="noise"></div>
+<div class="vignette"></div>
+<div class="snow" id="snow"></div>
+
+<header>
+
+    <div class="logo">
+        METRO <span>2039</span>
+    </div>
+
+    <div class="header-status">
+        <i></i> UNDERGROUND SIGNAL ACTIVE
+    </div>
+
+    <a href="index.html" class="back">
+        ← بازگشت
+    </a>
+
+</header>
+
+<main>
+
+<div class="container">
+
+    <div class="overline">
+        MOSCOW UNDERGROUND / 2039
+    </div>
+
+    <h1>
+        METRO <span>2039</span>
+    </h1>
+
+    <div class="subtitle">
+        THE LAST STATION
+    </div>
+
+    <p class="description">
+        در دنیایی که سطح زمین دیگر جای امنی نیست،
+        آخرین بازماندگان در اعماق مترو زندگی می‌کنند.
+        <br>
+        سکوت تونل‌ها فریبنده است.
+        <br>
+        همیشه چیزی در تاریکی انتظار می‌کشد.
+    </p>
+
+    <div class="divider"></div>
+
+    <div class="terminal">
+
+        <div class="terminal-header">
+            <span>● SYSTEM TERMINAL</span>
+            <span>STATION 01 / MOSCOW</span>
+        </div>
+
+        <div class="terminal-content">
+
+            <div class="terminal-line">
+                <div><span class="green">[SYSTEM]</span> Underground network initialized.</div>
+                <div><span class="green">[RADIO]</span> Signal detected...</div>
+                <div><span class="red">[WARNING]</span> Surface conditions: UNKNOWN</div>
+                <div><span class="green">[STATUS]</span> Waiting for next journey.</div>
+            </div>
+
+            <div class="countdown-title">
+                COUNTDOWN TO METRO 2039
+            </div>
+
+            <div class="countdown">
+
+                <div class="time-box">
+                    <div class="number" id="days">000</div>
+                    <div class="unit">DAYS</div>
+                </div>
+
+                <div class="time-box">
+                    <div class="number" id="hours">00</div>
+                    <div class="unit">HOURS</div>
+                </div>
+
+                <div class="time-box">
+                    <div class="number" id="minutes">00</div>
+                    <div class="unit">MINUTES</div>
+                </div>
+
+                <div class="time-box">
+                    <div class="number" id="seconds">00</div>
+                    <div class="unit">SECONDS</div>
+                </div>
+
+            </div>
+
+            <div class="release-info">
+                <div class="date">
+                    04 FEBRUARY 2027
+                </div>
+                <div class="small">
+                    OFFICIAL RELEASE DATE
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="system-grid">
+
+        <div class="system-card">
+            <div class="label">RADIO SIGNAL</div>
+            <div class="value online">STABLE</div>
+        </div>
+
+        <div class="system-card">
+            <div class="label">POWER GRID</div>
+            <div class="value">68.4%</div>
+        </div>
+
+        <div class="system-card">
+            <div class="label">STATION STATUS</div>
+            <div class="value online">ACTIVE</div>
+        </div>
+
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="subtitle">
+        IF YOU HEAR SOMETHING...
+        <br><br>
+        DON'T FOLLOW IT.
+    </div>
+
+</div>
+
+</main>
+
+<footer>
+    <div>METRO 2039 / UNDERGROUND TERMINAL</div>
+    <div>PERSONAL PROJECT — <span>ARIAN</span></div>
+    <div>END OF TRANSMISSION</div>
+</footer>
+
+<script>
+
+// METRO 2039 RELEASE COUNTDOWN
+// Date: February 4, 2027
+// Uses local system time.
+
+const releaseDate = new Date(2027, 1, 4, 0, 0, 0).getTime();
+
+function updateTimer() {
+
+    const now = Date.now();
+    const distance = releaseDate - now;
+
+    if (distance <= 0) {
+        document.getElementById("days").textContent = "000";
+        document.getElementById("hours").textContent = "00";
+        document.getElementById("minutes").textContent = "00";
+        document.getElementById("seconds").textContent = "00";
+        return;
+    }
+
+    const days = Math.floor(distance / 86400000);
+    const hours = Math.floor(distance / 3600000) % 24;
+    const minutes = Math.floor(distance / 60000) % 60;
+    const seconds = Math.floor(distance / 1000) % 60;
+
+    document.getElementById("days").textContent =
+        String(days).padStart(3, "0");
+
+    document.getElementById("hours").textContent =
+        String(hours).padStart(2, "0");
+
+    document.getElementById("minutes").textContent =
+        String(minutes).padStart(2, "0");
+
+    document.getElementById("seconds").textContent =
+        String(seconds).padStart(2, "0");
+}
+
+updateTimer();
+setInterval(updateTimer, 1000);
+
+
+// SNOW PARTICLES
+
+const snow = document.getElementById("snow");
+
+for (let i = 0; i < 65; i++) {
+
+    const flake = document.createElement("div");
+
+    flake.className = "flake";
+
+    const size = Math.random() * 3 + 1;
+
+    flake.style.width = size + "px";
+    flake.style.height = size + "px";
+
+    flake.style.left = Math.random() * 100 + "%";
+
+    flake.style.animationDuration =
+        (7 + Math.random() * 13) + "s";
+
+    flake.style.animationDelay =
+        (-Math.random() * 15) + "s";
+
+    snow.appendChild(flake);
+}
+
+</script>
+
+</body>
+</html>
