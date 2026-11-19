@@ -5,11 +5,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#090b0d">
-<title>IRON FRONT | ARIAN COMMAND V3</title>
+<title>IRON FRONT | ARIAN COMMAND</title>
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
-:root {
+:root{
  --bg:#090b0d;
  --panel:#111719;
  --panel2:#1b2326;
@@ -24,14 +24,14 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{
- background:radial-gradient(ellipse at 50% 10%,#273033,transparent 45%),
+ background:
+ radial-gradient(ellipse at 50% 10%,#273033,transparent 45%),
  linear-gradient(145deg,#080a0c,#111719 55%,#080a0c);
  color:var(--text);
  font-family:Vazirmatn,sans-serif;
- min-height:100vh;
- overflow-x:hidden
+ min-height:100vh;overflow-x:hidden
 }
-button,input,select{font-family:inherit}
+button,input,select,textarea{font-family:inherit}
 button{cursor:pointer}
 .topbar{
  min-height:66px;background:#080b0d;
@@ -44,11 +44,10 @@ button{cursor:pointer}
 .top-info{font-size:11px;color:var(--muted)}
 .status{font-size:11px;color:#e45a5a}
 .hero{
- min-height:430px;padding:65px 20px;
+ min-height:420px;padding:65px 20px;
  display:grid;place-items:center;text-align:center;
  background:radial-gradient(ellipse at center,#303a3c,#171d20 55%,#090b0d);
- border-bottom:3px solid #782126;
- position:relative;overflow:hidden
+ border-bottom:3px solid #782126;position:relative;overflow:hidden
 }
 .hero:before,.hero:after{
  content:"";position:absolute;width:350px;height:350px;
@@ -57,10 +56,17 @@ button{cursor:pointer}
 .hero:before{left:-230px}.hero:after{right:-230px}
 .hero-content{position:relative;z-index:2}
 .hero-label{color:var(--red2);direction:ltr;letter-spacing:5px;font-size:11px}
-.hero h1{font-size:clamp(45px,9vw,88px);font-weight:900;direction:ltr;text-shadow:0 5px 0 #525858,0 10px 30px #000}
+.hero h1{
+ font-size:clamp(45px,9vw,88px);font-weight:900;
+ direction:ltr;text-shadow:0 5px 0 #525858,0 10px 30px #000
+}
 .hero h2{color:#e14a4a;font-size:clamp(20px,4vw,32px)}
-.hero p{color:#aab3b1;max-width:600px;line-height:2.2;margin:18px auto;font-size:13px}
-.hero-badge{display:inline-block;border:1px solid #a83a3e;padding:8px 22px;color:#e2a3a3;font-size:11px;direction:ltr;margin-top:8px}
+.hero p{color:#aab3b1;max-width:620px;line-height:2.2;margin:18px auto;font-size:13px}
+.hero-badge{
+ display:inline-block;border:1px solid #a83a3e;
+ padding:8px 22px;color:#e2a3a3;font-size:11px;
+ direction:ltr;margin-top:8px
+}
 .container{width:min(1120px,92%);margin:auto}
 .section{padding:55px 0}
 .section-title{text-align:center;margin-bottom:30px}
@@ -69,40 +75,36 @@ button{cursor:pointer}
 .section-title p{color:var(--muted);font-size:12px;margin-top:7px}
 .emblem-section{display:flex;justify-content:center;padding:40px 20px 10px}
 .emblem-wrap{width:145px;height:145px;display:grid;place-items:center;position:relative}
-.emblem-ring{position:absolute;inset:0;border:1px solid #b5a47a66;border-radius:50%;animation:ringGlow 4s infinite alternate}
-.emblem-ring:before{content:"";position:absolute;inset:10px;border:1px dashed #a99b7966;border-radius:50%}
-.iron-cross{width:85px;height:85px;position:relative;filter:drop-shadow(0 0 12px #d1c6a577);animation:emblemGlow 3s infinite alternate}
-.iron-cross:before,.iron-cross:after{content:"";position:absolute;background:linear-gradient(135deg,#e7e9e3,#626d6c 50%,#d2d5ce);border:2px solid #161a1b}
-.iron-cross:before{width:30px;height:85px;left:27px;clip-path:polygon(25% 0,75% 0,75% 30%,100% 30%,100% 70%,75% 70%,75% 100%,25% 100%,25% 70%,0 70%,0 30%,25% 30%)}
-.iron-cross:after{width:85px;height:30px;top:27px;clip-path:polygon(0 25%,30% 25%,30% 0,70% 0,70% 25%,100% 25%,100% 75%,70% 75%,70% 100%,30% 100%,30% 75%,0 75%)}
+.emblem-ring{
+ position:absolute;inset:0;border:1px solid #b5a47a66;
+ border-radius:50%;animation:ringGlow 4s infinite alternate
+}
+.emblem-ring:before{
+ content:"";position:absolute;inset:10px;
+ border:1px dashed #a99b7966;border-radius:50%
+}
+.iron-cross{
+ width:85px;height:85px;position:relative;
+ filter:drop-shadow(0 0 12px #d1c6a577);
+ animation:emblemGlow 3s infinite alternate
+}
+.iron-cross:before,.iron-cross:after{
+ content:"";position:absolute;
+ background:linear-gradient(135deg,#e7e9e3,#626d6c 50%,#d2d5ce);
+ border:2px solid #161a1b
+}
+.iron-cross:before{
+ width:30px;height:85px;left:27px;
+ clip-path:polygon(25% 0,75% 0,75% 30%,100% 30%,100% 70%,75% 70%,75% 100%,25% 100%,25% 70%,0 70%,0 30%,25% 30%)
+}
+.iron-cross:after{
+ width:85px;height:30px;top:27px;
+ clip-path:polygon(0 25%,30% 25%,30% 0,70% 0,70% 25%,100% 25%,100% 75%,70% 75%,70% 100%,30% 100%,30% 75%,0 75%)
+}
 @keyframes emblemGlow{to{filter:drop-shadow(0 0 20px #e3d5a9aa)}}
 @keyframes ringGlow{to{box-shadow:0 0 35px #a78e4b44}}
-.commander{
- max-width:400px;margin:auto;padding:26px;
- background:linear-gradient(145deg,#252d30,#111719);
- border:1px solid #9c3b3d;text-align:center;position:relative
-}
-.commander:before{content:"";position:absolute;inset:7px;border:1px solid #a98d5d44;pointer-events:none}
-.rank-label{direction:ltr;color:var(--gold);letter-spacing:3px;font-size:10px}
-.commander-symbol{font-size:42px;color:#e0c58e;margin:8px}
-.commander h3{font-size:32px;color:#f1e8d8}
-.position{color:#ef5959;font-weight:800}
-.command-line{height:35px;width:2px;background:linear-gradient(var(--gold),var(--red));margin:auto}
-.command-connector{width:75%;height:2px;margin:auto;background:#9b3438}
-.officer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:22px}
-.officer{
- background:linear-gradient(145deg,#20282b,#111619);
- border:1px solid #424a4b;padding:22px 12px;text-align:center;
- transition:.25s;position:relative
-}
-.officer:hover{transform:translateY(-4px);border-color:#d14b4b}
-.officer-icon{font-size:26px;color:#d64a4a}
-.officer h3{font-size:21px;color:#e7e3d8}
-.officer p{color:var(--gold);font-size:12px}
-.officer small{display:block;color:var(--muted);font-size:10px;margin-top:8px}
-.officer-tag{font-size:9px;color:var(--green);margin-top:9px}
 
-/* STATISTICS */
+/* DASHBOARD */
 .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}
 .stat-card{
  background:linear-gradient(145deg,#20292c,#111719);
@@ -113,25 +115,53 @@ button{cursor:pointer}
 .stat-card.red .number{color:#ff5b60}
 .stat-card.green .number{color:#72c79a}
 
-/* SOLDIERS */
-.toolbar{
- display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px
+/* COMMAND */
+.commander{
+ max-width:400px;margin:auto;padding:26px;
+ background:linear-gradient(145deg,#252d30,#111719);
+ border:1px solid #9c3b3d;text-align:center;position:relative
 }
-.toolbar input,.toolbar select,.add-form input,.add-form select{
- background:#0c1113;color:var(--text);
- border:1px solid #465052;padding:11px 13px;
- border-radius:3px;outline:none;min-width:150px
+.commander:before{
+ content:"";position:absolute;inset:7px;
+ border:1px solid #a98d5d44;pointer-events:none
+}
+.rank-label{direction:ltr;color:var(--gold);letter-spacing:3px;font-size:10px}
+.commander-symbol{font-size:42px;color:#e0c58e;margin:8px}
+.commander h3{font-size:32px;color:#f1e8d8}
+.position{color:#ef5959;font-weight:800}
+.command-line{height:35px;width:2px;background:linear-gradient(var(--gold),var(--red));margin:auto}
+.command-connector{width:75%;height:2px;margin:auto;background:#9b3438}
+.officer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:22px}
+.officer{
+ background:linear-gradient(145deg,#20282b,#111619);
+ border:1px solid #424a4b;padding:22px 12px;text-align:center;transition:.25s
+}
+.officer:hover{transform:translateY(-4px);border-color:#d14b4b}
+.officer-icon{font-size:26px;color:#d64a4a}
+.officer h3{font-size:21px;color:#e7e3d8}
+.officer p{color:var(--gold);font-size:12px}
+.officer small{display:block;color:var(--muted);font-size:10px;margin-top:8px}
+.officer-tag{font-size:9px;color:var(--green);margin-top:9px}
+
+/* COMMON PANELS */
+.panel{background:#11191b;border:1px solid #414c4d;padding:20px}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px}
+.toolbar input,.toolbar select,.add-form input,.add-form select,.add-form textarea{
+ background:#0c1113;color:var(--text);border:1px solid #465052;
+ padding:11px 13px;border-radius:3px;outline:none;min-width:150px
 }
 .toolbar input{flex:1}
 .toolbar input:focus,.add-form input:focus{border-color:var(--red2)}
 .action-btn{
- border:1px solid #9c393e;background:#751d23;
- color:white;padding:10px 17px;border-radius:3px;
- transition:.2s
+ border:1px solid #9c393e;background:#751d23;color:white;
+ padding:10px 17px;border-radius:3px;transition:.2s
 }
 .action-btn:hover{background:#a52b32}
 .action-btn.secondary{background:#222c2e;border-color:#586366}
 .action-btn.danger{background:#52191d;border-color:#a63a40}
+.action-btn.gold{background:#5b4827;border-color:#a98b4d}
+
+/* SOLDIERS */
 .soldier-list{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}
 .soldier{
  background:linear-gradient(145deg,#1d2729,#101618);
@@ -151,12 +181,13 @@ button{cursor:pointer}
 .progress span{display:block;height:100%;background:linear-gradient(90deg,#9e252c,#e64b50)}
 .soldier-actions{display:flex;gap:7px;flex-wrap:wrap}
 .soldier-actions button{font-size:10px;padding:7px 10px}
-.add-panel,.panel{
- background:#11191b;border:1px solid #414c4d;padding:20px
-}
+.empty{text-align:center;padding:30px;color:var(--muted);grid-column:1/-1}
+
+/* ADD PERSONNEL */
 .add-form{display:flex;gap:10px;flex-wrap:wrap}
 .add-form input,.add-form select{flex:1}
-.empty{text-align:center;padding:30px;color:var(--muted);grid-column:1/-1}
+.add-form textarea{width:100%;resize:vertical;min-height:75px}
+.form-note{color:var(--muted);font-size:10px;margin-top:12px}
 
 /* WANTED */
 .wanted-panel{
@@ -164,16 +195,26 @@ button{cursor:pointer}
  background:linear-gradient(120deg,#291719,#151719);
  padding:22px;position:relative;overflow:hidden
 }
-.wanted-panel:after{
- content:"WANTED";position:absolute;left:15px;top:10px;
- font-size:30px;font-weight:900;letter-spacing:4px;
- color:#ff555510;direction:ltr
-}
 .wanted-heading{color:#ff666b;font-size:12px;letter-spacing:2px}
-.wanted-person{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap;margin-top:15px}
+.wanted-person{
+ display:flex;align-items:center;justify-content:space-between;
+ gap:15px;flex-wrap:wrap;margin-top:15px
+}
 .wanted-name{font-size:26px;font-weight:900}
 .wanted-note{color:#b7a4a4;font-size:11px;line-height:2}
 .wanted-state{border:1px solid #bd4148;color:#ff777c;padding:8px 14px;font-size:11px}
+.wanted-divider{height:1px;background:#704044;margin:20px 0}
+
+/* RECORDS */
+.record-list{display:grid;gap:10px}
+.record{
+ background:#192124;border:1px solid #394548;
+ padding:13px 15px;display:flex;justify-content:space-between;
+ gap:10px;align-items:center;flex-wrap:wrap
+}
+.record strong{font-size:12px}
+.record small{color:var(--muted);font-size:10px}
+.record-time{direction:ltr;color:var(--gold);font-size:10px}
 
 /* MAP */
 .map-panel{background:#101719;border:1px solid #41494a;padding:18px;box-shadow:0 15px 40px #0008}
@@ -184,32 +225,77 @@ button{cursor:pointer}
  background:radial-gradient(ellipse at 50% 45%,#36403b,#1b2523 55%,#111719);
  border:1px solid #657066;isolation:isolate
 }
-.map:before{content:"";position:absolute;inset:0;opacity:.45;background:repeating-linear-gradient(0deg,transparent 0 38px,#b8c2aa13 39px),repeating-linear-gradient(90deg,transparent 0 38px,#b8c2aa13 39px)}
+.map:before{
+ content:"";position:absolute;inset:0;opacity:.45;
+ background:repeating-linear-gradient(0deg,transparent 0 38px,#b8c2aa13 39px),
+ repeating-linear-gradient(90deg,transparent 0 38px,#b8c2aa13 39px)
+}
 .terrain{position:absolute;inset:0;opacity:.5;background:radial-gradient(ellipse at 20% 25%,#6b705b55,transparent 20%),radial-gradient(ellipse at 80% 35%,#6b705b55,transparent 23%),radial-gradient(ellipse at 50% 80%,#6b705b55,transparent 25%)}
-.map-region{position:absolute;width:48%;height:67%;left:26%;top:17%;border:2px solid #b7b49b99;background:#a8b29b0b;clip-path:polygon(28% 0,72% 5%,90% 25%,83% 48%,100% 68%,65% 100%,30% 88%,5% 65%,13% 35%)}
-.map-region:after{content:"KERMAN";position:absolute;left:50%;top:48%;transform:translate(-50%,-50%);color:#e2e2d1;font-size:clamp(16px,4vw,26px);letter-spacing:5px;direction:ltr}
-.arrow{position:absolute;height:3px;width:90px;background:linear-gradient(90deg,transparent,#ed292f);transform-origin:right center;filter:drop-shadow(0 0 7px #ff2929)}
-.arrow:after{content:"";position:absolute;left:-1px;top:-6px;border-right:13px solid #ff343b;border-top:7px solid transparent;border-bottom:7px solid transparent}
-.a1{top:31%;left:15%;transform:rotate(18deg)}.a2{top:29%;right:15%;transform:rotate(160deg)}.a3{bottom:25%;left:17%;transform:rotate(-20deg)}.a4{bottom:22%;right:16%;transform:rotate(200deg)}
-.unit-marker{position:absolute;width:32px;height:32px;display:grid;place-items:center;border:1px solid #f04a4a;background:#390f12;color:#ff7777;font-size:10px;font-weight:900;transform:rotate(45deg);box-shadow:0 0 14px #f22a2a55}
+.map-region{
+ position:absolute;width:48%;height:67%;left:26%;top:17%;
+ border:2px solid #b7b49b99;background:#a8b29b0b;
+ clip-path:polygon(28% 0,72% 5%,90% 25%,83% 48%,100% 68%,65% 100%,30% 88%,5% 65%,13% 35%)
+}
+.map-region:after{
+ content:"KERMAN";position:absolute;left:50%;top:48%;
+ transform:translate(-50%,-50%);color:#e2e2d1;
+ font-size:clamp(16px,4vw,26px);letter-spacing:5px;direction:ltr
+}
+.arrow{
+ position:absolute;height:3px;width:90px;
+ background:linear-gradient(90deg,transparent,#ed292f);
+ transform-origin:right center;filter:drop-shadow(0 0 7px #ff2929)
+}
+.arrow:after{
+ content:"";position:absolute;left:-1px;top:-6px;
+ border-right:13px solid #ff343b;border-top:7px solid transparent;border-bottom:7px solid transparent
+}
+.a1{top:31%;left:15%;transform:rotate(18deg)}
+.a2{top:29%;right:15%;transform:rotate(160deg)}
+.a3{bottom:25%;left:17%;transform:rotate(-20deg)}
+.a4{bottom:22%;right:16%;transform:rotate(200deg)}
+.unit-marker{
+ position:absolute;width:32px;height:32px;display:grid;place-items:center;
+ border:1px solid #f04a4a;background:#390f12;color:#ff7777;
+ font-size:10px;font-weight:900;transform:rotate(45deg);
+ box-shadow:0 0 14px #f22a2a55
+}
 .unit-marker span{transform:rotate(-45deg)}
-.u1{left:13%;top:22%}.u2{right:12%;top:22%}.u3{left:15%;bottom:17%}.u4{right:13%;bottom:16%}
-.map-center{position:absolute;left:50%;top:48%;transform:translate(-50%,-50%);width:45px;height:45px;border-radius:50%;border:2px solid #f3e7c5;background:#a51d23;display:grid;place-items:center;color:white;font-size:20px;box-shadow:0 0 25px #f22a2a99}
+.u1{left:13%;top:22%}.u2{right:12%;top:22%}
+.u3{left:15%;bottom:17%}.u4{right:13%;bottom:16%}
+.map-center{
+ position:absolute;left:50%;top:48%;transform:translate(-50%,-50%);
+ width:45px;height:45px;border-radius:50%;
+ border:2px solid #f3e7c5;background:#a51d23;
+ display:grid;place-items:center;color:white;font-size:20px;
+ box-shadow:0 0 25px #f22a2a99
+}
 .map-legend{display:flex;flex-wrap:wrap;gap:17px;padding:15px 5px 3px;color:#9ca5a2;font-size:11px}
-.legend-dot{width:9px;height:9px;background:#d83239;transform:rotate(45deg)}
 
 /* SNOW */
 .snow{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:20}
-.flake{position:absolute;top:-15px;width:4px;height:4px;background:#e4eeee;border-radius:50%;opacity:.7;box-shadow:0 0 6px #fff;animation:snowfall linear infinite}
-@keyframes snowfall{0%{transform:translate3d(0,-10px,0);opacity:0}15%{opacity:.8}85%{opacity:.6}100%{transform:translate3d(70px,110vh,0);opacity:0}}
-.flake:nth-child(1){left:5%;animation-duration:12s}.flake:nth-child(2){left:12%;animation-duration:17s;animation-delay:2s}
-.flake:nth-child(3){left:20%;animation-duration:14s;animation-delay:4s}.flake:nth-child(4){left:29%;animation-duration:19s;animation-delay:1s}
-.flake:nth-child(5){left:38%;animation-duration:13s;animation-delay:5s}.flake:nth-child(6){left:48%;animation-duration:16s;animation-delay:3s}
-.flake:nth-child(7){left:58%;animation-duration:18s;animation-delay:1s}.flake:nth-child(8){left:68%;animation-duration:15s;animation-delay:6s}
-.flake:nth-child(9){left:77%;animation-duration:20s;animation-delay:2s}.flake:nth-child(10){left:87%;animation-duration:14s;animation-delay:5s}
+.flake{
+ position:absolute;top:-15px;width:4px;height:4px;
+ background:#e4eeee;border-radius:50%;opacity:.7;
+ box-shadow:0 0 6px #fff;animation:snowfall linear infinite
+}
+@keyframes snowfall{
+ 0%{transform:translate3d(0,-10px,0);opacity:0}
+ 15%{opacity:.8}85%{opacity:.6}
+ 100%{transform:translate3d(70px,110vh,0);opacity:0}
+}
+.flake:nth-child(1){left:5%;animation-duration:12s}
+.flake:nth-child(2){left:12%;animation-duration:17s;animation-delay:2s}
+.flake:nth-child(3){left:20%;animation-duration:14s;animation-delay:4s}
+.flake:nth-child(4){left:29%;animation-duration:19s;animation-delay:1s}
+.flake:nth-child(5){left:38%;animation-duration:13s;animation-delay:5s}
+.flake:nth-child(6){left:48%;animation-duration:16s;animation-delay:3s}
+.flake:nth-child(7){left:58%;animation-duration:18s;animation-delay:1s}
+.flake:nth-child(8){left:68%;animation-duration:15s;animation-delay:6s}
+.flake:nth-child(9){left:77%;animation-duration:20s;animation-delay:2s}
+.flake:nth-child(10){left:87%;animation-duration:14s;animation-delay:5s}
 .flake:nth-child(11){left:95%;animation-duration:18s;animation-delay:3s}
-footer{background:#07090a;border-top:1px solid #492d2d;text-align:center;padding:25px;color:#697475;font-size:11px;line-height:2.4}
-footer strong{color:#d64c4c}
+
 .toast{
  position:fixed;bottom:20px;left:20px;background:#20292b;
  border:1px solid #8e393d;color:white;padding:12px 18px;
@@ -217,6 +303,11 @@ footer strong{color:#d64c4c}
  transition:.25s;pointer-events:none
 }
 .toast.show{opacity:1;transform:translateY(0)}
+footer{
+ background:#07090a;border-top:1px solid #492d2d;
+ text-align:center;padding:25px;color:#697475;font-size:11px;line-height:2.4
+}
+footer strong{color:#d64c4c}
 @media(max-width:750px){
  .officer-grid{grid-template-columns:repeat(2,1fr)}
  .stats-grid{grid-template-columns:repeat(2,1fr)}
@@ -225,8 +316,7 @@ footer strong{color:#d64c4c}
 }
 @media(max-width:430px){
  .officer-grid{grid-template-columns:1fr}
- .top-info{display:none}
- .map{height:280px}
+ .top-info{display:none}.map{height:280px}
 }
 @media(prefers-reduced-motion:reduce){
  *,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}
@@ -235,6 +325,7 @@ footer strong{color:#d64c4c}
 </head>
 
 <body>
+
 <div class="snow" aria-hidden="true">
 <i class="flake"></i><i class="flake"></i><i class="flake"></i>
 <i class="flake"></i><i class="flake"></i><i class="flake"></i>
@@ -244,18 +335,18 @@ footer strong{color:#d64c4c}
 
 <header class="topbar">
  <div class="brand">IRON <span>FRONT</span></div>
- <div class="top-info">مرکز فرماندهی آرین | نسخه ۳</div>
- <div class="status">● وضعیت: فعال در دنیای بازی</div>
+ <div class="top-info">مرکز فرماندهی آرین</div>
+ <div class="status">● سامانه فعال</div>
 </header>
 
 <main>
 <section class="hero">
  <div class="hero-content">
-  <div class="hero-label">STRATEGIC COMMAND INTERFACE</div>
+  <div class="hero-label">CENTRAL ADMINISTRATION SYSTEM</div>
   <h1>IRON FRONT</h1>
   <h2>فرماندهی عالی آرین</h2>
-  <p>مرکز مدیریت یک دنیای استراتژیک خیالی؛ مدیریت افسران، سربازان، درجه‌ها و وضعیت نیروها در یک رابط کاربری اختصاصی.</p>
-  <div class="hero-badge">ARIAN COMMAND • GAME UNIVERSE</div>
+  <p>سامانه مرکزی مدیریت ساختار فرماندهی، پرسنل، درجه‌ها، سوابق و وضعیت اعضا.</p>
+  <div class="hero-badge">ARIAN COMMAND • CENTRAL ADMINISTRATION</div>
  </div>
 </section>
 
@@ -270,14 +361,14 @@ footer strong{color:#d64c4c}
 <div class="container">
  <div class="section-title">
   <small>COMMAND OVERVIEW</small>
-  <h2>وضعیت کلی فرماندهی</h2>
-  <p>آمار نمایشی نیروهای ثبت‌شده در بازی</p>
+  <h2>آمار مرکزی</h2>
+  <p>خلاصه وضعیت ساختار سازمانی</p>
  </div>
  <div class="stats-grid">
-  <div class="stat-card"><div class="number" id="totalSoldiers">8</div><div class="label">کل سربازان</div></div>
-  <div class="stat-card green"><div class="number" id="activeSoldiers">6</div><div class="label">نیروهای فعال</div></div>
+  <div class="stat-card"><div class="number" id="totalPersonnel">9</div><div class="label">کل پرسنل</div></div>
+  <div class="stat-card green"><div class="number" id="activePersonnel">9</div><div class="label">اعضای فعال</div></div>
   <div class="stat-card"><div class="number" id="officerCount">4</div><div class="label">افسران ارشد</div></div>
-  <div class="stat-card red"><div class="number" id="wantedCount">1</div><div class="label">فهرست تعقیب بازی</div></div>
+  <div class="stat-card red"><div class="number" id="wantedCount">2</div><div class="label">افراد تحت پیگیری</div></div>
  </div>
 </div>
 </section>
@@ -287,7 +378,7 @@ footer strong{color:#d64c4c}
  <div class="section-title">
   <small>HIGH COMMAND</small>
   <h2>ساختار فرماندهی</h2>
-  <p>فرمانده کل و افسران ارشد</p>
+  <p>فرمانده کل و چهار افسر ارشد</p>
  </div>
  <div class="commander">
   <div class="rank-label">SUPREME COMMANDER</div>
@@ -297,7 +388,7 @@ footer strong{color:#d64c4c}
  </div>
  <div class="command-line"></div>
  <div class="command-connector"></div>
- <div class="officer-grid" id="officerGrid">
+ <div class="officer-grid">
   <div class="officer"><div class="officer-icon">✦</div><h3>ارشان</h3><p>افسر ارشد</p><small>زیرمجموعه فرمانده آرین</small><div class="officer-tag">● فعال</div></div>
   <div class="officer"><div class="officer-icon">✦</div><h3>آرتین</h3><p>افسر ارشد</p><small>زیرمجموعه فرمانده آرین</small><div class="officer-tag">● فعال</div></div>
   <div class="officer"><div class="officer-icon">✦</div><h3>آراد</h3><p>افسر ارشد</p><small>زیرمجموعه فرمانده آرین</small><div class="officer-tag">● فعال</div></div>
@@ -311,11 +402,11 @@ footer strong{color:#d64c4c}
  <div class="section-title">
   <small>PERSONNEL MANAGEMENT</small>
   <h2>مدیریت سربازان</h2>
-  <p>ثبت نیروها، مشاهده درجه، روحیه و وضعیت نمایشی</p>
+  <p>پنج سرباز ثبت‌شده در سامانه</p>
  </div>
 
  <div class="toolbar">
-  <input id="searchSoldier" type="search" placeholder="جست‌وجوی نام یا شناسه سرباز...">
+  <input id="searchSoldier" type="search" placeholder="جست‌وجوی نام یا شناسه...">
   <select id="filterStatus">
    <option value="all">تمام وضعیت‌ها</option>
    <option value="فعال">فعال</option>
@@ -323,7 +414,6 @@ footer strong{color:#d64c4c}
    <option value="غیرفعال">غیرفعال</option>
   </select>
  </div>
-
  <div class="soldier-list" id="soldierList"></div>
 </div>
 </section>
@@ -331,13 +421,13 @@ footer strong{color:#d64c4c}
 <section class="section">
 <div class="container">
  <div class="section-title">
-  <small>NEW PERSONNEL</small>
-  <h2>ثبت سرباز جدید</h2>
-  <p>افزودن یک شخصیت جدید به فهرست نیروهای بازی</p>
+  <small>PERSONNEL REGISTRATION</small>
+  <h2>ثبت عضو جدید</h2>
+  <p>افزودن و مدیریت اطلاعات پرسنل</p>
  </div>
- <div class="add-panel">
+ <div class="panel">
   <form class="add-form" id="addSoldierForm">
-   <input id="newName" placeholder="نام سرباز" required maxlength="25">
+   <input id="newName" placeholder="نام عضو" required maxlength="25">
    <select id="newRank">
     <option>سرباز</option>
     <option>سرباز یکم</option>
@@ -350,8 +440,9 @@ footer strong{color:#d64c4c}
     <option>مرخصی</option>
     <option>غیرفعال</option>
    </select>
-   <button class="action-btn" type="submit">+ ثبت سرباز</button>
+   <button class="action-btn" type="submit">+ ثبت عضو</button>
   </form>
+  <div class="form-note">تعداد اولیه پرسنل عادی پنج نفر است. ثبت اعضای بیشتر آمار را به‌روزرسانی می‌کند.</div>
  </div>
 </div>
 </section>
@@ -359,18 +450,26 @@ footer strong{color:#d64c4c}
 <section class="section">
 <div class="container">
  <div class="section-title">
-  <small>WANTED REGISTER</small>
-  <h2>فهرست تعقیب بازی</h2>
-  <p>ثبت وضعیت‌های داستانی و خیالی شخصیت‌ها</p>
+  <small>OFFICIAL REGISTER</small>
+  <h2>فهرست افراد تحت پیگیری</h2>
+  <p>سوابق و وضعیت ثبت‌شده افراد</p>
  </div>
  <div class="wanted-panel">
-  <div class="wanted-heading">FICTIONAL GAME NOTICE</div>
+  <div class="wanted-heading">OFFICIAL STATUS REGISTER</div>
   <div class="wanted-person">
    <div>
     <div class="wanted-name">امین</div>
-    <div class="wanted-note">وضعیت: در فهرست تعقیب داستانی بازی<br>این برچسب صرفاً یک وضعیت نمایشی در بازی است.</div>
+    <div class="wanted-note">وضعیت ثبت‌شده: تحت پیگیری<br>پرونده شماره ۰۰۱</div>
    </div>
-   <div class="wanted-state">● تحت تعقیب در بازی</div>
+   <div class="wanted-state">● تحت پیگیری</div>
+  </div>
+  <div class="wanted-divider"></div>
+  <div class="wanted-person">
+   <div>
+    <div class="wanted-name">علی</div>
+    <div class="wanted-note">وضعیت ثبت‌شده: تحت پیگیری<br>پرونده شماره ۰۰۲</div>
+   </div>
+   <div class="wanted-state">● تحت پیگیری</div>
   </div>
  </div>
 </div>
@@ -379,15 +478,28 @@ footer strong{color:#d64c4c}
 <section class="section">
 <div class="container">
  <div class="section-title">
-  <small>TACTICAL GAME MAP</small>
+  <small>RECORD ARCHIVE</small>
+  <h2>دفتر سوابق</h2>
+  <p>آخرین تغییرات ثبت‌شده در سامانه</p>
+ </div>
+ <div class="panel">
+  <div class="record-list" id="recordList"></div>
+ </div>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+ <div class="section-title">
+  <small>REGIONAL MAP</small>
   <h2>نقشه قلمرو کرمان</h2>
-  <p>نقشه شماتیک و تزئینی دنیای بازی؛ بدون مسیر یا موقعیت عملیاتی واقعی</p>
+  <p>نمای شماتیک و تزئینی منطقه</p>
  </div>
  <div class="map-panel">
   <div class="map-top">
    <span>REGION: <strong>KERMAN</strong></span>
-   <span>MODE: GAME SIMULATION</span>
-   <span>MAP STATUS: ACTIVE</span>
+   <span>STATUS: ACTIVE</span>
+   <span>MAP: SCHEMATIC</span>
   </div>
   <div class="map">
    <div class="terrain"></div>
@@ -401,10 +513,9 @@ footer strong{color:#d64c4c}
    <div class="map-center">★</div>
   </div>
   <div class="map-legend">
-   <div class="legend-dot"></div>
-   <span>نشان‌های نمایشی نیروها</span>
-   <span>➜ فلش‌های تزئینی</span>
-   <span>◆ مرکز نقشه</span>
+   <span>◆ نشان‌های نمایشی</span>
+   <span>➜ خطوط تزئینی</span>
+   <span>★ مرکز نقشه</span>
   </div>
  </div>
 </div>
@@ -412,25 +523,43 @@ footer strong{color:#d64c4c}
 </main>
 
 <footer>
- <strong>IRON FRONT — ARIAN COMMAND V3</strong><br>
- رابط کاربری یک دنیای استراتژیک خیالی<br>
+ <strong>IRON FRONT — ARIAN COMMAND</strong><br>
+ سامانه مرکزی مدیریت و بایگانی<br>
  ALL RIGHTS RESERVED © 2026
 </footer>
 
 <div class="toast" id="toast"></div>
 
 <script>
-let soldiers = [
+const STORAGE_KEY="arian_command_v4";
+
+const defaultSoldiers=[
  {id:101,name:"سرباز یک",rank:"سرباز",status:"فعال",morale:85,readiness:90},
  {id:102,name:"سرباز دو",rank:"سرباز یکم",status:"فعال",morale:78,readiness:82},
  {id:103,name:"سرباز سه",rank:"سرجوخه",status:"فعال",morale:92,readiness:88},
- {id:104,name:"سرباز چهار",rank:"گروهبان",status:"مرخصی",morale:75,readiness:60},
- {id:105,name:"سرباز پنج",rank:"سرباز",status:"فعال",morale:81,readiness:85},
- {id:106,name:"سرباز شش",rank:"سرباز یکم",status:"فعال",morale:88,readiness:91},
- {id:107,name:"سرباز هفت",rank:"سرجوخه",status:"غیرفعال",morale:55,readiness:35},
- {id:108,name:"سرباز هشت",rank:"سرباز",status:"فعال",morale:90,readiness:94}
+ {id:104,name:"سرباز چهار",rank:"گروهبان",status:"فعال",morale:75,readiness:80},
+ {id:105,name:"سرباز پنج",rank:"سرباز",status:"فعال",morale:81,readiness:85}
 ];
 
+let soldiers=loadSoldiers();
+let records=loadRecords();
+
+function loadSoldiers(){
+ try{
+  const data=JSON.parse(localStorage.getItem(STORAGE_KEY));
+  return Array.isArray(data)?data:defaultSoldiers.map(x=>({...x}));
+ }catch{return defaultSoldiers.map(x=>({...x}))}
+}
+function loadRecords(){
+ try{
+  const data=JSON.parse(localStorage.getItem(STORAGE_KEY+"_records"));
+  return Array.isArray(data)?data:[];
+ }catch{return []}
+}
+function saveData(){
+ localStorage.setItem(STORAGE_KEY,JSON.stringify(soldiers));
+ localStorage.setItem(STORAGE_KEY+"_records",JSON.stringify(records));
+}
 const soldierList=document.getElementById("soldierList");
 const searchInput=document.getElementById("searchSoldier");
 const filterStatus=document.getElementById("filterStatus");
@@ -442,7 +571,41 @@ function notify(message){
  clearTimeout(window.toastTimer);
  window.toastTimer=setTimeout(()=>toast.classList.remove("show"),2300);
 }
-
+function addRecord(message){
+ records.unshift({
+  message,
+  time:new Date().toLocaleString("fa-IR")
+ });
+ records=records.slice(0,30);
+ saveData();
+ renderRecords();
+}
+function renderRecords(){
+ const box=document.getElementById("recordList");
+ if(!records.length){
+  box.innerHTML='<div class="empty">هنوز سابقه‌ای ثبت نشده است.</div>';
+  return;
+ }
+ box.innerHTML="";
+ records.forEach(r=>{
+  const item=document.createElement("div");
+  item.className="record";
+  const title=document.createElement("strong");
+  title.textContent=r.message;
+  const time=document.createElement("small");
+  time.className="record-time";
+  time.textContent=r.time;
+  item.append(title,time);
+  box.appendChild(item);
+ });
+}
+function updateStats(){
+ document.getElementById("totalPersonnel").textContent=soldiers.length+4;
+ document.getElementById("activePersonnel").textContent=
+  soldiers.filter(s=>s.status==="فعال").length+4;
+ document.getElementById("officerCount").textContent="4";
+ document.getElementById("wantedCount").textContent="2";
+}
 function renderSoldiers(){
  const query=searchInput.value.trim().toLowerCase();
  const filter=filterStatus.value;
@@ -450,10 +613,9 @@ function renderSoldiers(){
   const matches=(s.name+" "+s.id+" "+s.rank).toLowerCase().includes(query);
   return matches&&(filter==="all"||s.status===filter);
  });
-
  soldierList.innerHTML="";
  if(!filtered.length){
-  soldierList.innerHTML='<div class="empty">هیچ سربازی با این مشخصات پیدا نشد.</div>';
+  soldierList.innerHTML='<div class="empty">هیچ عضوی با این مشخصات پیدا نشد.</div>';
  }else{
   filtered.forEach(s=>{
    const card=document.createElement("article");
@@ -463,35 +625,32 @@ function renderSoldiers(){
     <div class="soldier-top">
      <div>
       <div class="soldier-name"></div>
-      <div class="soldier-id">ID: ${s.id}</div>
+      <div class="soldier-id"></div>
       <div class="soldier-rank"></div>
      </div>
-     <span class="soldier-status ${statusClass}">${s.status}</span>
+     <span class="soldier-status ${statusClass}"></span>
     </div>
     <div class="soldier-details">
      <div class="detail">روحیه<strong>${s.morale}%</strong><div class="progress"><span style="width:${s.morale}%"></span></div></div>
-     <div class="detail">آمادگی بازی<strong>${s.readiness}%</strong><div class="progress"><span style="width:${s.readiness}%"></span></div></div>
+     <div class="detail">آمادگی<strong>${s.readiness}%</strong><div class="progress"><span style="width:${s.readiness}%"></span></div></div>
     </div>
     <div class="soldier-actions">
      <button class="action-btn secondary" data-action="status" data-id="${s.id}">تغییر وضعیت</button>
-     <button class="action-btn secondary" data-action="morale" data-id="${s.id}">افزایش روحیه</button>
-     <button class="action-btn danger" data-action="remove" data-id="${s.id}">حذف از فهرست</button>
+     <button class="action-btn gold" data-action="morale" data-id="${s.id}">افزایش روحیه</button>
+     <button class="action-btn secondary" data-action="rank" data-id="${s.id}">ارتقای درجه</button>
+     <button class="action-btn danger" data-action="remove" data-id="${s.id}">حذف عضو</button>
     </div>
    `;
    card.querySelector(".soldier-name").textContent=s.name;
+   card.querySelector(".soldier-id").textContent="ID: "+s.id;
    card.querySelector(".soldier-rank").textContent=s.rank;
+   card.querySelector(".soldier-status").textContent=s.status;
    soldierList.appendChild(card);
   });
  }
  updateStats();
 }
-
-function updateStats(){
- document.getElementById("totalSoldiers").textContent=soldiers.length;
- document.getElementById("activeSoldiers").textContent=soldiers.filter(s=>s.status==="فعال").length;
- document.getElementById("officerCount").textContent="4";
- document.getElementById("wantedCount").textContent="1";
-}
+const rankLevels=["سرباز","سرباز یکم","سرجوخه","گروهبان","گروهبان ارشد"];
 
 soldierList.addEventListener("click",e=>{
  const button=e.target.closest("button[data-action]");
@@ -504,18 +663,30 @@ soldierList.addEventListener("click",e=>{
  if(action==="status"){
   const states=["فعال","مرخصی","غیرفعال"];
   soldier.status=states[(states.indexOf(soldier.status)+1)%states.length];
-  notify("وضعیت سرباز تغییر کرد.");
+  addRecord("وضعیت "+soldier.name+" تغییر کرد.");
+  notify("وضعیت عضو تغییر کرد.");
  }
  if(action==="morale"){
   soldier.morale=Math.min(100,soldier.morale+5);
-  notify("روحیه نمایشی سرباز افزایش یافت.");
+  addRecord("شاخص روحیه "+soldier.name+" به‌روزرسانی شد.");
+  notify("شاخص روحیه افزایش یافت.");
+ }
+ if(action==="rank"){
+  const index=rankLevels.indexOf(soldier.rank);
+  if(index<rankLevels.length-1){
+   soldier.rank=rankLevels[index+1];
+   addRecord("درجه "+soldier.name+" ارتقا یافت.");
+   notify("درجه عضو ارتقا یافت.");
+  }else notify("این عضو در بالاترین درجه این فهرست است.");
  }
  if(action==="remove"){
-  if(confirm("این سرباز از فهرست بازی حذف شود؟")){
+  if(confirm("آیا این عضو از فهرست حذف شود؟")){
    soldiers=soldiers.filter(s=>s.id!==id);
-   notify("سرباز از فهرست حذف شد.");
+   addRecord("عضو "+soldier.name+" از فهرست حذف شد.");
+   notify("عضو حذف شد.");
   }
  }
+ saveData();
  renderSoldiers();
 });
 
@@ -523,22 +694,32 @@ document.getElementById("addSoldierForm").addEventListener("submit",e=>{
  e.preventDefault();
  const name=document.getElementById("newName").value.trim();
  if(!name)return;
- soldiers.push({
+ const member={
   id:Math.max(100,...soldiers.map(s=>s.id))+1,
   name,
   rank:document.getElementById("newRank").value,
   status:document.getElementById("newStatus").value,
   morale:75,
   readiness:75
- });
- e.target.reset();
+ };
+ soldiers.push(member);
+ saveData();
+ addRecord("عضو جدید با نام "+name+" ثبت شد.");
  renderSoldiers();
- notify("سرباز جدید ثبت شد.");
+ e.target.reset();
+ notify("عضو جدید ثبت شد.");
 });
 
 searchInput.addEventListener("input",renderSoldiers);
 filterStatus.addEventListener("change",renderSoldiers);
+
+function updateClock(){
+ const now=new Date();
+ document.getElementById("clock").textContent=
+  now.toLocaleDateString("fa-IR")+" | "+now.toLocaleTimeString("fa-IR");
+}
 renderSoldiers();
+renderRecords();
 </script>
 </body>
 </html>
