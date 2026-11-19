@@ -1,0 +1,1035 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#160909">
+<title>RED ALERT | KERMAN COMMAND</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Vazirmatn:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #090a0b;
+  --panel: #121617;
+  --red: #c52c25;
+  --red2: #ff493d;
+  --gold: #d5aa61;
+  --line: #50312c;
+  --text: #e9e3d8;
+  --muted: #99958c;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: Vazirmatn, sans-serif;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  pointer-events: none;
+  opacity: .075;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0 3px,
+    #fff 4px
+  );
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+.eng {
+  font-family: Orbitron, sans-serif;
+  letter-spacing: 1.5px;
+}
+
+/* HEADER */
+
+.topbar {
+  height: 70px;
+  background: #0d1011;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  box-shadow: 0 8px 25px #0009;
+}
+
+.brand {
+  font: 900 19px Orbitron;
+  color: #f3eee5;
+}
+
+.brand b {
+  color: var(--red2);
+}
+
+.topnav {
+  display: flex;
+  gap: 24px;
+  color: #aaa;
+  font: 10px Orbitron;
+}
+
+.topnav a:hover {
+  color: var(--red2);
+}
+
+.live {
+  font: 10px Orbitron;
+  color: #e4b36a;
+}
+
+.live i {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  background: #d33;
+  border-radius: 50%;
+  margin-left: 7px;
+  box-shadow: 0 0 10px #f33;
+  animation: pulse 1.3s infinite;
+}
+
+@keyframes pulse {
+  50% { opacity: .25; }
+}
+
+/* HERO */
+
+.hero {
+  min-height: 590px;
+  position: relative;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 65px 20px 80px;
+  overflow: hidden;
+  background: radial-gradient(
+    ellipse at center,
+    #3a1110 0,
+    #160b0b 38%,
+    #090a0b 75%
+  );
+}
+
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  border: 1px solid #9b393322;
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 45px #9b393310,
+    0 0 0 90px #9b393308;
+  animation: slowspin 35s linear infinite;
+}
+
+.hero::after {
+  width: 680px;
+  height: 680px;
+  animation-direction: reverse;
+  border-style: dashed;
+}
+
+@keyframes slowspin {
+  to { transform: rotate(360deg); }
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 850px;
+}
+
+.kicker {
+  font: 11px Orbitron;
+  color: #e4a05a;
+  letter-spacing: 3px;
+  margin-bottom: 24px;
+}
+
+/* DECORATIVE IRON CROSS */
+
+.emblem-wrap {
+  width: 124px;
+  height: 124px;
+  margin: 0 auto 25px;
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+
+.emblem-wrap::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid #d7b16a77;
+  transform: rotate(45deg);
+  box-shadow: 0 0 28px #d8a54c55;
+  animation: glow 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  to {
+    box-shadow:
+      0 0 55px #f3c46caa,
+      0 0 90px #d52a2466;
+  }
+}
+
+.iron-cross {
+  width: 75px;
+  height: 75px;
+  position: relative;
+  filter: drop-shadow(0 0 13px #e7bd6a);
+}
+
+.iron-cross::before,
+.iron-cross::after {
+  content: "";
+  position: absolute;
+  background: linear-gradient(
+    135deg,
+    #f5e6b8,
+    #7e7668 45%,
+    #e7d5a3 70%,
+    #4a4540
+  );
+  border: 2px solid #211d19;
+}
+
+.iron-cross::before {
+  width: 27px;
+  height: 75px;
+  left: 24px;
+  top: 0;
+  clip-path: polygon(
+    25% 0,75% 0,100% 25%,100% 75%,
+    75% 100%,25% 100%,0 75%,0 25%
+  );
+}
+
+.iron-cross::after {
+  height: 27px;
+  width: 75px;
+  top: 24px;
+  left: 0;
+  clip-path: polygon(
+    0 25%,25% 0,75% 0,100% 25%,
+    100% 75%,75% 100%,25% 100%,0 75%
+  );
+}
+
+.hero h1 {
+  font: 900 clamp(35px,7vw,76px)/1.15 Orbitron;
+  text-shadow: 0 0 30px #000;
+}
+
+.hero h1 span {
+  color: var(--red2);
+}
+
+.hero p {
+  max-width: 650px;
+  margin: 20px auto 0;
+  color: #bcb7ad;
+  line-height: 2.2;
+  font-size: 14px;
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.btn {
+  border: 1px solid #6c4841;
+  background: #151718;
+  color: #eee;
+  padding: 12px 22px;
+  cursor: pointer;
+  font: 10px Orbitron;
+  transition: .25s;
+}
+
+.btn.primary {
+  background: linear-gradient(135deg,#a91f1b,#681512);
+  border-color: #d64a3e;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px #d33a2c55;
+}
+
+/* MUSIC */
+
+.music-status {
+  margin-top: 20px;
+  color: #d5b779;
+  font-size: 11px;
+}
+
+.music-status button {
+  margin-right: 8px;
+  background: none;
+  border: 0;
+  color: #ff8275;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* SECTIONS */
+
+.section {
+  padding: 65px 6%;
+  max-width: 1500px;
+  margin: auto;
+}
+
+.section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 16px;
+  margin-bottom: 25px;
+  gap: 15px;
+}
+
+.section-head h2 {
+  font: 700 19px Orbitron;
+}
+
+.section-head span {
+  font: 10px Orbitron;
+  color: #df8c62;
+}
+
+/* COMMAND MAP */
+
+.command-grid {
+  display: grid;
+  grid-template-columns: 1.4fr .8fr;
+  gap: 18px;
+}
+
+.panel {
+  background: linear-gradient(145deg,#171a1b,#0e1112);
+  border: 1px solid #45312e;
+  box-shadow: 0 12px 30px #0005;
+}
+
+.panel-title {
+  height: 43px;
+  background: #1c1716;
+  border-bottom: 1px solid #49302d;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+  font: 10px Orbitron;
+  color: #e4b16e;
+}
+
+.panel-title small {
+  color: #888;
+  font: 9px Orbitron;
+}
+
+.map-panel {
+  padding: 14px;
+}
+
+.map-note {
+  font-size: 11px;
+  color: #aaa;
+  line-height: 2;
+  margin-bottom: 12px;
+}
+
+.map-board {
+  height: 390px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #514239;
+  background-color: #171c1a;
+  background-image:
+    linear-gradient(#a2aa7c16 1px,transparent 1px),
+    linear-gradient(90deg,#a2aa7c16 1px,transparent 1px),
+    radial-gradient(
+      ellipse at 50% 48%,
+      #565b3c 0,
+      #303a30 45%,
+      #19211f 100%
+    );
+  background-size:
+    28px 28px,
+    28px 28px,
+    100% 100%;
+}
+
+.map-board::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    35deg,
+    transparent 0 42px,
+    #b8bd9a0b 43px 45px
+  );
+}
+
+.map-river {
+  position: absolute;
+  width: 130%;
+  height: 34px;
+  left: -10%;
+  top: 65%;
+  border-top: 3px solid #71919a66;
+  border-bottom: 3px solid #71919a44;
+  transform: rotate(-17deg);
+  border-radius: 50%;
+}
+
+.road {
+  position: absolute;
+  height: 3px;
+  background: #c5b58a44;
+  transform-origin: left center;
+}
+
+.road.r1 {
+  width: 85%;
+  top: 48%;
+  left: 7%;
+  transform: rotate(-12deg);
+}
+
+.road.r2 {
+  width: 75%;
+  top: 22%;
+  left: 18%;
+  transform: rotate(35deg);
+}
+
+.road.r3 {
+  width: 70%;
+  top: 82%;
+  left: 15%;
+  transform: rotate(-35deg);
+}
+
+.sector {
+  position: absolute;
+  color: #d6d2b6aa;
+  font: 9px Orbitron;
+  letter-spacing: 1px;
+}
+
+.s1 { top: 10%; left: 8%; }
+.s2 { top: 13%; right: 8%; }
+.s3 { bottom: 10%; left: 8%; }
+.s4 { bottom: 12%; right: 7%; }
+
+.city-label {
+  position: absolute;
+  top: 47%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  font: 700 13px Orbitron;
+  color: #f2dfb1;
+  text-shadow: 0 2px 5px #000;
+}
+
+.command-point {
+  position: absolute;
+  top: 53%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #f4c66b;
+  box-shadow:
+    0 0 0 7px #f4c66b22,
+    0 0 22px #ffd27a;
+  z-index: 3;
+}
+
+.radar-ring {
+  position: absolute;
+  inset: -15px;
+  border: 1px solid #f1c66b88;
+  border-radius: 50%;
+  animation: radar 2.4s infinite;
+}
+
+@keyframes radar {
+  to {
+    transform: scale(3.5);
+    opacity: 0;
+  }
+}
+
+.unit {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border: 1px solid #ffd0a0;
+  background: #c9322b;
+  box-shadow: 0 0 12px #f33;
+  transform: rotate(45deg);
+  animation: unitPulse 1.5s infinite alternate;
+}
+
+@keyframes unitPulse {
+  to {
+    box-shadow: 0 0 20px #ff5145;
+    opacity: .55;
+  }
+}
+
+.u1 { top: 24%; left: 24%; }
+.u2 { top: 28%; right: 22%; }
+.u3 { bottom: 23%; left: 28%; }
+.u4 { bottom: 24%; right: 24%; }
+.u5 { top: 55%; left: 13%; }
+.u6 { top: 56%; right: 13%; }
+
+.park {
+  position: absolute;
+  top: 17%;
+  left: 51%;
+  background: #536b47;
+  color: #f2eacb;
+  padding: 5px 8px;
+  font-size: 9px;
+  border: 1px solid #91a27c;
+  transform: translateX(-50%);
+}
+
+.map-caption {
+  position: absolute;
+  bottom: 9px;
+  left: 10px;
+  color: #d6c8a3;
+  font: 8px Orbitron;
+  letter-spacing: 1px;
+}
+
+.legend {
+  display: flex;
+  gap: 17px;
+  flex-wrap: wrap;
+  padding: 13px 2px 2px;
+  font-size: 10px;
+  color: #aaa;
+}
+
+.legend i {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-left: 6px;
+  background: #c9322b;
+}
+
+.legend .gold {
+  background: #e8bd69;
+  border-radius: 50%;
+}
+
+.legend .green {
+  background: #78966b;
+}
+
+/* STATUS PANELS */
+
+.side-stack {
+  display: grid;
+  gap: 18px;
+  align-content: start;
+}
+
+.signal {
+  padding: 18px;
+}
+
+.signal h3 {
+  font: 12px Orbitron;
+  color: #e7b36d;
+  margin-bottom: 14px;
+}
+
+.signal p {
+  font-size: 12px;
+  color: #aaa;
+  line-height: 2.2;
+}
+
+.signal-row {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ffffff12;
+  padding: 9px 0;
+  font-size: 11px;
+}
+
+.signal-row b {
+  font: 10px Orbitron;
+  color: #e4b36a;
+}
+
+/* OFFICERS */
+
+.officers {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 18px;
+}
+
+.officer {
+  padding: 22px;
+  position: relative;
+  overflow: hidden;
+}
+
+.officer::after {
+  content: "";
+  position: absolute;
+  width: 110px;
+  height: 110px;
+  border: 1px solid #c44a3a22;
+  transform: rotate(45deg);
+  left: -35px;
+  bottom: -50px;
+}
+
+.rank {
+  font: 9px Orbitron;
+  color: #d7a75d;
+  letter-spacing: 2px;
+}
+
+.officer h3 {
+  font: 800 25px Orbitron;
+  margin: 13px 0 8px;
+}
+
+.officer p {
+  font-size: 12px;
+  color: #aaa;
+  line-height: 2;
+}
+
+.officer .initial {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  font: 900 42px Orbitron;
+  color: #ffffff0c;
+}
+
+.alert-strip {
+  margin-top: 22px;
+  border: 1px solid #74352e;
+  background: #211110;
+  padding: 14px 18px;
+  color: #d6b7a8;
+  font-size: 11px;
+  line-height: 2;
+}
+
+.footer {
+  border-top: 1px solid var(--line);
+  padding: 28px 6%;
+  text-align: center;
+  color: #777;
+  font: 9px Orbitron;
+  line-height: 2.5;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:850px) {
+  .topnav { display: none; }
+  .command-grid { grid-template-columns: 1fr; }
+  .map-board { height: 330px; }
+  .section { padding: 48px 4%; }
+}
+
+@media(max-width:560px) {
+  .topbar { height: 60px; }
+  .brand { font-size: 15px; }
+  .live { font-size: 8px; }
+  .hero { min-height: 540px; }
+  .emblem-wrap { width: 100px; height: 100px; }
+  .officers { grid-template-columns: 1fr; }
+  .section-head h2 { font-size: 15px; }
+  .map-board { height: 290px; }
+  .sector { font-size: 7px; }
+  .park { font-size: 8px; }
+}
+</style>
+</head>
+
+<body>
+
+<header class="topbar">
+  <div class="brand">RED <b>ALERT</b></div>
+
+  <nav class="topnav">
+    <a href="#command">COMMAND MAP</a>
+    <a href="#officers">OFFICERS</a>
+    <a href="#intel">INTEL</a>
+  </nav>
+
+  <div class="live"><i></i> SYSTEM ONLINE</div>
+</header>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+  <div class="hero-inner">
+
+    <div class="kicker">
+      KERMAN THEATER // FICTIONAL GAME SIMULATION
+    </div>
+
+    <div class="emblem-wrap">
+      <div class="iron-cross"></div>
+    </div>
+
+    <h1>RED <span>ALERT</span></h1>
+
+    <p>
+      مرکز فرماندهی در یک دنیای خیالی؛ گزارش‌ها،
+      واحدها و وضعیت نقشه در قالب یک رابط استراتژیک
+      الهام‌گرفته از بازی‌های کلاسیک جنگی.
+    </p>
+
+    <div class="hero-actions">
+      <a class="btn primary" href="#command">
+        OPEN COMMAND MAP
+      </a>
+
+      <a class="btn" href="#officers">
+        VIEW OFFICERS
+      </a>
+    </div>
+
+    <div class="music-status" id="musicStatus">
+      MUSIC 03 // آماده پخش
+      <button id="musicToggle" type="button">
+        پخش موسیقی
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<!-- MUSIC -->
+
+<audio id="bgMusic" src="music%203.mp3" preload="auto" loop></audio>
+
+<!-- COMMAND MAP -->
+
+<section class="section" id="command">
+
+  <div class="section-head">
+    <h2>COMMAND MAP</h2>
+    <span>SECTOR KRM // GAME BOARD</span>
+  </div>
+
+  <div class="command-grid">
+
+    <div class="panel">
+
+      <div class="panel-title">
+        <span>TACTICAL OVERVIEW // KERMAN</span>
+        <small>SIMULATION MAP</small>
+      </div>
+
+      <div class="map-panel">
+
+        <p class="map-note">
+          نقشه شماتیک و تخیلی برای سرگرمی است؛ موقعیت‌ها
+          و نشانگرها به جغرافیای واقعی، مسیرها یا برنامه
+          عملیاتی در شهر کرمان متصل نیستند.
+        </p>
+
+        <div class="map-board">
+
+          <div class="map-river"></div>
+
+          <div class="road r1"></div>
+          <div class="road r2"></div>
+          <div class="road r3"></div>
+
+          <span class="sector s1">NORTH SECTOR</span>
+          <span class="sector s2">EAST SECTOR</span>
+          <span class="sector s3">WEST SECTOR</span>
+          <span class="sector s4">SOUTH SECTOR</span>
+
+          <span class="park">
+            PARK NESHAT · LANDMARK
+          </span>
+
+          <div class="city-label">KERMAN</div>
+
+          <div class="command-point">
+            <div class="radar-ring"></div>
+          </div>
+
+          <span class="unit u1"></span>
+          <span class="unit u2"></span>
+          <span class="unit u3"></span>
+          <span class="unit u4"></span>
+          <span class="unit u5"></span>
+          <span class="unit u6"></span>
+
+          <span class="map-caption">
+            FICTIONAL STRATEGY BOARD / NOT TO SCALE
+          </span>
+
+        </div>
+
+        <div class="legend">
+          <span><i class="gold"></i>مرکز بازی</span>
+          <span><i></i>نشانگرهای نمایشی</span>
+          <span><i class="green"></i>نشانگر مکان شاخص</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- STATUS -->
+
+    <div class="side-stack">
+
+      <div class="panel">
+
+        <div class="panel-title">
+          <span>LIVE STATUS</span>
+          <small>SIM-03</small>
+        </div>
+
+        <div class="signal">
+
+          <div class="signal-row">
+            <span>وضعیت شبیه‌سازی</span>
+            <b>ACTIVE</b>
+          </div>
+
+          <div class="signal-row">
+            <span>منطقه سناریو</span>
+            <b>KERMAN</b>
+          </div>
+
+          <div class="signal-row">
+            <span>سطح هشدار بازی</span>
+            <b>RED</b>
+          </div>
+
+          <div class="signal-row">
+            <span>نشانگرهای نمایشی</span>
+            <b>06</b>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="panel">
+
+        <div class="panel-title">
+          <span>COMMAND BRIEFING</span>
+          <small>FIELD NOTE</small>
+        </div>
+
+        <div class="signal">
+          <h3>MISSION CONTROL</h3>
+
+          <p>
+            این بخش صرفاً یک سناریوی ساختگی برای سرگرمی
+            و تجربه رابط استراتژیک است و هیچ رویداد یا
+            تحرک واقعی را گزارش نمی‌کند.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- OFFICERS -->
+
+<section class="section" id="officers">
+
+  <div class="section-head">
+    <h2>COMMAND STAFF</h2>
+    <span>OFFICER DATABASE</span>
+  </div>
+
+  <div class="officers">
+
+    <article class="panel officer">
+
+      <div class="initial">A</div>
+
+      <div class="rank">
+        SENIOR OFFICER // 01
+      </div>
+
+      <h3>ARSHAN</h3>
+
+      <p>
+        افسر ارشد در سناریوی بازی؛ مسئول هماهنگی
+        گزارش‌ها و مدیریت پنل فرماندهی.
+      </p>
+
+    </article>
+
+    <article class="panel officer">
+
+      <div class="initial">A</div>
+
+      <div class="rank">
+        FIELD OFFICER // 02
+      </div>
+
+      <h3>ARTIN</h3>
+
+      <p>
+        افسر میدانی در سناریوی بازی؛ مسئول ثبت
+        وضعیت مراحل و گزارش‌های نمایشی.
+      </p>
+
+    </article>
+
+  </div>
+
+  <div class="alert-strip">
+    NOTICE // تمام نام‌ها، نشانگرها و گزارش‌های این صفحه
+    بخشی از یک سناریوی سرگرمی و جهان تخیلی بازی هستند.
+  </div>
+
+</section>
+
+<!-- INTELLIGENCE -->
+
+<section class="section" id="intel">
+
+  <div class="section-head">
+    <h2>INTELLIGENCE</h2>
+    <span>ARCHIVE // 1940s STYLE</span>
+  </div>
+
+  <div class="panel signal">
+
+    <h3>ARCHIVE ENTRY 003</h3>
+
+    <p>
+      رابط فرماندهی با الهام از بازی‌های استراتژیک کلاسیک
+      طراحی شده است: رنگ‌بندی هشدار، نمایشگر رادار،
+      نقشه شماتیک، گزارش وضعیت و پرونده افسران.
+      این پروژه یک تجربه داستانی و غیرواقعی است.
+    </p>
+
+  </div>
+
+</section>
+
+<footer class="footer">
+  RED ALERT // KERMAN COMMAND
+  <br>
+  FICTIONAL GAME INTERFACE
+</footer>
+
+<script>
+const music = document.getElementById('bgMusic');
+const musicStatus = document.getElementById('musicStatus');
+const musicToggle = document.getElementById('musicToggle');
+
+async function startMusic() {
+
+  try {
+
+    await music.play();
+
+    musicStatus.firstChild.textContent =
+      'MUSIC 03 // در حال پخش ';
+
+    musicToggle.textContent = 'توقف موسیقی';
+
+  } catch(error) {
+
+    musicStatus.firstChild.textContent =
+      'MUSIC 03 // برای شروع، دکمه را بزنید ';
+
+    musicToggle.textContent = 'پخش موسیقی';
+
+  }
+
+}
+
+musicToggle.addEventListener('click', async () => {
+
+  if(music.paused) {
+
+    await startMusic();
+
+  } else {
+
+    music.pause();
+
+    musicStatus.firstChild.textContent =
+      'MUSIC 03 // متوقف ';
+
+    musicToggle.textContent = 'پخش موسیقی';
+
+  }
+
+});
+
+window.addEventListener('load', startMusic);
+</script>
+
+</body>
+</html>
