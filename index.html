@@ -4,1877 +4,2039 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080910">
-<meta name="description" content="NOCTURNE — A digital sanctuary for curious minds">
-<title>NOCTURNE — Digital Sanctuary</title>
+<meta name="theme-color" content="#090914">
+<meta name="description" content="NOCTURNE 2.0 — Digital Sanctuary">
+<title>NOCTURNE 2.0 — Digital Sanctuary</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-:root{
- --bg:#080910;
- --panel:#10121e;
- --panel2:#151827;
- --text:#f1f1fa;
- --muted:#858ba5;
- --purple:#9b7bff;
- --cyan:#63e5e8;
- --pink:#d47bff;
- --line:rgba(255,255,255,.08);
- --radius:20px;
+:root {
+  --bg:#080812;
+  --panel:rgba(19,18,38,.82);
+  --panel2:rgba(28,25,52,.76);
+  --border:rgba(167,139,250,.17);
+  --purple:#a78bfa;
+  --cyan:#5eead4;
+  --pink:#f0abfc;
+  --text:#eeeafa;
+  --muted:#9994b5;
+  --radius:22px;
+  --glow:0 0 35px rgba(139,92,246,.13);
 }
 
-*{box-sizing:border-box}
-
-html{
- scroll-behavior:smooth;
- scroll-padding-top:100px;
+* {
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
-body{
- margin:0;
- background:var(--bg);
- color:var(--text);
- font-family:"Vazirmatn",Tahoma,sans-serif;
- overflow-x:hidden;
+html { scroll-behavior:smooth; }
+
+body {
+  font-family:'Vazirmatn',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  min-height:100vh;
+  overflow-x:hidden;
 }
 
-body.menu-open{overflow:hidden}
+button,input { font:inherit; }
+button { cursor:pointer; }
+a { color:inherit;text-decoration:none; }
 
-a{
- text-decoration:none;
- color:inherit;
+#stars {
+  position:fixed;
+  inset:0;
+  z-index:-3;
+  pointer-events:none;
 }
 
-button,input{font:inherit}
-
-button{color:inherit}
-
-.wrap{
- width:min(1120px,92%);
- margin:auto;
+.ambient {
+  position:fixed;
+  width:420px;
+  height:420px;
+  border-radius:50%;
+  filter:blur(110px);
+  opacity:.13;
+  pointer-events:none;
+  z-index:-2;
 }
 
-/* BACKGROUND */
-
-.background{
- position:fixed;
- inset:0;
- z-index:-2;
- pointer-events:none;
- overflow:hidden;
- background:
- radial-gradient(ellipse at 80% 10%,#553b9b25,transparent 35%),
- radial-gradient(ellipse at 10% 70%,#247e8c18,transparent 35%),
- #080910;
+.ambient.one {
+  background:#813cff;
+  top:-170px;
+  right:-130px;
 }
 
-.background:after{
- content:"";
- position:absolute;
- inset:0;
- opacity:.16;
- background-image:
- linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
- linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
- background-size:45px 45px;
- mask-image:linear-gradient(to bottom,black,transparent);
+.ambient.two {
+  background:#00d9c5;
+  bottom:-200px;
+  left:-150px;
 }
 
-.ambient{
- position:absolute;
- width:450px;
- height:450px;
- border-radius:50%;
- filter:blur(120px);
- opacity:.12;
+.noise {
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:10;
+  opacity:.025;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
 }
 
-.ambient.one{
- background:#7956ff;
- top:5%;
- right:-180px;
+header {
+  position:sticky;
+  top:0;
+  z-index:50;
+  padding:14px 6%;
+  background:rgba(8,8,18,.84);
+  backdrop-filter:blur(22px);
+  border-bottom:1px solid var(--border);
 }
 
-.ambient.two{
- background:#35c6ce;
- bottom:5%;
- left:-200px;
+.nav {
+  max-width:1250px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
 }
 
-#stars{
- position:absolute;
- inset:0;
- width:100%;
- height:100%;
+.logo {
+  font-size:23px;
+  font-weight:800;
+  letter-spacing:3px;
+  background:linear-gradient(90deg,var(--purple),var(--cyan));
+  color:transparent;
+  background-clip:text;
 }
 
-/* HEADER */
-
-header{
- position:sticky;
- top:0;
- z-index:100;
- background:#080910dc;
- backdrop-filter:blur(20px);
- border-bottom:1px solid var(--line);
+.logo small {
+  display:block;
+  font-size:9px;
+  color:var(--muted);
+  letter-spacing:4px;
+  font-weight:400;
+  text-align:center;
 }
 
-nav{
- min-height:76px;
- display:flex;
- align-items:center;
- justify-content:space-between;
- gap:20px;
+.nav-links {
+  display:flex;
+  gap:21px;
+  align-items:center;
 }
 
-.brand{
- display:flex;
- align-items:center;
- gap:11px;
- font-size:17px;
- font-weight:800;
- letter-spacing:4px;
- direction:ltr;
+.nav-links a {
+  font-size:13px;
+  color:var(--muted);
+  transition:.25s;
 }
 
-.brand-mark{
- width:35px;
- height:35px;
- border-radius:12px;
- background:linear-gradient(135deg,var(--purple),#5142bd,var(--cyan));
- position:relative;
- box-shadow:0 0 25px #9676ff55;
+.nav-links a:hover,
+.nav-links a.active {
+  color:var(--cyan);
 }
 
-.brand-mark:before{
- content:"";
- position:absolute;
- inset:9px;
- border:2px solid white;
- border-radius:50%;
+.nav-actions {
+  display:flex;
+  gap:10px;
+  align-items:center;
 }
 
-.links{
- display:flex;
- align-items:center;
- gap:17px;
- color:#aeb1c5;
- font-size:12px;
+.icon-btn {
+  border:1px solid var(--border);
+  background:var(--panel);
+  color:var(--text);
+  border-radius:12px;
+  width:39px;
+  height:39px;
+  display:grid;
+  place-items:center;
+  transition:.25s;
 }
 
-.links a{
- transition:.25s;
+.icon-btn:hover {
+  border-color:var(--purple);
+  transform:translateY(-2px);
 }
 
-.links a:hover{
- color:var(--cyan);
+.menu-toggle { display:none; }
+
+.container {
+  max-width:1180px;
+  width:88%;
+  margin:auto;
 }
 
-.nav-cta{
- border:1px solid #9b7bff55;
- padding:10px 17px;
- border-radius:12px;
- font-size:12px;
- transition:.25s;
+.section {
+  padding:55px 0;
+  scroll-margin-top:90px;
 }
 
-.nav-cta:hover{
- background:#9b7bff20;
+.section-head {
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  margin-bottom:24px;
+  gap:15px;
 }
 
-.mobile-menu-btn{
- display:none;
- width:43px;
- height:43px;
- background:#9b7bff12;
- border:1px solid #9b7bff55;
- border-radius:12px;
- cursor:pointer;
- flex-direction:column;
- justify-content:center;
- align-items:center;
- gap:5px;
+.section-head h2 {
+  font-size:24px;
+  font-weight:700;
 }
 
-.mobile-menu-btn span{
- width:19px;
- height:2px;
- background:#ddd3ff;
- border-radius:5px;
- transition:.25s;
+.section-head p {
+  font-size:12px;
+  color:var(--muted);
+  margin-top:6px;
 }
 
-.mobile-menu-btn.active span:nth-child(1){
- transform:translateY(7px) rotate(45deg);
+.eyebrow {
+  color:var(--cyan);
+  font-size:11px;
+  letter-spacing:2px;
+  display:flex;
+  gap:9px;
+  align-items:center;
+  margin-bottom:13px;
 }
 
-.mobile-menu-btn.active span:nth-child(2){
- opacity:0;
+.eyebrow::before {
+  content:"";
+  width:25px;
+  height:1px;
+  background:var(--cyan);
 }
 
-.mobile-menu-btn.active span:nth-child(3){
- transform:translateY(-7px) rotate(-45deg);
+.card {
+  background:linear-gradient(145deg,rgba(28,25,52,.85),rgba(14,14,29,.88));
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:23px;
+  position:relative;
+  overflow:hidden;
+  transition:.3s;
+  box-shadow:var(--glow);
 }
 
-.mobile-menu{
- display:none;
+.card:hover {
+  border-color:rgba(167,139,250,.4);
+}
+
+.primary-btn {
+  border:none;
+  color:#100e20;
+  background:linear-gradient(100deg,var(--purple),var(--cyan));
+  padding:13px 23px;
+  border-radius:13px;
+  font-weight:700;
+  transition:.3s;
+}
+
+.primary-btn:hover {
+  transform:translateY(-3px);
+  box-shadow:0 10px 30px rgba(167,139,250,.25);
+}
+
+.secondary-btn {
+  border:1px solid var(--border);
+  background:transparent;
+  color:var(--text);
+  padding:12px 20px;
+  border-radius:13px;
+  margin-right:8px;
+}
+
+/* ==================================
+   DISCORD PROFILE - TOP SECTION
+================================== */
+
+.discord-section {
+  padding-top:35px;
+  padding-bottom:35px;
+}
+
+.discord-main {
+  padding:0;
+  overflow:hidden;
+  border-radius:25px;
+  background:linear-gradient(145deg,rgba(30,27,57,.96),rgba(12,12,28,.96));
+  border:1px solid rgba(167,139,250,.25);
+  box-shadow:0 15px 70px rgba(98,65,190,.12);
+}
+
+.discord-banner {
+  height:150px;
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 20% 50%,rgba(94,234,212,.25),transparent 35%),
+    radial-gradient(circle at 75% 20%,rgba(167,139,250,.4),transparent 40%),
+    linear-gradient(120deg,#17142e,#27204b,#101b32);
+}
+
+.discord-banner::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(transparent,rgba(12,12,28,.65));
+}
+
+.discord-banner img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  position:absolute;
+  inset:0;
+}
+
+.discord-profile-content {
+  padding:0 28px 27px;
+  position:relative;
+}
+
+.discord-avatar-wrap {
+  position:relative;
+  width:112px;
+  height:112px;
+  margin-top:-55px;
+  z-index:2;
+}
+
+.discord-avatar {
+  width:112px;
+  height:112px;
+  border-radius:30px;
+  border:6px solid #17142d;
+  background:#24203d;
+  object-fit:cover;
+  display:block;
+}
+
+.discord-avatar-fallback {
+  width:100%;
+  height:100%;
+  display:grid;
+  place-items:center;
+  font-size:38px;
+  color:var(--purple);
+}
+
+.discord-avatar-status {
+  position:absolute;
+  bottom:1px;
+  left:1px;
+  width:24px;
+  height:24px;
+  border-radius:50%;
+  border:5px solid #17142d;
+  background:#747f8d;
+}
+
+.discord-avatar-status.online { background:#23d18b; }
+.discord-avatar-status.idle { background:#faa61a; }
+.discord-avatar-status.dnd { background:#ed4245; }
+.discord-avatar-status.offline { background:#747f8d; }
+
+.discord-profile-row {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.discord-user-info {
+  padding-top:12px;
+  flex:1;
+  min-width:200px;
+}
+
+.discord-user-name {
+  font-size:23px;
+  font-weight:800;
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:9px;
+}
+
+.discord-tag {
+  font-size:11px;
+  color:var(--muted);
+  font-weight:400;
+  direction:ltr;
+}
+
+.discord-state {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-top:8px;
+  color:var(--muted);
+  font-size:12px;
+}
+
+.discord-state-dot {
+  width:8px;
+  height:8px;
+  background:#747f8d;
+  border-radius:50%;
+}
+
+.discord-state-dot.online {
+  background:#23d18b;
+  box-shadow:0 0 12px #23d18b;
+}
+
+.discord-state-dot.idle {
+  background:#faa61a;
+  box-shadow:0 0 12px #faa61a;
+}
+
+.discord-state-dot.dnd {
+  background:#ed4245;
+  box-shadow:0 0 12px #ed4245;
+}
+
+.discord-actions {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-top:15px;
+}
+
+.discord-action {
+  padding:10px 15px;
+  border:1px solid var(--border);
+  border-radius:11px;
+  color:var(--text);
+  background:rgba(167,139,250,.09);
+  font-size:11px;
+  transition:.25s;
+}
+
+.discord-action:hover {
+  border-color:var(--cyan);
+  color:var(--cyan);
+}
+
+.discord-activity {
+  margin-top:22px;
+  padding:17px;
+  border:1px solid var(--border);
+  border-radius:17px;
+  background:rgba(8,8,20,.48);
+  display:none;
+  gap:15px;
+  align-items:center;
+}
+
+.discord-activity.visible { display:flex; }
+
+.activity-image-wrap {
+  width:68px;
+  height:68px;
+  flex-shrink:0;
+  position:relative;
+}
+
+.activity-image {
+  width:68px;
+  height:68px;
+  object-fit:cover;
+  border-radius:14px;
+  background:#24203d;
+}
+
+.activity-small-image {
+  width:24px;
+  height:24px;
+  border-radius:50%;
+  border:2px solid #17142d;
+  position:absolute;
+  bottom:-5px;
+  left:-5px;
+  background:#222;
+}
+
+.activity-info {
+  min-width:0;
+  flex:1;
+}
+
+.activity-label {
+  color:var(--cyan);
+  font-size:10px;
+  margin-bottom:6px;
+}
+
+.activity-name {
+  font-size:14px;
+  font-weight:700;
+}
+
+.activity-detail {
+  font-size:11px;
+  color:var(--muted);
+  margin-top:5px;
+  line-height:1.8;
+}
+
+.activity-state {
+  font-size:10px;
+  color:var(--muted);
+  margin-top:4px;
+}
+
+.discord-extra {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+  margin-top:15px;
+}
+
+.discord-extra-card {
+  background:rgba(167,139,250,.055);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:13px;
+  min-width:0;
+}
+
+.discord-extra-card span {
+  color:var(--muted);
+  font-size:10px;
+  display:block;
+  margin-bottom:6px;
+}
+
+.discord-extra-card strong {
+  font-size:12px;
+  font-weight:600;
+  overflow-wrap:anywhere;
+}
+
+.discord-loading {
+  color:var(--muted);
+  font-size:12px;
+  padding:20px 0;
+}
+
+.discord-error {
+  color:#fca5a5;
+}
+
+.discord-spotify {
+  display:none;
+  margin-top:15px;
+  padding:15px;
+  border:1px solid rgba(30,215,96,.22);
+  border-radius:15px;
+  background:rgba(30,215,96,.055);
+  align-items:center;
+  gap:13px;
+}
+
+.discord-spotify.visible { display:flex; }
+
+.spotify-cover {
+  width:53px;
+  height:53px;
+  border-radius:10px;
+  object-fit:cover;
+  background:#1b3023;
+}
+
+.spotify-info { min-width:0; }
+.spotify-title { font-size:12px;font-weight:700; }
+.spotify-artist { font-size:10px;color:var(--muted);margin-top:5px; }
+
+.discord-connection {
+  display:flex;
+  align-items:center;
+  gap:7px;
+  font-size:10px;
+  color:var(--muted);
+  margin-top:16px;
+}
+
+.connection-light {
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:#faa61a;
+}
+
+.connection-light.connected {
+  background:#23d18b;
+  box-shadow:0 0 10px #23d18b;
 }
 
 /* HERO */
 
-.hero{
- min-height:570px;
- display:grid;
- grid-template-columns:1.1fr .9fr;
- align-items:center;
- gap:35px;
- padding:65px 0;
+.hero {
+  min-height:530px;
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  align-items:center;
+  gap:40px;
+  padding:55px 0 70px;
 }
 
-.eyebrow{
- display:flex;
- align-items:center;
- gap:10px;
- color:var(--cyan);
- font-size:11px;
- letter-spacing:2px;
+.hero h1 {
+  font-size:clamp(42px,6vw,76px);
+  line-height:1.3;
+  font-weight:800;
+  letter-spacing:-2px;
 }
 
-.eyebrow:before{
- content:"";
- width:28px;
- height:1px;
- background:var(--cyan);
+.hero h1 span {
+  display:block;
+  background:linear-gradient(100deg,#c4b5fd,#5eead4);
+  color:transparent;
+  background-clip:text;
 }
 
-h1{
- font-size:clamp(39px,6vw,68px);
- line-height:1.35;
- margin:22px 0;
- font-weight:800;
+.hero p {
+  color:var(--muted);
+  line-height:2.2;
+  max-width:510px;
+  margin:20px 0 27px;
+  font-size:14px;
 }
 
-.gradient{
- background:linear-gradient(90deg,#c2aaff,var(--cyan));
- color:transparent;
- background-clip:text;
+.hero-visual {
+  display:grid;
+  place-items:center;
+  min-height:370px;
 }
 
-.lead{
- color:var(--muted);
- font-size:14px;
- line-height:2.4;
- max-width:530px;
+.orbit {
+  width:290px;
+  height:290px;
+  border:1px solid rgba(167,139,250,.25);
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  position:relative;
+  animation:rotate 28s linear infinite;
+  box-shadow:0 0 80px rgba(139,92,246,.08);
 }
 
-.actions{
- display:flex;
- gap:12px;
- flex-wrap:wrap;
- margin-top:28px;
+.orbit::before,
+.orbit::after {
+  content:"";
+  position:absolute;
+  border:1px solid rgba(94,234,212,.22);
+  border-radius:50%;
 }
 
-.btn{
- border:1px solid var(--line);
- border-radius:12px;
- padding:12px 20px;
- font-size:12px;
- cursor:pointer;
- transition:.25s;
+.orbit::before {
+  inset:30px -30px;
+  transform:rotate(55deg);
 }
 
-.btn.primary{
- background:linear-gradient(110deg,#9273f5,#5c4acb);
- border:0;
- box-shadow:0 10px 30px #8062ef33;
+.orbit::after {
+  inset:-25px 40px;
+  transform:rotate(-45deg);
 }
 
-.btn.primary:hover{
- transform:translateY(-3px);
- box-shadow:0 12px 35px #8062ef66;
+.core {
+  width:115px;
+  height:115px;
+  border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,#d8b4fe,#8b5cf6 40%,#16102f 75%);
+  box-shadow:0 0 45px rgba(167,139,250,.65),0 0 100px rgba(94,234,212,.18);
+  animation:pulse 4s ease-in-out infinite;
 }
 
-.btn.secondary{
- background:#ffffff08;
+.orbit-dot {
+  position:absolute;
+  width:11px;
+  height:11px;
+  border-radius:50%;
+  background:var(--cyan);
+  box-shadow:0 0 18px var(--cyan);
+  top:30px;
+  left:40px;
 }
 
-.btn.secondary:hover{
- border-color:var(--purple);
+@keyframes rotate { to { transform:rotate(360deg); } }
+@keyframes pulse {
+  0%,100% { transform:scale(1); }
+  50% { transform:scale(1.12); }
 }
-
-/* DIGITAL CORE */
-
-.hero-visual{
- min-height:390px;
- display:grid;
- place-items:center;
- position:relative;
-}
-
-.core{
- width:min(310px,75vw);
- aspect-ratio:1;
- border-radius:50%;
- position:relative;
- display:grid;
- place-items:center;
-}
-
-.core:before{
- content:"";
- position:absolute;
- inset:0;
- border:1px solid #9b7bff66;
- border-radius:50%;
- box-shadow:0 0 60px #8a6aff18,inset 0 0 60px #8a6aff15;
-}
-
-.core:after{
- content:"";
- position:absolute;
- inset:28px;
- border:1px solid #63e5e855;
- border-radius:50%;
- transform:scaleY(.55) rotate(-35deg);
-}
-
-.core-inner{
- width:145px;
- height:145px;
- border-radius:50%;
- display:grid;
- place-items:center;
- background:radial-gradient(circle at 35% 30%,#bda8ff,#5541a5 45%,#111323 80%);
- box-shadow:0 0 45px #9273f577,0 0 100px #9273f522;
- position:relative;
- z-index:2;
-}
-
-.core-symbol{
- font-size:52px;
- color:white;
- text-shadow:0 0 25px white;
-}
-
-.orbit{
- position:absolute;
- inset:-25px;
- border:1px solid #9b7bff33;
- border-radius:50%;
- transform:rotateX(65deg);
-}
-
-.orbit.two{
- inset:-48px;
- transform:rotateX(65deg) rotate(70deg);
- border-color:#63e5e833;
-}
-
-.core-label{
- position:absolute;
- font-size:10px;
- letter-spacing:3px;
- direction:ltr;
- color:var(--cyan);
-}
-
-.core-label.top{
- top:12px;
-}
-
-.core-label.bottom{
- bottom:10px;
- color:#b9a5ff;
-}
-
-.core-dot{
- position:absolute;
- width:8px;
- height:8px;
- border-radius:50%;
- background:var(--cyan);
- box-shadow:0 0 15px var(--cyan);
-}
-
-.dot-one{top:15%;right:12%}
-.dot-two{bottom:17%;left:10%}
-.dot-three{top:50%;left:0}
 
 /* DASHBOARD */
 
-.dashboard{
- display:grid;
- grid-template-columns:1fr 1fr;
- gap:18px;
- margin-bottom:85px;
+.dashboard {
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:17px;
 }
 
-.panel{
- background:linear-gradient(145deg,#17192aee,#10121eee);
- border:1px solid var(--line);
- border-radius:var(--radius);
- padding:24px;
- position:relative;
- overflow:hidden;
+.clock-card {
+  min-height:180px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
 }
 
-.panel:before{
- content:"";
- position:absolute;
- width:130px;
- height:130px;
- border-radius:50%;
- background:#9273f51a;
- filter:blur(55px);
- top:-50px;
- right:-40px;
- pointer-events:none;
+.clock {
+  font-size:clamp(38px,6vw,55px);
+  font-weight:700;
+  letter-spacing:3px;
+  direction:ltr;
+  text-align:right;
+  background:linear-gradient(90deg,var(--cyan),var(--purple));
+  background-clip:text;
+  color:transparent;
 }
 
-.panel-head{
- display:flex;
- align-items:center;
- justify-content:space-between;
- gap:12px;
- margin-bottom:22px;
+.date-text {
+  color:var(--muted);
+  font-size:12px;
+  margin-top:7px;
 }
 
-.panel-title{
- font-size:14px;
- font-weight:700;
+.status-line {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:12px;
+  color:var(--muted);
+  margin-top:20px;
 }
 
-.panel-tag{
- font-size:9px;
- color:var(--cyan);
- letter-spacing:2px;
- direction:ltr;
+.status-dot {
+  width:8px;
+  height:8px;
+  background:#5eead4;
+  border-radius:50%;
+  box-shadow:0 0 12px #5eead4;
 }
 
-.clock{
- font-size:45px;
- font-weight:700;
- direction:ltr;
- text-align:center;
- letter-spacing:3px;
- margin:12px 0 0;
+.quote {
+  min-height:180px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
 }
 
-.date{
- text-align:center;
- color:var(--muted);
- font-size:12px;
- margin-top:8px;
+.quote-text {
+  font-size:16px;
+  line-height:2.2;
+  color:#d9d3ef;
 }
 
-.clock-status{
- display:flex;
- justify-content:center;
- gap:7px;
- align-items:center;
- margin-top:19px;
- font-size:10px;
- color:var(--cyan);
+.quote-author {
+  color:var(--cyan);
+  font-size:11px;
+  margin-top:15px;
 }
 
-.live-dot{
- width:7px;
- height:7px;
- border-radius:50%;
- background:#4cddae;
- box-shadow:0 0 12px #4cddae;
+/* DISCOVER */
+
+.grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:17px;
 }
 
-.signal-content{
- text-align:center;
- padding:10px 5px;
+.search-box {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  background:var(--panel);
+  border:1px solid var(--border);
+  padding:13px 17px;
+  border-radius:15px;
+  margin-bottom:22px;
 }
 
-.signal-icon{
- font-size:35px;
- margin-bottom:12px;
- color:var(--purple);
+.search-box input {
+  flex:1;
+  min-width:0;
+  border:none;
+  outline:none;
+  color:var(--text);
+  background:transparent;
+  font-size:13px;
 }
 
-.signal-content h3{
- font-size:17px;
- margin:0 0 10px;
+.search-box input::placeholder { color:var(--muted); }
+
+.card-icon {
+  width:45px;
+  height:45px;
+  border-radius:14px;
+  display:grid;
+  place-items:center;
+  background:rgba(167,139,250,.13);
+  color:var(--purple);
+  font-size:21px;
+  margin-bottom:17px;
 }
 
-.signal-content p{
- font-size:12px;
- color:var(--muted);
- line-height:2;
- margin:0;
+.card h3 {
+  font-size:16px;
+  margin-bottom:8px;
 }
 
-.signal-number{
- direction:ltr;
- color:var(--cyan);
- font-size:10px;
- letter-spacing:3px;
- margin-top:17px;
+.card p {
+  color:var(--muted);
+  font-size:12px;
+  line-height:2;
 }
 
-/* SECTION */
-
-.section-head{
- text-align:center;
- margin:35px 0;
-}
-
-.section-head h2{
- font-size:25px;
- margin:0 0 9px;
-}
-
-.section-head p{
- color:var(--muted);
- font-size:12px;
-}
-
-/* CARDS */
-
-.cards{
- display:grid;
- grid-template-columns:repeat(3,1fr);
- gap:17px;
- margin-bottom:90px;
-}
-
-.card{
- padding:25px;
- border-radius:19px;
- border:1px solid var(--line);
- background:linear-gradient(145deg,#17192a99,#10121c);
- min-height:205px;
- transition:.3s;
-}
-
-.card:hover{
- transform:translateY(-5px);
- border-color:#9b7bff66;
- box-shadow:0 15px 35px #0005;
-}
-
-.card-icon{
- width:44px;
- height:44px;
- display:grid;
- place-items:center;
- background:#9b7bff1c;
- border-radius:14px;
- font-size:21px;
- margin-bottom:17px;
- color:var(--cyan);
-}
-
-.card h3{
- font-size:16px;
- margin:0 0 10px;
-}
-
-.card p{
- color:var(--muted);
- font-size:12px;
- line-height:2.1;
- margin:0;
-}
-
-/* ARCHIVE */
-
-.archive{
- margin-bottom:90px;
-}
-
-.archive-list{
- display:grid;
- gap:12px;
-}
-
-.archive-item{
- display:flex;
- align-items:center;
- gap:15px;
- background:#111321;
- border:1px solid var(--line);
- border-radius:15px;
- padding:17px;
- transition:.25s;
-}
-
-.archive-item:hover{
- border-color:#9b7bff77;
- background:#17192a;
-}
-
-.archive-icon{
- width:42px;
- height:42px;
- border-radius:12px;
- background:#9b7bff1a;
- display:grid;
- place-items:center;
- font-size:19px;
- flex-shrink:0;
-}
-
-.archive-text{
- flex:1;
-}
-
-.archive-text h3{
- margin:0 0 5px;
- font-size:13px;
-}
-
-.archive-text p{
- margin:0;
- color:var(--muted);
- font-size:11px;
-}
-
-.archive-arrow{
- color:var(--cyan);
- font-size:17px;
+.card-link {
+  color:var(--cyan);
+  display:inline-block;
+  margin-top:18px;
+  font-size:12px;
 }
 
 /* MUSIC */
 
-.music-section{
- max-width:680px;
- margin:0 auto 90px;
+.player {
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  gap:17px;
+  align-items:center;
 }
 
-.music-card{
- background:linear-gradient(145deg,#1b1930,#111321 65%,#102027);
- border:1px solid #9273f555;
- border-radius:23px;
- padding:25px;
- box-shadow:0 20px 65px #0006;
+.album {
+  width:65px;
+  height:65px;
+  border-radius:15px;
+  background:linear-gradient(135deg,#8b5cf6,#0f766e);
+  display:grid;
+  place-items:center;
+  font-size:25px;
 }
 
-.music-top{
- display:flex;
- align-items:center;
- gap:15px;
+.track-title { font-size:14px; }
+.track-sub { color:var(--muted);font-size:11px;margin-top:4px; }
+
+.player-controls {
+  display:flex;
+  gap:9px;
+  align-items:center;
 }
 
-.album-art{
- width:70px;
- height:70px;
- flex-shrink:0;
- border-radius:17px;
- display:grid;
- place-items:center;
- font-size:29px;
- background:radial-gradient(circle at 30% 30%,#c3aaff,#5945a7 45%,#101321);
- box-shadow:0 0 25px #9478ff44;
+.play-btn {
+  width:43px;
+  height:43px;
+  border-radius:50%;
+  border:none;
+  color:#111;
+  background:linear-gradient(135deg,var(--purple),var(--cyan));
 }
 
-.music-title{
- font-size:15px;
- font-weight:800;
- direction:ltr;
+.progress {
+  width:100%;
+  height:4px;
+  border-radius:9px;
+  background:rgba(255,255,255,.12);
+  margin-top:15px;
+  overflow:hidden;
 }
 
-.music-subtitle{
- font-size:10px;
- color:var(--muted);
- margin-top:5px;
+.progress-bar {
+  width:0%;
+  height:100%;
+  background:var(--cyan);
 }
 
-.music-state{
- margin-right:auto;
- font-size:10px;
- color:var(--cyan);
- direction:ltr;
+.volume {
+  width:90px;
+  accent-color:var(--cyan);
 }
 
-audio{display:none}
+/* ARCHIVE */
 
-.player-controls{
- display:flex;
- align-items:center;
- gap:12px;
- margin-top:22px;
+.archive-item {
+  padding:15px 0;
+  border-bottom:1px solid var(--border);
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  font-size:13px;
 }
 
-.player-btn{
- width:43px;
- height:43px;
- border-radius:50%;
- background:#9b7bff20;
- border:1px solid #9b7bff55;
- cursor:pointer;
- font-size:17px;
-}
+.archive-item:last-child { border:none; }
 
-.player-btn.main{
- width:49px;
- height:49px;
- background:linear-gradient(135deg,#9273f5,#5c4acb);
- border:0;
-}
-
-.progress-wrap{margin-top:16px}
-
-.progress{
- width:100%;
- accent-color:var(--purple);
- cursor:pointer;
-}
-
-.time-row{
- display:flex;
- justify-content:space-between;
- direction:ltr;
- font-size:10px;
- color:var(--muted);
-}
-
-.volume-row{
- display:flex;
- align-items:center;
- gap:12px;
- margin-top:15px;
- font-size:10px;
- color:var(--muted);
-}
-
-.volume-row input{
- accent-color:var(--cyan);
- width:100px;
-}
-
-.music-note{
- color:var(--muted);
- font-size:10px;
- line-height:2;
- margin-top:15px;
-}
-
-/* DISCORD */
-
-.discord-section{
- max-width:680px;
- margin:0 auto 90px;
-}
-
-.discord-card{
- padding:27px;
- border:1px solid #9273f555;
- border-radius:23px;
- background:linear-gradient(145deg,#1a192b,#111321 60%,#101c22);
-}
-
-.discord-top{
- display:flex;
- align-items:center;
- gap:17px;
-}
-
-.discord-avatar{
- width:82px;
- height:82px;
- border-radius:50%;
- border:3px solid var(--purple);
- background:#25263a;
- object-fit:cover;
-}
-
-.discord-name{
- font-size:20px;
- font-weight:800;
- direction:ltr;
-}
-
-.discord-handle{
- font-size:11px;
- color:var(--muted);
- direction:ltr;
- margin-top:4px;
-}
-
-.discord-status{
- display:inline-flex;
- align-items:center;
- gap:7px;
- margin-top:10px;
- font-size:10px;
- color:#c8c9d9;
-}
-
-.status-dot{
- width:8px;
- height:8px;
- border-radius:50%;
- background:#777;
-}
-
-.status-dot.online{background:#3ba55d}
-.status-dot.idle{background:#faa61a}
-.status-dot.dnd{background:#ed4245}
-.status-dot.offline{background:#747f8d}
-
-.discord-divider{
- height:1px;
- background:var(--line);
- margin:22px 0;
-}
-
-.activity-box{
- display:flex;
- align-items:center;
- gap:14px;
- padding:16px;
- background:#ffffff08;
- border:1px solid #ffffff0b;
- border-radius:15px;
-}
-
-.activity-icon{
- width:43px;
- height:43px;
- display:grid;
- place-items:center;
- background:#9b7bff20;
- border-radius:12px;
- font-size:20px;
-}
-
-.activity-label{
- color:var(--cyan);
- font-size:9px;
- letter-spacing:2px;
-}
-
-.activity-title{
- font-size:13px;
- font-weight:700;
- margin-top:4px;
-}
-
-.activity-detail{
- color:var(--muted);
- font-size:10px;
- margin-top:4px;
-}
-
-.discord-foot{
- display:flex;
- justify-content:space-between;
- gap:12px;
- margin-top:18px;
- color:var(--muted);
- font-size:10px;
- flex-wrap:wrap;
-}
-
-.discord-link{color:#c6b5ff}
-
-/* QUOTE */
-
-.quote{
- text-align:center;
- padding:35px;
- border:1px solid var(--line);
- border-radius:22px;
- background:linear-gradient(110deg,#171629aa,#101a20aa);
- margin-bottom:90px;
-}
-
-.quote p{
- font-size:clamp(17px,3vw,24px);
- line-height:2;
- margin:0 auto 12px;
- max-width:720px;
-}
-
-.quote small{
- color:var(--cyan);
+.archive-item span:last-child {
+  color:var(--muted);
+  font-size:11px;
 }
 
 /* FOOTER */
 
-footer{
- border-top:1px solid var(--line);
- padding:25px 0;
- color:#777d94;
- font-size:11px;
+footer {
+  border-top:1px solid var(--border);
+  padding:30px 6%;
+  margin-top:50px;
+  text-align:center;
+  color:var(--muted);
+  font-size:11px;
+  line-height:2.2;
 }
 
-footer .wrap{
- display:flex;
- justify-content:space-between;
- gap:15px;
- flex-wrap:wrap;
-}
-
-/* TOAST */
-
-.toast{
- position:fixed;
- bottom:22px;
- left:22px;
- padding:13px 18px;
- border:1px solid #9b7bff66;
- background:#17192a;
- border-radius:13px;
- font-size:12px;
- opacity:0;
- transform:translateY(15px);
- transition:.25s;
- pointer-events:none;
- z-index:300;
-}
-
-.toast.show{
- opacity:1;
- transform:translateY(0);
-}
-
-/* MOBILE */
-
-@media(max-width:760px){
-
- .links,.nav-cta{display:none}
-
- .mobile-menu-btn{display:flex}
-
- .mobile-menu{
-  display:block;
-  position:fixed;
-  top:76px;
-  left:0;
-  right:0;
-  height:calc(100dvh - 76px);
-  background:#090a12f7;
-  backdrop-filter:blur(20px);
-  z-index:101;
-  opacity:0;
-  visibility:hidden;
-  pointer-events:none;
-  transform:translateY(-10px);
-  transition:.25s;
-  overflow-y:auto;
- }
-
- .mobile-menu.open{
-  opacity:1;
-  visibility:visible;
-  pointer-events:auto;
-  transform:translateY(0);
- }
-
- .mobile-menu-inner{
-  width:90%;
-  margin:auto;
-  padding:25px 0;
- }
-
- .mobile-menu-label{
-  color:var(--cyan);
-  font-size:10px;
-  letter-spacing:3px;
-  direction:ltr;
-  margin-bottom:17px;
- }
-
- .mobile-menu-inner>a{
-  display:flex;
-  align-items:center;
-  gap:14px;
-  min-height:58px;
-  border-bottom:1px solid #ffffff12;
-  font-size:14px;
- }
-
- .mobile-menu-inner>a span{
-  color:#77718f;
-  font-size:10px;
-  direction:ltr;
- }
-
- .mobile-menu-inner>a b{
-  margin-right:auto;
+.footer-logo {
   color:var(--purple);
-  font-weight:400;
- }
-
- .mobile-footer{
-  direction:ltr;
-  margin-top:35px;
-  color:#888;
-  font-size:10px;
-  letter-spacing:3px;
- }
-
- .hero{
-  grid-template-columns:1fr;
-  text-align:center;
-  padding-top:40px;
- }
-
- .hero-visual{
-  min-height:330px;
-  grid-row:1;
- }
-
- .core{
-  width:260px;
- }
-
- .eyebrow{justify-content:center}
-
- .lead{margin:auto}
-
- .actions{justify-content:center}
-
- .dashboard{grid-template-columns:1fr}
-
- .cards{grid-template-columns:1fr}
-
- .section-head h2{font-size:22px}
-
- .discord-card{padding:20px}
-
- .discord-avatar{
-  width:68px;
-  height:68px;
- }
-
- .discord-name{font-size:17px}
+  font-size:18px;
+  letter-spacing:4px;
+  font-weight:800;
+  margin-bottom:8px;
 }
 
-@media(max-width:420px){
-
- .brand{font-size:14px}
-
- .clock{font-size:37px}
-
- .quote{padding:22px}
-
- .panel{padding:19px}
-
- .toast{
-  left:12px;
-  right:12px;
-  bottom:12px;
-  text-align:center;
- }
-
+.toast {
+  position:fixed;
+  bottom:25px;
+  left:25px;
+  background:#211c3c;
+  border:1px solid var(--border);
+  padding:13px 19px;
+  border-radius:13px;
+  font-size:12px;
+  opacity:0;
+  transform:translateY(20px);
+  transition:.3s;
+  z-index:100;
+  pointer-events:none;
 }
 
-@media(prefers-reduced-motion:reduce){
- *,*:before,*:after{
-  scroll-behavior:auto!important;
-  animation:none!important;
-  transition:none!important;
- }
+.toast.show {
+  opacity:1;
+  transform:translateY(0);
+}
+
+.settings-panel {
+  position:fixed;
+  top:75px;
+  left:20px;
+  width:270px;
+  background:#151329;
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:20px;
+  z-index:80;
+  display:none;
+  box-shadow:0 20px 60px #0008;
+}
+
+.settings-panel.open { display:block; }
+.settings-panel h3 { margin-bottom:15px; }
+
+.setting-row {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:12px;
+  margin:13px 0;
+  color:var(--muted);
+}
+
+.setting-row button {
+  border:1px solid var(--border);
+  background:var(--panel);
+  color:var(--text);
+  padding:6px 11px;
+  border-radius:9px;
+  font-size:11px;
+}
+
+.reveal {
+  opacity:0;
+  transform:translateY(20px);
+  transition:.7s;
+}
+
+.reveal.visible {
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px) {
+  .nav-links {
+    position:absolute;
+    top:70px;
+    right:5%;
+    left:5%;
+    display:none;
+    flex-direction:column;
+    align-items:stretch;
+    gap:0;
+    background:#111022;
+    border:1px solid var(--border);
+    border-radius:17px;
+    padding:10px;
+  }
+
+  .nav-links.open { display:flex; }
+
+  .nav-links a {
+    padding:12px;
+    border-bottom:1px solid var(--border);
+  }
+
+  .nav-links a:last-child { border:none; }
+  .menu-toggle { display:grid; }
+  .hero { grid-template-columns:1fr;text-align:center; }
+  .hero p { margin-right:auto;margin-left:auto; }
+  .eyebrow { justify-content:center; }
+  .hero-visual { min-height:310px; }
+  .grid { grid-template-columns:repeat(2,1fr); }
+}
+
+@media(max-width:600px) {
+  .container { width:91%; }
+  header { padding:12px 4%; }
+  .hero { padding:45px 0 30px;min-height:auto; }
+  .hero h1 { font-size:46px; }
+  .orbit { width:220px;height:220px; }
+  .core { width:85px;height:85px; }
+  .section { padding:38px 0; }
+  .section-head h2 { font-size:20px; }
+  .grid,.dashboard { grid-template-columns:1fr; }
+  .player { grid-template-columns:auto 1fr; }
+  .player-controls { grid-column:1 / -1;justify-content:center; }
+  .volume { width:100px; }
+  .settings-panel { left:4%;width:92%; }
+  .discord-profile-content { padding:0 16px 20px; }
+  .discord-banner { height:115px; }
+  .discord-avatar-wrap,
+  .discord-avatar { width:88px;height:88px; }
+  .discord-avatar-wrap { margin-top:-43px; }
+  .discord-user-name { font-size:18px; }
+  .discord-extra { grid-template-columns:1fr 1fr; }
+  .discord-activity { align-items:flex-start; }
+  .activity-image-wrap,
+  .activity-image { width:55px;height:55px; }
+  .discord-actions { flex-wrap:wrap; }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after {
+    animation-duration:.01ms !important;
+    transition-duration:.01ms !important;
+    scroll-behavior:auto !important;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<div class="background">
- <div class="ambient one"></div>
- <div class="ambient two"></div>
- <canvas id="stars"></canvas>
-</div>
+<canvas id="stars"></canvas>
+<div class="ambient one"></div>
+<div class="ambient two"></div>
+<div class="noise"></div>
 
 <header>
- <div class="wrap">
-  <nav>
+  <nav class="nav">
+    <a href="#home" class="logo">
+      NOCTURNE
+      <small>DIGITAL SANCTUARY</small>
+    </a>
 
-   <a class="brand" href="index.html">
-    <span class="brand-mark"></span>
-    NOCTURNE
-   </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#discord">Discord</a>
+      <a href="#home">خانه</a>
+      <a href="#dashboard">داشبورد</a>
+      <a href="#discover">کاوش</a>
+      <a href="#archive">آرشیو</a>
+      <a href="#music">موسیقی</a>
+      <a href="mbti.html">MBTI</a>
+      <a href="artin.html">آرتین</a>
+    </div>
 
-   <div class="links">
-    <a href="#explore">کاوش</a>
-    <a href="#dashboard">داشبورد</a>
-    <a href="#discover">کشف کن</a>
-    <a href="mbti.html">تست MBTI</a>
-    <a href="#archive">آرشیو</a>
-    <a href="#music">موسیقی</a>
-    <a href="#discord">دیسکورد</a>
-    <a href="artin.html">آرتین ✦</a>
-   </div>
-
-   <a class="nav-cta" href="#discover">ورود به فضا ↗</a>
-
-   <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="باز کردن منو" aria-expanded="false">
-    <span></span><span></span><span></span>
-   </button>
-
+    <div class="nav-actions">
+      <button class="icon-btn" id="settingsBtn" aria-label="تنظیمات">⚙</button>
+      <button class="icon-btn menu-toggle" id="menuToggle" aria-label="منو">☰</button>
+    </div>
   </nav>
- </div>
-
- <div class="mobile-menu" id="mobileMenu">
-  <div class="mobile-menu-inner">
-   <div class="mobile-menu-label">NAVIGATION / 01</div>
-   <a href="#explore"><span>01</span> صفحه اصلی <b>✧</b></a>
-   <a href="#dashboard"><span>02</span> داشبورد <b>◈</b></a>
-   <a href="#discover"><span>03</span> کاوش <b>⌁</b></a>
-   <a href="mbti.html"><span>04</span> تست MBTI <b>✦</b></a>
-   <a href="#archive"><span>05</span> آرشیو <b>▤</b></a>
-   <a href="#music"><span>06</span> موسیقی <b>♫</b></a>
-   <a href="#discord"><span>07</span> دیسکورد <b>◉</b></a>
-   <a href="artin.html"><span>08</span> آرتین <b>✧</b></a>
-   <div class="mobile-footer">NOCTURNE / DIGITAL SANCTUARY</div>
-  </div>
- </div>
 </header>
 
-<main class="wrap">
+<aside class="settings-panel" id="settingsPanel">
+  <h3>تنظیمات محیط</h3>
+
+  <div class="setting-row">
+    <span>نمایش ستاره‌ها</span>
+    <button id="starsToggle">روشن</button>
+  </div>
+
+  <div class="setting-row">
+    <span>افکت انیمیشن</span>
+    <button id="motionToggle">روشن</button>
+  </div>
+
+  <div class="setting-row">
+    <span>اعلان خوش‌آمد</span>
+    <button id="welcomeToggle">نمایش</button>
+  </div>
+
+  <div class="setting-row">
+    <span>نسخه</span>
+    <span>2.0.0</span>
+  </div>
+</aside>
+
+<main>
+
+<!-- =================================
+     DISCORD PROFILE - FIRST SECTION
+================================== -->
+
+<section class="container discord-section" id="discord">
+
+  <div class="section-head">
+    <div>
+      <h2>پروفایل دیسکورد من</h2>
+      <p>وضعیت زنده و فعالیت‌های Discord</p>
+    </div>
+    <span class="eyebrow">LIVE PRESENCE</span>
+  </div>
+
+  <div class="discord-main card">
+
+    <div class="discord-banner" id="discordBanner">
+      <img id="discordBannerImage" alt="" style="display:none">
+    </div>
+
+    <div class="discord-profile-content">
+
+      <div class="discord-profile-row">
+
+        <div class="discord-avatar-wrap">
+          <img
+            id="discordAvatar"
+            class="discord-avatar"
+            src=""
+            alt="Discord Avatar"
+          >
+
+          <span
+            class="discord-avatar-status offline"
+            id="discordAvatarStatus"
+          ></span>
+        </div>
+
+        <div class="discord-user-info">
+
+          <div class="discord-user-name">
+            <span id="discordUsername">در حال اتصال...</span>
+            <span class="discord-tag" id="discordTag"></span>
+          </div>
+
+          <div class="discord-state">
+            <span class="discord-state-dot" id="discordStateDot"></span>
+            <span id="discordStatus">در حال دریافت اطلاعات...</span>
+          </div>
+
+        </div>
+
+        <div class="discord-actions">
+          <a
+            class="discord-action"
+            href="https://discord.com/users/1534277328224653363"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            مشاهده پروفایل ↗
+          </a>
+        </div>
+
+      </div>
+
+      <div class="discord-activity" id="discordActivity">
+
+        <div class="activity-image-wrap">
+          <img
+            class="activity-image"
+            id="activityImage"
+            src=""
+            alt=""
+          >
+          <img
+            class="activity-small-image"
+            id="activitySmallImage"
+            src=""
+            alt=""
+            style="display:none"
+          >
+        </div>
+
+        <div class="activity-info">
+          <div class="activity-label" id="activityLabel">CURRENT ACTIVITY</div>
+          <div class="activity-name" id="activityName"></div>
+          <div class="activity-detail" id="activityDetail"></div>
+          <div class="activity-state" id="activityState"></div>
+        </div>
+
+      </div>
+
+      <div class="discord-spotify" id="discordSpotify">
+        <img class="spotify-cover" id="spotifyCover" src="" alt="">
+
+        <div class="spotify-info">
+          <div class="activity-label">LISTENING ON SPOTIFY</div>
+          <div class="spotify-title" id="spotifyTitle"></div>
+          <div class="spotify-artist" id="spotifyArtist"></div>
+        </div>
+      </div>
+
+      <div class="discord-extra">
+
+        <div class="discord-extra-card">
+          <span>USERNAME</span>
+          <strong id="discordUsernameExtra">---</strong>
+        </div>
+
+        <div class="discord-extra-card">
+          <span>DISCORD STATUS</span>
+          <strong id="discordStatusExtra">---</strong>
+        </div>
+
+      </div>
+
+      <div class="discord-connection">
+        <span class="connection-light" id="connectionLight"></span>
+        <span id="connectionText">در حال اتصال به Lanyard...</span>
+      </div>
+
+    </div>
+  </div>
+</section>
 
 <!-- HERO -->
 
-<section class="hero" id="explore">
+<section class="container hero" id="home">
 
- <div>
-  <div class="eyebrow">WELCOME TO THE UNKNOWN</div>
+  <div>
+    <div class="eyebrow">WELCOME TO THE UNKNOWN</div>
 
-  <h1>
-   دنیایی فراتر از
-   <span class="gradient">روزمرگی.</span>
-  </h1>
+    <h1>
+      فراتر از
+      <span>ناشناخته‌ها.</span>
+    </h1>
 
-  <p class="lead">
-   به NOCTURNE خوش آمدی؛ گوشه‌ای متفاوت از اینترنت،
-   برای ذهن‌های کنجکاو، ایده‌های تازه و کشف ناشناخته‌ها.
-   اینجا دنیای خودت را بساز.
-  </p>
+    <p>
+      به NOCTURNE خوش آمدی؛ پناهگاهی دیجیتال برای ذهن‌های کنجکاو.
+      اینجا مرز میان خیال، دانش و دنیای ناشناخته محو می‌شود.
+    </p>
 
-  <div class="actions">
-   <a class="btn primary" href="#discover">شروع کاوش ←</a>
-   <button class="btn secondary" id="surpriseBtn">یک سیگنال دریافت کن ✦</button>
-  </div>
- </div>
+    <a href="#discover">
+      <button class="primary-btn">شروع کاوش ↙</button>
+    </a>
 
- <div class="hero-visual">
-
-  <div class="core">
-   <div class="orbit"></div>
-   <div class="orbit two"></div>
-
-   <div class="core-inner">
-    <span class="core-symbol">☾</span>
-   </div>
-
-   <span class="core-label top">NOCTURNE // CORE</span>
-   <span class="core-label bottom">SYSTEM ONLINE</span>
-
-   <span class="core-dot dot-one"></span>
-   <span class="core-dot dot-two"></span>
-   <span class="core-dot dot-three"></span>
+    <a href="#dashboard">
+      <button class="secondary-btn">داشبورد</button>
+    </a>
   </div>
 
- </div>
+  <div class="hero-visual">
+    <div class="orbit">
+      <div class="core"></div>
+      <div class="orbit-dot"></div>
+    </div>
+  </div>
 
 </section>
 
 <!-- DASHBOARD -->
 
-<section id="dashboard">
+<section class="container section" id="dashboard">
 
- <div class="section-head">
-  <h2>داشبورد شبانه</h2>
-  <p>وضعیت فعلی سیستم NOCTURNE</p>
- </div>
-
- <div class="dashboard">
-
-  <div class="panel">
-
-   <div class="panel-head">
-    <span class="panel-title">زمان محلی</span>
-    <span class="panel-tag">LIVE CLOCK</span>
-   </div>
-
-   <div class="clock" id="clock">00:00:00</div>
-   <div class="date" id="date">در حال دریافت تاریخ...</div>
-
-   <div class="clock-status">
-    <span class="live-dot"></span>
-    سیستم ساعت فعال است
-   </div>
-
+  <div class="section-head">
+    <div>
+      <h2>داشبورد مرکزی</h2>
+      <p>وضعیت فعلی پناهگاه دیجیتال</p>
+    </div>
+    <span class="eyebrow">SYSTEM ONLINE</span>
   </div>
 
-  <div class="panel">
+  <div class="dashboard">
 
-   <div class="panel-head">
-    <span class="panel-title">سیگنال امروز</span>
-    <span class="panel-tag">DAILY SIGNAL</span>
-   </div>
+    <div class="card clock-card reveal">
+      <div class="eyebrow">LOCAL TIME</div>
+      <div class="clock" id="clock">00:00:00</div>
+      <div class="date-text" id="dateText">در حال بارگذاری...</div>
 
-   <div class="signal-content">
-    <div class="signal-icon">✧</div>
-    <h3 id="signalTitle">یک لحظه برای خودت</h3>
-    <p id="signalText">گاهی بهترین کشف‌ها زمانی اتفاق می‌افتند که کمی مکث می‌کنی.</p>
-    <div class="signal-number" id="signalNumber">SIGNAL / 001</div>
-   </div>
+      <div class="status-line">
+        <span class="status-dot"></span>
+        سیستم فعال است
+      </div>
+    </div>
+
+    <div class="card quote reveal">
+      <div class="eyebrow">DAILY TRANSMISSION</div>
+
+      <div class="quote-text" id="quoteText">
+        گاهی تاریکی، فقط فرصتی برای دیدن ستاره‌هاست.
+      </div>
+
+      <div class="quote-author" id="quoteAuthor">
+        — NOCTURNE ARCHIVE
+      </div>
+
+      <button class="card-link" id="newQuote">
+        پیام جدید ↻
+      </button>
+    </div>
 
   </div>
-
- </div>
-
 </section>
 
 <!-- DISCOVER -->
 
-<section id="discover">
+<section class="container section" id="discover">
 
- <div class="section-head">
-  <h2>در NOCTURNE چه خبر است؟</h2>
-  <p>مسیر خودت را انتخاب کن.</p>
- </div>
+  <div class="section-head">
+    <div>
+      <h2>بخش کاوش</h2>
+      <p>دروازه‌هایی به جهان‌های دیگر</p>
+    </div>
+    <span class="eyebrow">EXPLORE</span>
+  </div>
 
- <div class="cards">
+  <div class="search-box">
+    <span>⌕</span>
+    <input
+      type="search"
+      id="searchInput"
+      placeholder="جست‌وجو در بخش‌های NOCTURNE..."
+    >
+  </div>
 
-  <article class="card">
-   <div class="card-icon">✧</div>
-   <h3>اعماق فضا</h3>
-   <p>به ناشناخته‌ها فکر کن و از دنیای اطرافت فراتر برو.</p>
-  </article>
+  <div class="grid" id="discoverGrid">
 
-  <article class="card">
-   <div class="card-icon">⌁</div>
-   <h3>سیگنال‌های پنهان</h3>
-   <p>جزئیات کوچک، گاهی داستان‌های بزرگی برای گفتن دارند.</p>
-  </article>
+    <article class="card reveal" data-search="شخصیت شناسی mbti روانشناسی">
+      <div class="card-icon">◈</div>
+      <h3>آزمایشگاه شخصیت</h3>
+      <p>نگاهی به ساختار شخصیت و شناخت بهتر الگوهای رفتاری.</p>
+      <a class="card-link" href="mbti.html">ورود به آزمایشگاه ←</a>
+    </article>
 
-  <article class="card">
-   <div class="card-icon">◈</div>
-   <h3>آرشیو شبانه</h3>
-   <p>مجموعه‌ای از فکرها، نوشته‌ها و ایده‌های جالب.</p>
-  </article>
+    <article class="card reveal" data-search="آرشیو اطلاعات نوشته ها">
+      <div class="card-icon">⌘</div>
+      <h3>آرشیو اطلاعات</h3>
+      <p>مجموعه‌ای از یادداشت‌ها و کشفیات دیجیتال.</p>
+      <a class="card-link" href="#archive">مشاهده آرشیو ←</a>
+    </article>
 
-  <article class="card">
-   <div class="card-icon">⌘</div>
-   <h3>آزمایشگاه شخصیت</h3>
-   <p>با تست MBTI بیشتر با شیوه‌های متفاوت فکر کردن آشنا شو.</p>
-   <a href="mbti.html" style="color:var(--cyan);font-size:11px;display:inline-block;margin-top:15px">ورود به آزمایشگاه ←</a>
-  </article>
+    <article class="card reveal" data-search="موسیقی موزیک آهنگ">
+      <div class="card-icon">♫</div>
+      <h3>اتاق موسیقی</h3>
+      <p>فضایی آرام برای تمرکز و استراحت.</p>
+      <a class="card-link" href="#music">ورود به اتاق موسیقی ←</a>
+    </article>
 
-  <article class="card">
-   <div class="card-icon">♫</div>
-   <h3>رادیوی شبانه</h3>
-   <p>موسیقی مناسب برای لحظات آرام و تمرکز.</p>
-   <a href="#music" style="color:var(--cyan);font-size:11px;display:inline-block;margin-top:15px">ورود به رادیو ←</a>
-  </article>
+    <article class="card reveal" data-search="آرتین پروفایل دوستان">
+      <div class="card-icon">✧</div>
+      <h3>اتاق آرتین</h3>
+      <p>فضای اختصاصی آرتین و امکانات ویژه آن.</p>
+      <a class="card-link" href="artin.html">باز کردن اتاق ←</a>
+    </article>
 
-  <article class="card">
-   <div class="card-icon">◉</div>
-   <h3>پایگاه ارتباطی</h3>
-   <p>وضعیت فعالیت و پروفایل Discord را مشاهده کن.</p>
-   <a href="#discord" style="color:var(--cyan);font-size:11px;display:inline-block;margin-top:15px">مشاهده وضعیت ←</a>
-  </article>
+    <article class="card reveal" data-search="دیسکورد ارتباط">
+      <div class="card-icon">◉</div>
+      <h3>ارتباطات</h3>
+      <p>اتصال زنده به وضعیت دیسکورد.</p>
+      <a class="card-link" href="#discord">مشاهده وضعیت ←</a>
+    </article>
 
- </div>
+    <article class="card reveal" data-search="ناشناخته اسرار کشف">
+      <div class="card-icon">⟁</div>
+      <h3>ناشناخته‌ها</h3>
+      <p>هر کشف تازه، آغاز یک مسیر تازه است.</p>
+      <a class="card-link" href="#archive">ادامه مسیر ←</a>
+    </article>
 
-</section>
-
-<!-- ARCHIVE -->
-
-<section class="archive" id="archive">
-
- <div class="section-head">
-  <h2>آرشیو NOCTURNE</h2>
-  <p>دسترسی سریع به بخش‌های مختلف</p>
- </div>
-
- <div class="archive-list">
-
-  <a class="archive-item" href="mbti.html">
-   <div class="archive-icon">⌘</div>
-   <div class="archive-text">
-    <h3>Personality Lab</h3>
-    <p>آزمایشگاه شخصیت و تست MBTI</p>
-   </div>
-   <span class="archive-arrow">←</span>
-  </a>
-
-  <a class="archive-item" href="artin.html">
-   <div class="archive-icon">✦</div>
-   <div class="archive-text">
-    <h3>ARTIN</h3>
-    <p>فضای اختصاصی آرتین</p>
-   </div>
-   <span class="archive-arrow">←</span>
-  </a>
-
-  <a class="archive-item" href="#music">
-   <div class="archive-icon">♫</div>
-   <div class="archive-text">
-    <h3>NOCTURNE RADIO</h3>
-    <p>پخش‌کننده موسیقی</p>
-   </div>
-   <span class="archive-arrow">←</span>
-  </a>
-
-  <a class="archive-item" href="#discord">
-   <div class="archive-icon">◉</div>
-   <div class="archive-text">
-    <h3>Discord Terminal</h3>
-    <p>اطلاعات پروفایل و فعالیت Discord</p>
-   </div>
-   <span class="archive-arrow">←</span>
-  </a>
-
- </div>
-
+  </div>
 </section>
 
 <!-- MUSIC -->
 
-<section class="music-section" id="music">
+<section class="container section" id="music">
 
- <div class="section-head">
-  <h2>NOCTURNE RADIO</h2>
-  <p>صدایی برای ساعت‌های آرام شب</p>
- </div>
-
- <div class="music-card">
-
-  <div class="music-top">
-   <div class="album-art">♫</div>
-
-   <div>
-    <div class="music-title">MIDNIGHT SIGNAL</div>
-    <div class="music-subtitle">Dark Synthwave · NOCTURNE RADIO</div>
-   </div>
-
-   <span class="music-state" id="musicState">READY</span>
-  </div>
-
-  <audio id="audio" preload="metadata" loop src="music.mp3"></audio>
-
-  <div class="player-controls">
-   <button class="player-btn" id="restartBtn">↺</button>
-   <button class="player-btn main" id="playBtn">▶</button>
-   <span style="font-size:10px;color:var(--cyan)">NOW PLAYING</span>
-  </div>
-
-  <div class="progress-wrap">
-   <input class="progress" id="seekBar" type="range" min="0" max="100" value="0">
-   <div class="time-row">
-    <span id="currentTime">0:00</span>
-    <span id="duration">0:00</span>
-   </div>
-  </div>
-
-  <div class="volume-row">
-   <span>VOLUME</span>
-   <input id="volume" type="range" min="0" max="1" step=".01" value=".7">
-   <span id="volumeValue">70%</span>
-  </div>
-
-  <p class="music-note">
-   فایل موسیقی مجاز خودت را با نام music.mp3 کنار index.html قرار بده.
-  </p>
-
- </div>
-
-</section>
-
-<!-- DISCORD -->
-
-<section class="discord-section" id="discord">
-
- <div class="section-head">
-  <h2>Discord Terminal</h2>
-  <p>وضعیت زنده حساب Discord</p>
- </div>
-
- <div class="discord-card">
-
-  <div class="discord-top">
-
-   <img class="discord-avatar" id="discordAvatar"
-    src="https://cdn.discordapp.com/embed/avatars/0.png"
-    alt="Discord avatar">
-
-   <div>
-    <div class="discord-name" id="discordName">NOCTURNE USER</div>
-    <div class="discord-handle" id="discordHandle">@discord-user</div>
-
-    <div class="discord-status">
-     <span class="status-dot" id="statusDot"></span>
-     <span id="discordStatus">در حال اتصال...</span>
+  <div class="section-head">
+    <div>
+      <h2>اتاق موسیقی</h2>
+      <p>صدایی از دوردست‌ها</p>
     </div>
-   </div>
-
+    <span class="eyebrow">AUDIO TERMINAL</span>
   </div>
 
-  <div class="discord-divider"></div>
+  <div class="card reveal">
 
-  <div class="activity-box">
-   <div class="activity-icon" id="activityIcon">✦</div>
+    <div class="player">
+      <div class="album">♫</div>
 
-   <div>
-    <div class="activity-label">CURRENT ACTIVITY</div>
-    <div class="activity-title" id="activityTitle">منتظر دریافت اطلاعات...</div>
-    <div class="activity-detail" id="activityDetail">به‌روزرسانی خودکار فعال است</div>
-   </div>
+      <div>
+        <div class="track-title" id="trackTitle">
+          NOCTURNE — Ambient
+        </div>
+
+        <div class="track-sub">
+          Local audio player
+        </div>
+
+        <div class="progress">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
+      </div>
+
+      <div class="player-controls">
+        <button class="icon-btn" id="restartBtn">↺</button>
+        <button class="play-btn" id="playBtn">▶</button>
+        <input
+          class="volume"
+          type="range"
+          min="0"
+          max="1"
+          step=".01"
+          value=".7"
+          id="volume"
+        >
+      </div>
+    </div>
+
+    <audio id="audio" preload="metadata">
+      <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+    <p style="color:var(--muted);font-size:11px;margin-top:15px">
+      فایل music.mp3 را کنار index.html قرار بده.
+    </p>
+
   </div>
-
-  <div class="discord-foot">
-   <span id="discordConnection">اتصال به Lanyard...</span>
-   <a class="discord-link" href="https://discord.com/" target="_blank" rel="noopener">Discord ↗</a>
-  </div>
-
- </div>
-
 </section>
 
-<!-- QUOTE -->
+<!-- ARCHIVE -->
 
-<section class="quote">
+<section class="container section" id="archive">
 
- <p id="quoteText">
-  «همه کسانی که سرگردان‌اند، راه را گم نکرده‌اند.»
- </p>
+  <div class="section-head">
+    <div>
+      <h2>آرشیو مرکزی</h2>
+      <p>ثبت اطلاعات و مسیرهای کشف‌شده</p>
+    </div>
+    <span class="eyebrow">DATABASE</span>
+  </div>
 
- <small>— NOCTURNE ARCHIVE</small>
+  <div class="card reveal">
 
- <div style="margin-top:22px">
-  <button class="btn secondary" id="newQuote">پیام دیگری دریافت کن ✦</button>
- </div>
+    <div class="archive-item">
+      <span>NOCTURNE 2.0 — ارتقای محیط</span>
+      <span>نسخه 2.0</span>
+    </div>
 
+    <div class="archive-item">
+      <span>Personality Lab</span>
+      <span>MBTI</span>
+    </div>
+
+    <div class="archive-item">
+      <span>Digital Sanctuary</span>
+      <span>مرکز اصلی</span>
+    </div>
+
+    <div class="archive-item">
+      <span>Unknown Transmission</span>
+      <span>آرشیو</span>
+    </div>
+
+  </div>
 </section>
 
 </main>
 
 <footer>
- <div class="wrap">
-  <span>© 2026 NOCTURNE</span>
-  <span>BUILT FOR CURIOUS MINDS · WELCOME TO THE UNKNOWN</span>
- </div>
+  <div class="footer-logo">NOCTURNE</div>
+  <div>Digital Sanctuary · Beyond the Unknown</div>
+  <div>© <span id="year"></span> NOCTURNE. All rights reserved.</div>
 </footer>
 
 <div class="toast" id="toast"></div>
 
 <script>
-
-/* STAR FIELD */
-
-(()=>{
- const canvas=document.getElementById("stars");
- const ctx=canvas.getContext("2d");
-
- let stars=[];
- let width=0,height=0;
-
- function resize(){
-  width=canvas.width=window.innerWidth;
-  height=canvas.height=window.innerHeight;
-  stars=Array.from({length:100},()=>({
-   x:Math.random()*width,
-   y:Math.random()*height,
-   size:Math.random()*1.5+.3,
-   alpha:Math.random()*.7+.2,
-   speed:Math.random()*.004+.001
-  }));
- }
-
- function draw(){
-  ctx.clearRect(0,0,width,height);
-
-  stars.forEach(s=>{
-   s.alpha+=s.speed;
-   if(s.alpha>1||s.alpha<.15)s.speed*=-1;
-
-   ctx.beginPath();
-   ctx.arc(s.x,s.y,s.size,0,Math.PI*2);
-   ctx.fillStyle=`rgba(190,180,255,${s.alpha})`;
-   ctx.fill();
-  });
-
-  requestAnimationFrame(draw);
- }
-
- window.addEventListener("resize",resize);
- resize();
- draw();
-})();
-
-/* MOBILE MENU */
-
-(()=>{
- const btn=document.getElementById("mobileMenuBtn");
- const menu=document.getElementById("mobileMenu");
-
- function close(){
-  menu.classList.remove("open");
-  btn.classList.remove("active");
-  btn.setAttribute("aria-expanded","false");
-  document.body.classList.remove("menu-open");
- }
-
- btn.addEventListener("click",()=>{
-  const open=!menu.classList.contains("open");
-  menu.classList.toggle("open",open);
-  btn.classList.toggle("active",open);
-  btn.setAttribute("aria-expanded",String(open));
-  document.body.classList.toggle("menu-open",open);
- });
-
- menu.querySelectorAll("a").forEach(a=>{
-  a.addEventListener("click",close);
- });
-
- document.addEventListener("keydown",e=>{
-  if(e.key==="Escape")close();
- });
-
- document.addEventListener("click",e=>{
-  if(menu.classList.contains("open")&&
-     !menu.contains(e.target)&&
-     !btn.contains(e.target))close();
- });
-
- window.addEventListener("resize",()=>{
-  if(innerWidth>760)close();
- });
-})();
-
-/* LIVE CLOCK */
-
-(()=>{
- const clock=document.getElementById("clock");
- const date=document.getElementById("date");
-
- function update(){
-  const now=new Date();
-
-  clock.textContent=now.toLocaleTimeString("en-GB",{
-   hour12:false
-  });
-
-  date.textContent=now.toLocaleDateString("fa-IR",{
-   weekday:"long",
-   year:"numeric",
-   month:"long",
-   day:"numeric"
-  });
- }
-
- update();
- setInterval(update,1000);
-})();
-
-/* DAILY SIGNAL */
-
-(()=>{
- const signals=[
-  {
-   title:"یک لحظه برای خودت",
-   text:"گاهی بهترین کشف‌ها زمانی اتفاق می‌افتند که کمی مکث می‌کنی."
-  },
-  {
-   title:"به کنجکاوی اعتماد کن",
-   text:"هر سؤال تازه می‌تواند شروع یک ماجراجویی جدید باشد."
-  },
-  {
-   title:"ناشناخته‌ها منتظرند",
-   text:"همه چیزهایی که هنوز نمی‌دانی، فرصتی برای یادگیری هستند."
-  },
-  {
-   title:"سیگنال دریافت شد",
-   text:"امروز یک چیز تازه یاد بگیر؛ حتی اگر خیلی کوچک باشد."
-  },
-  {
-   title:"خارج از چارچوب",
-   text:"گاهی تغییر زاویه نگاه، تمام تصویر را عوض می‌کند."
-  }
- ];
-
- const day=Math.floor(Date.now()/86400000);
- const signal=signals[day%signals.length];
-
- document.getElementById("signalTitle").textContent=signal.title;
- document.getElementById("signalText").textContent=signal.text;
- document.getElementById("signalNumber").textContent=
- "SIGNAL / "+String(day%999+1).padStart(3,"0");
-})();
-
-/* MUSIC PLAYER */
-
-(()=>{
- const audio=document.getElementById("audio");
- const play=document.getElementById("playBtn");
- const seek=document.getElementById("seekBar");
- const volume=document.getElementById("volume");
-
- const state=document.getElementById("musicState");
- const current=document.getElementById("currentTime");
- const duration=document.getElementById("duration");
-
- const fmt=t=>{
-  if(!Number.isFinite(t))return"0:00";
-  return Math.floor(t/60)+":"+String(Math.floor(t%60)).padStart(2,"0");
- };
-
- function update(){
-  if(Number.isFinite(audio.duration)&&audio.duration>0){
-   seek.value=audio.currentTime/audio.duration*100;
-   duration.textContent=fmt(audio.duration);
-  }
-  current.textContent=fmt(audio.currentTime);
- }
-
- play.addEventListener("click",async()=>{
-  if(audio.paused){
-   try{
-    await audio.play();
-   }catch(e){
-    showToast("فایل music.mp3 را بررسی کن.");
-    state.textContent="AUDIO ERROR";
-   }
-  }else{
-   audio.pause();
-  }
- });
-
- audio.addEventListener("play",()=>{
-  play.textContent="Ⅱ";
-  state.textContent="PLAYING";
- });
-
- audio.addEventListener("pause",()=>{
-  play.textContent="▶";
-  state.textContent="PAUSED";
- });
-
- audio.addEventListener("error",()=>{
-  state.textContent="NO AUDIO";
- });
-
- audio.addEventListener("timeupdate",update);
- audio.addEventListener("loadedmetadata",update);
-
- seek.addEventListener("input",()=>{
-  if(Number.isFinite(audio.duration)){
-   audio.currentTime=Number(seek.value)/100*audio.duration;
-  }
- });
-
- volume.addEventListener("input",()=>{
-  audio.volume=Number(volume.value);
-  document.getElementById("volumeValue").textContent=
-  Math.round(audio.volume*100)+"%";
- });
-
- audio.volume=.7;
-
- document.getElementById("restartBtn").addEventListener("click",()=>{
-  audio.currentTime=0;
-  showToast("موسیقی از ابتدا تنظیم شد.");
- });
-})();
-
-/* DISCORD LANYARD */
-
-(()=>{
- const USER_ID="1534277328224653363";
- const $=id=>document.getElementById(id);
-
- const labels={
-  online:"آنلاین",
-  idle:"بی‌کار",
-  dnd:"مزاحم نشوید",
-  offline:"آفلاین"
- };
-
- let socket=null;
- let heartbeat=null;
- let reconnectTimer=null;
-
- function connection(text){
-  $("discordConnection").textContent=text;
- }
-
- function render(p){
-
-  if(!p||!p.discord_user){
-   connection("اطلاعات پروفایل دریافت نشد.");
-   return;
-  }
-
-  const user=p.discord_user;
-
-  $("discordName").textContent=
-   user.global_name||user.display_name||user.username||"Discord User";
-
-  $("discordHandle").textContent="@"+(user.username||"user");
-
-  if(user.avatar){
-   const ext=user.avatar.startsWith("a_")?"gif":"png";
-   $("discordAvatar").src=
-   `https://cdn.discordapp.com/avatars/${USER_ID}/${user.avatar}.${ext}?size=256`;
-  }
-
-  const status=p.discord_status||"offline";
-
-  $("discordStatus").textContent=labels[status]||"نامشخص";
-  $("statusDot").className="status-dot "+status;
-
-  const activities=Array.isArray(p.activities)?p.activities:[];
-  const activity=activities.find(a=>a.type!==4&&a.name);
-  const custom=activities.find(a=>a.type===4&&a.state);
-
-  if(p.spotify&&p.spotify.song){
-
-   $("activityIcon").textContent="♫";
-   $("activityTitle").textContent=p.spotify.song;
-   $("activityDetail").textContent=
-   p.spotify.artist||"Spotify";
-
-  }else if(activity){
-
-   $("activityIcon").textContent=
-    activity.type===0?"🎮":
-    activity.type===2?"♫":
-    activity.type===3?"◉":"✦";
-
-   $("activityTitle").textContent=activity.name;
-
-   $("activityDetail").textContent=
-    [activity.details,activity.state].filter(Boolean).join(" · ")||
-    "فعالیت در Discord";
-
-  }else if(custom){
-
-   $("activityIcon").textContent="✧";
-   $("activityTitle").textContent=custom.state;
-   $("activityDetail").textContent="Custom Status";
-
-  }else{
-
-   $("activityIcon").textContent="☾";
-   $("activityTitle").textContent="بدون فعالیت";
-   $("activityDetail").textContent="فعلاً فعالیتی نمایش داده نمی‌شود.";
-
-  }
-
-  connection("اتصال زنده برقرار است · LANYARD");
- }
-
- function connect(){
-
-  clearTimeout(reconnectTimer);
-
-  try{
-   socket=new WebSocket("wss://api.lanyard.rest/socket");
-  }catch(e){
-   connection("اتصال ناموفق؛ تلاش مجدد...");
-   reconnectTimer=setTimeout(connect,5000);
-   return;
-  }
-
-  socket.addEventListener("open",()=>{
-   connection("اتصال برقرار شد؛ دریافت اطلاعات...");
-  });
-
-  socket.addEventListener("message",event=>{
-
-   let msg;
-
-   try{
-    msg=JSON.parse(event.data);
-   }catch(e){
-    return;
-   }
-
-   if(msg.op===1&&msg.d){
-
-    clearInterval(heartbeat);
-
-    heartbeat=setInterval(()=>{
-     if(socket&&socket.readyState===WebSocket.OPEN){
-      socket.send(JSON.stringify({op:3}));
-     }
-    },msg.d.heartbeat_interval);
-
-    socket.send(JSON.stringify({
-     op:2,
-     d:{subscribe_to_id:USER_ID}
-    }));
-
-   }else if(msg.op===0&&
-    (msg.t==="INIT_STATE"||msg.t==="PRESENCE_UPDATE")){
-
-    render(msg.d);
-   }
-
-  });
-
-  socket.addEventListener("close",()=>{
-   clearInterval(heartbeat);
-   connection("ارتباط قطع شد؛ تلاش مجدد...");
-   reconnectTimer=setTimeout(connect,5000);
-  });
-
-  socket.addEventListener("error",()=>{
-   connection("خطا در اتصال به سرویس.");
-  });
-
- }
-
- connect();
-
- window.addEventListener("beforeunload",()=>{
-  clearInterval(heartbeat);
-  clearTimeout(reconnectTimer);
-  if(socket)socket.close();
- });
-
-})();
-
-/* RANDOM QUOTES */
-
-const quotes=[
- "«همه کسانی که سرگردان‌اند، راه را گم نکرده‌اند.»",
- "«گاهی یک پرسش خوب از صد پاسخ ارزشمندتر است.»",
- "«در تاریک‌ترین آسمان‌ها هم می‌شود ستاره‌ای پیدا کرد.»",
- "«جهان هنوز پر از چیزهایی است که منتظر کشف شدن‌اند.»",
- "«هر پایان، می‌تواند شروع یک مسیر تازه باشد.»",
- "«آرامش را در میان شلوغی‌ها پیدا کن.»",
- "«ناشناخته بودن، همیشه به معنای ترسناک بودن نیست.»"
-];
-
-document.getElementById("newQuote").addEventListener("click",newQuote);
-document.getElementById("surpriseBtn").addEventListener("click",newQuote);
-
-function newQuote(){
- const quote=quotes[Math.floor(Math.random()*quotes.length)];
- document.getElementById("quoteText").textContent=quote;
- showToast("یک سیگنال تازه دریافت شد ✦");
+// =====================================
+// NOCTURNE 2.0 CORE
+// =====================================
+
+const $ = id => document.getElementById(id);
+
+// =====================================
+// DISCORD LANYARD CONNECTION
+// =====================================
+
+const DISCORD_ID = "1534277328224653363";
+
+let discordSocket = null;
+let discordHeartbeat = null;
+let discordReconnect = null;
+let discordAttempts = 0;
+
+const STATUS_NAMES = {
+  online: "آنلاین",
+  idle: "بیکار",
+  dnd: "مزاحم نشوید",
+  offline: "آفلاین"
+};
+
+function setDiscordConnection(connected, message) {
+  $('connectionLight').className =
+    connected ? "connection-light connected" : "connection-light";
+
+  $('connectionText').textContent = message;
 }
 
-/* TOAST */
+function discordImageUrl(image, applicationId) {
+  if (!image) return null;
+
+  if (image.startsWith("http://") || image.startsWith("https://")) {
+    return image;
+  }
+
+  if (image.startsWith("mp:external/")) {
+    return "https://media.discordapp.net/" + image.slice(3);
+  }
+
+  if (!applicationId) return null;
+
+  return `https://cdn.discordapp.com/app-assets/${applicationId}/${image}.png`;
+}
+
+function clearDiscordHeartbeat() {
+  if (discordHeartbeat) {
+    clearInterval(discordHeartbeat);
+    discordHeartbeat = null;
+  }
+}
+
+function connectDiscord() {
+  clearTimeout(discordReconnect);
+  clearDiscordHeartbeat();
+
+  if (discordSocket &&
+      (discordSocket.readyState === WebSocket.OPEN ||
+       discordSocket.readyState === WebSocket.CONNECTING)) {
+    discordSocket.close();
+  }
+
+  setDiscordConnection(false, "در حال اتصال به Lanyard...");
+
+  try {
+    discordSocket = new WebSocket("wss://api.lanyard.rest/socket");
+  } catch (error) {
+    scheduleDiscordReconnect();
+    return;
+  }
+
+  discordSocket.onopen = () => {
+    discordAttempts = 0;
+    setDiscordConnection(true, "اتصال برقرار شد");
+  };
+
+  discordSocket.onmessage = event => {
+    let packet;
+
+    try {
+      packet = JSON.parse(event.data);
+    } catch {
+      return;
+    }
+
+    if (packet.op === 1) {
+      discordSocket.send(JSON.stringify({
+        op: 2,
+        d: {
+          subscribe_to_id: DISCORD_ID
+        }
+      }));
+
+      clearDiscordHeartbeat();
+
+      discordHeartbeat = setInterval(() => {
+        if (discordSocket.readyState === WebSocket.OPEN) {
+          discordSocket.send(JSON.stringify({
+            op: 3,
+            d: null
+          }));
+        }
+      }, packet.d.heartbeat_interval);
+
+      return;
+    }
+
+    if (
+      packet.op === 0 &&
+      (
+        packet.t === "INIT_STATE" ||
+        packet.t === "PRESENCE_UPDATE"
+      )
+    ) {
+      updateDiscord(packet.d);
+    }
+  };
+
+  discordSocket.onerror = () => {
+    setDiscordConnection(false, "خطا در ارتباط با Lanyard");
+  };
+
+  discordSocket.onclose = () => {
+    clearDiscordHeartbeat();
+    setDiscordConnection(false, "ارتباط قطع شد؛ اتصال مجدد...");
+    scheduleDiscordReconnect();
+  };
+}
+
+function scheduleDiscordReconnect() {
+  clearTimeout(discordReconnect);
+
+  const delay = Math.min(3000 * Math.pow(2, discordAttempts), 30000);
+  discordAttempts++;
+
+  discordReconnect = setTimeout(connectDiscord, delay);
+}
+
+function updateDiscord(data) {
+  if (!data || !data.discord_user) {
+    $('discordUsername').textContent = "کاربر پیدا نشد";
+    $('discordStatus').textContent = "این شناسه در Lanyard موجود نیست";
+    return;
+  }
+
+  const user = data.discord_user;
+  const status = data.discord_status || "offline";
+
+  const displayName =
+    user.global_name ||
+    user.display_name ||
+    user.username ||
+    "Discord User";
+
+  $('discordUsername').textContent = displayName;
+  $('discordTag').textContent = user.discriminator &&
+    user.discriminator !== "0"
+      ? "#" + user.discriminator
+      : "";
+
+  $('discordUsernameExtra').textContent =
+    user.username || displayName;
+
+  $('discordStatus').textContent =
+    "وضعیت: " + (STATUS_NAMES[status] || status);
+
+  $('discordStatusExtra').textContent =
+    STATUS_NAMES[status] || status;
+
+  $('discordStateDot').className =
+    "discord-state-dot " + status;
+
+  $('discordAvatarStatus').className =
+    "discord-avatar-status " + status;
+
+  const avatar = user.avatar
+    ? `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.${user.avatar.startsWith("a_") ? "gif" : "png"}?size=256`
+    : `https://cdn.discordapp.com/embed/avatars/${Number(user.discriminator || 0) % 5}.png`;
+
+  $('discordAvatar').src = avatar;
+
+  $('discordAvatar').onerror = () => {
+    $('discordAvatar').src =
+      "https://cdn.discordapp.com/embed/avatars/0.png";
+  };
+
+  // Discord profile banner
+  const banner = user.banner;
+
+  if (banner) {
+    const extension = banner.startsWith("a_") ? "gif" : "png";
+
+    $('discordBannerImage').src =
+      `https://cdn.discordapp.com/banners/${user.id}/${banner}.${extension}?size=1024`;
+
+    $('discordBannerImage').style.display = "block";
+  } else {
+    $('discordBannerImage').style.display = "none";
+  }
+
+  updateDiscordActivity(data.activities || []);
+  updateDiscordSpotify(data.spotify);
+
+  setDiscordConnection(true, "متصل به Lanyard · Live Presence");
+}
+
+function updateDiscordActivity(activities) {
+  const activity = activities.find(item => item.type !== 4);
+
+  const container = $('discordActivity');
+
+  if (!activity) {
+    container.classList.remove('visible');
+    return;
+  }
+
+  container.classList.add('visible');
+
+  const applicationId = activity.application_id;
+  const assets = activity.assets || {};
+
+  $('activityLabel').textContent =
+    activity.type === 0 ? "PLAYING A GAME" :
+    activity.type === 1 ? "STREAMING" :
+    activity.type === 2 ? "LISTENING" :
+    activity.type === 3 ? "WATCHING" :
+    "CURRENT ACTIVITY";
+
+  $('activityName').textContent =
+    activity.name || "فعالیت ناشناس";
+
+  $('activityDetail').textContent =
+    activity.details || "";
+
+  $('activityState').textContent =
+    activity.state || "";
+
+  const largeImage = discordImageUrl(
+    assets.large_image,
+    applicationId
+  );
+
+  const smallImage = discordImageUrl(
+    assets.small_image,
+    applicationId
+  );
+
+  $('activityImage').src =
+    largeImage || "https://cdn.discordapp.com/embed/avatars/0.png";
+
+  if (smallImage) {
+    $('activitySmallImage').src = smallImage;
+    $('activitySmallImage').style.display = "block";
+  } else {
+    $('activitySmallImage').style.display = "none";
+  }
+}
+
+function updateDiscordSpotify(spotify) {
+  const container = $('discordSpotify');
+
+  if (!spotify) {
+    container.classList.remove('visible');
+    return;
+  }
+
+  container.classList.add('visible');
+
+  $('spotifyCover').src = spotify.album_art_url || "";
+  $('spotifyTitle').textContent = spotify.song || "Unknown Song";
+  $('spotifyArtist').textContent =
+    (spotify.artist || "Unknown Artist") +
+    (spotify.album ? " · " + spotify.album : "");
+}
+
+connectDiscord();
+
+// =====================================
+// CLOCK
+// =====================================
+
+function updateClock() {
+  const now = new Date();
+
+  $('clock').textContent = now.toLocaleTimeString('fa-IR', {
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false
+  });
+
+  $('dateText').textContent = now.toLocaleDateString('fa-IR', {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+}
+
+updateClock();
+setInterval(updateClock, 1000);
+
+$('year').textContent = new Date().getFullYear();
+
+// =====================================
+// MOBILE MENU
+// =====================================
+
+$('menuToggle').addEventListener('click', () => {
+  $('navLinks').classList.toggle('open');
+});
+
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    $('navLinks').classList.remove('open');
+  });
+});
+
+// =====================================
+// TOAST
+// =====================================
 
 let toastTimer;
 
-function showToast(message){
- const toast=document.getElementById("toast");
- toast.textContent=message;
- toast.classList.add("show");
+function toast(message) {
+  const el = $('toast');
 
- clearTimeout(toastTimer);
+  el.textContent = message;
+  el.classList.add('show');
 
- toastTimer=setTimeout(()=>{
-  toast.classList.remove("show");
- },2600);
+  clearTimeout(toastTimer);
+
+  toastTimer = setTimeout(() => {
+    el.classList.remove('show');
+  }, 2600);
 }
+
+// =====================================
+// QUOTES
+// =====================================
+
+const quotes = [
+  ["گاهی تاریکی، فقط فرصتی برای دیدن ستاره‌هاست.", "NOCTURNE"],
+  ["ناشناخته‌ها همیشه ترسناک نیستند؛ گاهی آغاز کشف‌اند.", "ARCHIVE"],
+  ["سکوت نیز می‌تواند هزاران داستان داشته باشد.", "UNKNOWN"],
+  ["هر پایان، دروازه‌ای به یک آغاز تازه است.", "TRANSMISSION"],
+  ["در میان آشوب، آرامش خودت را پیدا کن.", "NOCTURNE"],
+  ["همه پاسخ‌ها در روشنایی پیدا نمی‌شوند.", "ARCHIVE"]
+];
+
+$('newQuote').addEventListener('click', () => {
+  const quote = quotes[Math.floor(Math.random() * quotes.length)];
+
+  $('quoteText').textContent = quote[0];
+  $('quoteAuthor').textContent = "— " + quote[1];
+});
+
+// =====================================
+// SEARCH
+// =====================================
+
+$('searchInput').addEventListener('input', event => {
+  const query = event.target.value.trim().toLowerCase();
+
+  document.querySelectorAll('#discoverGrid .card').forEach(card => {
+    const content = (
+      card.innerText + " " + (card.dataset.search || "")
+    ).toLowerCase();
+
+    card.style.display =
+      content.includes(query) ? "" : "none";
+  });
+});
+
+// =====================================
+// MUSIC PLAYER
+// =====================================
+
+const audio = $('audio');
+const playBtn = $('playBtn');
+
+playBtn.addEventListener('click', async () => {
+  if (audio.paused) {
+    try {
+      await audio.play();
+      playBtn.textContent = "Ⅱ";
+    } catch {
+      toast("فایل music.mp3 پیدا نشد یا قابل پخش نیست.");
+    }
+  } else {
+    audio.pause();
+    playBtn.textContent = "▶";
+  }
+});
+
+$('restartBtn').addEventListener('click', () => {
+  audio.currentTime = 0;
+
+  if (audio.paused) {
+    audio.play()
+      .then(() => playBtn.textContent = "Ⅱ")
+      .catch(() => toast("فایل موسیقی در دسترس نیست."));
+  }
+});
+
+$('volume').addEventListener('input', event => {
+  audio.volume = Number(event.target.value);
+});
+
+audio.addEventListener('timeupdate', () => {
+  if (audio.duration) {
+    $('progressBar').style.width =
+      (audio.currentTime / audio.duration * 100) + "%";
+  }
+});
+
+audio.addEventListener('ended', () => {
+  playBtn.textContent = "▶";
+  $('progressBar').style.width = "0%";
+});
+
+// =====================================
+// SETTINGS
+// =====================================
+
+$('settingsBtn').addEventListener('click', () => {
+  $('settingsPanel').classList.toggle('open');
+});
+
+$('starsToggle').addEventListener('click', () => {
+  const hidden = $('stars').style.display === "none";
+
+  $('stars').style.display = hidden ? "block" : "none";
+  $('starsToggle').textContent = hidden ? "روشن" : "خاموش";
+});
+
+$('motionToggle').addEventListener('click', () => {
+  const disabled = document.body.classList.toggle('no-motion');
+
+  $('motionToggle').textContent =
+    disabled ? "خاموش" : "روشن";
+
+  document.querySelectorAll('.orbit,.core').forEach(el => {
+    el.style.animation = disabled ? "none" : "";
+  });
+});
+
+$('welcomeToggle').addEventListener('click', () => {
+  toast("به NOCTURNE 2.0 خوش آمدی.");
+});
+
+// =====================================
+// SCROLL REVEAL
+// =====================================
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: .12 });
+
+document.querySelectorAll('.reveal').forEach(el => {
+  observer.observe(el);
+});
+
+// =====================================
+// STARFIELD
+// =====================================
+
+const canvas = $('stars');
+const ctx = canvas.getContext('2d');
+
+let stars = [];
+let width = 0;
+let height = 0;
+
+function resizeCanvas() {
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+  width = window.innerWidth;
+  height = window.innerHeight;
+
+  canvas.width = width * dpr;
+  canvas.height = height * dpr;
+
+  canvas.style.width = width + "px";
+  canvas.style.height = height + "px";
+
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+  stars = Array.from({
+    length: Math.min(150, Math.floor(width * height / 8000))
+  }, () => ({
+    x: Math.random() * width,
+    y: Math.random() * height,
+    radius: Math.random() * 1.4 + .2,
+    alpha: Math.random() * .7 + .2,
+    speed: Math.random() * .2 + .04
+  }));
+}
+
+function drawStars() {
+  ctx.clearRect(0, 0, width, height);
+
+  for (const star of stars) {
+    star.y -= star.speed;
+
+    if (star.y < 0) {
+      star.y = height;
+      star.x = Math.random() * width;
+    }
+
+    ctx.beginPath();
+    ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(205,195,255,${star.alpha})`;
+    ctx.fill();
+  }
+
+  requestAnimationFrame(drawStars);
+}
+
+window.addEventListener('resize', resizeCanvas);
+
+resizeCanvas();
+drawStars();
+
+// =====================================
+// WELCOME
+// =====================================
+
+if (!sessionStorage.getItem('nocturne_welcome')) {
+  setTimeout(() => {
+    toast("به پناهگاه دیجیتال NOCTURNE خوش آمدی.");
+  }, 900);
+
+  sessionStorage.setItem('nocturne_welcome', '1');
+}
+
+// =====================================
+// ACTIVE NAVIGATION
+// =====================================
+
+const sections = document.querySelectorAll('main section[id]');
+const navItems = document.querySelectorAll('.nav-links a[href^="#"]');
+
+const activeObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navItems.forEach(link => {
+        link.classList.toggle(
+          'active',
+          link.getAttribute('href') === "#" + entry.target.id
+        );
+      });
+    }
+  });
+}, {
+  rootMargin:'-30% 0px -60% 0px'
+});
+
+sections.forEach(section => {
+  activeObserver.observe(section);
+});
 
 </script>
 
