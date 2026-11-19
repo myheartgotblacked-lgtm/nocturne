@@ -4,365 +4,658 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080b16">
-<title>MOONLIGHT FOREST</title>
+<meta name="theme-color" content="#090b0d">
+<title>IRON FRONT | ARIAN COMMAND</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap');
-
 :root {
-    --night: #080b16;
-    --deep: #10182a;
-    --purple: #8170bd;
-    --blue: #68d9d0;
-    --glow: #9affeb;
-    --gold: #c9b98b;
+    --bg: #090b0d;
+    --panel: #111619;
+    --panel2: #171e21;
+    --red: #c51e25;
+    --red2: #ff343b;
+    --silver: #aab5b6;
+    --gold: #b9a477;
+    --text: #dce1df;
+    --muted: #778184;
 }
 
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
+
+html { scroll-behavior: smooth; }
 
 body {
+    background:
+        radial-gradient(ellipse at 50% 15%, #252b2d 0%, transparent 45%),
+        linear-gradient(145deg, #080a0c, #111719 55%, #080a0c);
+    color: var(--text);
+    font-family: 'Vazirmatn', sans-serif;
     min-height: 100vh;
     overflow-x: hidden;
-    font-family: 'Vazirmatn', sans-serif;
-    background:
-        radial-gradient(ellipse at 50% 35%, #192b3b 0%, transparent 42%),
-        radial-gradient(ellipse at 15% 75%, #17142c 0%, transparent 45%),
-        radial-gradient(ellipse at 85% 75%, #102b30 0%, transparent 45%),
-        #080b16;
-    color: #e5e7ee;
 }
 
-/* Background atmosphere */
-
-.sky {
+body::before {
+    content: "";
     position: fixed;
     inset: 0;
+    z-index: 10;
     pointer-events: none;
-    overflow: hidden;
-    z-index: 0;
-}
-
-.moon {
-    position: absolute;
-    top: 9%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 125px;
-    height: 125px;
-    border-radius: 50%;
-    background: radial-gradient(circle at 35% 35%, #fff 0%, #c9e9df 25%, #8baeb2 65%, #536d85 100%);
-    box-shadow:
-        0 0 35px #9affeb66,
-        0 0 90px #75c9cf44,
-        0 0 160px #8b78c533;
-    opacity: .85;
-    animation: moonGlow 5s ease-in-out infinite alternate;
-}
-
-@keyframes moonGlow {
-    from { box-shadow: 0 0 35px #9affeb55, 0 0 80px #75c9cf33; }
-    to { box-shadow: 0 0 55px #9affeb99, 0 0 130px #75c9cf66; }
-}
-
-.stars {
-    position: absolute;
-    inset: 0;
+    opacity: .12;
     background-image:
-        radial-gradient(2px 2px at 10% 20%, #c4fff3 90%, transparent),
-        radial-gradient(1px 1px at 25% 40%, #fff 90%, transparent),
-        radial-gradient(2px 2px at 80% 15%, #a6e9e3 90%, transparent),
-        radial-gradient(1px 1px at 70% 55%, #fff 90%, transparent),
-        radial-gradient(2px 2px at 90% 75%, #c4fff3 90%, transparent),
-        radial-gradient(1px 1px at 35% 80%, #fff 90%, transparent),
-        radial-gradient(2px 2px at 55% 12%, #b5a8e8 90%, transparent);
-    background-size: 350px 350px;
-    animation: starsMove 45s linear infinite;
-    opacity: .65;
+        repeating-linear-gradient(
+            0deg,
+            transparent 0 3px,
+            #ffffff0b 4px
+        );
 }
 
-@keyframes starsMove {
-    from { transform: translateY(0); }
-    to { transform: translateY(100px); }
+button { font-family: inherit; cursor: pointer; }
+
+.topbar {
+    min-height: 65px;
+    background: #080b0d;
+    border-bottom: 1px solid #4b2929;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 6%;
+    gap: 15px;
+    position: relative;
+    z-index: 5;
 }
 
-/* Main layout */
+.brand {
+    direction: ltr;
+    color: #e2e5e3;
+    font-weight: 900;
+    letter-spacing: 3px;
+    font-size: 17px;
+}
 
-main {
+.brand span { color: var(--red2); }
+
+.topbar-info {
+    color: #8b9696;
+    font-size: 11px;
+}
+
+.topbar-status {
+    color: #df4545;
+    font-size: 11px;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 610px;
+    padding: 65px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    background:
+        radial-gradient(ellipse at center, #30383a 0%, #171d20 48%, #090b0d 100%);
+    border-bottom: 3px solid #782126;
+}
+
+.hero::before,
+.hero::after {
+    content: "";
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    border: 1px solid #b5b8ad15;
+    transform: rotate(45deg);
+}
+
+.hero::before { left: -230px; }
+.hero::after { right: -230px; }
+
+.hero-content {
     position: relative;
     z-index: 2;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 50px 20px;
-    text-align: center;
 }
 
-.eyebrow {
-    color: var(--blue);
-    font-size: 11px;
-    letter-spacing: 8px;
+.hero-label {
+    color: var(--red2);
     direction: ltr;
-    opacity: .8;
-    margin-bottom: 25px;
-    text-shadow: 0 0 15px var(--blue);
-}
-
-/* CSS-only magical tree */
-
-.tree-stage {
-    position: relative;
-    width: min(440px, 90vw);
-    height: 390px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    letter-spacing: 5px;
+    font-size: 11px;
     margin-bottom: 20px;
 }
 
-.tree-aura {
-    position: absolute;
-    width: 290px;
-    height: 290px;
-    border-radius: 50%;
-    background: radial-gradient(circle, #64e7d02b 0%, #5d8fc01b 40%, transparent 72%);
-    filter: blur(15px);
-    animation: aura 5s ease-in-out infinite alternate;
+.hero h1 {
+    font-size: clamp(48px, 10vw, 100px);
+    font-weight: 900;
+    direction: ltr;
+    color: #e5e8e5;
+    text-shadow:
+        0 4px 0 #525858,
+        0 10px 30px #000;
 }
 
-@keyframes aura {
-    from { transform: scale(.85); opacity: .6; }
-    to { transform: scale(1.2); opacity: 1; }
+.hero h2 {
+    color: #e14a4a;
+    font-size: clamp(20px, 4vw, 32px);
+    margin-top: 12px;
 }
 
-.tree {
+.hero-description {
+    color: #aab3b1;
+    max-width: 600px;
+    line-height: 2.3;
+    margin: 20px auto;
+    font-size: 14px;
+}
+
+.hero-badge {
+    display: inline-block;
+    border: 1px solid #a83a3e;
+    padding: 9px 25px;
+    color: #e2a3a3;
+    font-size: 12px;
+    letter-spacing: 2px;
+    direction: ltr;
+    margin-top: 10px;
+}
+
+/* IRON CROSS */
+
+.emblem-section {
+    display: flex;
+    justify-content: center;
+    padding: 55px 20px 25px;
     position: relative;
-    width: 300px;
-    height: 330px;
-    filter: drop-shadow(0 0 15px #75e9d077);
 }
 
-.trunk {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 25px;
-    height: 190px;
-    transform: translateX(-50%);
-    background: linear-gradient(90deg, #263d42, #a1d9c3, #315c5a);
-    border-radius: 50% 50% 12% 12%;
-    box-shadow: 0 0 25px #7df3d066;
-    clip-path: polygon(35% 0, 65% 0, 72% 20%, 100% 100%, 0 100%, 28% 20%);
+.emblem-wrap {
+    width: 180px;
+    height: 180px;
+    display: grid;
+    place-items: center;
+    position: relative;
 }
 
-.branch {
-    position: absolute;
-    bottom: 145px;
-    left: 50%;
-    width: 13px;
-    height: 155px;
-    transform-origin: bottom center;
-    border-radius: 100% 0;
-    background: linear-gradient(90deg, #315b59, #a0d8c4, #315b59);
-    box-shadow: 0 0 14px #77e8d866;
-}
-
-.b1 { transform: translateX(-50%) rotate(-48deg); height: 165px; }
-.b2 { transform: translateX(-50%) rotate(48deg); height: 165px; }
-.b3 { transform: translateX(-50%) rotate(-25deg); height: 125px; }
-.b4 { transform: translateX(-50%) rotate(25deg); height: 125px; }
-.b5 { transform: translateX(-50%) rotate(-8deg); height: 205px; width: 10px; }
-.b6 { transform: translateX(-50%) rotate(75deg); height: 105px; width: 9px; }
-.b7 { transform: translateX(-50%) rotate(-75deg); height: 105px; width: 9px; }
-
-.leaves {
+.emblem-ring {
     position: absolute;
     inset: 0;
-}
-
-.leaf {
-    position: absolute;
-    width: 52px;
-    height: 25px;
-    border-radius: 100% 0 100% 0;
-    background: linear-gradient(135deg, #a6f5dc, #55b7a5 60%, #386d7a);
-    box-shadow: 0 0 18px #70f5d477;
-    opacity: .9;
-    animation: leafPulse 4s ease-in-out infinite alternate;
-}
-
-.leaf:nth-child(1) { top: 50px; left: 75px; transform: rotate(25deg); }
-.leaf:nth-child(2) { top: 25px; left: 145px; transform: rotate(80deg); }
-.leaf:nth-child(3) { top: 65px; right: 65px; transform: rotate(150deg); }
-.leaf:nth-child(4) { top: 115px; left: 35px; transform: rotate(5deg); }
-.leaf:nth-child(5) { top: 110px; right: 30px; transform: rotate(175deg); }
-.leaf:nth-child(6) { top: 155px; left: 90px; transform: rotate(45deg); }
-.leaf:nth-child(7) { top: 155px; right: 85px; transform: rotate(145deg); }
-.leaf:nth-child(8) { top: 5px; left: 105px; transform: rotate(40deg) scale(.7); }
-.leaf:nth-child(9) { top: 10px; right: 105px; transform: rotate(140deg) scale(.7); }
-
-@keyframes leafPulse {
-    from { filter: brightness(.75); opacity: .7; }
-    to { filter: brightness(1.5); opacity: 1; }
-}
-
-/* Roots */
-
-.roots {
-    position: absolute;
-    bottom: -3px;
-    left: 50%;
-    width: 180px;
-    height: 35px;
-    transform: translateX(-50%);
-    border-bottom: 3px solid #8dd9c0;
+    border: 1px solid #b5a47a66;
     border-radius: 50%;
-    filter: drop-shadow(0 0 9px #79e9d0);
+    box-shadow: 0 0 35px #a78e4b20;
+    animation: ringGlow 4s ease-in-out infinite alternate;
 }
 
-.roots::before,
-.roots::after {
+.emblem-ring::before,
+.emblem-ring::after {
     content: "";
     position: absolute;
-    bottom: 0;
-    width: 80px;
-    height: 20px;
-    border-bottom: 3px solid #8dd9c0;
+    inset: 10px;
+    border: 1px dashed #a99b7966;
+    border-radius: 50%;
 }
 
-.roots::before {
-    left: 0;
-    transform: rotate(15deg);
+.emblem-ring::after {
+    inset: -12px;
+    border: 1px solid #a99b7922;
 }
 
-.roots::after {
-    right: 0;
-    transform: rotate(-15deg);
-}
-
-/* Quote */
-
-.quote-frame {
+.iron-cross {
+    width: 95px;
+    height: 95px;
     position: relative;
-    max-width: 850px;
-    padding: 35px 45px;
-    margin-top: 10px;
-    border-top: 1px solid #8bdcc655;
-    border-bottom: 1px solid #8bdcc655;
+    filter: drop-shadow(0 0 12px #d1c6a577);
+    animation: emblemGlow 3s ease-in-out infinite alternate;
 }
 
-.quote-frame::before,
-.quote-frame::after {
-    content: "✧";
+.iron-cross::before,
+.iron-cross::after {
+    content: "";
     position: absolute;
-    color: var(--blue);
-    font-size: 23px;
-    text-shadow: 0 0 15px var(--blue);
+    background: linear-gradient(135deg, #e7e9e3, #626d6c 50%, #d2d5ce);
+    border: 2px solid #161a1b;
 }
 
-.quote-frame::before {
-    top: -14px;
-    left: 50%;
-    transform: translateX(-50%);
+.iron-cross::before {
+    width: 34px;
+    height: 95px;
+    left: 30px;
+    top: 0;
+    clip-path: polygon(
+        25% 0, 75% 0, 75% 30%, 100% 30%,
+        100% 70%, 75% 70%, 75% 100%,
+        25% 100%, 25% 70%, 0 70%, 0 30%,
+        25% 30%
+    );
 }
 
-.quote-frame::after {
-    bottom: -14px;
-    left: 50%;
-    transform: translateX(-50%);
+.iron-cross::after {
+    width: 95px;
+    height: 34px;
+    top: 30px;
+    left: 0;
+    clip-path: polygon(
+        0 25%, 30% 25%, 30% 0, 70% 0,
+        70% 25%, 100% 25%, 100% 75%,
+        70% 75%, 70% 100%, 30% 100%,
+        30% 75%, 0 75%
+    );
 }
 
-.quote {
-    font-size: clamp(18px, 3vw, 27px);
-    font-weight: 400;
-    line-height: 2.2;
-    color: #e0f6ed;
-    text-shadow:
-        0 0 12px #8cebd777,
-        0 0 30px #65cfc755;
+@keyframes emblemGlow {
+    from { filter: drop-shadow(0 0 7px #d1c6a544); }
+    to { filter: drop-shadow(0 0 20px #e3d5a9aa); }
 }
 
-.bottom-symbol {
-    margin-top: 40px;
-    color: #a8a0d3;
-    font-size: 18px;
-    letter-spacing: 12px;
+@keyframes ringGlow {
+    from { box-shadow: 0 0 15px #a78e4b11; }
+    to { box-shadow: 0 0 40px #a78e4b44; }
+}
+
+/* GENERAL LAYOUT */
+
+.container {
+    width: min(1120px, 91%);
+    margin: auto;
+}
+
+.section {
+    padding: 65px 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.section-title small {
+    color: var(--red2);
+    letter-spacing: 4px;
     direction: ltr;
-    text-shadow: 0 0 15px #9584d9;
-    opacity: .8;
+    font-size: 10px;
 }
 
-/* Floating magical particles */
+.section-title h2 {
+    font-size: clamp(25px, 5vw, 36px);
+    margin-top: 9px;
+}
 
-.particle {
+.section-title p {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 8px;
+}
+
+/* COMMAND */
+
+.commander {
+    max-width: 420px;
+    margin: auto;
+    padding: 30px;
+    background:
+        linear-gradient(145deg, #252d30, #111719);
+    border: 1px solid #9c3b3d;
+    box-shadow: 0 0 35px #0008;
+    text-align: center;
+    position: relative;
+}
+
+.commander::before {
+    content: "";
+    position: absolute;
+    inset: 7px;
+    border: 1px solid #a98d5d44;
+    pointer-events: none;
+}
+
+.rank-label {
+    direction: ltr;
+    color: #d4b16c;
+    letter-spacing: 3px;
+    font-size: 10px;
+}
+
+.commander-symbol {
+    font-size: 48px;
+    color: #e0c58e;
+    text-shadow: 0 0 20px #b99b5d66;
+    margin: 12px 0;
+}
+
+.commander h3 {
+    font-size: 35px;
+    color: #f1e8d8;
+}
+
+.commander .position {
+    color: #ef5959;
+    font-weight: 800;
+    margin-top: 5px;
+}
+
+.command-line {
+    height: 45px;
+    width: 2px;
+    background: linear-gradient(#ad9563, #a12a2e);
+    margin: auto;
+}
+
+.command-connector {
+    width: 82%;
+    height: 2px;
+    margin: auto;
+    background: #9b3438;
+}
+
+.officer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 25px;
+}
+
+.officer {
+    background: linear-gradient(145deg, #20282b, #111619);
+    border: 1px solid #424a4b;
+    padding: 23px 15px;
+    text-align: center;
+    transition: .25s;
+    position: relative;
+}
+
+.officer:hover {
+    transform: translateY(-5px);
+    border-color: #d14b4b;
+    box-shadow: 0 12px 25px #0007;
+}
+
+.officer-icon {
+    font-size: 28px;
+    color: #d64a4a;
+    margin-bottom: 8px;
+}
+
+.officer h3 {
+    color: #e7e3d8;
+    font-size: 22px;
+}
+
+.officer p {
+    color: #b7a17d;
+    font-size: 12px;
+    margin-top: 6px;
+}
+
+.officer small {
+    display: block;
+    color: #758080;
+    font-size: 10px;
+    margin-top: 12px;
+}
+
+/* MAP */
+
+.map-panel {
+    background: #101719;
+    border: 1px solid #41494a;
+    padding: 20px;
+    box-shadow: 0 15px 40px #0008;
+}
+
+.map-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 12px 15px;
+    background: #1b2224;
+    border-bottom: 1px solid #41494a;
+    font-size: 11px;
+    color: #a9b1ac;
+}
+
+.map-top strong {
+    color: #e35a5a;
+}
+
+.map {
+    width: 100%;
+    height: 490px;
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at 50% 45%, #36403b, #1b2523 55%, #111719);
+    border: 1px solid #657066;
+    isolation: isolate;
+}
+
+.map::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: .45;
+    background:
+        repeating-linear-gradient(0deg, transparent 0 38px, #b8c2aa13 39px),
+        repeating-linear-gradient(90deg, transparent 0 38px, #b8c2aa13 39px);
+}
+
+.terrain {
+    position: absolute;
+    inset: 0;
+    opacity: .5;
+    background:
+        radial-gradient(ellipse at 20% 25%, #6b705b55, transparent 20%),
+        radial-gradient(ellipse at 80% 35%, #6b705b55, transparent 23%),
+        radial-gradient(ellipse at 50% 80%, #6b705b55, transparent 25%),
+        radial-gradient(ellipse at 55% 40%, #101816, transparent 40%);
+}
+
+.map-region {
+    position: absolute;
+    width: 48%;
+    height: 67%;
+    left: 26%;
+    top: 17%;
+    border: 2px solid #b7b49b99;
+    background: #a8b29b0b;
+    clip-path: polygon(
+        28% 0, 72% 5%, 90% 25%, 83% 48%,
+        100% 68%, 65% 100%, 30% 88%,
+        5% 65%, 13% 35%
+    );
+    filter: drop-shadow(0 0 8px #d2c4a066);
+}
+
+.map-region::after {
+    content: "KERMAN";
+    position: absolute;
+    left: 50%;
+    top: 48%;
+    transform: translate(-50%, -50%);
+    color: #e2e2d1;
+    font-size: clamp(16px, 4vw, 26px);
+    letter-spacing: 5px;
+    direction: ltr;
+    text-shadow: 0 0 12px #000;
+}
+
+/* Decorative, non-navigational arrows */
+
+.arrow {
+    position: absolute;
+    height: 3px;
+    width: 105px;
+    background: linear-gradient(90deg, transparent, #ed292f);
+    transform-origin: right center;
+    filter: drop-shadow(0 0 7px #ff2929);
+    opacity: .9;
+}
+
+.arrow::after {
+    content: "";
+    position: absolute;
+    left: -1px;
+    top: -6px;
+    border-right: 13px solid #ff343b;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+}
+
+.a1 { top: 31%; left: 15%; transform: rotate(18deg); }
+.a2 { top: 29%; right: 15%; transform: rotate(160deg); }
+.a3 { bottom: 25%; left: 17%; transform: rotate(-20deg); }
+.a4 { bottom: 22%; right: 16%; transform: rotate(200deg); }
+.a5 { top: 8%; left: 48%; transform: rotate(90deg); }
+.a6 { bottom: 7%; left: 48%; transform: rotate(-90deg); }
+
+.unit-marker {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    display: grid;
+    place-items: center;
+    border: 1px solid #f04a4a;
+    background: #390f12;
+    color: #ff7777;
+    font-size: 12px;
+    font-weight: 900;
+    transform: rotate(45deg);
+    box-shadow: 0 0 14px #f22a2a55;
+}
+
+.unit-marker span { transform: rotate(-45deg); }
+
+.u1 { left: 13%; top: 22%; }
+.u2 { right: 12%; top: 22%; }
+.u3 { left: 15%; bottom: 17%; }
+.u4 { right: 13%; bottom: 16%; }
+.u5 { left: 48%; top: 5%; }
+.u6 { left: 48%; bottom: 5%; }
+
+.map-center {
+    position: absolute;
+    left: 50%;
+    top: 48%;
+    transform: translate(-50%, -50%);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid #f3e7c5;
+    background: #a51d23;
+    display: grid;
+    place-items: center;
+    color: white;
+    font-size: 20px;
+    box-shadow: 0 0 25px #f22a2a99;
+    z-index: 2;
+}
+
+.map-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 17px;
+    padding: 17px 5px 5px;
+    color: #9ca5a2;
+    font-size: 11px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.legend-dot {
+    width: 9px;
+    height: 9px;
+    background: #d83239;
+    box-shadow: 0 0 8px #f33;
+    transform: rotate(45deg);
+}
+
+/* SNOW */
+
+.snow {
     position: fixed;
-    bottom: -20px;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 20;
+}
+
+.flake {
+    position: absolute;
+    top: -15px;
     width: 4px;
     height: 4px;
-    background: #a0ffe6;
+    background: #e4eeee;
     border-radius: 50%;
-    box-shadow: 0 0 12px 3px #73f5d966;
-    pointer-events: none;
-    animation: floatUp linear infinite;
-    z-index: 1;
-}
-
-.particle:nth-child(1) { left: 8%; animation-duration: 13s; }
-.particle:nth-child(2) { left: 19%; animation-duration: 17s; animation-delay: 2s; }
-.particle:nth-child(3) { left: 31%; animation-duration: 15s; animation-delay: 4s; }
-.particle:nth-child(4) { left: 45%; animation-duration: 18s; animation-delay: 1s; }
-.particle:nth-child(5) { left: 58%; animation-duration: 14s; animation-delay: 5s; }
-.particle:nth-child(6) { left: 71%; animation-duration: 16s; animation-delay: 3s; }
-.particle:nth-child(7) { left: 84%; animation-duration: 19s; animation-delay: 6s; }
-.particle:nth-child(8) { left: 94%; animation-duration: 12s; animation-delay: 2s; }
-
-@keyframes floatUp {
-    0% { transform: translateY(0) scale(.5); opacity: 0; }
-    20% { opacity: 1; }
-    80% { opacity: .7; }
-    100% { transform: translateY(-110vh) scale(1.4); opacity: 0; }
-}
-
-/* Forest silhouettes */
-
-.forest {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 130px;
-    pointer-events: none;
     opacity: .7;
-    background:
-        linear-gradient(135deg, transparent 50%, #101b27 50%) 0 0 / 55px 130px repeat-x,
-        linear-gradient(225deg, transparent 50%, #101b27 50%) 0 0 / 55px 130px repeat-x;
-    mask-image: linear-gradient(to top, black, transparent);
-    z-index: 1;
+    box-shadow: 0 0 6px #fff;
+    animation: snowfall linear infinite;
 }
 
-@media (max-width: 600px) {
-    .tree-stage {
-        transform: scale(.85);
-        margin: -10px 0;
+@keyframes snowfall {
+    0% {
+        transform: translate3d(0, -10px, 0);
+        opacity: 0;
     }
-
-    .quote-frame {
-        padding: 25px 15px;
+    15% { opacity: .8; }
+    85% { opacity: .6; }
+    100% {
+        transform: translate3d(70px, 110vh, 0);
+        opacity: 0;
     }
+}
 
-    .quote {
-        font-size: 19px;
-    }
+.flake:nth-child(1) { left: 5%; animation-duration: 12s; }
+.flake:nth-child(2) { left: 12%; animation-duration: 17s; animation-delay: 2s; }
+.flake:nth-child(3) { left: 20%; animation-duration: 14s; animation-delay: 4s; }
+.flake:nth-child(4) { left: 29%; animation-duration: 19s; animation-delay: 1s; }
+.flake:nth-child(5) { left: 38%; animation-duration: 13s; animation-delay: 5s; }
+.flake:nth-child(6) { left: 48%; animation-duration: 16s; animation-delay: 3s; }
+.flake:nth-child(7) { left: 58%; animation-duration: 18s; animation-delay: 1s; }
+.flake:nth-child(8) { left: 68%; animation-duration: 15s; animation-delay: 6s; }
+.flake:nth-child(9) { left: 77%; animation-duration: 20s; animation-delay: 2s; }
+.flake:nth-child(10) { left: 87%; animation-duration: 14s; animation-delay: 5s; }
+.flake:nth-child(11) { left: 95%; animation-duration: 18s; animation-delay: 3s; }
 
-    .moon {
-        width: 90px;
-        height: 90px;
+footer {
+    background: #07090a;
+    border-top: 1px solid #492d2d;
+    text-align: center;
+    padding: 28px 15px;
+    color: #697475;
+    font-size: 11px;
+    line-height: 2.5;
+}
+
+footer strong { color: #d64c4c; }
+
+@media(max-width: 700px) {
+    .officer-grid { grid-template-columns: repeat(2, 1fr); }
+    .map { height: 360px; }
+    .arrow { width: 65px; }
+}
+
+@media(max-width: 430px) {
+    .officer-grid { grid-template-columns: 1fr; }
+    .map { height: 300px; }
+    .topbar-info { display: none; }
+}
+
+@media(prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
     }
 }
 </style>
@@ -370,67 +663,171 @@ main {
 
 <body>
 
-<div class="sky">
-    <div class="moon"></div>
-    <div class="stars"></div>
+<div class="snow" aria-hidden="true">
+    <i class="flake"></i><i class="flake"></i>
+    <i class="flake"></i><i class="flake"></i>
+    <i class="flake"></i><i class="flake"></i>
+    <i class="flake"></i><i class="flake"></i>
+    <i class="flake"></i><i class="flake"></i>
+    <i class="flake"></i>
 </div>
 
-<div class="forest"></div>
-
-<div class="particle"></div>
-<div class="particle"></div>
-<div class="particle"></div>
-<div class="particle"></div>
-<div class="particle"></div>
-<div class="particle"></div>
-<div class="particle"></div>
-<div class="particle"></div>
+<header class="topbar">
+    <div class="brand">IRON <span>FRONT</span></div>
+    <div class="topbar-info">مرکز فرماندهی آرین</div>
+    <div class="topbar-status">● وضعیت: آماده‌باش بازی</div>
+</header>
 
 <main>
 
-    <div class="eyebrow">✧ MOONLIGHT FOREST ✧</div>
+<section class="hero">
+    <div class="hero-content">
+        <div class="hero-label">STRATEGIC COMMAND INTERFACE</div>
+        <h1>IRON FRONT</h1>
+        <h2>فرماندهی عالی آرین</h2>
+        <p class="hero-description">
+            مرکز فرماندهی یک دنیای استراتژیک خیالی؛
+            قلمرویی تاریک، پوشیده از برف و نشان‌های سرخ.
+        </p>
+        <div class="hero-badge">ARIAN COMMAND • GAME UNIVERSE</div>
+    </div>
+</section>
 
-    <div class="tree-stage">
-        <div class="tree-aura"></div>
+<section class="emblem-section">
+    <div class="emblem-wrap">
+        <div class="emblem-ring"></div>
+        <div class="iron-cross" title="نشان تزئینی صلیب آهنین"></div>
+    </div>
+</section>
 
-        <div class="tree">
+<section class="section">
+    <div class="container">
 
-            <div class="branch b1"></div>
-            <div class="branch b2"></div>
-            <div class="branch b3"></div>
-            <div class="branch b4"></div>
-            <div class="branch b5"></div>
-            <div class="branch b6"></div>
-            <div class="branch b7"></div>
+        <div class="section-title">
+            <small>HIGH COMMAND</small>
+            <h2>ساختار فرماندهی</h2>
+            <p>فرمانده کل و افسران ارشد</p>
+        </div>
 
-            <div class="leaves">
-                <div class="leaf"></div>
-                <div class="leaf"></div>
-                <div class="leaf"></div>
-                <div class="leaf"></div>
-                <div class="leaf"></div>
-                <div class="leaf"></div>
-                <div class="leaf"></div>
-                <div class="leaf"></div>
-                <div class="leaf"></div>
+        <div class="commander">
+            <div class="rank-label">SUPREME COMMANDER</div>
+            <div class="commander-symbol">♛</div>
+            <h3>آرین</h3>
+            <div class="position">فرمانده کل</div>
+        </div>
+
+        <div class="command-line"></div>
+        <div class="command-connector"></div>
+
+        <div class="officer-grid">
+
+            <div class="officer">
+                <div class="officer-icon">✦</div>
+                <h3>ارشان</h3>
+                <p>افسر ارشد</p>
+                <small>زیرمجموعه فرمانده آرین</small>
             </div>
 
-            <div class="trunk"></div>
-            <div class="roots"></div>
+            <div class="officer">
+                <div class="officer-icon">✦</div>
+                <h3>آرتین</h3>
+                <p>افسر ارشد</p>
+                <small>زیرمجموعه فرمانده آرین</small>
+            </div>
+
+            <div class="officer">
+                <div class="officer-icon">✦</div>
+                <h3>آراد</h3>
+                <p>افسر ارشد</p>
+                <small>زیرمجموعه فرمانده آرین</small>
+            </div>
+
+            <div class="officer">
+                <div class="officer-icon">✦</div>
+                <h3>امیر</h3>
+                <p>افسر ارشد</p>
+                <small>زیرمجموعه فرمانده آرین</small>
+            </div>
+
+            <div class="officer">
+                <div class="officer-icon">✦</div>
+                <h3>علی</h3>
+                <p>افسر ارشد</p>
+                <small>زیرمجموعه فرمانده آرین</small>
+            </div>
 
         </div>
     </div>
+</section>
 
-    <div class="quote-frame">
-        <p class="quote">
-            میرسد روزی که دیگر تاریکی و روشنایی ضد هم نباشند
-        </p>
+<section class="section">
+    <div class="container">
+
+        <div class="section-title">
+            <small>TACTICAL GAME MAP</small>
+            <h2>نقشه قلمرو کرمان</h2>
+            <p>نمای شماتیک و تزئینی دنیای بازی؛ فلش‌ها مسیر واقعی نیستند</p>
+        </div>
+
+        <div class="map-panel">
+
+            <div class="map-top">
+                <span>REGION: <strong>KERMAN</strong></span>
+                <span>MODE: STRATEGIC SIMULATION</span>
+                <span>MAP STATUS: ACTIVE</span>
+            </div>
+
+            <div class="map">
+
+                <div class="terrain"></div>
+                <div class="map-region"></div>
+
+                <div class="arrow a1"></div>
+                <div class="arrow a2"></div>
+                <div class="arrow a3"></div>
+                <div class="arrow a4"></div>
+                <div class="arrow a5"></div>
+                <div class="arrow a6"></div>
+
+                <div class="unit-marker u1"><span>AR</span></div>
+                <div class="unit-marker u2"><span>AT</span></div>
+                <div class="unit-marker u3"><span>AD</span></div>
+                <div class="unit-marker u4"><span>AM</span></div>
+                <div class="unit-marker u5"><span>AL</span></div>
+                <div class="unit-marker u6"><span>HQ</span></div>
+
+                <div class="map-center">★</div>
+
+            </div>
+
+            <div class="map-legend">
+                <div class="legend-item">
+                    <span class="legend-dot"></span>
+                    نشان‌های تزئینی نیروها
+                </div>
+                <div class="legend-item">
+                    <span style="color:#ff4444">➜</span>
+                    فلش‌های نمایشی
+                </div>
+                <div class="legend-item">
+                    <span style="color:#e4e8e0">◆</span>
+                    مرکز نقشه
+                </div>
+            </div>
+
+        </div>
     </div>
-
-    <div class="bottom-symbol">✧ ❋ ✧</div>
+</section>
 
 </main>
 
+<footer>
+    <strong>IRON FRONT — ARIAN COMMAND</strong>
+    <br>
+    یک رابط کاربری استراتژیک خیالی
+    <br>
+    ALL RIGHTS RESERVED © 2026
+</footer>
+
 </body>
 </html>
-
