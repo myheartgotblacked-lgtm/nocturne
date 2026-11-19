@@ -1,0 +1,459 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تقدیم به تربچه خانم 🖤</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --black: #080608;
+    --red: #941b35;
+    --ruby: #c02e50;
+    --soft: #d6a1ae;
+    --white: #f0e5e8;
+}
+
+body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Vazirmatn', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 50% 35%, #64132338, transparent 65%),
+      radial-gradient(ellipse at 10% 90%, #35101f30, transparent 50%);
+    pointer-events: none;
+}
+
+.stars {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      radial-gradient(1px 1px at 15% 20%, #fff9 50%, transparent),
+      radial-gradient(2px 2px at 80% 30%, #c65c7c 50%, transparent),
+      radial-gradient(1px 1px at 40% 70%, #fff8 50%, transparent),
+      radial-gradient(2px 2px at 90% 85%, #a72c4b 50%, transparent);
+    background-size: 240px 240px;
+    opacity: .45;
+}
+
+.container {
+    position: relative;
+    z-index: 2;
+    width: min(850px, 90%);
+    margin: auto;
+    padding: 65px 0;
+    text-align: center;
+}
+
+/* عنوان اصلی */
+.dedication {
+    color: #f0dce3;
+    font-size: clamp(30px, 7vw, 58px);
+    font-weight: 600;
+    margin-bottom: 30px;
+    text-shadow: 0 0 25px #c02e5070;
+    animation: appear 1.5s ease;
+}
+
+h1 {
+    font-size: clamp(35px, 8vw, 75px);
+    font-weight: 300;
+    letter-spacing: 2px;
+    color: #f5e7eb;
+    text-shadow: 0 0 35px #9e1e3b70;
+}
+
+.subtitle {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #c39aa7;
+    font-weight: 300;
+}
+
+.line {
+    width: 85px;
+    height: 1px;
+    background: var(--ruby);
+    margin: 35px auto;
+    box-shadow: 0 0 15px var(--ruby);
+}
+
+/* تصویرسازی انار */
+.pomegranate {
+    width: 145px;
+    height: 145px;
+    position: relative;
+    margin: 35px auto;
+    animation: float 4s ease-in-out infinite;
+    filter: drop-shadow(0 0 25px #a7193c);
+}
+
+.fruit {
+    position: absolute;
+    width: 105px;
+    height: 115px;
+    left: 20px;
+    top: 20px;
+    border-radius: 48% 48% 45% 45%;
+    background:
+      radial-gradient(circle at 35% 25%, #ed526d, transparent 25%),
+      radial-gradient(circle at 65% 70%, #690d25, transparent 60%),
+      linear-gradient(135deg, #d62c4f, #760d29 75%);
+    box-shadow: inset -9px -8px 15px #390817;
+}
+
+.crown {
+    position: absolute;
+    width: 32px;
+    height: 25px;
+    left: 56px;
+    top: 9px;
+    background: #a51b39;
+    clip-path: polygon(0 100%, 15% 0, 35% 55%, 50% 0, 70% 55%, 90% 0, 100% 100%);
+}
+
+.fruit::before {
+    content: "";
+    position: absolute;
+    width: 35px;
+    height: 25px;
+    border-radius: 50%;
+    background: #f27a89;
+    opacity: .4;
+    top: 17px;
+    left: 17px;
+    filter: blur(8px);
+}
+
+.seeds-inside {
+    position: absolute;
+    top: 48px;
+    left: 43px;
+    font-size: 23px;
+    color: #ffb2c0;
+    text-shadow: 0 0 10px #ff315c;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
+@keyframes appear {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.card {
+    background: linear-gradient(145deg, #1d1018, #100b10);
+    border: 1px solid #a52c483d;
+    border-radius: 22px;
+    padding: 38px 28px;
+    box-shadow: 0 15px 70px #0009;
+    transition: .4s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: #b743625e;
+}
+
+.card h2 {
+    color: #d7839b;
+    font-size: 23px;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.card p {
+    color: #c4b0b8;
+    line-height: 2.5;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.section-title {
+    color: #d7839b;
+    font-weight: 400;
+    font-size: 20px;
+    margin: 55px 0 25px;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.tile {
+    background: linear-gradient(145deg, #27131d, #110b11);
+    border: 1px solid #ffffff12;
+    border-radius: 17px;
+    padding: 28px 10px;
+    transition: .35s;
+}
+
+.tile:hover {
+    transform: translateY(-6px);
+    background: #351521;
+    border-color: #a83a5a;
+}
+
+.tile span {
+    display: block;
+    font-size: 32px;
+    margin-bottom: 13px;
+}
+
+.tile small {
+    color: #d3a4b3;
+    font-size: 12px;
+}
+
+.quote {
+    margin-top: 45px;
+    padding: 30px 20px;
+    border-right: 2px solid #a52d4a;
+    background: #ffffff05;
+    border-radius: 8px;
+    color: #d6a6b4;
+    line-height: 2.5;
+    font-size: 14px;
+}
+
+button {
+    margin-top: 35px;
+    background: transparent;
+    border: 1px solid #a83b5b;
+    color: #e6b6c4;
+    border-radius: 30px;
+    padding: 13px 27px;
+    font-family: inherit;
+    font-size: 13px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+button:hover {
+    background: #671b32;
+    box-shadow: 0 0 25px #a52d4a55;
+}
+
+#message {
+    color: #d98da5;
+    margin-top: 22px;
+    min-height: 35px;
+    opacity: 0;
+    transition: .5s;
+    font-size: 14px;
+}
+
+#message.show {
+    opacity: 1;
+}
+
+footer {
+    margin-top: 65px;
+    color: #765461;
+    font-size: 11px;
+    letter-spacing: 3px;
+    line-height: 2.5;
+}
+
+.seed {
+    position: fixed;
+    top: -30px;
+    color: #b32649;
+    font-size: 15px;
+    pointer-events: none;
+    animation: fall linear forwards;
+    z-index: 5;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@media(max-width:600px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .container {
+        padding: 45px 0;
+    }
+
+    .card {
+        padding: 30px 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="stars"></div>
+
+<main class="container">
+
+    <div class="dedication">
+        ✦ تقدیم به تربچه خانم ✦ 🖤
+    </div>
+
+    <h1>Dark Pomegranate</h1>
+
+    <p class="subtitle">
+        A little darkness, a little sweetness.
+    </p>
+
+    <div class="line"></div>
+
+    <div class="pomegranate">
+        <div class="crown"></div>
+        <div class="fruit"></div>
+        <div class="seeds-inside">♦</div>
+    </div>
+
+    <section class="card">
+        <h2>Welcome to the dark garden</h2>
+
+        <p>
+            در دنیایی که همه‌چیز قرار است روشن باشد،
+            <br>
+            گاهی زیبایی در تاریکی پیدا می‌شود.
+            <br><br>
+            جایی میان مخمل سیاه،
+            گل‌های سرخ، ماه نیمه‌شب
+            و دانه‌های یاقوتی انار...
+            <br><br>
+            بعضی چیزها بدون اینکه توضیح داده شوند،
+            خاص هستند.
+        </p>
+    </section>
+
+    <h2 class="section-title">
+        ✦ Aesthetic of the night ✦
+    </h2>
+
+    <section class="gallery">
+
+        <div class="tile">
+            <span>🖤</span>
+            <small>Black Velvet</small>
+        </div>
+
+        <div class="tile">
+            <span>🥀</span>
+            <small>Dark Romance</small>
+        </div>
+
+        <div class="tile">
+            <span>🌙</span>
+            <small>Midnight Mood</small>
+        </div>
+
+        <div class="tile">
+            <span>♦</span>
+            <small>Ruby Pomegranate</small>
+        </div>
+
+        <div class="tile">
+            <span>🦇</span>
+            <small>Gothic Dreams</small>
+        </div>
+
+        <div class="tile">
+            <span>🕯️</span>
+            <small>Quiet Magic</small>
+        </div>
+
+    </section>
+
+    <div class="quote">
+        «هر چیزی که در تاریکی می‌درخشد،
+        لزوماً به دنبال دیده شدن نیست.»
+        <br>
+        <span style="color:#9e536b">— A thought at midnight</span>
+    </div>
+
+    <button onclick="revealMessage()">
+        یک راز کوچک از باغ انار ✦
+    </button>
+
+    <div id="message"></div>
+
+    <footer>
+        MADE OF DARKNESS & POMEGRANATES
+        <br>
+        ✦ A LITTLE GIFT ✦
+        <br>
+        2026
+    </footer>
+
+</main>
+
+<script>
+const messages = [
+    "انار، جواهر کوچک پاییزه. ♦",
+    "حتی تاریک‌ترین شب‌ها هم ستاره دارن. 🌙",
+    "Black is not just a color, it's a mood. 🖤",
+    "بعضی سلیقه‌ها واقعاً امضای شخصیت آدم هستن. 🥀",
+    "A little mysterious, a little magical. ✨"
+];
+
+let current = 0;
+
+function revealMessage() {
+    const box = document.getElementById("message");
+
+    box.classList.remove("show");
+
+    setTimeout(() => {
+        box.textContent = messages[current];
+        box.classList.add("show");
+        current = (current + 1) % messages.length;
+    }, 250);
+}
+
+// Falling ruby pomegranate seeds
+function createSeed() {
+    const seed = document.createElement("div");
+    seed.className = "seed";
+    seed.textContent = "♦";
+
+    seed.style.left = Math.random() * 100 + "vw";
+    seed.style.animationDuration = (5 + Math.random() * 6) + "s";
+    seed.style.opacity = Math.random() * .5 + .2;
+    seed.style.fontSize = (8 + Math.random() * 10) + "px";
+
+    document.body.appendChild(seed);
+
+    setTimeout(() => seed.remove(), 11000);
+}
+
+setInterval(createSeed, 900);
+</script>
+
+</body>
+</html>
