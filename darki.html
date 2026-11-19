@@ -614,6 +614,167 @@ footer strong {
         <p>تاریخ جدید دارکی از اینجا آغاز می‌شود</p>
       </div>
 
+<!-- فرماندهی و افسران ارشد -->
+<section class="section" id="command">
+  <div class="container">
+
+    <div class="section-title">
+      <div class="small">HIGH COMMAND</div>
+      <h2>ساختار فرماندهی دارکی</h2>
+      <p>مرکز فرماندهی سرزمین سرخ</p>
+    </div>
+
+    <div class="command-tree">
+
+      <div class="commander-card">
+        <div class="rank">SUPREME COMMANDER</div>
+        <div class="rank-symbol">♛</div>
+        <h3>آرین</h3>
+        <div class="position">فرمانده کل دارکی</div>
+        <div class="status">● فرماندهی عالی</div>
+      </div>
+
+      <div class="command-line"></div>
+      <div class="officers-label">افسران ارشد زیرمجموعه آرین</div>
+
+      <div class="officers">
+
+        <div class="officer-card">
+          <div class="officer-symbol">✦</div>
+          <div class="rank">SENIOR OFFICER</div>
+          <h3>ارشان</h3>
+          <p>افسر ارشد دارکی</p>
+          <span>زیر نظر فرمانده کل</span>
+        </div>
+
+        <div class="officer-card">
+          <div class="officer-symbol">✦</div>
+          <div class="rank">SENIOR OFFICER</div>
+          <h3>آرتین</h3>
+          <p>افسر ارشد دارکی</p>
+          <span>زیر نظر فرمانده کل</span>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+.command-tree {
+  text-align: center;
+  padding: 35px 20px;
+  background: linear-gradient(145deg, #210909, #0d0707);
+  border: 1px solid #702020;
+  box-shadow: 0 15px 40px #0008;
+}
+
+.commander-card {
+  display: inline-block;
+  min-width: min(290px, 100%);
+  padding: 25px;
+  border: 2px solid #d6b36b;
+  background: linear-gradient(145deg, #510000, #1b0707);
+  box-shadow: 0 0 30px #b0000044;
+}
+
+.rank {
+  color: #d6b36b;
+  font-size: 10px;
+  letter-spacing: 3px;
+  direction: ltr;
+}
+
+.rank-symbol {
+  font-size: 45px;
+  color: #ff2929;
+  margin: 12px 0;
+  text-shadow: 0 0 20px red;
+}
+
+.commander-card h3 {
+  font-size: 34px;
+  color: #fff0dc;
+  font-weight: 900;
+}
+
+.position {
+  color: #ff5555;
+  font-weight: 800;
+  margin-top: 7px;
+}
+
+.status {
+  color: #d6b36b;
+  font-size: 12px;
+  margin-top: 15px;
+}
+
+.command-line {
+  height: 45px;
+  width: 2px;
+  background: linear-gradient(#d6b36b, #b00000);
+  margin: auto;
+}
+
+.officers-label {
+  color: #d6b36b;
+  margin: 0 auto 22px;
+  font-weight: 800;
+}
+
+.officers {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  max-width: 650px;
+  margin: auto;
+}
+
+.officer-card {
+  padding: 25px 15px;
+  background: linear-gradient(145deg, #300d0d, #120808);
+  border: 1px solid #873030;
+  transition: .3s;
+}
+
+.officer-card:hover {
+  transform: translateY(-5px);
+  border-color: #ff2929;
+  box-shadow: 0 10px 25px #a0000033;
+}
+
+.officer-symbol {
+  color: #ff2929;
+  font-size: 32px;
+  text-shadow: 0 0 15px red;
+}
+
+.officer-card h3 {
+  color: #f0dfbd;
+  font-size: 27px;
+  margin: 10px 0;
+}
+
+.officer-card p {
+  color: #ff5555;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.officer-card span {
+  color: #a99182;
+  font-size: 12px;
+}
+
+@media(max-width: 550px) {
+  .officers {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+
       <div class="cards">
 
         <article class="card">
