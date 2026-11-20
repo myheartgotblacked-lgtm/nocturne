@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تبریک ازدواج امیر و مورگان</title>
+  <style>
+    :root {
+      --pink: #f7a9c4;
+      --deep-pink: #c94f83;
+      --cream: #fffafc;
+      --gold: #ffd978;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+      font-family: Tahoma, "Segoe UI", sans-serif;
+      color: #87415f;
+      background: linear-gradient(135deg, #fff 0%, #fff5f9 48%, #f9c5d8 100%);
+    }
+    .sun {
+      position: fixed;
+      left: -65px;
+      top: 12%;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #fffde7 0 23%, #ffe58b 48%, #ffca62 72%);
+      box-shadow: 0 0 45px 20px #ffe7a6, 0 0 110px 55px #ffe7a655;
+      animation: sun-glow 4s ease-in-out infinite alternate;
+      z-index: 0;
+    }
+    .sunbeam {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 72vw;
+      height: 100vh;
+      pointer-events: none;
+      background: linear-gradient(105deg, #fff1b866, #fff5d522 42%, transparent 80%);
+      clip-path: polygon(0 0, 100% 28%, 100% 72%, 0 100%);
+      transform-origin: left center;
+      animation: beam 6s ease-in-out infinite alternate;
+      z-index: 0;
+    }
+    .card {
+      position: relative;
+      z-index: 1;
+      width: min(90vw, 680px);
+      padding: clamp(30px, 6vw, 58px);
+      text-align: center;
+      border: 2px solid #ffffffd9;
+      border-radius: 32px;
+      background: #ffffffc9;
+      box-shadow: 0 22px 70px #b95b8130, inset 0 0 35px #fff;
+      backdrop-filter: blur(9px);
+      animation: appear 1.2s ease both;
+    }
+    .rings { font-size: clamp(42px, 8vw, 68px); margin-bottom: 12px; }
+    .eyebrow { color: #c66a8e; letter-spacing: 2px; font-size: 13px; }
+    h1 {
+      margin: 12px 0;
+      color: var(--deep-pink);
+      font-size: clamp(30px, 7vw, 54px);
+      line-height: 1.5;
+    }
+    .names {
+      color: #9c5270;
+      font-size: clamp(24px, 5vw, 36px);
+      font-weight: bold;
+      margin: 12px 0 22px;
+    }
+    p {
+      font-size: clamp(15px, 2.8vw, 19px);
+      line-height: 2.2;
+      margin: 0 auto;
+      max-width: 490px;
+    }
+    .divider { color: #e5a2bb; font-size: 23px; margin: 20px 0; }
+    .footer { color: #bd7794; font-size: 14px; margin-top: 25px; }
+    .heart {
+      position: fixed;
+      bottom: -35px;
+      color: #e88caf;
+      opacity: .65;
+      animation: float-up linear infinite;
+      z-index: 0;
+    }
+    .heart:nth-of-type(1) { left: 12%; animation-duration: 9s; font-size: 22px; }
+    .heart:nth-of-type(2) { left: 30%; animation-duration: 12s; animation-delay: 2s; font-size: 16px; }
+    .heart:nth-of-type(3) { left: 76%; animation-duration: 10s; animation-delay: 1s; font-size: 25px; }
+    .heart:nth-of-type(4) { left: 90%; animation-duration: 13s; animation-delay: 4s; font-size: 18px; }
+    @keyframes sun-glow { to { transform: scale(1.08); box-shadow: 0 0 60px 28px #ffe7a6, 0 0 135px 70px #ffe7a655; } }
+    @keyframes beam { from { opacity: .45; transform: translateX(-10px); } to { opacity: .9; transform: translateX(24px); } }
+    @keyframes appear { from { opacity: 0; transform: translateY(20px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+    @keyframes float-up { to { transform: translateY(-115vh) rotate(25deg); opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="sun" aria-hidden="true"></div>
+  <div class="sunbeam" aria-hidden="true"></div>
+  <div class="heart" aria-hidden="true">♥</div>
+  <div class="heart" aria-hidden="true">♡</div>
+  <div class="heart" aria-hidden="true">♥</div>
+  <div class="heart" aria-hidden="true">♡</div>
+
+  <main class="card">
+    <div class="rings" aria-hidden="true">💍</div>
+    <div class="eyebrow">یک شروع قشنگ و پر از عشق</div>
+    <h1>پیوندتان مبارک!</h1>
+    <div class="names">امیر و مورگان</div>
+    <p>
+      امیدواریم زندگی مشترکتان پر از عشق، آرامش، خنده
+      و لحظه‌های شیرین باشد؛
+      و هر روز، مثل نور آفتاب، روشن و زیبا آغاز شود.
+    </p>
+    <div class="divider">✦ ❀ ✦</div>
+    <p>به پای هم پیر شوید و همیشه کنار هم خوشبخت باشید.</p>
+    <div class="footer">با بهترین آرزوها برای امیر و مورگان ♡</div>
+  </main>
+</body>
+</html>
