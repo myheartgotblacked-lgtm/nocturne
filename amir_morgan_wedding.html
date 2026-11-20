@@ -1,129 +1,280 @@
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>تبریک ازدواج امیر و مورگان</title>
-  <style>
-    :root {
-      --pink: #f7a9c4;
-      --deep-pink: #c94f83;
-      --cream: #fffafc;
-      --gold: #ffd978;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      min-height: 100vh;
-      overflow: hidden;
-      display: grid;
-      place-items: center;
-      font-family: Tahoma, "Segoe UI", sans-serif;
-      color: #87415f;
-      background: linear-gradient(135deg, #fff 0%, #fff5f9 48%, #f9c5d8 100%);
-    }
-    .sun {
-      position: fixed;
-      left: -65px;
-      top: 12%;
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      background: radial-gradient(circle, #fffde7 0 23%, #ffe58b 48%, #ffca62 72%);
-      box-shadow: 0 0 45px 20px #ffe7a6, 0 0 110px 55px #ffe7a655;
-      animation: sun-glow 4s ease-in-out infinite alternate;
-      z-index: 0;
-    }
-    .sunbeam {
-      position: fixed;
-      left: 0;
-      top: 0;
-      width: 72vw;
-      height: 100vh;
-      pointer-events: none;
-      background: linear-gradient(105deg, #fff1b866, #fff5d522 42%, transparent 80%);
-      clip-path: polygon(0 0, 100% 28%, 100% 72%, 0 100%);
-      transform-origin: left center;
-      animation: beam 6s ease-in-out infinite alternate;
-      z-index: 0;
-    }
-    .card {
-      position: relative;
-      z-index: 1;
-      width: min(90vw, 680px);
-      padding: clamp(30px, 6vw, 58px);
-      text-align: center;
-      border: 2px solid #ffffffd9;
-      border-radius: 32px;
-      background: #ffffffc9;
-      box-shadow: 0 22px 70px #b95b8130, inset 0 0 35px #fff;
-      backdrop-filter: blur(9px);
-      animation: appear 1.2s ease both;
-    }
-    .rings { font-size: clamp(42px, 8vw, 68px); margin-bottom: 12px; }
-    .eyebrow { color: #c66a8e; letter-spacing: 2px; font-size: 13px; }
-    h1 {
-      margin: 12px 0;
-      color: var(--deep-pink);
-      font-size: clamp(30px, 7vw, 54px);
-      line-height: 1.5;
-    }
-    .names {
-      color: #9c5270;
-      font-size: clamp(24px, 5vw, 36px);
-      font-weight: bold;
-      margin: 12px 0 22px;
-    }
-    p {
-      font-size: clamp(15px, 2.8vw, 19px);
-      line-height: 2.2;
-      margin: 0 auto;
-      max-width: 490px;
-    }
-    .divider { color: #e5a2bb; font-size: 23px; margin: 20px 0; }
-    .footer { color: #bd7794; font-size: 14px; margin-top: 25px; }
-    .heart {
-      position: fixed;
-      bottom: -35px;
-      color: #e88caf;
-      opacity: .65;
-      animation: float-up linear infinite;
-      z-index: 0;
-    }
-    .heart:nth-of-type(1) { left: 12%; animation-duration: 9s; font-size: 22px; }
-    .heart:nth-of-type(2) { left: 30%; animation-duration: 12s; animation-delay: 2s; font-size: 16px; }
-    .heart:nth-of-type(3) { left: 76%; animation-duration: 10s; animation-delay: 1s; font-size: 25px; }
-    .heart:nth-of-type(4) { left: 90%; animation-duration: 13s; animation-delay: 4s; font-size: 18px; }
-    @keyframes sun-glow { to { transform: scale(1.08); box-shadow: 0 0 60px 28px #ffe7a6, 0 0 135px 70px #ffe7a655; } }
-    @keyframes beam { from { opacity: .45; transform: translateX(-10px); } to { opacity: .9; transform: translateX(24px); } }
-    @keyframes appear { from { opacity: 0; transform: translateY(20px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
-    @keyframes float-up { to { transform: translateY(-115vh) rotate(25deg); opacity: 0; } }
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
-    }
-  </style>
-</head>
-<body>
-  <div class="sun" aria-hidden="true"></div>
-  <div class="sunbeam" aria-hidden="true"></div>
-  <div class="heart" aria-hidden="true">♥</div>
-  <div class="heart" aria-hidden="true">♡</div>
-  <div class="heart" aria-hidden="true">♥</div>
-  <div class="heart" aria-hidden="true">♡</div>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amir & Morgan | Wedding</title>
 
-  <main class="card">
-    <div class="rings" aria-hidden="true">💍</div>
-    <div class="eyebrow">یک شروع قشنگ و پر از عشق</div>
-    <h1>پیوندتان مبارک!</h1>
-    <div class="names">امیر و مورگان</div>
-    <p>
-      امیدواریم زندگی مشترکتان پر از عشق، آرامش، خنده
-      و لحظه‌های شیرین باشد؛
-      و هر روز، مثل نور آفتاب، روشن و زیبا آغاز شود.
-    </p>
-    <div class="divider">✦ ❀ ✦</div>
-    <p>به پای هم پیر شوید و همیشه کنار هم خوشبخت باشید.</p>
-    <div class="footer">با بهترین آرزوها برای امیر و مورگان ♡</div>
-  </main>
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  font-family: Tahoma, sans-serif;
+  background: linear-gradient(135deg,#fff,#fff1f6,#f8c4d8);
+  color: #98516e;
+  transition: background 1s;
+}
+
+/* Sun */
+.sun {
+  position: fixed;
+  left: -75px;
+  top: 12%;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle,#fffde7,#ffe18a,#ffbd55);
+  box-shadow: 0 0 65px 35px #ffe8a6,
+              0 0 160px 90px #ffe8a655;
+  animation: sunGlow 5s infinite alternate;
+}
+
+.sunlight {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(110deg,#fff1b855,transparent 65%);
+  pointer-events: none;
+  animation: lightMove 7s infinite alternate;
+}
+
+@keyframes sunGlow {
+  to { transform: scale(1.12); }
+}
+
+@keyframes lightMove {
+  from { opacity: .35; }
+  to { opacity: .9; }
+}
+
+/* Card */
+.card {
+  position: relative;
+  z-index: 2;
+  width: min(90%,680px);
+  padding: 55px 35px;
+  text-align: center;
+  border-radius: 35px;
+  border: 2px solid #ffffffc9;
+  background: #ffffffc9;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 25px 80px #b95b8135;
+  animation: enter 1.5s ease;
+}
+
+@keyframes enter {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.rings {
+  font-size: 65px;
+  animation: ring 3s infinite ease-in-out;
+}
+
+@keyframes ring {
+  50% { transform: translateY(-10px) rotate(5deg); }
+}
+
+.eyebrow {
+  margin-top: 20px;
+  color: #c66a8e;
+  letter-spacing: 2px;
+  font-size: 13px;
+}
+
+h1 {
+  color: #c94f83;
+  font-size: clamp(30px,6vw,52px);
+  margin: 18px 0;
+  line-height: 1.5;
+}
+
+.names {
+  font-size: clamp(25px,5vw,38px);
+  font-weight: bold;
+  margin-bottom: 25px;
+  color: #9c5270;
+}
+
+p {
+  line-height: 2.2;
+  font-size: 17px;
+}
+
+.divider {
+  margin: 25px;
+  color: #e5a2bb;
+  font-size: 25px;
+}
+
+.footer {
+  margin-top: 25px;
+  font-size: 14px;
+  color: #bd7794;
+}
+
+/* Language button */
+.controls {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 5;
+}
+
+button {
+  border: 1px solid #fff;
+  background: #ffffffc9;
+  color: #b84d7c;
+  padding: 12px 20px;
+  border-radius: 25px;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 5px 20px #b95b8120;
+  transition: .3s;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  background: white;
+}
+
+/* Floating flowers and hearts */
+.floating {
+  position: fixed;
+  bottom: -40px;
+  z-index: 1;
+  pointer-events: none;
+  animation: floatUp linear infinite;
+  opacity: .65;
+}
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-115vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@media(max-width:500px) {
+  .card { padding: 40px 22px; }
+  p { font-size: 15px; }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="sun"></div>
+<div class="sunlight"></div>
+
+<div class="controls">
+  <button onclick="changeLanguage()" id="langBtn">
+    🇫🇷 Français
+  </button>
+</div>
+
+<main class="card">
+
+  <div class="rings">💍</div>
+
+  <div class="eyebrow" id="eyebrow">
+    یک شروع قشنگ و پر از عشق
+  </div>
+
+  <h1 id="title">پیوندتان مبارک!</h1>
+
+  <div class="names">Amir & Morgan</div>
+
+  <p id="message">
+    امیدواریم زندگی مشترکتان پر از عشق،
+    آرامش، خنده و لحظه‌های شیرین باشد؛
+    و هر روز مثل نور آفتاب،
+    روشن و زیبا آغاز شود.
+  </p>
+
+  <div class="divider">✦ ❀ ✦</div>
+
+  <p id="ending">
+    به پای هم پیر شوید و همیشه کنار هم خوشبخت باشید.
+  </p>
+
+  <div class="footer" id="footer">
+    با بهترین آرزوها برای امیر و مورگان ♡
+  </div>
+
+</main>
+
+<script>
+let french = false;
+
+const translations = {
+  fa: {
+    eyebrow: "یک شروع قشنگ و پر از عشق",
+    title: "پیوندتان مبارک!",
+    message: "امیدواریم زندگی مشترکتان پر از عشق، آرامش، خنده و لحظه‌های شیرین باشد؛ و هر روز مثل نور آفتاب، روشن و زیبا آغاز شود.",
+    ending: "به پای هم پیر شوید و همیشه کنار هم خوشبخت باشید.",
+    footer: "با بهترین آرزوها برای امیر و مورگان ♡",
+    button: "🇫🇷 Français"
+  },
+  fr: {
+    eyebrow: "Un magnifique début rempli d'amour",
+    title: "Félicitations pour votre mariage !",
+    message: "Nous vous souhaitons une vie remplie d'amour, de bonheur, de rires et de merveilleux moments. Que chaque jour commence avec autant de lumière que le soleil.",
+    ending: "Vieillissez ensemble et restez heureux côte à côte pour toujours.",
+    footer: "Avec tous nos meilleurs vœux pour Amir et Morgan ♡",
+    button: "🇮🇷 فارسی"
+  }
+};
+
+function changeLanguage() {
+  french = !french;
+
+  const lang = french ? "fr" : "fa";
+  const t = translations[lang];
+
+  document.documentElement.lang = lang;
+  document.documentElement.dir = french ? "ltr" : "rtl";
+
+  document.getElementById("eyebrow").textContent = t.eyebrow;
+  document.getElementById("title").textContent = t.title;
+  document.getElementById("message").textContent = t.message;
+  document.getElementById("ending").textContent = t.ending;
+  document.getElementById("footer").textContent = t.footer;
+  document.getElementById("langBtn").textContent = t.button;
+}
+
+// Floating hearts and flower petals
+const symbols = ["♥","♡","✿","❀","🌸"];
+
+for(let i=0; i<22; i++) {
+  const item = document.createElement("div");
+  item.className = "floating";
+  item.textContent = symbols[Math.floor(Math.random()*symbols.length)];
+
+  item.style.left = Math.random()*100 + "%";
+  item.style.animationDuration = (7+Math.random()*9) + "s";
+  item.style.animationDelay = Math.random()*10 + "s";
+  item.style.fontSize = (15+Math.random()*20) + "px";
+
+  document.body.appendChild(item);
+}
+</script>
+
 </body>
 </html>
