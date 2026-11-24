@@ -5,8 +5,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#090914">
-<meta name="description" content="NOCTURNE 2.0 — Christmas Edition">
-<title>NOCTURNE 2.0 — Christmas Edition</title>
+<meta name="description" content="NOCTURNE 2.4 — Christmas / Deity Core">
+<title>NOCTURNE 2.4 — Christmas / Deity Core</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -58,10 +58,10 @@ a { color:inherit;text-decoration:none; }
 
 .ambient {
   position:fixed;
-  width:420px;
-  height:420px;
+  width:320px;
+  height:320px;
   border-radius:50%;
-  filter:blur(110px);
+  filter:blur(72px);
   opacity:.13;
   pointer-events:none;
   z-index:-2;
@@ -96,7 +96,7 @@ header {
   z-index:50;
   padding:14px 6%;
   background:rgba(8,8,18,.84);
-  backdrop-filter:blur(22px);
+  backdrop-filter:blur(12px);
   border-bottom:1px solid var(--border);
 }
 
@@ -725,6 +725,21 @@ header {
   font-size:11px;
 }
 
+/* CHRISTMAS EXTRAS */
+.christmas-extras { margin-top:18px; }
+.christmas-wish {
+  border:1px solid rgba(94,234,212,.2);
+  border-radius:16px;
+  padding:14px;
+  background:rgba(8,8,18,.35);
+  text-align:right;
+}
+.christmas-wish-title { color:var(--cyan);font-size:12px;font-weight:700; }
+.christmas-wish-text { min-height:42px;margin:8px 0 12px;color:var(--text);font-size:12px;line-height:1.9; }
+.christmas-wish-actions { display:flex;gap:8px;flex-wrap:wrap; }
+.christmas-wish-actions button { cursor:pointer;font:inherit;font-size:11px;padding:9px 13px;border-radius:10px; }
+.christmas-wish-actions .primary-btn { padding:9px 13px; }
+@media(max-width:700px) { .christmas-wish { padding:12px; } }
 /* CHRISTMAS TREE */
 
 .tree-area {
@@ -740,7 +755,7 @@ header {
   position:relative;
   width:220px;
   height:290px;
-  animation:tree-sway 5s ease-in-out infinite;
+  animation:tree-sway 8s ease-in-out infinite;
   transform-origin:bottom center;
 }
 
@@ -758,7 +773,7 @@ header {
   font-size:37px;
   z-index:8;
   text-shadow:0 0 10px #ffe58a,0 0 25px #ffb347;
-  animation:star-glow 1.8s ease-in-out infinite alternate;
+  animation:star-glow 3s ease-in-out infinite alternate;
 }
 
 @keyframes star-glow {
@@ -957,6 +972,37 @@ header {
   place-items:center;
   min-height:370px;
 }
+.hero-copy { position:relative;z-index:2; }
+.hero-overline { display:flex;align-items:center;gap:10px;margin:0 0 16px;color:var(--cyan);font-size:10px;letter-spacing:2px; }
+.hero-overline::before { content:"";width:26px;height:1px;background:var(--cyan);box-shadow:0 0 10px var(--cyan); }
+.hero h1 { max-width:650px; }
+.hero p { max-width:500px; }
+.hero-actions { display:flex;align-items:center;gap:10px;flex-wrap:wrap; }
+.hero-actions a { display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;margin:0; }
+.hero-actions .secondary-btn { margin:0; }
+.hero-meta { display:flex;align-items:center;gap:12px;margin-top:25px;color:var(--muted);font-size:10px; }
+.hero-live-dot { width:7px;height:7px;border-radius:50%;background:#5eead4;box-shadow:0 0 12px #5eead4; }
+.hero-meta-code { padding-right:12px;border-right:1px solid var(--border);letter-spacing:1px; }
+.hero-visual { position:relative;isolation:isolate;min-height:420px; }
+.hero-visual::before { content:"";position:absolute;width:min(78vw,360px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(139,92,246,.12),rgba(94,234,212,.035) 48%,transparent 72%);pointer-events:none; }
+.hero-orbit-label { position:absolute;z-index:3;color:rgba(226,220,255,.62);font-size:9px;letter-spacing:2px;pointer-events:none; }
+.hero-orbit-label.top { top:12%;left:12%; }
+.hero-orbit-label.bottom { bottom:12%;right:11%;color:rgba(94,234,212,.75); }
+.orbit { width:min(68vw,310px);height:min(68vw,310px); }
+.core { position:relative;z-index:1; }
+@media(max-width:900px) {
+  .hero { gap:16px; }
+  .hero-visual { min-height:360px; }
+}
+@media(max-width:700px) {
+  .hero { padding-top:34px;padding-bottom:42px; }
+  .hero h1 { font-size:clamp(38px,11vw,58px);letter-spacing:-1px; }
+  .hero-actions { justify-content:center; }
+  .hero-meta { justify-content:center;flex-wrap:wrap; }
+  .hero-visual { min-height:320px; }
+  .hero-orbit-label.top { left:4%;top:8%; }
+  .hero-orbit-label.bottom { right:3%;bottom:8%; }
+}
 
 .orbit {
   width:290px;
@@ -966,7 +1012,7 @@ header {
   display:grid;
   place-items:center;
   position:relative;
-  animation:rotate 28s linear infinite;
+  animation:rotate 48s linear infinite;
   box-shadow:0 0 80px rgba(139,92,246,.08);
 }
 
@@ -994,7 +1040,7 @@ header {
   border-radius:50%;
   background:radial-gradient(circle at 35% 30%,#d8b4fe,#8b5cf6 40%,#16102f 75%);
   box-shadow:0 0 45px rgba(167,139,250,.65),0 0 100px rgba(94,234,212,.18);
-  animation:pulse 4s ease-in-out infinite;
+  animation:pulse 6s ease-in-out infinite;
 }
 
 .orbit-dot {
@@ -1386,8 +1432,8 @@ footer {
 
 @media(prefers-reduced-motion:reduce) {
   *,*::before,*::after {
-    animation-duration:.01ms !important;
-    transition-duration:.01ms !important;
+    animation:none !important;
+    transition:none !important;
     scroll-behavior:auto !important;
   }
 }
@@ -1409,15 +1455,13 @@ footer {
     </a>
 
     <div class="nav-links" id="navLinks">
+      <a href="#discord">Discord</a>
       <a href="#home">خانه</a>
       <a href="#dashboard">داشبورد</a>
       <a href="#discover">کاوش</a>
       <a href="#archive">آرشیو</a>
       <a href="#music">موسیقی</a>
       <a href="mbti.html">MBTI</a>
-      <a href="#discord">Discord</a>
-      <a href="artin.html">آرتین</a>
-      <a href="For-Tarbeche.html">تربچه خانم</a>
     </div>
 
     <div class="nav-actions">
@@ -1446,8 +1490,12 @@ footer {
   </div>
 
   <div class="setting-row">
+    <span>بارش برف</span>
+    <button id="snowToggle" type="button" aria-pressed="true">روشن</button>
+  </div>
+  <div class="setting-row">
     <span>نسخه</span>
-    <span>2.1.0 Christmas</span>
+    <span>2.4.0 Christmas 2026 + Deity</span>
   </div>
 </aside>
 
@@ -1631,6 +1679,16 @@ footer {
       <div class="christmas-date" id="christmasMessage">
         🎄 25 December · Christmas Day
       </div>
+      <div class="christmas-extras">
+        <div class="christmas-wish">
+          <div class="christmas-wish-title">کارت تبریک کریسمسی</div>
+          <p class="christmas-wish-text" id="christmasWish" aria-live="polite">یک پیام کریسمسی بساز و با دوستانت به اشتراک بگذار. 🎄</p>
+          <div class="christmas-wish-actions">
+            <button class="primary-btn" id="newWishBtn" type="button">ساخت پیام تازه ✨</button>
+            <button class="secondary-btn" id="shareWishBtn" type="button">اشتراک پیام</button>
+          </div>
+        </div>
+      </div>
     </div>
 
   </div>
@@ -1639,36 +1697,24 @@ footer {
 <!-- HERO -->
 
 <section class="container hero" id="home">
-
-  <div>
-    <div class="eyebrow">WELCOME TO THE UNKNOWN</div>
-
-    <h1>
-      فراتر از
-      <span>ناشناخته‌ها.</span>
-    </h1>
-
-    <p>
-      به NOCTURNE خوش آمدی؛ پناهگاهی دیجیتال برای ذهن‌های کنجکاو.
-      اینجا مرز میان خیال، دانش و دنیای ناشناخته محو می‌شود.
-    </p>
-
-    <a href="#discover">
-      <button class="primary-btn">شروع کاوش ↙</button>
-    </a>
-
-    <a href="#dashboard">
-      <button class="secondary-btn">داشبورد</button>
-    </a>
+  <div class="hero-copy">
+    <div class="hero-overline">NOCTURNE DIGITAL SANCTUARY</div>
+    <h1>فراتر از<span>ناشناخته‌ها.</span></h1>
+    <p>به NOCTURNE خوش آمدی؛ پناهگاهی دیجیتال برای ذهن‌های کنجکاو. اینجا مرز میان خیال، دانش و دنیای ناشناخته محو می‌شود.</p>
+    <div class="hero-actions">
+      <a class="primary-btn" href="#discover">شروع کاوش <span aria-hidden="true">↙</span></a>
+      <a class="secondary-btn" href="#dashboard">داشبورد</a>
+    </div>
+    <div class="hero-meta"><span class="hero-live-dot" aria-hidden="true"></span><span>هسته‌ی NOCTURNE فعال است</span><span class="hero-meta-code">DEITY CORE · 2.4</span></div>
   </div>
-
-  <div class="hero-visual">
-    <div class="orbit">
+  <div class="hero-visual" aria-label="هسته‌ی کیهانی NOCTURNE" role="img">
+    <span class="hero-orbit-label top" aria-hidden="true">AETHER / 01</span>
+    <div class="orbit" data-deity-core aria-hidden="true">
       <div class="core"></div>
       <div class="orbit-dot"></div>
     </div>
+    <span class="hero-orbit-label bottom" aria-hidden="true">SIGNAL STABLE · 99.8%</span>
   </div>
-
 </section>
 
 <!-- DASHBOARD -->
@@ -1842,8 +1888,8 @@ footer {
   <div class="card reveal">
 
     <div class="archive-item">
-      <span>NOCTURNE 2.1 — Christmas Edition</span>
-      <span>نسخه 2.1</span>
+      <span>NOCTURNE 2.4 — Christmas / Deity Core</span>
+      <span>نسخه 2.4</span>
     </div>
 
     <div class="archive-item">
@@ -1882,7 +1928,7 @@ footer {
 
 <script>
 // =====================================
-// NOCTURNE 2.1 CHRISTMAS CORE
+// NOCTURNE 2.3 CHRISTMAS CORE
 // =====================================
 
 const $ = id => document.getElementById(id);
@@ -1934,10 +1980,20 @@ setInterval(updateChristmasCountdown, 1000);
 // CHRISTMAS SNOWFALL
 // =====================================
 
+let snowfallEnabled = localStorage.getItem("nocturne_snow") !== "off";
+const reducedMotionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+function clearChristmasSnow() {
+  document.querySelectorAll(".christmas-snow").forEach(snow => snow.remove());
+}
+
 function createChristmasSnow() {
+  clearChristmasSnow();
+  if (!snowfallEnabled || reducedMotionPreference.matches) return;
+
   const symbols = ["❄", "❅", "❆"];
 
-  for (let i = 0; i < 38; i++) {
+  for (let i = 0; i < 24; i++) {
     const snow = document.createElement("div");
 
     snow.className = "christmas-snow";
@@ -1955,7 +2011,53 @@ function createChristmasSnow() {
 }
 
 createChristmasSnow();
+// CHRISTMAS WISH CARD
+const christmasWishes = [
+  "امیدوارم کریسمس امسال برایت پر از آرامش، لبخند و لحظه‌های روشن باشد. 🎄",
+  "برای تو زمستانی گرم، دلی آرام و سالی پر از اتفاق‌های قشنگ آرزو می‌کنم. ✨",
+  "باشد که نور کریسمس، حتی در طولانی‌ترین شب‌ها همراهت بماند. 🌟",
+  "کریسمس مبارک! آرزو می‌کنم هر چیزی که دلت را خوشحال می‌کند به تو نزدیک‌تر شود. 🎁",
+  "از طرف NOCTURNE، یک شب پرستاره و روزهایی پر از امید برایت آرزو می‌کنم. 💜"
+];
 
+$('newWishBtn').addEventListener('click', () => {
+  const nextWish = christmasWishes[Math.floor(Math.random() * christmasWishes.length)];
+  $('christmasWish').textContent = nextWish;
+});
+
+$('shareWishBtn').addEventListener('click', async () => {
+  const message = $('christmasWish').textContent;
+  try {
+    if (navigator.share) {
+      await navigator.share({ title: 'تبریک کریسمس از NOCTURNE', text: message });
+    } else if (navigator.clipboard) {
+      await navigator.clipboard.writeText(message);
+      toast('پیام کریسمسی کپی شد. 🎄');
+    } else {
+      toast('قابلیت اشتراک‌گذاری در این مرورگر در دسترس نیست.');
+    }
+  } catch (error) {
+    if (error.name !== 'AbortError') toast('اشتراک‌گذاری انجام نشد.');
+  }
+});
+
+const snowToggle = $('snowToggle');
+function syncSnowToggle() {
+  snowToggle.textContent = snowfallEnabled ? 'روشن' : 'خاموش';
+  snowToggle.setAttribute('aria-pressed', String(snowfallEnabled));
+}
+snowToggle.addEventListener('click', () => {
+  snowfallEnabled = !snowfallEnabled;
+  localStorage.setItem('nocturne_snow', snowfallEnabled ? 'on' : 'off');
+  if (snowfallEnabled) createChristmasSnow();
+  else clearChristmasSnow();
+  syncSnowToggle();
+});
+reducedMotionPreference.addEventListener?.('change', () => {
+  if (reducedMotionPreference.matches) clearChristmasSnow();
+  else if (snowfallEnabled) createChristmasSnow();
+});
+syncSnowToggle();
 // =====================================
 // DISCORD LANYARD CONNECTION
 // =====================================
@@ -2407,7 +2509,7 @@ $('motionToggle').addEventListener('click', () => {
 });
 
 $('welcomeToggle').addEventListener('click', () => {
-  toast("به NOCTURNE 2.1 خوش آمدی. 🎄");
+  toast("به NOCTURNE 2.3 خوش آمدی. 🎄");
 });
 
 // =====================================
@@ -2435,11 +2537,13 @@ const canvas = $('stars');
 const ctx = canvas.getContext('2d');
 
 let stars = [];
+let rafId = 0;
+const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
 let width = 0;
 let height = 0;
 
 function resizeCanvas() {
-  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
 
   width = window.innerWidth;
   height = window.innerHeight;
@@ -2453,7 +2557,7 @@ function resizeCanvas() {
   ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
   stars = Array.from({
-    length:Math.min(150, Math.floor(width * height / 8000))
+    length:Math.min(90, Math.floor(width * height / 14000))
   }, () => ({
     x:Math.random() * width,
     y:Math.random() * height,
@@ -2464,6 +2568,8 @@ function resizeCanvas() {
 }
 
 function drawStars() {
+  if (document.hidden || motionPreference.matches) { rafId = 0; return; }
+
   ctx.clearRect(0, 0, width, height);
 
   for (const star of stars) {
@@ -2480,13 +2586,24 @@ function drawStars() {
     ctx.fill();
   }
 
-  requestAnimationFrame(drawStars);
+  rafId = requestAnimationFrame(drawStars);
 }
 
 window.addEventListener('resize', resizeCanvas);
 
 resizeCanvas();
-drawStars();
+if (!document.hidden && !motionPreference.matches) drawStars();
+
+function syncStarMotion() {
+  if (document.hidden || motionPreference.matches) {
+    if (rafId) cancelAnimationFrame(rafId);
+    rafId = 0;
+  } else if (!rafId) {
+    drawStars();
+  }
+}
+document.addEventListener('visibilitychange', syncStarMotion);
+motionPreference.addEventListener?.('change', syncStarMotion);
 
 // =====================================
 // WELCOME
