@@ -1815,6 +1815,21 @@ main{transition:opacity 1.15s ease,transform 1.35s cubic-bezier(.2,.75,.2,1),fil
 
 <main>
 
+<section class="container section" id="planet">
+<style>
+.planet-view{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center;padding:32px;border-radius:28px;background:radial-gradient(ellipse at 75% 50%,#211c45,#0c0d20 70%);border:1px solid #a78bfa33;overflow:hidden}
+.planet-sphere{width:min( min(68vw,440px),100%);aspect-ratio:1;border-radius:50%;margin:auto;position:relative;background:radial-gradient(ellipse at 28% 30%,#476b8b 0%,#243759 35%,#111629 67%,#070812 100%);box-shadow:inset -42px -18px 65px #02030be8,inset 12px 8px 30px #b4e9ff4a,0 0 55px #9075ff38;animation:planet-float 7s ease-in-out infinite}
+.planet-sphere:before{content:"";position:absolute;inset:8% -7%;border:2px solid #b5a4ff55;border-radius:50%;transform:rotate(-18deg);box-shadow:0 0 15px #ae9bff35}
+.planet-sphere:after{content:"";position:absolute;inset:0;border-radius:50%;background:linear-gradient(100deg,transparent 48%,#050611b8 82%);pointer-events:none}
+.land{position:absolute;border-radius:58% 42% 63% 37%;background:linear-gradient(140deg,#4b6380,#273c59);opacity:.7;filter:blur(1px)}.land.l1{width:39%;height:25%;top:25%;left:22%;transform:rotate(-28deg)}.land.l2{width:30%;height:22%;top:52%;left:44%;transform:rotate(24deg)}.land.l3{width:19%;height:15%;top:17%;left:56%;transform:rotate(33deg)}
+.city{position:absolute;z-index:2;width:7px;height:7px;border-radius:50%;background:#ffe9a0;box-shadow:0 0 7px 3px #ffd778,0 0 21px 8px #ffb64888}.city:after{content:attr(data-city);position:absolute;right:12px;top:-8px;color:#fff4c8;font-size:10px;white-space:nowrap;text-shadow:0 0 8px #ffb648}
+@keyframes planet-float{50%{transform:translateY(-8px)}}
+@media(max-width:700px){.planet-view{grid-template-columns:1fr;padding:22px}.planet-sphere{width:min(76vw,360px)}}
+</style>
+<div class="section-head"><div><div class="eyebrow">نقشه‌ی شبانه</div><h2>سیاره‌ی نکتورن</h2><p>شهرهای روشن در سوی شب سیاره</p></div></div>
+<div class="planet-view"><div class="planet-sphere" role="img" aria-label="سیاره نکتورن با شهرهای نورانی"><i class="land l1"></i><i class="land l2"></i><i class="land l3"></i><i class="city" data-city="نکتور مرکزی" style="top:39%;left:43%"></i><i class="city" data-city="آرکادیا" style="top:53%;left:32%"></i><i class="city" data-city="لومینا" style="top: thirty%;left:61%"></i><i class="city" data-city="دریای آبی" style="top:65%;left:53%"></i><i class="city" data-city="اوریون" style="top:28%;left:29%"></i></div><div><div class="eyebrow">چراغ‌های شهر</div><h2>شب زنده‌ی نکتورن</h2><p style="color:var(--muted);line-height:2;margin-top:12px">از مدار، شهرها مثل جواهرهایی گرم روی قاره‌های آبی می‌درخشند. هر نقطه‌ی طلایی، یکی از شهرهای نکتورن است.</p></div></div>
+</section>
+
 <!-- DISCORD PROFILE -->
 
 <section class="container discord-section" id="discord">
@@ -3098,7 +3113,6 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 </script>
 </body>
 </html>
-
 
 
 
